@@ -32,6 +32,9 @@ export class HomePage {
   overallPlastic;
   overallAlluminium;
 
+  overallMass;
+  AnalyticsMass;
+
   constructor(
     public alertController: AlertController,
     public route: Router
@@ -51,6 +54,10 @@ export class HomePage {
         this.PET003storagemass = element.data().PET003;
         this.PET005storagemass = element.data().PEP005;
         // console.log(element);
+        this.overallMass = element.data();
+
+        this.AnalyticsMass = [];
+        this.AnalyticsMass.push(this.overallMass);
       });
       console.log(this.GH001storagemass);
       console.log(this.NFAL01storagemass);
@@ -64,6 +71,8 @@ export class HomePage {
       console.log(this.PET001storagemass);
       console.log(this.PET003storagemass);
       console.log(this.PET005storagemass);
+      console.log(this.overallMass);
+      console.log(this.AnalyticsMass);
     });
   }
 
