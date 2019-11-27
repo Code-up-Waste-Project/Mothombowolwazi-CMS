@@ -1,6 +1,221 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+.container {
+   
+  height: 100%;
+}
+.halfone {
+
+  height: 50%;
+
+  .graph {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: 100%;
+      width: 100%;
+     border-radius: 5px;
+     background: url(../../assets/graph.jpg);
+     background-repeat: no-repeat;
+     object-fit: cover;
+     background-position: center;
+     background-size: cover;
+  }
+}
+
+.halftwo {
+ // border: 1px solid rgb(0, 255, 42);
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  .users {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.075), 0 6px 20px 0 rgba(0, 0, 0, 0.089);
+      background-image: linear-gradient(rgba(0, 225, 255, 0.685), rgba(37, 139, 223, 0.829)), url(../../assets/users.svg);
+      background-repeat: no-repeat;
+      background-position: 50% 25%;
+      width: 32.33%;
+      border-radius: 5px;
+
+      h3 {
+         // border: 1px solid red;
+          text-align: center;
+          color: rgb(236, 229, 229);
+          font-size: 9vh;
+          position: absolute;
+        bottom: 2%;
+        width:  31%;
+      }
+      h5 {
+          color: rgb(255, 255, 255);
+          text-align: left;
+          font-size: 2vw;
+          padding-left: 2%;
+      }
+}
+
+  .category1 {
+     // border: 1px solid rgb(255, 0, 191);
+      width: 32.33%;
+      display: flex;
+      flex-direction: column;
+      .alluminium {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.075), 0 6px 20px 0 rgba(0, 0, 0, 0.089);
+          background-image: linear-gradient(rgba(255, 0, 119, 0.753), rgba(223, 37, 62, 0.801));
+          background-repeat: no-repeat;
+          background-position: 50% 65%;
+          position: relative;
+          // background-size: 50%;
+          height: 48.5%;
+         border-radius: 5px;
+          .imagediv {
+             // border: 1px solid rgb(255, 255, 255);
+              height: 70%;
+              position: absolute;
+              top: 10%;
+              width: 100%;
+              background: url(../../assets/alluminium.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+             opacity: 0.2;
+          }
+          h3 {
+              // border: 1px solid red;
+               text-align: center;
+               color: rgb(236, 229, 229);
+               font-size: 8vh;
+               position: absolute;
+             bottom: -5%;
+             width:  100%;
+           }
+           h5 {
+               color: white;
+               text-align: left;
+               font-size: 2vw;
+               padding-left: 2%;
+           }
+       
+      }
+      .plastic {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.075), 0 6px 20px 0 rgba(0, 0, 0, 0.089);
+          background-image: linear-gradient(rgba(0, 255, 255, 0.781), rgb(20, 184, 135));
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-top: 4%;
+          height: 48.5%;
+          border-radius: 5px;
+          position: relative;
+
+          .imagediv2 {
+              // border: 1px solid rgb(255, 255, 255);
+               height: 70%;
+               position: absolute;
+               top: 10%;
+               width: 100%;
+               background: url(../../assets/glass.svg);
+               background-repeat: no-repeat;
+               background-position: center;
+              opacity: 0.2;
+           }
+            h3 {
+              //border: 1px solid red;
+               text-align: center;
+               color: rgb(236, 229, 229);
+               font-size: 8vh;
+               position: absolute;
+             bottom: -5%;
+             width:  100%;
+           }
+           h5 {
+              color: white;
+              text-align: left;
+              font-size: 2vw;
+              padding-left: 2%;
+          }
+
+      }
+  }
+
+  .category2 {
+      // border: 1px solid rgb(136, 255, 0);
+      width: 32.33%;
+      display: flex;
+      flex-direction: column;
+      .glass {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.075), 0 6px 20px 0 rgba(0, 0, 0, 0.089);
+          background-image: linear-gradient(rgb(100, 26, 219), rgba(49, 37, 223, 0.801));
+          background-repeat: no-repeat;
+      background-position: center;
+          height: 48.5%;
+         border-radius: 5px;
+         position: relative;
+
+         .imagediv3 {
+          // border: 1px solid rgb(255, 255, 255);
+           height: 70%;
+           position: absolute;
+           top: 10%;
+           width: 100%;
+           background: url(../../assets/paper.svg);
+           background-repeat: no-repeat;
+           background-position: center;
+           background-size: cover;
+          opacity: 0.2;
+       }
+        h3 {
+          // border: 1px solid red;
+           text-align: center;
+           color: rgb(236, 229, 229);
+           font-size: 8vh;
+           position: absolute;
+         bottom: -5%;
+         width:  100%;
+       }
+       h5 {
+          color: whitesmoke;
+          text-align: left;
+          font-size: 2vw;
+          padding-left: 2%;
+      }
+
+      }
+      .paper {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.075), 0 6px 20px 0 rgba(0, 0, 0, 0.089);
+          background-image: linear-gradient(rgb(255, 196, 0), rgba(177, 119, 12, 0.795));
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-top: 4%;
+          height: 48.5%;
+          border-radius: 5px;
+          position: relative;
+
+          .imagediv4 {
+              // border: 1px solid rgb(255, 255, 255);
+               height: 70%;
+               position: absolute;
+               top: 10%;
+               width: 100%;
+               background: url(../../assets/plastic.svg);
+               background-repeat: no-repeat;
+               background-position: center;
+               background-size: contain;
+              opacity: 0.2;
+           }
+            h3 {
+              // border: 1px solid red;
+               text-align: center;
+               color: rgb(236, 229, 229);
+               font-size: 8vh;
+               position: absolute;
+             bottom: -5%;
+             width:  100%;
+           }
+           h5 {
+             //  border: 1px solid red;
+              color: white;
+              text-align: left;
+              font-size: 2vw;
+              padding-left: 2%;
+              z-index: 100;
+          }
+
+      }
+  }
 }
 
 .container {
