@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-input type="number" [(ngModel)]="GH001mass">GH001</ion-input>
+    <!-- <ion-input type="number" [(ngModel)]="GH001mass">GH001</ion-input>
     <ion-input type="number" [(ngModel)]="NFAL01mass">NFAL01</ion-input>
     <ion-input type="number" [(ngModel)]="PAP005mass">PAP005</ion-input>
     <ion-input type="number" [(ngModel)]="PAP007mass">PAP007</ion-input>
@@ -17,5 +17,235 @@
     <ion-input type="number" [(ngModel)]="PET001mass">PET001</ion-input>
     <ion-input type="number" [(ngModel)]="PET003mass">PET003</ion-input>
     <ion-input type="number" [(ngModel)]="PET005mass">PET005</ion-input>
-    <ion-buttons (click)="calculate()">Calculate</ion-buttons>
+    <ion-buttons (click)="calculate()">Calculate</ion-buttons> -->
+
+    <div class="container" padding>
+      <div class="slideContainer">
+ 
+      <ion-slides #slides [options]="slideOpts" (ionSlideWillChange)="change()"  style=" overflow: visible;">
+      <!-- paper -->
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+         <div class="lists">
+             <h3 id="title">Glass</h3>
+           <div class="list">
+           <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+           <p>COMMON PAPER</p>
+         </div>
+           <div class="name"><p> PAP005</p></div>
+           
+           <ion-input placeholder="Enter Mass"></ion-input>
+           <div class="name2"><p>= R1683.93</p></div>
+         </div>
+ 
+         <div class="list">
+             <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+             <p>FLAT NEWS</p>
+           </div>
+             <div class="name"><p>PAP007</p></div>
+             <ion-input placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+           <div class="list">
+               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+               <p>HL 1</p>
+             </div>
+               <div class="name"><p> PAP001</p></div>
+               <ion-input placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                 <p>K4-CARDBOARD</p>
+               </div>
+                 <div class="name"><p>PAP003</p></div>
+                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p><span>= </span>  R1683.93</p></div>
+               </div>
+ 
+               <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+ 
+         </div>
+       </ion-slide><!-- end of slide one -->
+ 
+            <!-- plastic --> 
+       <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists">
+               <h3 id="title">Glass</h3>
+             <div class="list">
+             <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+             <p>COMMON PAPER</p>
+           </div>
+             <div class="name"><p> PAP005</p></div>
+             
+             <ion-input placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+   
+           <div class="list">
+               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+               <p>FLAT NEWS</p>
+             </div>
+               <div class="name"><p>PAP007</p></div>
+               <ion-input placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                 <p>HL 1</p>
+               </div>
+                 <div class="name"><p> PAP001</p></div>
+                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p>= R1683.93</p></div>
+               </div>
+               <div class="list">
+                   <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                   <p>K4-CARDBOARD</p>
+                 </div>
+                   <div class="name"><p>PAP003</p></div>
+                   <ion-input placeholder="Enter Mass"></ion-input>
+                   <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                 </div>
+   
+                 <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+   
+           </div>
+         </ion-slide><!-- end of slide two -->
+ 
+                 <!-- plastic --> 
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists">
+               <h3 id="title">Glass</h3>
+             <div class="list">
+             <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+             <p>COMMON PAPER</p>
+           </div>
+             <div class="name"><p> PAP005</p></div>
+             
+             <ion-input placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+   
+           <div class="list">
+               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+               <p>FLAT NEWS</p>
+             </div>
+               <div class="name"><p>PAP007</p></div>
+               <ion-input placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                 <p>HL 1</p>
+               </div>
+                 <div class="name"><p> PAP001</p></div>
+                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p>= R1683.93</p></div>
+               </div>
+               <div class="list">
+                   <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                   <p>K4-CARDBOARD</p>
+                 </div>
+                   <div class="name"><p>PAP003</p></div>
+                   <ion-input placeholder="Enter Mass"></ion-input>
+                   <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                 </div>
+   
+                 <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+   
+           </div>
+         </ion-slide><!-- end of slide three -->
+ 
+ 
+              
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists">
+               <h3 id="title">Glass</h3>
+             <div class="list">
+             <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+             <p>COMMON PAPER</p>
+           </div>
+             <div class="name"><p> PAP005</p></div>
+             
+             <ion-input placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+   
+           <div class="list">
+               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+               <p>FLAT NEWS</p>
+             </div>
+               <div class="name"><p>PAP007</p></div>
+               <ion-input placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                 <p>HL 1</p>
+               </div>
+                 <div class="name"><p> PAP001</p></div>
+                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p>= R1683.93</p></div>
+               </div>
+               <div class="list">
+                   <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                   <p>K4-CARDBOARD</p>
+                 </div>
+                   <div class="name"><p>PAP003</p></div>
+                   <ion-input placeholder="Enter Mass"></ion-input>
+                   <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                 </div>
+   
+                 <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+   
+           </div>
+         </ion-slide><!-- end of slide four -->
+ 
+              
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists">
+               <h3 id="title">Glass</h3>
+             <div class="list">
+             <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+             <p>COMMON PAPER</p>
+           </div>
+             <div class="name"><p> PAP005</p></div>
+             
+             <ion-input placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+   
+           <div class="list">
+               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+               <p>FLAT NEWS</p>
+             </div>
+               <div class="name"><p>PAP007</p></div>
+               <ion-input placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                 <p>HL 1</p>
+               </div>
+                 <div class="name"><p> PAP001</p></div>
+                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p>= R1683.93</p></div>
+               </div>
+               <div class="list">
+                   <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                   <p>K4-CARDBOARD</p>
+                 </div>
+                   <div class="name"><p>PAP003</p></div>
+                   <ion-input placeholder="Enter Mass"></ion-input>
+                   <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                 </div>
+   
+                 <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+   
+           </div>
+         </ion-slide><!-- end of slide five -->
+ 
+ 
+      </ion-slides>
+      </div><!-- end of  -->
+    </div>
 </ion-content>
