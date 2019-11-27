@@ -392,6 +392,7 @@ export class ReclaimerPage implements OnInit {
     console.log(this.storagePET005);
 
   }
+  
   swiperCont = document.getElementsByClassName('swiper-container')
   slideOpts = {
    slidesPerView: 1,

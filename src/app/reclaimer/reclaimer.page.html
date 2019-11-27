@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>reclaimer <ion-button (click)="openModal()">add reclaimer</ion-button></ion-title>
+    <ion-title>reclaimer <ion-button><ion-icon name="person"></ion-icon><ion-button (click)="openModal()"></ion-button></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -47,7 +47,7 @@
                <p>FLAT NEWS</p>
              </div>
                <div class="name"><p>PAP007</p></div>
-               <ion-input placeholder="Enter Mass"></ion-input>
+               <ion-input type="number" [(ngModel)]="PAP007mass" placeholder="Enter Mass"></ion-input>
                <div class="name2"><p>= R1683.93</p></div>
              </div>
              <div class="list">
@@ -55,7 +55,7 @@
                  <p>HL 1</p>
                </div>
                  <div class="name"><p> PAP001</p></div>
-                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <ion-input type="number" [(ngModel)]="PAP001mass" placeholder="Enter Mass"></ion-input>
                  <div class="name2"><p>= R1683.93</p></div>
                </div>
                <div class="list">
@@ -63,7 +63,7 @@
                    <p>K4-CARDBOARD</p>
                  </div>
                    <div class="name"><p>PAP003</p></div>
-                   <ion-input placeholder="Enter Mass"></ion-input>
+                   <ion-input type="number" [(ngModel)]="PAP003mass" placeholder="Enter Mass"></ion-input>
                    <div class="name2"><p><span>= </span>  R1683.93</p></div>
                  </div>
 
@@ -82,8 +82,7 @@
                <p>HD</p>
              </div>
                <div class="name"><p>HD001</p></div>
-               
-               <ion-input placeholder="Enter Mass"></ion-input>
+               <ion-input type="number" [(ngModel)]="HD001mass" placeholder="Enter Mass"></ion-input>kg
                <div class="name2"><p>= R1683.93</p></div>
              </div>
      
@@ -92,7 +91,8 @@
                  <p>LD CLEAR</p>
                </div>
                  <div class="name"><p>LD001</p></div>
-                 <ion-input placeholder="Enter Mass"></ion-input>
+                 <ion-input type="number" [(ngModel)]="LD001mass" placeholder="Enter Mass"></ion-input>
+
                  <div class="name2"><p>= R1683.93</p></div>
                </div>
                <div class="list">
@@ -100,7 +100,8 @@
                    <p>LD MIXED COLORS</p>
                  </div>
                    <div class="name"><p>LD003</p></div>
-                   <ion-input placeholder="Enter Mass"></ion-input>
+                   <ion-input type="number" [(ngModel)]="LD003mass" placeholder="Enter Mass"></ion-input>
+
                    <div class="name2"><p>= R1683.93</p></div>
                  </div>
                  <div class="list">
@@ -108,7 +109,8 @@
                      <p>PET BROWN</p>
                    </div>
                      <div class="name"><p>PET005</p></div>
-                     <ion-input placeholder="Enter Mass"></ion-input>
+                     <ion-input type="number" [(ngModel)]="PET005mass" placeholder="Enter Mass"></ion-input>
+
                      <div class="name2"><p><span>= </span>  R1683.93</p></div>
                    </div>
 
@@ -117,7 +119,8 @@
                     <p>PET CLEAR</p>
                   </div>
                     <div class="name"><p>PET001</p></div>
-                    <ion-input placeholder="Enter Mass"></ion-input>
+                    <ion-input type="number" [(ngModel)]="PET001mass" placeholder="Enter Mass"></ion-input>
+
                     <div class="name2"><p><span>= </span>  R1683.93</p></div>
                   </div>
      
@@ -126,11 +129,12 @@
                     <p>PET GREEN</p>
                   </div>
                     <div class="name"><p>PET003</p></div>
-                    <ion-input placeholder="Enter Mass"></ion-input>
+                    <ion-input type="number" [(ngModel)]="PET003mass" placeholder="Enter Mass"></ion-input>
+
                     <div class="name2"><p><span>= </span>  R1683.93</p></div>
                   </div>
                    <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
-     
+                   <button ion-button> Add To Grand-total</button>
              </div>
            </ion-slide><!-- end of slide two -->
    
@@ -144,12 +148,13 @@
              </div>
                <div class="name"><p> NFAL01</p></div>
                
-               <ion-input placeholder="Enter Mass"></ion-input>
+               <ion-input type="number" [(ngModel)]=" NFAL01mass" placeholder="Enter Mass"></ion-input>
+
                <div class="name2"><p>= R1683.93</p></div>
              </div>
      
                    <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
-     
+                   <button ion-button> Add To Grand-total</button>
              </div>
            </ion-slide><!-- end of slide three -->
    
@@ -164,13 +169,14 @@
              </div>
                <div class="name"><p> GL001</p></div>
                
-               <ion-input placeholder="Enter Mass"></ion-input>
+               <ion-input type="number" [(ngModel)]="GL001mass" placeholder="Enter Mass"></ion-input>
+
                <div class="name2"><p>= R1683.93</p></div>
              </div>
      
      
-                   <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
-     
+                   <h3>SUB-TOTAL = <span class="totaly">R1 287. 32</span></h3>
+                   <button ion-button> Add To Grand-total</button>
              </div>
            </ion-slide><!-- end of slide four -->
    
@@ -182,7 +188,8 @@
         </div><!-- end of  -->
 
         <div class="totals">
-          <h4>Grand-Total  = <span id="total">R 67 239.94</span> </h4>
+          <h4>Grand-Total  = <span class="total">R 67 239.94</span> </h4>
+          <button ion-button> Generate Receipt</button>
         </div>
       </div>
   </ion-content>
