@@ -17,9 +17,9 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Reclaimers',
-      url: '/reclaimers',
-      icon: 'reclaimers'
+      title: 'Reclaimer',
+      url: '/reclaimer',
+      icon: 'reclaimer'
     },
     {
       title: 'Edit Prices',

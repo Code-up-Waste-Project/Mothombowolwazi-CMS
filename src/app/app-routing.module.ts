@@ -38,7 +38,15 @@ const routes: Routes = [
   {
     path: 'profiles',
     loadChildren: () => import('./profiles/profiles.module').then( m => m.ProfilesPageModule)
+  },  {
+    path: 'modalpopup',
+    loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
+  },
+  {
+    path: 'reclaimer',
+    loadChildren: () => import('./reclaimer/reclaimer.module').then( m => m.ReclaimerPageModule)
   }
+
 ];
 
 @NgModule({

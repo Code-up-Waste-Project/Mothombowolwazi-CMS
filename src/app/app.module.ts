@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import * as firebase from 'firebase';
-
+import {ModalpopupPageModule} from './modalpopup/modalpopup.module'
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyB5FpPISbzSmTxUH4IY5qk9cXtLnK2djy0",
@@ -32,7 +32,8 @@ firebase.analytics();
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ModalpopupPageModule
   ],
   providers: [
     StatusBar,
