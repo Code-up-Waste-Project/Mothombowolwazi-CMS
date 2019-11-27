@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { LoadingController, AlertController } from '@ionic/angular';
-import { Users } from '../users/users';
+import { Users } from '../user/users';
 
 @Component({
   selector: 'app-register',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2, NgZone, Directive } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormsModule } from '@angular/forms';
 import { LoadingController, AlertController } from '@ionic/angular';
-import { AuthService } from '../users/auth.service';
+import { AuthService } from '../user/auth.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
