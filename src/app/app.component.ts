@@ -41,6 +41,16 @@ export class AppComponent {
       url: '/signin',
       icon: 'signin'
     },
+    {
+      title: 'regsiter',
+      url: '/register',
+      icon: 'register'
+    },
+    {
+      title: 'profile',
+      url: '/profile',
+      icon: 'profile'
+    },
   ];
 
   constructor(

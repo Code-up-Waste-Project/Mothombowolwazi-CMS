@@ -4,6 +4,39 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content align ="center">
+  ​
+    <b><h1 style ="color:white">REGISTER</h1></b>
+    <pre>
+    </pre>
+      <img src ='../../assets/icon/add.png' style ="filter: invert(0%);color:rgba(67, 36, 240, 0.459)" height ="100px" width ="100px">
+        
+    <br>
+    <br>
+    <ion-card>
+        <ion-card-header>
+           T.C.V
+          </ion-card-header>
+  <ion-item>
+    <ion-label style ="color: white" floating>Enter email address</ion-label>
+    <ion-input ion-input  type ="text" [(ngModel)] ="user.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label style ="color: white" floating>Enter your password</ion-label>
+    <ion-input  type ="password"  [(ngModel)] ="user.password"></ion-input>
+  </ion-item>
+  <ion-card-header>
+      <button outline ion-button (click) = "fun(user)">Sign Up<ion-icon name="create"></ion-icon></button>
+       </ion-card-header>
+  </ion-card>
+  <!-- <button> <p style = "color:white" align="center">
+      OR
+  </p> -->
+  <!-- <button ion-button full (click) ="signin()" > Sign In?</button></button> -->
+  </ion-content>
 
-</ion-content>
+  
+  
+  
+  
+  
