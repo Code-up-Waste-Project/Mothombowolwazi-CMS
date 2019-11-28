@@ -1,3 +1,4 @@
+import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
@@ -23,7 +24,7 @@ export class ProfilePage implements OnInit {
     
     }
   storage: any;
-  constructor(private router:Router) { 
+  constructor(private router:Router,private toastController:ToastController) { 
 
     firebase.auth().onAuthStateChanged(user => {
       this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
@@ -41,13 +42,72 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
   }
-  users(){
+  // users(){
+
+
+
+
+
+
+
+  //   this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
+  //     name: this.profile.name,
+  //     surname: this.profile.surname,
+  //     email: this.profile.email,
+  //     position:this.profile.position,
+  //     userid: this.profile.userid
+      
+  //   })
+  //   .then(function() {
+  //     console.log("Document successfully written!");
+     
+  //   })
+  //   .catch(function(error) {
+  //     console.error("Error writing document: ", error);
+  //   });
+  //   this.router.navigateByUrl('/home');
+  // }
+
+  async users(){
+
+
+
+
+    if(this.profile.name ==""||this.profile.name==undefined)
+    {
+      const toast = await this.toastController.create({
+        message: 'Enter the name.',
+        duration: 2000
+      });
+      toast.present();
+    }
+    else
+    if(this.profile.surname ==""||this.profile.surname==undefined)
+    {
+      const toast = await this.toastController.create({
+        message: 'Enter the surname',
+        duration: 2000
+      });
+      toast.present();
+    }
+    else
+    if(this.profile.position ==""||this.profile.position==undefined)
+    {
+      const toast = await this.toastController.create({
+        message: 'Enter the position.',
+        duration: 2000
+      });
+      toast.present();
+    }
+    else
+    {
     this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
       name: this.profile.name,
-      surname: this.profile.surname,
+     surname: this.profile.surname,
       email: this.profile.email,
       position:this.profile.position,
-      userid: this.profile.userid
+       userid: this.profile.userid
+      
       
     })
     .then(function() {
@@ -59,6 +119,10 @@ export class ProfilePage implements OnInit {
     });
     this.router.navigateByUrl('/home');
   }
+  }
+
+
+  
   changeListener(profile): void {
     const i = profile.target.files[0];
     console.log(i);
@@ -75,5 +139,21 @@ export class ProfilePage implements OnInit {
     });
   }
 
+
+  update(pricess){
+    console.log(pricess)
+    
+    // To update age and favorite color:
+    this.db.collection("price").doc("SinUfRNnbB073KZiDIZE").update({
+      name:pricess.gl001,
+      surname:pricess.hd001,
+      position:pricess.ld003,
+      email:pricess.nfalo1,
+      
+    })
+    .then((data) => {
+      console.log("Document successfully updated!");
+    });
+    }
 
 }
