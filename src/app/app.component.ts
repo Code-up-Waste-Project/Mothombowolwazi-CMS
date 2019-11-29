@@ -19,12 +19,12 @@ export class AppComponent {
     {
       title: 'Reclaimer',
       url: '/reclaimer',
-      icon: 'reclaimer'
+      icon: 'cash'
     },
     {
       title: 'Edit Prices',
       url: '/editprice',
-      icon: 'editprice'
+      icon: 'create'
     },
     {
       title: 'Inbounds',
