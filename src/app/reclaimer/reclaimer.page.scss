@@ -1,3 +1,14 @@
+ion-toolbar {
+  display: flex;
+  justify-content: center;
+  align-content: right;
+  align-items: flex-end;
+ #button {
+     
+  }
+
+}
+
 .container {
    // border: 1px solid red;
     height: 100%;
@@ -31,9 +42,10 @@
 
     button {
       width: 40%;
-      font-size: 3vw;
-      padding: 3%;
-      margin-top: -2.5%;
+      height: 8%;
+      font-size: 90%;
+      //padding: 3%;
+     // margin-top: -2.5%;
       border-radius: 8px;
       background: rgb(82, 12, 82);
       color: white;
@@ -42,7 +54,7 @@
   }
   #title {
     color: rgb(89, 86, 97);
-    font-size: 6vw;
+    font-size: 80%;
     border-bottom: 1px solid gray;
   }
         h3 {
@@ -51,8 +63,8 @@
          justify-content: center;
          align-items: center;
           width: 100%;
-          height: 10%;
-          font-size: 6vw;
+          height: 5%;
+          font-size: 60%;
         }
         .list {
   border-bottom: 1px solid gray ;      
@@ -128,33 +140,50 @@
          
         }
   h3 {
-    font-size: 3vw;
+    font-size: 70%;
   }
-      #total {
+      .totaly {
+       // border: 1px solid red;
           color: rgb(150, 20, 63);;
           padding-left: 30px;
           font-weight: bold;
-          font-size: 4vw;
+          font-size: 70%;
         }
       }
     }
   }/* end of div slideContainer */
 
   .totals {
-   // border: 1px solid green;
-    height: 18%;
+    border: 1px solid green;
+    height: 12%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    button {
+      width: 30%;
+      height: 40%;
+      font-size: 90%;
+      //padding: 3%;
+     // margin-top: -2.5%;
+      border-radius: 8px;
+      background: rgb(82, 12, 82);
+      color: white;
+      outline: none;
+    }
     h4 {
       border-bottom: 1px solid gray;
       padding: 1%;
-      font-size: 4vw;
+      font-size:90%;
+      width: 30%;
+      margin-right: 5%;
 
-      #total {
-        font-size: 5vw;
+      .total {
+        font-size: 2vw;
         color: rgb(150, 20, 63);
         font-weight: bold;
+        width: 150px;
+        //border: 1px solid blue;
       }
     }
   }

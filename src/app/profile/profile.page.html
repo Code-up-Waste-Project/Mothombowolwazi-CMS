@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="divitems">
+  <ion-item *ngIf="!profile.image" class="imageitem" lines="none" >
+   <ion-label position="stacked" id="profile_image" color="primary"></ion-label>
+   <input class="image-upload"  type="file" [(ngModel)]="profile.image" accept="image/*" (change)="changeListener($event)">
+ </ion-item>
+<ion-item class="imageitem" lines="none" *ngIf="profile.image"><img  src="{{profile.image}}" height="400px" width="400px" ></ion-item>
+</div>
+<ion-content>
+  
+  name<input type="text"   [(ngModel)]="profile.name" ><br>
+
+  surname<input  type="text"  [(ngModel)]="profile.surname"><br>
+
+  position<input  type="text"  [(ngModel)]="profile.position"><br>
+  
+  email<input  type="text"   [(ngModel)]="profile.email"><br>
+
+  
+  <button (click)="users()" type="submit" color="light" size="small">
+    submit
+  </button>
+</ion-content>
+

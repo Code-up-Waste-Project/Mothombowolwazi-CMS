@@ -31,21 +31,42 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
+  
   {
     path: 'profiles',
     loadChildren: () => import('./profiles/profiles.module').then( m => m.ProfilesPageModule)
-  },  {
+  },
+  {
     path: 'modalpopup',
     loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
   },
   {
     path: 'reclaimer',
     loadChildren: () => import('./reclaimer/reclaimer.module').then( m => m.ReclaimerPageModule)
-  }
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'signin',
+    loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
+
+ 
+
+  
+  
+
+
 
 ];
 
