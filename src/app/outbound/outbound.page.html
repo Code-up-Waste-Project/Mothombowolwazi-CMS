@@ -1,0 +1,50 @@
+
+  
+  <!-- <ion-content padding>
+   
+    <ion-item>
+      <ion-label stacked>From</ion-label>
+      <ion-input [(ngModel)]="letterObj.from"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>To</ion-label>
+      <ion-input [(ngModel)]="letterObj.to"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Text</ion-label>
+      <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
+    </ion-item>
+   
+    <button ion-button full (click)="createPdf()">Create PDF</button>
+    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
+   
+  </ion-content> -->
+
+
+  <ion-header>
+      <ion-toolbar>
+        <ion-title>transactions</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+        <ion-input type="number" [(ngModel)]="GH001mass">GH001</ion-input>
+        <ion-input type="number" [(ngModel)]="NFAL01mass">NFAL01</ion-input>
+        <ion-input type="number" [(ngModel)]="PAP005mass">PAP005</ion-input>
+        <ion-input type="number" [(ngModel)]="PAP007mass">PAP007</ion-input>
+        <ion-input type="number" [(ngModel)]="PAP001mass">PAP001</ion-input>
+        <ion-input type="number" [(ngModel)]="PAP003mass">PAP003</ion-input>
+        <ion-input type="number" [(ngModel)]="HD001mass">HD001</ion-input>
+        <ion-input type="number" [(ngModel)]="LD001mass">LD001</ion-input>
+        <ion-input type="number" [(ngModel)]="LD003mass">LD003</ion-input>
+        <ion-input type="number" [(ngModel)]="PET001mass">PET001</ion-input>
+        <ion-input type="number" [(ngModel)]="PET003mass">PET003</ion-input>
+        <ion-input type="number" [(ngModel)]="PET005mass">PET005</ion-input>
+        <button ion-button full (click)="calculate()">calculate</button>
+        
+    
+       
+    <button ion-button full (click)="createPdf()">Create PDF</button>
+    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
+    </ion-content>
+    
