@@ -1,0 +1,99 @@
+
+.ScreenContent{
+    // background-image: url("../../assets/greenbubbles.png");
+    background: linear-gradient(#14A6A5, #74CC6A);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.Card{
+    // background-image: url("../../assets/wave&Bubbles.png");
+    background-color: #ffffff;
+    border: white solid 5px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    height: 50%;
+    width: 60%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    border-radius: 10px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+
+.CardContent{
+    height: 100%;
+    width: 70%;
+    // background: pink;
+    padding: 50px;
+    // border: indigo solid 2px;
+}
+.CardContentleft{
+    height: 50vh;
+    margin: -5px;
+    width: 30%;
+    background-image: url("../../assets/greeen.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // border: indigo solid 2px;
+}
+
+.TheItems{
+    // border: #14A6A5 solid 2px;
+    margin-top: 25px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: solid 2px rgb(47, 138, 59);
+}
+
+ion-icon{
+    font-size: 25px;
+    color: rgb(92, 92, 92) ;
+}
+
+p{
+    font-weight: 100;
+    text-align: right;
+    color: rgb(92, 92, 92);
+}
+
+
+.TheButton{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+ion-button{
+    // background: linear-gradient(#85D360, #14A6A5);
+    background-color: rgba(245, 245, 245, 0);
+    border: 2px solid rgb(47, 138, 59);
+    width: 25vh;
+    border-radius: 50px;
+    overflow: hidden;
+    color: rgb(92, 92, 92);
+}
+
+h1{
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    padding-top: -100px;
+    color: rgb(92, 92, 92);
+}
+
+h2{
+    font-size: 18px;
+    text-align: center;
+    color: rgb(92, 92, 92);
+}
