@@ -146,11 +146,9 @@ export class OutboundPage implements OnInit {
 
   pdfObj = null;
   constructor(private plt: Platform, private file: File, private fileOpener: FileOpener)
-  
-  
   { 
 
-     this.getprices();
+    this.getprices();
     this.getMasses();
   }
 
