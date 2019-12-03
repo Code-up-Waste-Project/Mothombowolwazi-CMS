@@ -16,6 +16,18 @@
 
   surname<input  type="text"  [(ngModel)]="profile.surname"><br>
 
+
+
+
+      
+
+      <ion-label>is admin?</ion-label>  
+      <ion-select placeholder="Select One"  [(ngModel)]="profile.isAdmin">  
+        <ion-select-option value="true">true</ion-select-option>  
+        <ion-select-option value="false">false</ion-select-option>  
+      </ion-select>   
+ 
+
   position<input  type="text"  [(ngModel)]="profile.position"><br>
   
   email<input  type="text"   [(ngModel)]="profile.email"><br>

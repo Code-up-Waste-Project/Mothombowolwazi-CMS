@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { AuthService } from '../../app/user/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+db=firebase.firestore()
   constructor(private router:Router) { }
 
   user =
@@ -19,10 +20,36 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
+
   fun(user)
   {
+
+
+
+
+  //   <ion-button *ngif="isAdmin" routerlink="/event-create">
+  //   Create a new Event
+  // </ion-button>
+
+
+
+
+
   console.log(user)
   firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(result => {
+
+
+  this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).get().then(res =>{
+
+if (res.exists){
+  this.router.navigateByUrl('/home')
+ 
+}else{
+  this.router.navigateByUrl('/profile')
+}
+
+    })
     console.log(result.user.uid,result.user.email,'user logged in');
     // this.slist.email = result.user.email;
     // console.log(this.lsname)
@@ -50,6 +77,9 @@ export class LoginPage implements OnInit {
    // ...
   });
   }
+
+
+
   signup()
   { 
   ​this.router.navigateByUrl('/home')

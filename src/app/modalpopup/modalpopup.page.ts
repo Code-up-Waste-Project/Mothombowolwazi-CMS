@@ -1,8 +1,9 @@
 import { Router } from '@angular/router';
-import { ModalController, ToastController } from '@ionic/angular';
+import { ModalController, ToastController,LoadingController,AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-
+import { SelectMultipleControlValueAccessor } from '@angular/forms';
+ 
 
 @Component({
   selector: 'app-modalpopup',
@@ -12,16 +13,16 @@ import * as firebase from 'firebase';
 export class ModalpopupPage implements OnInit {
   db =firebase.firestore();
   reclaimer={
-
+// reclaimerid:null,
     name:null,
     address:null,
     surname:null,
     contact:null,
-    // userid:firebase.auth().currentUser.uid,
+    //  reclaimerid:firebase.auth().currentUser.uid,
 
   
   }
-  constructor(public toastController: ToastController,private modalcontroller:ModalController,private router:Router)
+  constructor(public toastController: ToastController,private modalcontroller:ModalController,private router:Router, public loadingController: LoadingController,public alertController: AlertController)
    { 
 
   }
@@ -80,18 +81,36 @@ export class ModalpopupPage implements OnInit {
         surname: this.reclaimer.surname,
         address: this.reclaimer.address,
         contact:this.reclaimer.contact,
+        // reclaimerid:this.reclaimer.reclaimerid
         // userid: this.reclaimer.userid
         
       })
-      .then(function() {
-        console.log("Document successfully written!");
-       
-      })
-      .catch(function(error) {
-        console.error("Error writing document: ", error);
+
+
+      const alert = await this.alertController.create({
+        header: 'Alert',
+        subHeader: 'Subtitle',
+        message: 'successfully added.',
+        buttons: ['OK'],
       });
+    
+      await alert.present();
+      let result = await alert.onDidDismiss();
+      console.log(result);
+
+
       this.router.navigateByUrl('/home');
+
+    //   .then(function() {
+    //     console.log("Document successfully written!");
+       
+    //   })
+    //   .catch(function(error) {
+    //     console.error("Error writing document: ", error);
+    //   });
+     
     }
+    // this.router.navigateByUrl('/home');
     }
     
     
