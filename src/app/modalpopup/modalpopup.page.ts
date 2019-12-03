@@ -36,9 +36,6 @@ export class ModalpopupPage implements OnInit {
     }
     async Addreclaimer(){
 
-
-
-
       if(this.reclaimer.name ==""||this.reclaimer.name==undefined)
       {
         const toast = await this.toastController.create({
@@ -76,16 +73,14 @@ export class ModalpopupPage implements OnInit {
       }
       else
       {
-      this.db.collection('reclaimers').doc(firebase.auth().currentUser.uid).set({
+      this.db.collection('reclaimers').doc().set({
         name: this.reclaimer.name,
         surname: this.reclaimer.surname,
         address: this.reclaimer.address,
         contact:this.reclaimer.contact,
         // reclaimerid:this.reclaimer.reclaimerid
-        // userid: this.reclaimer.userid
-        
+        // userid: this.reclaimer.userid,
       })
-
 
       const alert = await this.alertController.create({
         header: 'Alert',

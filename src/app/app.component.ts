@@ -17,11 +17,6 @@ admin;
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
-
-   
-
-
-
     this.initializeApp();
   }
 
@@ -32,16 +27,9 @@ admin;
     });
   }
 
-
-
-
-
-
-  ionViewDidEnter(){
-   
+  ionViewDidEnter(){ 
 
   }
-
 
   ngOnInit()
   {
@@ -62,8 +50,8 @@ this.appPages.push({
   admin:"hot"
 },
 {
-  title: 'Inbounds',
-  url: '/inbounds',
+  title: 'Inbound',
+  url: '/analytics',
   icon: 'cash',
   admin:"cool"
 },
@@ -75,8 +63,6 @@ this.appPages.push({
 });
 
 }
-
-
 
 else
 {
@@ -93,7 +79,6 @@ else
     icon: 'create',
     admin:"cool"
   });
-
 
 }
      console.log(this.appPages)   
