@@ -32,10 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   
-  {
-    path: 'profiles',
-    loadChildren: () => import('./profiles/profiles.module').then( m => m.ProfilesPageModule)
-  },
+  
   {
     path: 'modalpopup',
     loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
@@ -51,7 +48,8 @@ const routes: Routes = [
   {
     path: 'signin',
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },

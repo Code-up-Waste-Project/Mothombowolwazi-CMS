@@ -1,0 +1,28 @@
+.Mother{
+    background: silver;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.itemDiv{
+    // background: purpl e;
+    height: 80%;
+    width: 50%;
+}
+
+ion-item{
+    border: solid 2px purple;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.308);
+
+}
+
+.theButton{
+    border: purple solid 2px;
+
+}
