@@ -1,8 +1,8 @@
+import {ModalpopupPageModule} from './../modalpopup/modalpopup.module';
 import { Component } from '@angular/core';
-import { ModalpopupPage } from './../modalpopup/modalpopup.page';
-
 import * as firebase from 'firebase';
-import {ModalController} from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +11,10 @@ import {ModalController} from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private modalcontroller:ModalController) {}
-  openModal(){
-    this.modalcontroller.create({component:ModalpopupPage}).then((modalElement)=>{
-  modalElement.present();
-    })
-  }
+  constructor(
+    private modalcontroller: ModalController,
+    public route: Router,
+    public alertController: AlertController,
+    ) {}
+
 }

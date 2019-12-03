@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import * as firebase from 'firebase';
-import {ModalpopupPageModule} from './modalpopup/modalpopup.module'
+import {ModalpopupPageModule} from './modalpopup/modalpopup.module';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {

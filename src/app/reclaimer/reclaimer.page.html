@@ -19,7 +19,7 @@
     <ion-content>
         <div class="container" padding>
           <div class="slideContainer">
-          <ion-slides #slides [options]="slideOpts" (ionSlideWillChange)="change()"  style=" overflow: visible;">
+          <ion-slides #slides [options]="slideOpts"  style=" overflow: visible;">
           <!-- paper -->
             <ion-slide style=" border-radius: 20px !; overflow: hidden" >
              <div class="lists">
@@ -29,35 +29,40 @@
                <p>COMMON PAPER</p>
              </div>
                <div class="name"><p> PAP005</p></div>
-               <ion-input type="number" [(ngModel)]="PAP005mass" placeholder="Enter Mass"></ion-input>
-               <div class="name2"><p>= R1683.93</p></div>
+               <!-- <ion-input type="number" [(ngModel)]="PAP005mass" placeholder="Enter Mass"></ion-input> -->
+               <div><ion-input type="number" [(ngModel)]='PAP005mass' placeholder="Enter Mass" 
+                (change)='onChangePAP005($event.target.value)'></ion-input></div>
+                <div class="name2"><p>= R{{ PAP005price }}</p></div>
              </div>
              <div class="list">
                  <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
                  <p>FLAT NEWS</p>
                </div>
                  <div class="name"><p>PAP007</p></div>
-                 <ion-input type="number" [(ngModel)]="PAP007mass" placeholder="Enter Mass"></ion-input>
-                 <div class="name2"><p>= R1683.93</p></div>
+                 <div><ion-input type="number" [(ngModel)]='PAP007mass' placeholder="Enter Mass" 
+                  (change)='onChangePAP007($event.target.value)'></ion-input></div>
+                  <div class="name2"><p>= R{{ PAP007price }}</p></div>
                </div>
                <div class="list">
                    <div class="image"><img src="../../assets/shapes.svg" height="80%%">
                    <p>HL 1</p>
                  </div>
                    <div class="name"><p> PAP001</p></div>
-                   <ion-input type="number" [(ngModel)]="PAP001mass" placeholder="Enter Mass"></ion-input>
-                   <div class="name2"><p>= R1683.93</p></div>
+                   <div><ion-input type="number" [(ngModel)]='PAP001mass' placeholder="Enter Mass" 
+                    (change)='onChangePAP001($event.target.value)'></ion-input></div>
+                    <div class="name2"><p>= R{{ PAP001price }}</p></div>
                  </div>
                  <div class="list">
                      <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
                      <p>K4-CARDBOARD</p>
                    </div>
                      <div class="name"><p>PAP003</p></div>
-                     <ion-input type="number" [(ngModel)]="PAP003mass" placeholder="Enter Mass"></ion-input>
-                     <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                     <div><ion-input type="number" [(ngModel)]='PAP003mass' placeholder="Enter Mass" 
+                      (change)='onChangePAP003($event.target.value)'></ion-input></div>
+                      <div class="name2"><p>= R {{ PAP003price }}</p></div>
                    </div>
-                   <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
-                   <button ion-button> Add To Grand-total</button>
+                   <button ion-button (click)="onChangeTotal()"> Add To Grand-total</button>
+                   <h3>SUB-TOTAL <span id="total">= R{{ PaperTotal }}</span></h3>
              </div>
            </ion-slide><!-- end of slide one -->
                 <!-- plastic -->
@@ -69,51 +74,57 @@
                  <p>HD</p>
                </div>
                  <div class="name"><p>HD001</p></div>
-                 <ion-input type="number" [(ngModel)]="HD001mass" placeholder="Enter Mass"></ion-input>kg
-                 <div class="name2"><p>= R1683.93</p></div>
+                 <div><ion-input type="number" [(ngModel)]='HD001mass' placeholder="Enter Mass" 
+                  (change)='onChangeHD001($event.target.value)'></ion-input></div>
+                  <div class="name2"><p>= R{{ HD001price }}</p></div>
                </div>
                <div class="list">
                    <div class="image"><img src="../../assets/CLEAR PLASTIC.jpg" height="80%%">
                    <p>LD CLEAR</p>
                  </div>
                    <div class="name"><p>LD001</p></div>
-                   <ion-input type="number" [(ngModel)]="LD001mass" placeholder="Enter Mass"></ion-input>
-                   <div class="name2"><p>= R1683.93</p></div>
+                   <div><ion-input type="number" [(ngModel)]='LD001mass' placeholder="Enter Mass" 
+                  (change)='onChangeLD001($event.target.value)'></ion-input></div>
+                  <div class="name2"><p>= R{{ LD001price }}</p></div>
                  </div>
                  <div class="list">
                      <div class="image"><img src="../../assets/colour cups.jpg" height="80%%">
                      <p>LD MIXED COLORS</p>
                    </div>
                      <div class="name"><p>LD003</p></div>
-                     <ion-input type="number" [(ngModel)]="LD003mass" placeholder="Enter Mass"></ion-input>
-                     <div class="name2"><p>= R1683.93</p></div>
+                     <div><ion-input type="number" [(ngModel)]='LD003mass' placeholder="Enter Mass" 
+                      (change)='onChangeLD003($event.target.value)'></ion-input></div>
+                      <div class="name2"><p>= R{{ LD001price }}</p></div>
                    </div>
                    <div class="list">
                        <div class="image"><img src="../../assets/Brown bottles.png" height="80%%">
                        <p>PET BROWN</p>
                      </div>
                        <div class="name"><p>PET005</p></div>
-                       <ion-input type="number" [(ngModel)]="PET005mass" placeholder="Enter Mass"></ion-input>
-                       <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                       <div><ion-input type="number" [(ngModel)]='PET005mass' placeholder="Enter Mass" 
+                        (change)='onChangePET005($event.target.value)'></ion-input></div>
+                        <div class="name2"><p>= R{{ PET005price }}</p></div>
                      </div>
                      <div class="list">
                       <div class="image"><img src="../../assets/pet clear bottle.jpg" height="80%%">
                       <p>PET CLEAR</p>
                     </div>
                       <div class="name"><p>PET001</p></div>
-                      <ion-input type="number" [(ngModel)]="PET001mass" placeholder="Enter Mass"></ion-input>
-                      <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                      <div><ion-input type="number" [(ngModel)]='PET001mass' placeholder="Enter Mass" 
+                        (change)='onChangePET001($event.target.value)'></ion-input></div>
+                        <div class="name2"><p>= R{{ PET001price }}</p></div>
                     </div>
                     <div class="list">
                       <div class="image"><img src="../../assets/pet green bottle.jpg" height="80%%">
                       <p>PET GREEN</p>
                     </div>
                       <div class="name"><p>PET003</p></div>
-                      <ion-input type="number" [(ngModel)]="PET003mass" placeholder="Enter Mass"></ion-input>
-                      <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                      <div><ion-input type="number" [(ngModel)]='PET003mass' placeholder="Enter Mass" 
+                        (change)='onChangePET003($event.target.value)'></ion-input></div>
+                        <div class="name2"><p>= R{{ PET003price }}</p></div>
                     </div>
-                     <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
-                     <button ion-button> Add To Grand-total</button>
+                    <button ion-button (click)="onChangePlasticTotalzzz()"> Add To Grand-total</button>
+                    <h3>SUB-TOTAL <span id="total">= R{{ PlasticTotals }}</span></h3>
                </div>
              </ion-slide><!-- end of slide two -->
                      <!-- NON-FERROUS/ ALLUMINIUM -->
@@ -125,11 +136,12 @@
                  <p>ALLINIUM CANS</p>
                </div>
                  <div class="name"><p> NFAL01</p></div>
-                 <ion-input type="number" [(ngModel)]=" NFAL01mass" placeholder="Enter Mass"></ion-input>
-                 <div class="name2"><p>= R1683.93</p></div>
+                 <div><ion-input type="number" [(ngModel)]='NFAL01mass' placeholder="Enter Mass" 
+                  (change)='onChangeNFAL01($event.target.value)'></ion-input></div>
+                  <div class="name2"><p>= R {{ NFAL01price }}</p></div>
                </div>
-                     <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
-                     <button ion-button> Add To Grand-total</button>
+               <button ion-button (click)="onChangeTotalNFAL01()"> Add To Grand-total</button>
+                <h3>SUB-TOTAL = <span> R {{ NFAL01Total }}</span></h3>
                </div>
              </ion-slide><!-- end of slide three -->
             <ion-slide style=" border-radius: 20px !; overflow: hidden" >
@@ -140,17 +152,18 @@
                  <p>GLASS</p>
                </div>
                  <div class="name"><p> GL001</p></div>
-                 <ion-input type="number" [(ngModel)]="GH001" placeholder="Enter Mass"></ion-input>
-                 <div class="name2"><p>= R1683.93</p></div>
+                 <div><ion-input type="number" [(ngModel)]='GH001mass' placeholder="Enter Mass" 
+                  (change)='onChangeGH001($event.target.value)'></ion-input></div>
+                  <div class="name2"><p>= R {{ GH001price }}</p></div>
                </div>
-                     <h3>SUB-TOTAL = <span class="totaly">R1 287. 32</span></h3>
-                     <button ion-button> Add To Grand-total</button>
+                     <h3>SUB-TOTAL = <span> R  {{ GH001Total }}</span></h3>
+                     <button ion-button (click)="onChangeTotalGH001()"> Add To Grand-total</button>
                </div>
              </ion-slide><!-- end of slide four -->
           </ion-slides>
           </div><!-- end of  -->
           <div class="totals">
-            <h4>Grand-Total  = <span class="total">R 67 239.94</span> </h4>
+            <h4>Grand-Total  = <span class="total">= R{{ TotalTotals }}</span> </h4>
             <button ion-button> Generate Receipt</button>
           </div>
         </div>
