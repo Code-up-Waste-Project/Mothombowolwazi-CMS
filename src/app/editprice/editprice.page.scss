@@ -1,8 +1,6 @@
 ion-toolbar {
-    display: flex;
-    justify-content: center;
-    align-content: right;
-    align-items: flex-end;
+  //border: 2px solid red;
+  text-align: center;
    #button {
        
     }
@@ -20,14 +18,25 @@ ion-toolbar {
       height: 100%;
       background:radial-gradient(circle, rgb(141, 144, 151), #44474D,
       #44474D);
+
+      .titlestop {
+      // background:  rgb(70, 25, 70);
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: whitesmoke;
+        letter-spacing: 1px;
+        font-family: lato;
+      }
     }
     
     .slideContainer {
     // border: 3px solid rgb(0, 0, 0);
-      height: 60%;
-      max-width: 40%;
-      margin-left: 25%;
-      margin-top: 11%;
+    height: 70%;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-top: 3%;
       
     
      
@@ -104,13 +113,23 @@ ion-toolbar {
                // border: 1px solid red;
                 height: 20%;
                 position: relative;
-                top: -20%;
+                top: -10%;
                 text-align: center;
                 padding-top: 2%;
                 font-size: 80%;
               }
             }
-    
+            .rands {
+            //  border: 1px solid green;
+              width: 10%;
+              display: flex;
+               justify-content:space-between;
+              align-content: center;
+              align-items: center;
+
+              
+
+            }
             .name {
              // border: 1px solid red;
               width: 16%;
@@ -121,9 +140,9 @@ ion-toolbar {
             }
             .name2 {
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.096);      background: white;
-              // background-color: rgba(17, 128, 17, 0);
-              border: solid 2px rgb(82, 12, 82);
-              width: 28%;
+              //background-color: rgba(17, 128, 17, 0);
+            //  border: solid 2px rgb(82, 12, 82);
+              width: 22%;
               height: 40%;
               margin-top: 3.5%;
               border-radius: 35px;
@@ -133,7 +152,7 @@ ion-toolbar {
               align-content: center;
               align-items: center;
               p {
-                color: rgb(82, 12, 82);
+                color: rgb(163, 15, 15);
               }
             }
     
@@ -141,7 +160,8 @@ ion-toolbar {
               padding-left: -3%;
             }
             ion-input {
-             // border: 1px solid red;
+              width: 25%;
+            //  border: 1px solid red;
               height: 60%;
               margin-top: 3%;
              
@@ -175,7 +195,7 @@ ion-toolbar {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 5%;
+
   
       button {
         width: 30%;
@@ -184,9 +204,10 @@ ion-toolbar {
         //padding: 3%;
        // margin-top: -2.5%;
         border-radius: 8px;
-        background: rgb(82, 12, 82);
+        background: purple;
         color: white;
         outline: none;
+        letter-spacing: 1px;
       }
       h4 {
         border-bottom: 1px solid gray;
