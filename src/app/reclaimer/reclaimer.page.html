@@ -3,23 +3,34 @@
       <ion-title>reclaimer <ion-button class="AddReclaimer" color="clear" (click)="openModal()">Add Reclaimer<ion-icon name="person-add"></ion-icon></ion-button></ion-title>
     </ion-toolbar>
   </ion-header>
-      <!-- <ion-button (click)="openModal()">add reclaimer</ion-button> -->
-        <!-- <ion-input type="number" [(ngModel)]="GH001mass">GH001</ion-input>
-        <ion-input type="number" [(ngModel)]="NFAL01mass">NFAL01</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP007mass">PAP007</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP001mass">PAP001</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP003mass">PAP003</ion-input>
-        <ion-input type="number" [(ngModel)]="HD001mass">HD001</ion-input>
-        <ion-input type="number" [(ngModel)]="LD001mass">LD001</ion-input>
-        <ion-input type="number" [(ngModel)]="LD003mass">LD003</ion-input>
-        <ion-input type="number" [(ngModel)]="PET001mass">PET001</ion-input>
-        <ion-input type="number" [(ngModel)]="PET003mass">PET003</ion-input>
-        <ion-input type="number" [(ngModel)]="PET005mass">PET005</ion-input>
-        <ion-buttons (click)="calculate()">Calculate</ion-buttons> -->
     <ion-content>
         <div class="container" padding>
           <div class="slideContainer">
           <ion-slides #slides [options]="slideOpts"   style=" overflow: visible;">
+            <!-- Reclaimer -->
+            <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+              <div class="Mother">
+                <div class="itemDiv">
+                  <ion-item>
+                    <ion-icon name="person"></ion-icon>
+                    <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="person"></ion-icon>
+                    <ion-input placeholder="Surname" [(ngModel)]="surname"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="call"></ion-icon>
+                    <ion-input placeholder="Phone Number" [(ngModel)]="contact"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon name="pin"></ion-icon>
+                    <ion-input placeholder="Address" [(ngModel)]="address"></ion-input>
+                  </ion-item>
+                </div>
+              </div>
+            </ion-slide><!-- end of slide one -->
+                 <!-- User Reclaimer -->
           <!-- paper -->
             <ion-slide style=" border-radius: 20px !; overflow: hidden" >
              <div class="lists">
@@ -164,7 +175,7 @@
           </div><!-- end of  -->
           <div class="totals">
             <h4>Grand-Total  = <span class="total">= R{{ TotalTotals }}</span> </h4>
-            <button ion-button> Generate Receipt</button>
+            <button ion-button (click)="Addreclaimer()"> Generate Receipt</button>
           </div>
         </div>
       </ion-content>

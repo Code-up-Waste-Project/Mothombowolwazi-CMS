@@ -15,6 +15,11 @@ export class ReclaimerPage implements OnInit {
 
   db = firebase.firestore();
 
+  name;
+  surname;
+  contact;
+  address;
+
   prices;
   getprice;
 
@@ -165,7 +170,6 @@ export class ReclaimerPage implements OnInit {
   }
 
   ngOnInit() {
-    this.openModal();
   }
 
   //   GH001;
@@ -590,7 +594,18 @@ export class ReclaimerPage implements OnInit {
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PEP005: this.storagePET005});
     console.log(this.storagePET005);
   }
-  
+
+  Addreclaimer() {
+    this.db.collection('reclaimers').doc().set({
+      name: this.name,
+      surname: this.surname,
+      address: this.address,
+      contact:this.contact,
+      // reclaimerid:this.reclaimer.reclaimerid
+      // userid: this.reclaimer.userid,
+    })
+  }
+   
   swiperCont = document.getElementsByClassName('swiper-container')
   slideOpts = {
    slidesPerView: 1,
