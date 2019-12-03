@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-    Glass<input type="number"   [(ngModel)]="pricess.gl001">
+    <!-- Glass<input type="number"   [(ngModel)]="pricess.gl001">
     hd001<input type="number"   [(ngModel)]="pricess.hd001">
     ld003<input type="number"   [(ngModel)]="pricess.ld003">
     nfalo1<input type="number"   [(ngModel)]="pricess.nfalo1">
@@ -21,5 +21,144 @@
     
     <button (click)="update(pricess)" type="submit" color="light" size="small">
     update
-    </button>
+    </button> -->
+
+    <!-- new code -->
+    <div class="container" padding>
+      <div class="slideContainer">
+      <ion-slides #slides [options]="slideOpts" (ionSlideWillChange)="change()"  style=" overflow: visible;">
+      <!-- paper -->
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+         <div class="lists">
+             <h3 id="title">PAPER</h3>
+           <div class="list">
+           <div class="image"><img src="../../assets/common white paper.jpg" height="80%%">
+           <p>COMMON PAPER</p>
+         </div>
+           <div class="name"><p> PAP005</p></div>
+           <ion-input type="number" [(ngModel)]="PAP005mass" placeholder="Enter Mass"></ion-input>
+           <div class="name2"><p>= R1683.93</p></div>
+         </div>
+         <div class="list">
+             <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
+             <p>FLAT NEWS</p>
+           </div>
+             <div class="name"><p>PAP007</p></div>
+             <ion-input type="number" [(ngModel)]="PAP007mass" placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+           <div class="list">
+               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+               <p>HL 1</p>
+             </div>
+               <div class="name"><p> PAP001</p></div>
+               <ion-input type="number" [(ngModel)]="PAP001mass" placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
+                 <p>K4-CARDBOARD</p>
+               </div>
+                 <div class="name"><p>PAP003</p></div>
+                 <ion-input type="number" [(ngModel)]="PAP003mass" placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p><span>= </span>  R1683.93</p></div>
+               </div>
+               <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+               <button ion-button> Add To Grand-total</button>
+         </div>
+       </ion-slide><!-- end of slide one -->
+            <!-- plastic -->
+       <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists" style="overflow: auto;">
+               <h3 id="title">PLASTIC</h3>
+             <div class="list" id="paper">
+             <div class="image"><img src="../../assets/Hd plastic.jpg" height="80%%">
+             <p>HD</p>
+           </div>
+             <div class="name"><p>HD001</p></div>
+             <ion-input type="number" [(ngModel)]="HD001mass" placeholder="Enter Mass"></ion-input>kg
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+           <div class="list">
+               <div class="image"><img src="../../assets/CLEAR PLASTIC.jpg" height="80%%">
+               <p>LD CLEAR</p>
+             </div>
+               <div class="name"><p>LD001</p></div>
+               <ion-input type="number" [(ngModel)]="LD001mass" placeholder="Enter Mass"></ion-input>
+               <div class="name2"><p>= R1683.93</p></div>
+             </div>
+             <div class="list">
+                 <div class="image"><img src="../../assets/colour cups.jpg" height="80%%">
+                 <p>LD MIXED COLORS</p>
+               </div>
+                 <div class="name"><p>LD003</p></div>
+                 <ion-input type="number" [(ngModel)]="LD003mass" placeholder="Enter Mass"></ion-input>
+                 <div class="name2"><p>= R1683.93</p></div>
+               </div>
+               <div class="list">
+                   <div class="image"><img src="../../assets/Brown bottles.png" height="80%%">
+                   <p>PET BROWN</p>
+                 </div>
+                   <div class="name"><p>PET005</p></div>
+                   <ion-input type="number" [(ngModel)]="PET005mass" placeholder="Enter Mass"></ion-input>
+                   <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                 </div>
+                 <div class="list">
+                  <div class="image"><img src="../../assets/pet clear bottle.jpg" height="80%%">
+                  <p>PET CLEAR</p>
+                </div>
+                  <div class="name"><p>PET001</p></div>
+                  <ion-input type="number" [(ngModel)]="PET001mass" placeholder="Enter Mass"></ion-input>
+                  <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                </div>
+                <div class="list">
+                  <div class="image"><img src="../../assets/pet green bottle.jpg" height="80%%">
+                  <p>PET GREEN</p>
+                </div>
+                  <div class="name"><p>PET003</p></div>
+                  <ion-input type="number" [(ngModel)]="PET003mass" placeholder="Enter Mass"></ion-input>
+                  <div class="name2"><p><span>= </span>  R1683.93</p></div>
+                </div>
+                 <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+                 <button ion-button> Add To Grand-total</button>
+           </div>
+         </ion-slide><!-- end of slide two -->
+                 <!-- NON-FERROUS/ ALLUMINIUM -->
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists">
+               <h3 id="title">NON-FERROUS</h3>
+             <div class="list">
+             <div class="image"><img src="../../assets/ALU-CANS-cropped.jpg" height="80%%">
+             <p>ALLINIUM CANS</p>
+           </div>
+             <div class="name"><p> NFAL01</p></div>
+             <ion-input type="number" [(ngModel)]=" NFAL01mass" placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+                 <h3>SUB-TOTAL = <span id="total">R1 287. 32</span></h3>
+                 <button ion-button> Add To Grand-total</button>
+           </div>
+         </ion-slide><!-- end of slide three -->
+        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+           <div class="lists">
+               <h3 id="title">GLASS</h3>
+             <div class="list">
+             <div class="image"><img src="../../assets/glass.jpg" height="80%%">
+             <p>GLASS</p>
+           </div>
+             <div class="name"><p> GL001</p></div>
+             <ion-input type="number" [(ngModel)]="GH001" placeholder="Enter Mass"></ion-input>
+             <div class="name2"><p>= R1683.93</p></div>
+           </div>
+                 <h3>SUB-TOTAL = <span class="totaly">R1 287. 32</span></h3>
+                 <button ion-button> Add To Grand-total</button>
+           </div>
+         </ion-slide><!-- end of slide four -->
+      </ion-slides>
+      </div><!-- end of  -->
+      <div class="totals">
+        <h4>Grand-Total  = <span class="total">R 67 239.94</span> </h4>
+        <button ion-button> Generate Receipt</button>
+      </div>
+    </div>
 </ion-content>

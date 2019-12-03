@@ -16,7 +16,7 @@
         <ion-input type="number" [(ngModel)]="PET003mass">PET003</ion-input>
         <ion-input type="number" [(ngModel)]="PET005mass">PET005</ion-input>
         <ion-buttons (click)="calculate()">Calculate</ion-buttons> -->
-    <body>
+    <ion-content>
         <div class="container" padding>
           <div class="slideContainer">
           <ion-slides #slides [options]="slideOpts" (ionSlideWillChange)="change()"  style=" overflow: visible;">
@@ -154,4 +154,4 @@
             <button ion-button> Generate Receipt</button>
           </div>
         </div>
-      </body>
+      </ion-content>
