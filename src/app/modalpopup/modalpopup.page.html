@@ -1,13 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-button (click)="CloseModal()">close</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>modalpopup</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-  
+  <div class="Mother">
+    <div class="itemDiv">
+      <ion-item>
+        <ion-icon name="person"></ion-icon>
+        <ion-input placeholder="Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person"></ion-icon>
+        <ion-input placeholder="Surname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="call"></ion-icon>
+        <ion-input placeholder="Phone Number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="pin"></ion-icon>
+        <ion-input placeholder="Address"></ion-input>
+      </ion-item>
+    </div>
+    <div class="theButton">
+
+    </div>
+  </div>
+
+
+</ion-content>
+
+<!--   
   <ion-button (click)="CloseModal()">close</ion-button>
   
   
@@ -21,8 +48,4 @@
   
   <button (click)="Addreclaimer()" type="submit" color="light" size="small">
     submit
-  </button>
-  
-  </ion-content>
-  
-</ion-content>
+  </button> -->
