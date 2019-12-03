@@ -4,7 +4,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 import { AuthService } from '../user/auth.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-import { AuthService } from '../../app/user/auth.service';
+//import { AuthService } from '../../app/user/auth.service';
 ​
 @Component({
   selector: 'app-login',
