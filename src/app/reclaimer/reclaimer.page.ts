@@ -165,7 +165,7 @@ export class ReclaimerPage implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.openModal();
   }
 
   //   GH001;
