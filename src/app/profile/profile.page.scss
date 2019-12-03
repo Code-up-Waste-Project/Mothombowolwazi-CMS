@@ -1,0 +1,93 @@
+.everything{
+    // background: #561f55;
+    // background-image: url("../../assets/icon//Web\ 1920\ –\ 1.png");
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.TheContent{
+    background: white;
+    height: 80%;
+    width: 50%; 
+    // border: solid 2px #306e28;
+    box-shadow: 5px 10px 15px #00000028;
+}
+
+.profile{
+    background: #306e28;
+    height: 45%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    .ProPic{
+        background: rgb(255, 255, 255);
+        height: 20vh;
+        width: 20vh;
+        border-radius: 100px;
+        margin: 0 auto;
+        position: absolute;
+        top: 10%;
+    }
+
+    img{
+        height: 20vh;
+        width: 20vh;
+        border-radius: 100px;
+    }
+
+    .Name{
+        // background: rgb(126, 123, 123);
+        // height: 1%;
+        width: 50%;
+        position: absolute;
+        top: 70%;
+    }
+
+    h1{
+        color: white;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+}
+
+.InfoItems{
+    // background: rgb(155, 23, 155);
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .theItem{
+        border: solid 2px #306e28;
+        margin-bottom: 10px;
+        border-radius: 100px;
+        
+    }
+
+    ion-button{
+        background: #306e28;
+        margin: 0 auto;
+    }
+
+    .theButton{
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    ion-icon{
+        color: #306e28;
+    }
+}
