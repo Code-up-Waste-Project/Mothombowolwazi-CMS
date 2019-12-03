@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as firebase from 'firebase';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -10,59 +10,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Reclaimer',
-      url: '/reclaimer',
-      icon: 'cash'
-    },
-    {
-      title: 'Edit Prices',
-      url: '/Edit Prices',
-      icon: 'create'
-    },
-    {
-      title: 'Inbounds',
-      url: '/analytics',
-      icon: 'analytics'
-    },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'login'
-    },
-    {
-      title: 'Signin',
-      url: '/signin',
-      icon: 'signin'
-    },
-    {
-      title: 'regsiter',
-      url: '/register',
-      icon: 'register'
-    },
-    {
-      title: 'profile',
-      url: '/profile',
-      icon: 'profile'
-    },
-    {
-      title: 'profile',
-      url: '/profiles',
-      icon: 'profile'
-    },
-  ];
-
+  public appPages = [];
+admin;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
+
+   
+
+
+
     this.initializeApp();
   }
 
@@ -71,5 +30,76 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+
+
+
+
+
+  ionViewDidEnter(){
+   
+
+  }
+
+
+  ngOnInit()
+  {
+    this.appPages = [];
+
+    firebase.auth().onAuthStateChanged(user => {
+      firebase.firestore().collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
+        // this.profile.email = snapshot.data().email;
+       
+        console.log('users', snapshot.data().isAdmin);
+        this.admin=snapshot.data().isAdmin;
+if(this.admin =="true")
+{
+this.appPages.push({
+  title: 'Home',
+  url: '/home',
+  icon: 'home',
+  admin:"hot"
+},
+{
+  title: 'Inbounds',
+  url: '/inbounds',
+  icon: 'cash',
+  admin:"cool"
+},
+{
+  title: 'Reclaimer',
+  url: '/reclaimer',
+  icon: 'cash',
+  admin:"cool"
+});
+
+}
+
+
+
+else
+{
+  this.appPages.push(
+  {
+    title: 'Reclaimer',
+    url: '/reclaimer',
+    icon: 'cash',
+    admin:"cool"
+  },
+  {
+    title: 'Edit Prices',
+    url: '/profile',
+    icon: 'create',
+    admin:"cool"
+  });
+
+
+}
+     console.log(this.appPages)   
+      })
+    
+    })
+
   }
 }

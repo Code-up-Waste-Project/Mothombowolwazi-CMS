@@ -19,24 +19,28 @@ export class ProfilePage implements OnInit {
   addres:null,
   surname:null, 
   position:null,
+  isAdmin: null,
+
   userid:firebase.auth().currentUser.uid,
   email:firebase.auth().currentUser.email
     
     }
+
+ 
   storage: any;
   constructor(private router:Router,private toastController:ToastController) { 
 
-    firebase.auth().onAuthStateChanged(user => {
       this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
         // this.profile.email = snapshot.data().email;
         email: firebase.auth().currentUser.email,
         this.profile.name = snapshot.data().name;
         this.profile.surname = snapshot.data().surname;
         this.profile.position = snapshot.data().position;
+        // this.profile.image = snapshot.data().image;
         console.log('users', this.userprofile);
         
       })
-    })
+   
 
   }
 
@@ -69,10 +73,6 @@ export class ProfilePage implements OnInit {
   // }
 
   async users(){
-
-
-
-
     if(this.profile.name ==""||this.profile.name==undefined)
     {
       const toast = await this.toastController.create({
@@ -106,8 +106,9 @@ export class ProfilePage implements OnInit {
      surname: this.profile.surname,
       email: this.profile.email,
       position:this.profile.position,
-       userid: this.profile.userid
-      
+       userid: this.profile.userid,
+      //  image: this.profile.image,
+       isAdmin: this.profile.isAdmin
       
     })
     .then(function() {

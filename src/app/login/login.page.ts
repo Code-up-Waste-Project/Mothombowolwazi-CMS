@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from '../../app/user/auth.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -48,7 +47,6 @@ if (res.exists){
 }else{
   this.router.navigateByUrl('/profile')
 }
-
     })
     console.log(result.user.uid,result.user.email,'user logged in');
     // this.slist.email = result.user.email;
