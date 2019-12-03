@@ -23,7 +23,7 @@ export class AppComponent {
     },
     {
       title: 'Edit Prices',
-      url: '/editprice',
+      url: '/Edit Prices',
       icon: 'create'
     },
     {
@@ -49,6 +49,11 @@ export class AppComponent {
     {
       title: 'profile',
       url: '/profile',
+      icon: 'profile'
+    },
+    {
+      title: 'profile',
+      url: '/profiles',
       icon: 'profile'
     },
   ];

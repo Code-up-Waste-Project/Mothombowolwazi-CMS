@@ -11,7 +11,7 @@
             <ion-label>
               <ion-icon name="mail"></ion-icon>
             </ion-label>
-            <ion-input placeholder="Email Address"></ion-input>
+            <ion-input placeholder="Email Address" [(ngModel)] ="user.email" ></ion-input>
           </ion-item>
         </div>
         <div class="TheItems">
@@ -19,19 +19,18 @@
             <ion-label>
               <ion-icon name="lock"></ion-icon>
             </ion-label>
-            <ion-input placeholder="Password"></ion-input>
+            <ion-input placeholder="Password" type ="password" [(ngModel)] ="user.password"></ion-input>
           </ion-item>
         </div>
         <p>Forgot your password?</p>
         <div class="TheButton">
-          <ion-button color="clear">LOGIN</ion-button>
+          <ion-button color="clear" (click) = "fun(user)">LOGIN</ion-button>
         </div>
         <h2>Don't have an account ? <b>Sign Up</b></h2>
       </div>
     </div>
   </div>
-
-
+​
   <!-- <div id="recaptcha-container"></div>
   <form class="form" style="padding: 50px;" [formGroup]="registrationForm">
       <ion-label stacked>Phone Number</ion-label>
