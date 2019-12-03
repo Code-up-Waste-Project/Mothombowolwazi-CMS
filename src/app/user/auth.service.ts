@@ -6,8 +6,14 @@ import 'firebase/firestore';
 @Injectable({
   providedIn: 'root'
 })
+
+// signupUser(email: string, password: string) {
+//   throw new Error("Method not implemented.");
+// }
+
 export class AuthService {
-  constructor() {}
+
+  constructor() { }
 
   loginUser(
     email: string,
@@ -21,12 +27,8 @@ export class AuthService {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((newUserCredential: firebase.auth.UserCredential) => {
-        console.log('The User UID is',newUserCredential.user.uid);
+        console.log('The User UID is', newUserCredential.user.uid);
         // 2dM0Ry44eGOq0oqvP2wSl4LHCjT2
-        firebase
-          .firestore()
-          .doc(`/userProfile/${newUserCredential.user.uid}`)
-          .set({ email });
       })
       .catch(error => {
         console.error(error);
@@ -41,4 +43,5 @@ export class AuthService {
   logoutUser(): Promise<void> {
     return firebase.auth().signOut();
   }
+
 }

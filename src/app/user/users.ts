@@ -1,6 +1,4 @@
-
-export interface User {
-    key?:string;   
-    email:string;
-    password:string;   
-   }
+export interface Users {
+    email: string;
+    password: string;
+}

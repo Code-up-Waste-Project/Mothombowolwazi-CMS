@@ -48,6 +48,20 @@ export class ReclaimerPage implements OnInit {
   PET003mass: 0;
   PET005mass: 0;
 
+  // Inputs
+  GH001price;
+  NFAL01price;
+  PAP005price;
+  PAP007price;
+  PAP001price;
+  PAP003price;
+  HD001price;
+  LD001price;
+  LD003price;
+  PET001price;
+  PET003price;
+  PET005price;
+
   // GH001
   GH001SubTotal;
   GH001Vat;
@@ -133,17 +147,202 @@ export class ReclaimerPage implements OnInit {
   storagePET001;
   storagePET003;
   storagePET005;
+
+  // Totals
+  GH001Total;
+  NFAL01Total;
+  PaperTotal;
+  PlasticTotals;
+  TotalTotal;
+
   constructor(
-    private modalcontroller:ModalController,
+    private modalcontroller: ModalController,
     public route: Router,
     public alertController: AlertController,
-    ) 
-  { 
+    ) {
     this.getprices();
     this.getMasses();
   }
 
   ngOnInit() {
+    
+  }
+
+  //   GH001;
+  onChangeGH001(data): void {
+    console.log(this.GH001mass);
+    console.log(data);
+
+    this.GH001GrandTotal = +this.GH001mass * +this.GH001;
+    console.log(this.GH001GrandTotal);
+
+    this.GH001price = +this.GH001mass * +this.GH001;
+    console.log(this.GH001price);
+  }
+
+  //   GH001 Total;
+  onChangeTotalGH001(): void {
+    this.GH001Total = this.GH001price;
+    console.log(this.GH001Total);
+  }
+
+  //   NFAL01;
+  onChangeNFAL01(data): void {
+    console.log(this.NFAL01mass);
+    console.log(data);
+
+    this.NFAL01GrandTotal = +this.NFAL01mass * +this.NFAL01;
+    console.log(this.NFAL01GrandTotal);
+
+    this.NFAL01price = +this.NFAL01mass * +this.NFAL01;
+    console.log(this.NFAL01price);
+  }
+
+  //   NFAL01 Total NFAL01Total
+  onChangeTotalNFAL01(): void {
+    this.NFAL01Total = this.NFAL01price;
+    console.log(this.NFAL01Total);
+  }
+
+  //   PAP005;
+  onChangePAP005(data): void {
+    console.log(this.PAP005mass);
+    console.log(data);
+
+    this.PAP005GrandTotal = +this.PAP005mass * +this.PAP005;
+    console.log(this.PAP005GrandTotal);
+
+    this.PAP005price = +this.PAP005mass * +this.PAP005;
+    console.log(this.PAP005price);
+  }
+
+  //   PAP007;
+  onChangePAP007(data): void {
+    console.log(this.PAP007mass);
+    console.log(data);
+
+    this.PAP007GrandTotal = +this.PAP007mass * +this.PAP007;
+    console.log(this.PAP007GrandTotal);
+
+    this.PAP007price = +this.PAP007mass * +this.PAP007;
+    console.log(this.PAP007price);
+  }
+
+  //   PAP001;
+  onChangePAP001(data): void {
+    console.log(this.PAP001mass);
+    console.log(data);
+
+    this.PAP001GrandTotal = +this.PAP001mass * +this.PAP001;
+    console.log(this.PAP001GrandTotal);
+
+    this.PAP001price = +this.PAP001mass * +this.PAP001;
+    console.log(this.PAP001price);
+  }
+
+  //   PAP003;
+  onChangePAP003(data): void {
+    console.log(this.PAP003mass);
+    console.log(data);
+
+    this.PAP003GrandTotal = +this.PAP003mass * +this.PAP003;
+    console.log(this.PAP003GrandTotal);
+
+    this.PAP003price = +this.PAP003mass * +this.PAP003;
+    console.log(this.PAP003price);
+  }
+
+  //   Paper Total;
+  onChangeTotal(): void {
+    this.PaperTotal = +this.PAP001price + +this.PAP007price + +this.PAP001price + +this.PAP003price;
+    console.log(this.PaperTotal);
+  }
+
+  //   HD001;
+  onChangeHD001(data): void {
+    console.log(this.HD001mass);
+    console.log(data);
+
+    this.HD001GrandTotal = +this.HD001mass * +this.HD001;
+    console.log(this.HD001GrandTotal);
+
+    this.HD001price = +this.HD001mass * +this.HD001;
+    console.log(this.HD001price);
+  }
+
+  //   LD001;
+  onChangeLD001(data): void {
+    console.log(this.LD001mass);
+    console.log(data);
+
+    this.LD001GrandTotal = +this.LD001mass * +this.LD001;
+    console.log(this.LD001GrandTotal);
+
+    this.LD001price = +this.LD001mass * +this.LD001;
+    console.log(this.LD001price);
+  }
+
+  //   LD003;
+  onChangeLD003(data): void {
+    console.log(this.LD003mass);
+    console.log(data);
+
+    this.LD003GrandTotal = +this.LD003mass * +this.LD003;
+    console.log(this.LD003GrandTotal);
+
+    this.LD003price = +this.LD003mass * +this.LD003;
+    console.log(this.LD003price);
+  }
+
+  //   PET001;
+  onChangePET001(data): void {
+    console.log(this.PET001mass);
+    console.log(data);
+
+    this.PET001GrandTotal = +this.PET001mass * +this.PET001;
+    console.log(this.PET001GrandTotal);
+
+    this.PET001price = +this.PET001mass * +this.PET001;
+    console.log(this.PET001price);
+  }
+
+  //   PET003;
+  onChangePET003(data): void {
+    console.log(this.PET003mass);
+    console.log(data);
+
+    this.PET003GrandTotal = +this.PET003mass * +this.PET003;
+    console.log(this.PET003GrandTotal);
+
+    this.PET003price = +this.PET003mass * +this.PET003;
+    console.log(this.PET003price);
+  }
+
+  //   PET005;
+  onChangePET005(data): void {
+    console.log(this.PET005mass);
+    console.log(data);
+
+    this.PET005GrandTotal = +this.PET005mass * +this.PET005;
+    console.log(this.PET005GrandTotal);
+
+    this.PET005price = +this.PET005mass * +this.PET005;
+    console.log(this.PET005price);
+  }
+
+  //   Plastic Total;
+  onChangePlasticTotalzzz(): void {
+    if (this.HD001price == "") {
+      this.PlasticTotals = +this.LD001price + +this.LD003price + +this.PET001price + +this.PET003price + +this.PET005price;
+    console.log(this.PlasticTotals);
+    } else {
+    this.PlasticTotals = +this.HD001price + +this.LD001price + +this.LD003price + +this.PET001price + +this.PET003price + +this.PET005price;
+    console.log(this.PlasticTotals);
+    }
+  }
+
+  TotalTotals() {
+    this.TotalTotals = this.PlasticTotals;
   }
 
   calculate() {
@@ -390,7 +589,6 @@ export class ReclaimerPage implements OnInit {
     this.storagePET005 = this.PET005storagemass + this.PET005mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PEP005: this.storagePET005});
     console.log(this.storagePET005);
-
   }
   
   swiperCont = document.getElementsByClassName('swiper-container')
@@ -484,9 +682,9 @@ export class ReclaimerPage implements OnInit {
    }
   }
   
-  openModal(){
-    this.modalcontroller.create({component:ModalpopupPage}).then((modalElement)=>{
+  openModal() {
+    this.modalcontroller.create({component: ModalpopupPage}).then((modalElement) => {
   modalElement.present();
-    })
+    });
   }
 }
