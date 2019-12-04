@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { ModalpopupPage } from './../modalpopup/modalpopup.page';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import {ModalController} from '@ionic/angular';
+import { read } from 'fs';
 
 
 @Component({
@@ -12,7 +13,7 @@ import {ModalController} from '@ionic/angular';
   styleUrls: ['./reclaimer.page.scss'],
 })
 export class ReclaimerPage implements OnInit {
-
+  
   db = firebase.firestore();
 
   prices;
@@ -159,13 +160,15 @@ export class ReclaimerPage implements OnInit {
     private modalcontroller: ModalController,
     public route: Router,
     public alertController: AlertController,
+    private content: ElementRef,
+    public rendered: Renderer2
     ) {
     this.getprices();
     this.getMasses();
   }
 
   ngOnInit() {
-    
+
   }
 
   //   GH001;

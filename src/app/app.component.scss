@@ -1,34 +1,75 @@
+
+
 .MenuList{
-    // background-color: purple;
+    //border: 3px solid green;
     height: 100%;
-    // display: flex;
+    max-width: 100%;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+  //  flex-direction: row;
     overflow-y: hidden;
+    background: linear-gradient(180deg, rgb(70, 7, 70), rgba(109, 44, 87, 0.575));
+
+}
+ion-menu {
+    max-width: 50px !important;
+}
+
+.profiles {
+    border: 1px solid blue;
+    height: 22%;
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+H3 {
+    color: green;
+ //  border: 1px solid red;
+}
+    .image {
+        width: 56%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        height: 150px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        img {
+            border-radius: 50%;
+            object-fit: cover;
+            position: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.inner-scroll scroll-y overscroll {
+    max-width: 20px !important ;
+
 }
 .MenuList > div{
     
-    height: 25%;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    text-align: center;
+    //height: 25%;
+    // width: 100%;
+    // margin: 0 auto;
+    // display: block;
+    // position: relative;
+    // text-align: center;
     
 }
-.MenuList > div:nth-child(1){
-    background-color: rgb(82, 12, 82);
-}
-.MenuList > div:nth-child(2){
-    background-color: rgb(104, 41, 104);
-}
-.MenuList > div:nth-child(3){
-    background-color: rgb(56, 16, 56);
-}
-.MenuList > div:nth-child(4){
-    background-color: rgb(131, 86, 131);
-}
+// .MenuList > div:nth-child(1){
+//     background-color: rgb(82, 12, 82);
+// }
+// .MenuList > div:nth-child(2){
+//     background-color: rgb(104, 41, 104);
+// }
+// .MenuList > div:nth-child(3){
+//     background-color: rgb(56, 16, 56);
+// }
+// .MenuList > div:nth-child(4){
+//     background-color: rgb(131, 86, 131);
+// }
 
 .HomeDiv{
     background-color: white;
@@ -45,9 +86,9 @@
 }
 
 ion-icon{
-    font-size: 80px;
-    // margin: 0 auto;
-    text-align: center;
+    // font-size: 80px;
+    // // margin: 0 auto;
+    // text-align: center;
     color: white;;
 }
 
@@ -63,7 +104,8 @@ h1{
 
 
 #one{
-    width: 100%;
-    height: 100%;
-    // background:black;
+    // width: 100%;
+    // height: 100%;
+    background: red !important;
+
 }
