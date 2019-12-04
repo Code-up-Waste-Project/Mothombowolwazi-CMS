@@ -1,85 +1,130 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
+import { FormGroup, Validators, FormBuilder, FormsModule } from '@angular/forms';
+import { LoadingController, AlertController } from '@ionic/angular';
 import { AuthService } from '../../app/user/auth.service';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+import { Directive, HostListener, Output, EventEmitter, ElementRef, Input } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  styleUrls: ['./login.page.scss']
+})
+@Directive({
+  selector: '[br-data-dependency]' // Attribute selector
 })
 export class LoginPage implements OnInit {
-db=firebase.firestore()
-  constructor(private router:Router) { }
 
-  user =
-  {
-    email :"",
-  password :""
+  public onSubmit(): void {
+    // ...
+    // ... // ...
+    // ...
+  }
+  db = firebase.firestore()
+  public loginForm: FormGroup;
+  public loading: HTMLIonLoadingElement;
+
+  constructor(
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    
+    
+    private FormsModule: FormsModule,
+  ) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(6)])
+      ]
+    });
+
+
+    
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+//     let loader = await this.loadingCtrl.create({
+//       message: 'Just a sec'
+//     })
+//     // loader.present()
+//     firebase.auth().onAuthStateChanged(user => {
+//       if (user) {
+
+//         console.log("The current user id is", user.uid);
+
+//         loader.dismiss()
+//         this.db.collection('userprofile').where('userid', '==', user.uid).get().then(res => {
+//           if (res.empty) {
+            
+//             this.router.navigateByUrl('profile');
+//           } else {
+            
+//             this.router.navigate(['home']);
+//           }
+//         })
+//       } else {
+// loader.dismiss()
+//       }
+//     })
   }
 
+  async loginUser(loginForm: FormGroup): Promise<void> {
 
-  fun(user)
-  {
-
-
-
-
-  //   <ion-button *ngif="isAdmin" routerlink="/event-create">
-  //   Create a new Event
-  // </ion-button>
-
-
-
-
-
-  console.log(user)
-  firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(result => {
-
-
-  this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).get().then(res =>{
-
-if (res.exists){
-  this.router.navigateByUrl('/home')
- 
-}else{
-  this.router.navigateByUrl('/profile')
-}
-    })
-    console.log(result.user.uid,result.user.email,'user logged in');
-    // this.slist.email = result.user.email;
-    // console.log(this.lsname)
-    if(result.user.uid >"")
-    {
-  //     const toast =  this.toastCtrl.create({
-  //       message: 'Login Successful!',
-  //       duration: 9000
-  //     });
-  // toast.present();
-    ​this.router.navigateByUrl('/home')
+    if (!loginForm.valid) {
+      console.log('Form is not valid yet, current value:', loginForm.value);
+    } else {
+      
+      let loading = await this.loadingCtrl.create();
+      await loading.present();
+      setTimeout(() => {
+        loading.dismiss();
+      }, 4000)
+      
+      const email = loginForm.value.email;
+      const password = loginForm.value.password;
+      this.authService.loginUser(email, password).then(
+        (user) => {
+          firebase.auth().onAuthStateChanged(user => {
+            if (user.uid) {
+              this.db.collection('userprofile').where('userid', '==', user.uid).get().then(res => {
+                if (res.empty) {
+                  // this.loading.dismiss();
+                  this.router.navigate(['profile']);
+                  
+                } else {
+                  // this.loading.dismiss()
+                  this.router.navigate(['home']);
+                }
+              })
+            }
+          })
+        },
+        async (error) => {
+          const alert = await this.alertCtrl.create({
+            message: error.message,
+            buttons: [{ text: 'Ok', role: 'cancel' }]
+          });
+          await alert.present();
+        }
+      );
     }
-  {
   }
-  }).catch((error) => {
-    // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    // let alert = this.alertCrtl.create({
-    // title: errorCode,
-    //   subTitle: errorMessage,
-    //   buttons: ['Try Again']
-    // })
-    // alert.present();
-   // ...
-  });
+
+  forgetpassword() {
+    this.router.navigate(['reset-password']);
+  }
+
+  goToRegister(){
+    this.router.navigate(['register']);
   }
 
 
-
-  signup()
-  { 
-  ​this.router.navigateByUrl('/home')
-  }
+  handleLogin() {
+    // Do your stuff here
+}
 }
