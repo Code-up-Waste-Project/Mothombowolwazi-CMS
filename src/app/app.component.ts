@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public appPages = [];
 admin;
   constructor(
@@ -20,29 +20,16 @@ admin;
     this.initializeApp();
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
-
-  ionViewDidEnter(){ 
-
-  }
-
-  ngOnInit()
-  {
+  ngOnInit() {
     this.appPages = [];
 
     firebase.auth().onAuthStateChanged(user => {
       firebase.firestore().collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
         // this.profile.email = snapshot.data().email;
-       
+
         console.log('users', snapshot.data().isAdmin);
-        this.admin=snapshot.data().isAdmin;
-if(this.admin =="true")
-{
+        this.admin = snapshot.data().isAdmin;
+        if (this.admin == "true") {
 this.appPages.push({
   title: 'Home',
   url: '/home',
@@ -61,30 +48,58 @@ this.appPages.push({
   icon: 'cash',
   admin:"cool"
 });
-
-}
-
-else
-{
+} else {
   this.appPages.push(
   {
-    title: 'Reclaimer',
-    url: '/reclaimer',
+    title: 'home',
+    url: '/home',
     icon: 'cash',
     admin:"cool"
   },
   {
     title: 'Edit Prices',
-    url: '/profile',
+    url: '/editprice',
     icon: 'create',
     admin:"cool"
-  });
-
+  }, {
+    title: 'Outbound',
+    url: '/outbound',
+    icon: 'cash',
+    admin:"cool"
+  },{
+    title: 'Reclaimer',
+    url: '/reclaimer',
+    icon: 'cash',
+    admin:"cool"
+  }, {
+    title: 'History',
+    url: '/home',
+    icon: 'cash',
+    admin:"cool"
+  }, {
+    title: 'Users',
+    url: '/register',
+    icon: 'cash',
+    admin:"cool"
+  }, {
+    title: 'Log Out',
+    url: '/home',
+    icon: 'cash',
+    admin:"cool"
+  },
+  );
 }
-     console.log(this.appPages)   
-      })
-    
-    })
-
+        console.log(this.appPages);
+      });
+    });
   }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
+
 }
+
