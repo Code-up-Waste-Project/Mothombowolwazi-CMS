@@ -9,26 +9,28 @@
           <ion-slides #slides [options]="slideOpts"   style=" overflow: visible;">
             <!-- Reclaimer -->
             <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+              <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
               <div class="Mother">
                 <div class="itemDiv">
                   <ion-item>
                     <ion-icon name="person"></ion-icon>
-                    <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
+                    <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-icon name="person"></ion-icon>
-                    <ion-input placeholder="Surname" [(ngModel)]="surname"></ion-input>
+                    <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-icon name="call"></ion-icon>
-                    <ion-input placeholder="Phone Number" [(ngModel)]="contact"></ion-input>
+                    <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-icon name="pin"></ion-icon>
-                    <ion-input placeholder="Address" [(ngModel)]="address"></ion-input>
+                    <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>
                   </ion-item>
                 </div>
               </div>
+            </form>
             </ion-slide><!-- end of slide one -->
                  <!-- User Reclaimer -->
           <!-- paper -->
@@ -105,7 +107,7 @@
                      <div class="name"><p>LD003</p></div>
                      <div><ion-input type="number" [(ngModel)]='LD003mass' placeholder="Enter Mass" 
                       (change)='onChangeLD003($event.target.value)'></ion-input></div>
-                      <div class="name2"><p> R{{ LD001price }}</p></div>
+                      <div class="name2"><p> R{{ LD003price }}</p></div>
                    </div>
                    <div class="list">
                        <div class="image"><img src="../../assets/Brown bottles.png" height="80%%">
@@ -174,8 +176,9 @@
           </ion-slides>
           </div><!-- end of  -->
           <div class="totals">
-            <h4>Grand-Total  = <span class="total">= R{{ TotalTotals }}</span> </h4>
-            <button ion-button (click)="Addreclaimer()"> Generate Receipt</button>
+            <h4>Grand-Total  = <span class="total">{{ OverallGrandTotal }}</span> </h4>
+            <!-- <h4>Grand-Total  = <span class="total">= R{{ TotalTotals }}</span> </h4> -->
+            <button ion-button (click)="Addreclaimer()" [disabled]="!RegisterForm.valid"> Generate Receipt</button>
           </div>
         </div>
       </ion-content>

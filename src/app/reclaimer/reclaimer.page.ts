@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalpopupPage } from './../modalpopup/modalpopup.page';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import {ModalController} from '@ionic/angular';
 
 
@@ -40,18 +41,18 @@ export class ReclaimerPage implements OnInit {
   PET003;
   PET005;
 
-  GH001mass: 0;
-  NFAL01mass: 0;
-  PAP005mass: 0;
-  PAP007mass: 0;
-  PAP001mass: 0;
-  PAP003mass: 0;
-  HD001mass: 0;
-  LD001mass: 0;
-  LD003mass: 0;
-  PET001mass: 0;
-  PET003mass: 0;
-  PET005mass: 0;
+  GH001mass: number = 0;
+  NFAL01mass: number = 0;
+  PAP005mass: number = 0;
+  PAP007mass: number = 0;
+  PAP001mass: number = 0;
+  PAP003mass: number = 0;
+  HD001mass: number = 0;
+  LD001mass: number = 0;
+  LD003mass: number = 0;
+  PET001mass: number = 0;
+  PET003mass: number = 0;
+  PET005mass: number = 0;
 
   // Inputs
   GH001price;
@@ -160,13 +161,25 @@ export class ReclaimerPage implements OnInit {
   PlasticTotals;
   TotalTotal;
 
+  RegisterForm: FormGroup;
+
   constructor(
     private modalcontroller: ModalController,
     public route: Router,
+    public formGroup: FormBuilder,
+    public loadingController: LoadingController,
+    public toastController: ToastController,
     public alertController: AlertController,
     ) {
     this.getprices();
     this.getMasses();
+
+    this.RegisterForm = formGroup.group({
+      name : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
+      surname : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
+      contact : ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      address : ['', [Validators.required]],
+    });
   }
 
   ngOnInit() {
@@ -471,16 +484,16 @@ export class ReclaimerPage implements OnInit {
         this.PET005 = element.data().pet005;
         // console.log(element);
       });
-      console.log(this.GH001);
-      console.log(this.HD001);
-      console.log(this.LD003);
-      console.log(this.NFAL01);
-      console.log(this.PAP001);
-      console.log(this.PAP003);
-      console.log(this.PAP005);
-      console.log(this.PET001);
-      console.log(this.PET003);
-      console.log(this.PET005);
+      // console.log(this.GH001);
+      // console.log(this.HD001);
+      // console.log(this.LD003);
+      // console.log(this.NFAL01);
+      // console.log(this.PAP001);
+      // console.log(this.PAP003);
+      // console.log(this.PAP005);
+      // console.log(this.PET001);
+      // console.log(this.PET003);
+      // console.log(this.PET005);
     });
   }
 
@@ -501,18 +514,18 @@ export class ReclaimerPage implements OnInit {
         this.PET005storagemass = element.data().PEP005;
         // console.log(element);
       });
-      console.log(this.GH001storagemass);
-      console.log(this.NFAL01storagemass);
-      console.log(this.PAP005storagemass);
-      console.log(this.PAP007storagemass);
-      console.log(this.PAP001storagemass);
-      console.log(this.PAP003storagemass);
-      console.log(this.HD001storagemass);
-      console.log(this.LD001storagemass);
-      console.log(this.LD003storagemass);
-      console.log(this.PET001storagemass);
-      console.log(this.PET003storagemass);
-      console.log(this.PET005storagemass);
+      // console.log(this.GH001storagemass);
+      // console.log(this.NFAL01storagemass);
+      // console.log(this.PAP005storagemass);
+      // console.log(this.PAP007storagemass);
+      // console.log(this.PAP001storagemass);
+      // console.log(this.PAP003storagemass);
+      // console.log(this.HD001storagemass);
+      // console.log(this.LD001storagemass);
+      // console.log(this.LD003storagemass);
+      // console.log(this.PET001storagemass);
+      // console.log(this.PET003storagemass);
+      // console.log(this.PET005storagemass);
     });
   }
 
@@ -596,16 +609,86 @@ export class ReclaimerPage implements OnInit {
   }
 
   Addreclaimer() {
+
+    this.calculate();
+   
     this.db.collection('reclaimers').doc().set({
+      date: new Date(),
       name: this.name,
       surname: this.surname,
       address: this.address,
-      contact:this.contact,
-      // reclaimerid:this.reclaimer.reclaimerid
-      // userid: this.reclaimer.userid,
-    })
+      contact: this.contact,
+      GH001: this.GH001GrandTotal,
+      GH001Vat: this.GH001Vat,
+      GH001SubTotal: this.GH001SubTotal,
+      NFAL01: this.NFAL01GrandTotal,
+      NFAL01Vat: this.NFAL01Vat,
+      NFAL01SubTotal: this.NFAL01SubTotal,
+      PAP005: this.PAP005GrandTotal,
+      PAP005Vat: this.PAP005Vat,
+      PAP005SubTotal: this.PAP005SubTotal,
+      PAP007: this.PAP007GrandTotal,
+      PAP007Vat: this.PAP007Vat,
+      PAP007SubTotal: this.PAP007SubTotal,
+      PAP001: this.PAP001GrandTotal,
+      PAP001Vat: this.PAP001Vat,
+      PAP001SubTotal: this.PAP001SubTotal,
+      PAP003: this.PAP003GrandTotal,
+      PAP003Vat: this.PAP003Vat,
+      PAP003SubTotal: this.PAP003SubTotal,
+      HD001: this.HD001GrandTotal,
+      HD001Vat: this.HD001Vat,
+      HD001SubTotal: this.HD001SubTotal,
+      LD001: this.LD001GrandTotal,
+      LD001Vat: this.LD001Vat,
+      LD001SubTotal: this.LD001SubTotal,
+      LD003: this.LD003GrandTotal,
+      LD003Vat: this.LD003Vat,
+      LD003SubTotal: this.LD003SubTotal,
+      PET001: this.PET001GrandTotal,
+      PET001Vat: this.PET001Vat,
+      PET001SubTotal: this.PET001SubTotal,
+      PET003: this.PET003GrandTotal,
+      PET003Vat: this.PET003Vat,
+      PET003SubTotal: this.PET003SubTotal,
+      PEP005: this.PET005GrandTotal,
+      PEP005Vat: this.PET005Vat,
+      PEP005SubTotal: this.PET005SubTotal,
+      OverallSubTotal: this.OverallSubTotal,
+      OverallVat: this.OverallVat,
+      OverallGrandTotal: this.OverallGrandTotal,
+    });
+    this.route.navigate(['/home']);
+    this.presentToast();
   }
-   
+
+  async presentAlert(data) {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: data,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'New Transaction Created.',
+      duration: 9000,
+      color: 'primary',
+      position: 'bottom'
+    });
+    toast.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Loading',
+    });
+    await loading.present();
+    loading.dismiss();
+  }
+
   swiperCont = document.getElementsByClassName('swiper-container')
   slideOpts = {
    slidesPerView: 1,
