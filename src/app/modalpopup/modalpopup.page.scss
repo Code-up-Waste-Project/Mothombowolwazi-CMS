@@ -1,5 +1,5 @@
 .Mother{
-    background: silver;
+    background:#44474D;
     height: 100%;
     width: 100%;
     display: flex;
@@ -25,4 +25,15 @@ ion-item{
 .theButton{
     border: purple solid 2px;
 
+}
+
+.Cancel{
+    color: purple;
+    margin-left: 95%;
+    font-size: 150%;
+}
+
+h1{
+    text-align: center;
+    color: white;
 }
