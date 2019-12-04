@@ -19,11 +19,6 @@ admin;
     private content: ElementRef,
     private render: Renderer2
   ) {
-
-   
-
-
-
     this.initializeApp();
   }
 
@@ -34,16 +29,9 @@ admin;
     });
   }
 
-
-
-
-
-
-  ionViewDidEnter(){
-   
+  ionViewDidEnter(){ 
 
   }
-
 
   ngOnInit()
   {
@@ -91,8 +79,6 @@ this.appPages.push({
 
 }
 
-
-
 else
 {
   this.appPages.push(
@@ -108,7 +94,6 @@ else
     icon: 'create',
     admin:"cool"
   });
-
 
 }
      console.log(this.appPages)   
