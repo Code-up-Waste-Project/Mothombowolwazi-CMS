@@ -8,46 +8,35 @@ import { AuthService } from '../../app/user/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-db=firebase.firestore()
-  constructor(private router:Router) { }
+
+  db = firebase.firestore();
+
+  constructor(
+    private router:Router) { }
 
   user =
   {
-    email :"",
-  password :""
-  }
+    email: '',
+    password: ''
+  };
 
   ngOnInit() {
   }
 
 
-  fun(user)
-  {
-
-
-
-
-  //   <ion-button *ngif="isAdmin" routerlink="/event-create">
-  //   Create a new Event
-  // </ion-button>
-
-
-
-
-
-  console.log(user)
+  fun(user) {
+  console.log(user);
   firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(result => {
 
+  this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).get().then(res => {
 
-  this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).get().then(res =>{
+    if (res.exists) {
+    this.router.navigateByUrl('/home');
+    } else {
+  this.router.navigateByUrl('/profile');
+    }
+    });
 
-if (res.exists){
-  this.router.navigateByUrl('/home')
- 
-}else{
-  this.router.navigateByUrl('/profile')
-}
-    })
     console.log(result.user.uid,result.user.email,'user logged in');
     // this.slist.email = result.user.email;
     // console.log(this.lsname)
