@@ -15,7 +15,9 @@ admin;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private content: ElementRef,
+    private render: Renderer2
   ) {
     this.initializeApp();
   }
@@ -37,7 +39,7 @@ this.appPages.push({
   admin:"hot"
 },
 {
-  title: 'Inbound',
+  title: 'Inbounds',
   url: '/analytics',
   icon: 'cash',
   admin:"cool"
