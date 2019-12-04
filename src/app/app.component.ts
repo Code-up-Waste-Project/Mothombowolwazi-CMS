@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import * as firebase from 'firebase';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -15,7 +15,9 @@ admin;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private content: ElementRef,
+    private render: Renderer2
   ) {
     this.initializeApp();
   }
@@ -33,6 +35,19 @@ admin;
 
   ngOnInit()
   {
+
+  console.log(this.content.nativeElement.children[0].children[0])
+  this.render.setStyle(this.content.nativeElement.children[0].children[0], 'max-width', '80%' );
+  this.render.setStyle(this.content.nativeElement.children[0].children[0], 'border-radius', '15px' );
+  this.render.setStyle(this.content.nativeElement.children[0].children[0], 'box-shadow', '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)' );
+  this.render.setStyle(this.content.nativeElement.children[0].children[0], 'height', '80%' );
+  this.render.setStyle(this.content.nativeElement.children[0].children[0], 'transform', 'translate(13%,13%)');
+  this.render.setStyle(this.content.nativeElement.children[0], 'display', 'flex' );
+  this.render.setStyle(this.content.nativeElement.children[0], 'justify-content', 'center');
+  this.render.setStyle(this.content.nativeElement.children[0], 'align-items', 'center');
+  this.render.setStyle(this.content.nativeElement.children[0], 'background-image', 'url(../assets/cover.png)');
+  this.render.setStyle(this.content.nativeElement.children[0], 'background-position', 'center');
+  this.render.setStyle(this.content.nativeElement.children[0], 'background-size', 'cover');
     this.appPages = [];
 
     firebase.auth().onAuthStateChanged(user => {
@@ -50,7 +65,7 @@ this.appPages.push({
   admin:"hot"
 },
 {
-  title: 'Inbound',
+  title: 'Inbounds',
   url: '/analytics',
   icon: 'cash',
   admin:"cool"
@@ -75,7 +90,7 @@ else
   },
   {
     title: 'Edit Prices',
-    url: '/profile',
+    url: '/editPrice',
     icon: 'create',
     admin:"cool"
   });

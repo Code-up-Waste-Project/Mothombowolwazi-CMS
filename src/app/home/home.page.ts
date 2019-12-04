@@ -1,9 +1,10 @@
 import {ModalpopupPageModule} from './../modalpopup/modalpopup.module';
+import { ModalpopupPage } from './../modalpopup/modalpopup.page';
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
 import { AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { ModalpopupPage } from '../modalpopup/modalpopup.page';
+// import { ModalpopupPage } from '../modalpopup/modalpopup.page';
 
 
 @Component({

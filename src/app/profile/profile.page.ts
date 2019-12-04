@@ -21,9 +21,8 @@ export class ProfilePage implements OnInit {
   position:null,
   isAdmin: null,
 
-  userid:firebase.auth().currentUser.uid,
-  email:firebase.auth().currentUser.email
-    
+  userid: firebase.auth().currentUser.uid,
+  email: firebase.auth().currentUser.email
     }
 
  
@@ -38,39 +37,12 @@ export class ProfilePage implements OnInit {
         this.profile.position = snapshot.data().position;
         // this.profile.image = snapshot.data().image;
         console.log('users', this.userprofile);
-        
       })
-   
 
   }
 
   ngOnInit() {
   }
-  // users(){
-
-
-
-
-
-
-
-  //   this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
-  //     name: this.profile.name,
-  //     surname: this.profile.surname,
-  //     email: this.profile.email,
-  //     position:this.profile.position,
-  //     userid: this.profile.userid
-      
-  //   })
-  //   .then(function() {
-  //     console.log("Document successfully written!");
-     
-  //   })
-  //   .catch(function(error) {
-  //     console.error("Error writing document: ", error);
-  //   });
-  //   this.router.navigateByUrl('/home');
-  // }
 
   async users(){
     if(this.profile.name ==""||this.profile.name==undefined)
@@ -121,8 +93,6 @@ export class ProfilePage implements OnInit {
     this.router.navigateByUrl('/home');
   }
   }
-
-
   
   changeListener(profile): void {
     const i = profile.target.files[0];

@@ -1,37 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <ion-button (click)="CloseModal()">close</ion-button>
+   <ion-icon (click)="CloseModal()" class="Cancel" name="close-circle"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="Mother">
+    <h1>Add a Reclaimer</h1><br>
     <div class="itemDiv">
       <ion-item>
         <ion-icon name="person"></ion-icon>
-        <ion-input placeholder="Name" [(ngModel)]="reclaimer.name"></ion-input>
+        <ion-input placeholder="Name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-icon name="person"></ion-icon>
-        <ion-input placeholder="Surname" [(ngModel)]="reclaimer.surname"></ion-input>
+        <ion-input placeholder="Surname"></ion-input>
       </ion-item>
       <ion-item>
         <ion-icon name="call"></ion-icon>
-        <ion-input placeholder="Phone Number" [(ngModel)]="reclaimer.contact"></ion-input>
+        <ion-input placeholder="Phone Number"></ion-input>
       </ion-item>
       <ion-item>
         <ion-icon name="pin"></ion-icon>
-        <ion-input placeholder="Address" [(ngModel)]="reclaimer.address"></ion-input>
+        <ion-input placeholder="Address"></ion-input>
       </ion-item>
     </div>
-
     <div class="theButton">
 
-  <button (click)="Addreclaimer()" type="submit" color="light" size="small">
-    submit
-  </button>
     </div>
   </div>
 
