@@ -16,8 +16,8 @@ admin;
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private content: ElementRef,
-    private render: Renderer2
+    // private content: ElementRef,
+    // private render: Renderer2
   ) {
     this.initializeApp();
   }
