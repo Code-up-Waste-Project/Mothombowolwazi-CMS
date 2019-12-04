@@ -45,7 +45,7 @@ admin;
   this.render.setStyle(this.content.nativeElement.children[0], 'display', 'flex' );
   this.render.setStyle(this.content.nativeElement.children[0], 'justify-content', 'center');
   this.render.setStyle(this.content.nativeElement.children[0], 'align-items', 'center');
-  this.render.setStyle(this.content.nativeElement.children[0], 'background-image', 'url(../assets/face.png)');
+  this.render.setStyle(this.content.nativeElement.children[0], 'background-image', 'url(../assets/cover.png)');
   this.render.setStyle(this.content.nativeElement.children[0], 'background-position', 'center');
   this.render.setStyle(this.content.nativeElement.children[0], 'background-size', 'cover');
     this.appPages = [];
