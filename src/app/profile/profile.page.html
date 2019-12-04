@@ -12,29 +12,34 @@
           <img src="../../assets/face.png" alt="">
         </div>
         <div class="Name">
-          <h1>Lebogang Thipenyane</h1>
+          <h1> {{profile.name}} {{profile.surname}}</h1>
         </div>
       </div>
       <div class="InfoItems">
         <div>
         <ion-item class="theItem">
           <ion-label><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input placeholder="Name"></ion-input>
+          <ion-input placeholder="Name" [(ngModel)]="profile.name"></ion-input>
         </ion-item>
         <ion-item class="theItem">
           <ion-label><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input placeholder="Surname"></ion-input>
+          <ion-input placeholder="Surname"  [(ngModel)]="profile.surname"></ion-input>
         </ion-item>
-        <ion-item class="theItem">
+        <!-- <ion-item class="theItem">
           <ion-label><ion-icon name="body"></ion-icon></ion-label>
-          <ion-input placeholder="Role"></ion-input>
-        </ion-item>
+          <ion-input placeholder="Role" [(ngModel)]="profile.position"></ion-input>
+        </ion-item> -->
         <ion-item class="theItem">
           <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-          <ion-input placeholder="Email Address"></ion-input>
+          <ion-input placeholder="Email Address" [(ngModel)]="profile.email"></ion-input>
         </ion-item>
+        <ion-label>is manager?</ion-label>  
+      <ion-select placeholder="Select One"  [(ngModel)]="profile.isAdmin">  
+        <ion-select-option value="true">true</ion-select-option>  
+        <ion-select-option value="false">false</ion-select-option>  
+      </ion-select>   
         <div class="theButton">
-        <ion-button color="clear">Primary</ion-button>
+        <ion-button color="clear" (click)="users()" type="submit">submit</ion-button>
       </div>
 
         </div>
@@ -49,41 +54,5 @@
 
       
 
-      <ion-label>is admin?</ion-label>  
-      <ion-select placeholder="Select One"  [(ngModel)]="profile.isAdmin">  
-        <ion-select-option value="true">true</ion-select-option>  
-        <ion-select-option value="false">false</ion-select-option>  
-      </ion-select>   
+      
  
-
-  position<input  type="text"  [(ngModel)]="profile.position"><br>
-  
-  email<input  type="text"   [(ngModel)]="profile.email"><br>
-
-
-
-
-
-
-
-<!-- <div class="divitems">
-      <ion-item *ngIf="!profile.image" class="imageitem" lines="none">
-        <ion-label position="stacked" id="profile_image" color="primary"></ion-label>
-        <input class="image-upload" type="file" [(ngModel)]="profile.image" accept="image/*"
-          (change)="changeListener($event)">
-      </ion-item>
-      <ion-item class="imageitem" lines="none" *ngIf="profile.image"><img src="{{profile.image}}" height="400px"
-          width="400px"></ion-item>
-    </div>
-    name<input type="text" [(ngModel)]="profile.name"><br>
-
-    surname<input type="text" [(ngModel)]="profile.surname"><br>
-
-    position<input type="text" [(ngModel)]="profile.position"><br>
-
-    email<input type="text" [(ngModel)]="profile.email"><br>
-
-
-    <button (click)="users()" type="submit" color="light" size="small">
-      submit
-    </button> -->
