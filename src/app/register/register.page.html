@@ -1,43 +1,67 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="container">
-    <div class="logo"></div>
-      <div class="login">
-        <h1>Register</h1>
-        <div class="TheItems">
-          <ion-item>
-            <ion-label>
-              <ion-icon name="mail"></ion-icon>
-            </ion-label>
-            <ion-input placeholder="Email Address" [(ngModel)] ="user.email"></ion-input>
-          </ion-item>
-        </div>
-        <div class="TheItems">
-          <ion-item>
-            <ion-label>
-              <ion-icon name="lock"></ion-icon>
-            </ion-label>
-            <ion-input placeholder="Password" type="password" [(ngModel)] ="user.password"></ion-input>
-          </ion-item>
-        </div>
-        <!-- <p>Forgot your password?</p> --> <br>
-        <div class="TheButton">
-          <ion-button color="clear" (click) = "fun(user)">LOGIN</ion-button>
-        </div>
-        <h2>Already have an account ? <b>LOGIN</b></h2>
+  <div class="header">
+    <div class="nav">
+      <h2>My Dashboard</h2>
+      <p>You are at " Home "</p>
+    </div>
+
+    <div class="profiles">
+      <div class="image">
+        <img src="../../assets/face.png">
       </div>
+      <div class="names">
+        <H4>Nkosinathi Radebe</H4>
+        <P>Administrator</P>
+      </div>
+    </div>
+
+    <div class="logout">
+      <ion-icon name="log-out"></ion-icon>
+    </div>
   </div>
-  <!-- <div id="recaptcha-container"></div>
-  <form class="form" style="padding: 50px;" [formGroup]="registrationForm">
-      <ion-label stacked>Phone Number</ion-label>
-      <ion-input formControlName="phoneNumber" type="text" [(ngModel)]="phoneNumber"></ion-input>
-    <ion-button id="sign-in-button" [disabled]="!registrationForm.valid"  (click)="addUser()">
-      Sign In
-    </ion-button>
-    </form> -->
+
+
+
+  <div class="Everything">
+    <div class="AddUser">
+      <div class="profileDiv">
+        <img id="IMG" src="../../assets/face.png" alt="">
+      </div> <br>
+      <div class="Items">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Surname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="email Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="body"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Position"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="lock"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Password"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="ViewUser">
+
+    </div>
+  </div>
 </ion-content>

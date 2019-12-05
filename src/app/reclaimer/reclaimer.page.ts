@@ -5,10 +5,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import {ModalController} from '@ionic/angular';
-<<<<<<< HEAD
-=======
 // import { read } from 'fs';
->>>>>>> lebooo
 
 
 @Component({
