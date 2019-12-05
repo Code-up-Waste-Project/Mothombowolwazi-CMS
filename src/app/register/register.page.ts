@@ -3,6 +3,7 @@ import { AuthService } from '../../app/user/auth.service';
 import { LoadingController, AlertController, Platform } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+db=firebase.firestore()
+  profile={
+    image:null,
+    name:null,
+    addres:null,
+    surname:null, 
+    position:null,
+    isAdmin: null,
+  
+    // userid: firebase.auth().currentUser.uid,
+    // email: firebase.auth().currentUser.email
+      }
   public signupForm: FormGroup;
   public loading: any;
   constructor(
@@ -33,6 +46,51 @@ export class RegisterPage implements OnInit {
 
   
   async signupUser(signupForm: FormGroup): Promise<void> {
+
+    // signup(email, password, name, surname) {
+    //   return firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
+    //     if (user) {
+    //       this.userId = user['user'].uid;
+    //       this.userDocumentNo = user['user'].uid;
+    //       this.email = user['user'].email;
+    //       console.log(this.userDocumentNo);
+  
+    //     // inserting into database
+    //       firebase.firestore().collection('users/').doc(this.userId).set({
+    //       username: name,
+    //       surnamez: surname,
+    //       emails: email,
+    //       hasProfilePic: false,
+    //       });
+    //     }
+    //     return user;
+    //   }).catch((error) => {
+    //     // Handle Errors here.
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+    //     return errorMessage;
+    //     // ...resetepassword
+    //   });
+    // }
+  
+    this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
+      name: this.profile.name,
+     surname: this.profile.surname,
+      // email: this.profile.email,
+      position:this.profile.position,
+      //  userid: this.profile.userid,
+      //  image: this.profile.image,
+       isAdmin: this.profile.isAdmin
+      
+    })
+    .then(function() {
+      console.log("Document successfully written!");
+     
+    })
+    .catch(function(error) {
+      console.error("Error writing document: ", error);
+    });
+
     console.log('Method is called');
 
     if (!signupForm.valid) {
@@ -65,6 +123,8 @@ export class RegisterPage implements OnInit {
       await this.loading.present();
     }
   }
+
+
 
 
 

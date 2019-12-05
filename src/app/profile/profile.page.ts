@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  storage = firebase.storage().ref();
   userprofile=[];
   newuserprofile=[]
     db =firebase.firestore();
@@ -24,9 +25,10 @@ export class ProfilePage implements OnInit {
   userid: firebase.auth().currentUser.uid,
   email: firebase.auth().currentUser.email
     }
+  event: any;
 
  
-  storage: any;
+  // storage: any;
   constructor(private router:Router,private toastController:ToastController) { 
 
       this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
@@ -62,15 +64,15 @@ export class ProfilePage implements OnInit {
       });
       toast.present();
     }
-    else
-    if(this.profile.position ==""||this.profile.position==undefined)
-    {
-      const toast = await this.toastController.create({
-        message: 'Enter the position.',
-        duration: 2000
-      });
-      toast.present();
-    }
+    // else
+    // if(this.profile.position ==""||this.profile.position==undefined)
+    // {
+    //   const toast = await this.toastController.create({
+    //     message: 'Enter the position.',
+    //     duration: 2000
+    //   });
+    //   toast.present();
+    // }
     else
     {
     this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({

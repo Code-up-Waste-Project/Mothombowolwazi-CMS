@@ -43,7 +43,15 @@
                     </div>
                   </div>
                 </div>
+               
+      
+            <div class="input">
+              <p>Email</p>
+              <input formControlName="email" type="email" 
+              [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
+            </div> -->
 
+          
             <div class="forgot">
               <button>New User!</button>
             </div>
@@ -51,13 +59,39 @@
               <button (click)="goToLogin()">Already have and account?</button>
             </div>
             <br>
-         
-            <div class="TheButton">
-                <ion-button color="clear"(click)="signupUser(signupForm)" 
-                [disabled]="!signupForm.valid">LOGIN</ion-button>
-              </div>
+           
+
 
           </form>
+          <div>
+              <ion-item class="theItem">
+                <ion-label><ion-icon name="person"></ion-icon></ion-label>
+                <ion-input placeholder="Name" [(ngModel)]="profile.name"></ion-input>
+              </ion-item>
+              <ion-item class="theItem">
+                <ion-label><ion-icon name="person"></ion-icon></ion-label>
+                <ion-input placeholder="Surname"  [(ngModel)]="profile.surname"></ion-input>
+              </ion-item>
+              <ion-item class="theItem">
+                <ion-label><ion-icon name="body"></ion-icon></ion-label>
+                <ion-input placeholder="Role" [(ngModel)]="profile.position"></ion-input>
+              </ion-item>
+              <!-- <ion-item class="theItem">
+                <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+                <ion-input placeholder="Email Address" [(ngModel)]="profile.email"></ion-input>
+              </ion-item> -->
+              <ion-label>is manager?</ion-label>  
+            <ion-select placeholder="Select One"  [(ngModel)]="profile.isAdmin">  
+              <ion-select-option value="true">true</ion-select-option>  
+              <ion-select-option value="false">false</ion-select-option>  
+            </ion-select>   
+            <div class="TheButton">
+                <button (click)="signupUser(signupForm)" 
+                [disabled]="!signupForm.valid">Register
+              </button>
+              </div>
+      
+              </div>
         </div>
       </div>
     </div> 
