@@ -1,6 +1,6 @@
 import {ModalpopupPageModule} from './../modalpopup/modalpopup.module';
 import { ModalpopupPage } from './../modalpopup/modalpopup.page';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
@@ -12,29 +12,29 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  db =firebase.firestore();
-    profiles
-    profile={
-  image:null,
-  name:null,
-  addres:null,
-  surname:null, 
-  position:null,
-  isAdmin:true,
+export class HomePage implements OnInit {
+  db = firebase.firestore();
+  profiles;
+  profile = {
+  image: null,
+  name: null,
+  addres: null,
+  surname: null,
+  position: null,
+  isAdmin: true,
   // userid:firebase.auth().currentUser.uid,
   // email:firebase.auth().currentUser.email
-    
-    }
+    };
   isAdmin: any;
 
+  constructor(
+    private modalcontroller: ModalController
+    ) {}
 
-
-  constructor(private modalcontroller:ModalController) {}
-  openModal(){
-    this.modalcontroller.create({component:ModalpopupPage}).then((modalElement)=>{
-  modalElement.present();
-    })
+  openModal() {
+    this.modalcontroller.create({component: ModalpopupPage}).then((modalElement) => {
+    modalElement.present();
+    });
   }
 
   ngOnInit() {
@@ -50,6 +50,5 @@ export class HomePage {
       }
     });
   }
- 
-  
+
 }
