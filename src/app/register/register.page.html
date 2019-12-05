@@ -1,13 +1,9 @@
-<ion-content >
-    <div class="container">
-  
-        <div class="logo"></div>
-    <div class="container">
-     
-        <div class="login">
-            <h1>Register</h1>
-        <div>
-          <form [formGroup]="signupForm" class="login">
+<ion-content>
+  <div class="header">
+    <div class="nav">
+      <h2>My Dashboard</h2>
+      <p>You are at " Home "</p>
+    </div>
 
 
 
@@ -94,49 +90,59 @@
               </div>
         </div>
       </div>
-    </div> 
-    <ion-footer no-border>
-        <img  src="../../assets/MaskFooter.svg" alt="">
-    </ion-footer>
- 
+      <div class="names">
+        <H4>Nkosinathi Radebe</H4>
+        <P>Administrator</P>
+      </div>
+    </div>
+
+    <div class="logout">
+      <ion-icon name="log-out"></ion-icon>
+    </div>
   </div>
-    </ion-content>
 
 
 
+  <div class="Everything">
+    <div class="AddUser">
+      <div class="profileDiv">
+        <img id="IMG" src="../../assets/face.png" alt="">
+      </div> <br>
+      <div class="Items">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Surname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="email Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="body"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Position"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="lock"></ion-icon>
+          </ion-label>
+          <ion-input placeholder="Password"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="ViewUser">
 
-
-    <!-- <ion-content>
-        
-    
-             
-              <div class="TheItems">
-                <ion-item>
-                  <ion-label>
-                    <ion-icon name="mail"></ion-icon>
-                  </ion-label>
-                  <ion-input placeholder="Email Address" [(ngModel)] ="user.email"></ion-input>
-                </ion-item>
-              </div>
-              <div class="TheItems">
-                <ion-item>
-                  <ion-label>
-                    <ion-icon name="lock"></ion-icon>
-                  </ion-label>
-                  <ion-input placeholder="Password" type="password" [(ngModel)] ="user.password"></ion-input>
-                </ion-item>
-              </div>
-            <br>
-              <div class="TheButton">
-                <ion-button color="clear" (click) = "fun(user)">LOGIN</ion-button>
-              </div>
-              <h2>Already have an account ? <b>LOGIN</b></h2>
-          
-       
-    
-      </ion-content> -->
-  
-      
-      
-      
-      
+    </div>
+  </div>
+</ion-content>

@@ -5,6 +5,7 @@ import { AuthService } from '../../app/user/auth.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { Directive, HostListener, Output, EventEmitter, ElementRef, Input } from '@angular/core';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -15,12 +16,8 @@ import { Directive, HostListener, Output, EventEmitter, ElementRef, Input } from
 })
 export class LoginPage implements OnInit {
 
-  public onSubmit(): void {
-    // ...
-    // ... // ...
-    // ...
-  }
-  db = firebase.firestore()
+  db = firebase.firestore();
+
   public loginForm: FormGroup;
   public loading: HTMLIonLoadingElement;
 
@@ -30,61 +27,29 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    
-    
     private FormsModule: FormsModule,
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: [
-        '',
-        Validators.compose([Validators.required, Validators.minLength(6)])
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])
       ]
     });
-
-
-    
   }
 
-  async ngOnInit() {
-
-//     let loader = await this.loadingCtrl.create({
-//       message: 'Just a sec'
-//     })
-//     // loader.present()
-//     firebase.auth().onAuthStateChanged(user => {
-//       if (user) {
-
-//         console.log("The current user id is", user.uid);
-
-//         loader.dismiss()
-//         this.db.collection('userprofile').where('userid', '==', user.uid).get().then(res => {
-//           if (res.empty) {
-            
-//             this.router.navigateByUrl('profile');
-//           } else {
-            
-//             this.router.navigate(['home']);
-//           }
-//         })
-//       } else {
-// loader.dismiss()
-//       }
-//     })
+  ngOnInit() {
   }
 
   async loginUser(loginForm: FormGroup): Promise<void> {
-
     if (!loginForm.valid) {
       console.log('Form is not valid yet, current value:', loginForm.value);
     } else {
-      
       let loading = await this.loadingCtrl.create();
       await loading.present();
       setTimeout(() => {
         loading.dismiss();
-      }, 4000)
-      
+      },
+    4000);
+
       const email = loginForm.value.email;
       const password = loginForm.value.password;
       this.authService.loginUser(email, password).then(
@@ -95,14 +60,13 @@ export class LoginPage implements OnInit {
                 if (res.empty) {
                   // this.loading.dismiss();
                   this.router.navigate(['profile']);
-                  
                 } else {
                   // this.loading.dismiss()
                   this.router.navigate(['home']);
                 }
-              })
+              });
             }
-          })
+          });
         },
         async (error) => {
           const alert = await this.alertCtrl.create({
@@ -119,12 +83,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['reset-password']);
   }
 
-  goToRegister(){
+  goToRegister() {
     this.router.navigate(['register']);
   }
 
-
-  handleLogin() {
-    // Do your stuff here
-}
 }

@@ -61,14 +61,14 @@ this.appPages.push({
   {
     title: 'Edit Prices',
     url: '/editprice',
-    icon: 'create',
+    icon: 'cash',
     admin:"cool"
   }, {
     title: 'Outbound',
     url: '/outbound',
     icon: 'cash',
     admin:"cool"
-  },{
+  }, {
     title: 'Reclaimer',
     url: '/reclaimer',
     icon: 'cash',

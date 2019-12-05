@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import {ModalController} from '@ionic/angular';
+// import { read } from 'fs';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {ModalController} from '@ionic/angular';
   styleUrls: ['./reclaimer.page.scss'],
 })
 export class ReclaimerPage implements OnInit {
-  
+
   db = firebase.firestore();
 
   name;
