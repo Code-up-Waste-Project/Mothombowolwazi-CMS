@@ -14,7 +14,7 @@ import {ModalController} from '@ionic/angular';
   styleUrls: ['./reclaimer.page.scss'],
 })
 export class ReclaimerPage implements OnInit {
-  
+
   db = firebase.firestore();
 
   name;

@@ -46,8 +46,7 @@ export class ProfilePage implements OnInit {
   }
 
   async users() {
-    if (this.profile.name == "" || this.profile.name == undefined)
-    {
+    if (this.profile.name == "" || this.profile.name == undefined) {
       const toast = await this.toastController.create({
         message: 'Enter the name.',
         duration: 2000

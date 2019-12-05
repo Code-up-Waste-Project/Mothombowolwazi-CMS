@@ -3,10 +3,34 @@
         
           </div>
         <div class="container" padding>
-          
-
             <div class="slideContainer">
             <ion-slides #slides [options]="slideOpts"   style=" overflow: visible;">
+              <ion-slide style=" border-radius: 20px !; overflow: hidden" >	
+                <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">	
+                <div class="Mother">	
+                  <div class="itemDiv">	
+                    <ion-item>	
+                      <ion-icon name="person"></ion-icon>	
+                      <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>	
+                    </ion-item>	
+                    <ion-item>	
+                      <ion-icon name="person"></ion-icon>	
+                      <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>	
+                    </ion-item>	
+                    <ion-item>	
+                      <ion-icon name="call"></ion-icon>	
+                      <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>	
+                    </ion-item>	
+                    <ion-item>	
+                      <ion-icon name="pin"></ion-icon>	
+                      <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>	
+                    </ion-item>	
+                  </div>	
+                  <div class="theButton">	
+                  </div>	
+                </div>	
+              </form>	
+              </ion-slide><!-- end of slide one -->
             <!-- paper -->
               <ion-slide style=" border-radius: 20px !; overflow: hidden" >
                <div class="lists"  style="overflow: auto;">
