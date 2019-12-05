@@ -11,23 +11,19 @@
 
       
       <ion-content>
-        <div class="MenuList" >
-          <!-- <div class="Everything"> -->
-            <!-- profile pic -->
-            <div class="profiles">
-              <div class="image"><H3>LOGO</H3></div>
-              <!-- <h5>Nkosnathi Malinga</h5>
-              <p>Administrator</p> -->
-              
-            </div>
-          <div *ngFor="let p of appPages" >
-            <div     id="one" [routerDirection]="'root'" [routerLink]="[p.url]"><br><br>
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <h1>{{p.title}}</h1>
-            </div>
-          </div>
-          <!-- </div> -->
-        </div>
+        <ion-list>
+            <div class="MenuList" >
+                <!-- <div class="Everything"> -->
+                  
+                <div *ngFor="let p of appPages" >
+                  <div     id="one" [routerDirection]="'root'" [routerLink]="[p.url]"><br><br>
+                    <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                    <h1>{{p.title}}</h1>
+                  </div>
+                </div>
+                <!-- </div> -->
+              </div>
+        </ion-list>
         <!-- <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">

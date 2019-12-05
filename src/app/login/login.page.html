@@ -1,41 +1,62 @@
-<ion-content>
-  <div class="ScreenContent">
-    <div class="Card">
-      <div class="CardContentleft">
+<ion-content >
+
+   
+    <div class="ScreenContent">
+        <div class="Card">
+            <div class="CardContent">
+                
+            <h1>Log In</h1>
+           <form ng-submit="loginForm()"  [formGroup]= "loginForm" class="login" #form="ngForm">
+              <div class="TheItems">
+                  <ion-item>
+                    <ion-label>
+                      <ion-icon name="mail"></ion-icon>
+                    </ion-label>
+                    <ion-input placeholder="Email Address" type="email" formControlName="email" [class.invalid]="!loginForm.controls['email'].valid &&
+                    loginForm.controls['email'].touched" (keyup.enter)="submit()"></ion-input>
+                  </ion-item>
+                </div>
+                <div class="error" *ngIf="!loginForm.controls['email'].valid &&
+                loginForm.controls['email'].touched">
+                  <div class="messages">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+                <div class="TheItems">
+                    <ion-item>
+                      <ion-label>
+                        <ion-icon name="mail"></ion-icon>
+                      </ion-label>
+                      <ion-input placeholder="Email Address" type="password" formControlName="password"
+                      [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched" (keyup.enter)="submit()" (keyup.enter)="handleLogin()"></ion-input>
+                    </ion-item>
+                  </div>
+                  <div *ngIf="!loginForm.controls['password'].valid
+                    && loginForm.controls['password'].touched" class="error">
+                      <div class="messages">
+                        Your password is incorrect.
+                      </div>
+                    </div>
+             <button  type="submit"  (click)="loginUser(loginForm)" 
+             [disabled]="!loginForm.valid" class="thato"></button>
+
+             <div class="forgot">
+               <button  (click)="forgetpassword()">Forgot Password?</button>
+             </div>
+             <div class="create">
+               <button (click)="goToRegister()">Create Account</button>
+             </div>
+             <br>
         
+             <div class="TheButton">
+                <ion-button color="clear" type="submit"  (click)="loginUser(loginForm)" 
+                 expand="block" 
+                 [disabled]="!loginForm.valid">LOGIN</ion-button>
+              </div>
+             
+           </form>
+          </div>
+        </div>
       </div>
-      <div class="CardContent">
-        <h1>Log In</h1>
-        <div class="TheItems">
-          <ion-item>
-            <ion-label>
-              <ion-icon name="mail"></ion-icon>
-            </ion-label>
-            <ion-input placeholder="Email Address" [(ngModel)] ="user.email" ></ion-input>
-          </ion-item>
-        </div>
-        <div class="TheItems">
-          <ion-item>
-            <ion-label>
-              <ion-icon name="lock"></ion-icon>
-            </ion-label>
-            <ion-input placeholder="Password" type ="password" [(ngModel)] ="user.password"></ion-input>
-          </ion-item>
-        </div>
-        <p>Forgot your password?</p>
-        <div class="TheButton">
-          <ion-button color="clear" (click) = "fun(user)">LOGIN</ion-button>
-        </div>
-        <h2>Don't have an account ? <b>Sign Up</b></h2>
-      </div>
-    </div>
-  </div>
-  <!-- <div id="recaptcha-container"></div>
-  <form class="form" style="padding: 50px;" [formGroup]="registrationForm">
-      <ion-label stacked>Phone Number</ion-label>
-      <ion-input formControlName="phoneNumber" type="text" [(ngModel)]="phoneNumber"></ion-input>
-    <ion-button id="sign-in-button" [disabled]="!registrationForm.valid"  (click)="addUser()">
-      Sign In
-    </ion-button>
-    </form> -->
-</ion-content>
+   </ion-content>
+   
