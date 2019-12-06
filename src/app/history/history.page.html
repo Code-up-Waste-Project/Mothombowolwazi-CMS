@@ -18,40 +18,31 @@
       </div>
     </div>
     <div class="Everything">
-  
+  ​
       <div class="AddUser">
-  
+  ​
+  ​
         <div class="wavey">
-          <img id="img" src="../../assets/Group4@2x.png" alt="">
+          <img id="img" src="../../assets/icon/Group4@2x.png" alt="">
           <h1 id="H1">Your Receipt History</h1>
         </div> <br>
         <div class="Items">
           <div id="Socialcards">
-            <ion-card>
-              <ion-item>
+            <ion-card >
+              <ion-item  *ngFor = "let myreclaimers  of newreclaimer">
                 <ion-thumbnail slot="start">
                   <img id="face" src="../../assets/face.png">
                 </ion-thumbnail>
                 <ion-label>
-                  <!-- <h2>{{profile.name}} {{profile.surname}}</h2>
-                  <p>{{profile.name}} {{profile.surname}}</p> -->
+                  <h2>{{myreclaimers.name}} {{myreclaimers.surname}}</h2>
+                  
                 </ion-label>
                 <ion-icon id="Icon5" name="trash"></ion-icon>
               </ion-item>
             </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
+
+
+            <!-- <ion-card>
               <ion-item>
                 <ion-thumbnail slot="start">
                   <img id="face" src="../../assets/face.png">
@@ -135,13 +126,28 @@
                 <ion-icon id="Icon5" name="trash"></ion-icon>
               </ion-item>
             </ion-card>
+            <ion-card>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img id="face" src="../../assets/face.png">
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>Lebogang Thipenyane</h2>
+                  <p>Assistant Manager</p>
+                </ion-label>
+                <ion-icon id="Icon5" name="trash"></ion-icon>
+              </ion-item>
+            </ion-card>
+             -->
           </div>
         </div>
+  ​
       </div>
-  
+  ​
+  ​
       <div class="ViewUser">
         <div class="Wavey2">
-          <img id="img2" src="../../assets/Group4@2x.png" alt="">
+          <img id="img2" src="../../assets/icon/Group4@2x.png" alt="">
         </div>
         <div class="Rotation">
           <div class="Text">

@@ -25,7 +25,7 @@ export class ProfilePage implements OnInit {
   email: firebase.auth().currentUser.email
     };
 
-  storage: any;
+  // storage: any;
   constructor(
     private router: Router,
     private toastController: ToastController

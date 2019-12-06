@@ -20,7 +20,7 @@ var firebaseConfig = {
   authDomain: "mthombowolwazi-a7902.firebaseapp.com",
   databaseURL: "https://mthombowolwazi-a7902.firebaseio.com",
   projectId: "mthombowolwazi-a7902",
-  storageBucket: "mthombowolwazi-a7902.appspot.com",
+  storageBucket: "gs://mthombowolwazi-a7902.appspot.com",
   messagingSenderId: "600992256023",
   appId: "1:600992256023:web:816994d446312af5020c52",
   measurementId: "G-BM6WENYL3H"
