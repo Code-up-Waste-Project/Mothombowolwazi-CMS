@@ -1,31 +1,79 @@
-<ion-content>
-    <div class="header">	
-       <div class="nav">	
-         <h2>My Dashboard</h2>	
-         <p>You are at " Home " where you a able to see your everyday progress</p>	
-       </div> 	
+
    
-       <div class="profiles">	
-         <div class="image">   	
-            <img src="../../assets/face.png">	
-           </div>	
-     <div class="names">	
-       <H4>Nkosinathi Radebe</H4>	
-       <P>Administrator</P>	
-     </div>	
-       </div>	
-   
-       <div class="logout">	
-           <ion-icon name="log-out"></ion-icon>	
-       </div>	
-     </div>
-     <div class="container" padding>
-       <div class="logo">
-       
-         </div>
-       <div class="container" padding>
-           <div class="slideContainer">
-           <ion-slides #slides [options]="slideOpts"   style=" overflow: visible;">
+   <ion-content>
+     <div class="header">	
+        <div class="nav">	
+          <h2>My Dashboard</h2>	
+          <p>You are at " Home " where you a able to see your everyday progress</p>	
+        </div> 	
+    
+        <div class="profiles">	
+          <div class="image">   	
+             <img src="../../assets/face.png">	
+            </div>	
+      <div class="names">	
+        <H4>Nkosinathi Radebe</H4>	
+        <P>Administrator</P>	
+      </div>	
+        </div>	
+    
+        <div class="logout">	
+            <ion-icon name="log-out"></ion-icon>	
+        </div>	
+      </div>
+      <div class="container" padding>
+        <div class="logo">
+        
+          </div>
+        <div class="container" padding>
+            <div class="slideContainer">
+            <ion-slides #slides [options]="slideOpts"   style=" overflow: visible;">
+              <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+               <div class="lists"  style="overflow: auto;">
+                   <h3 id="title">PAPER</h3>
+                 <div class="list">
+                 <div class="image"><img src="../../assets/common white paper.jpg" height="80%%">
+                 <p>COMMON PAPER</p>
+               </div>
+                 <div class="name"><p> PAP005</p></div>
+           
+                 <div><ion-input type="number" [(ngModel)]='PAP005mass' placeholder="Enter Mass" 
+                  (change)='onChangePAP005($event.target.value)'></ion-input></div>
+                  <div class="name2"><p> R{{ PAP005price }}</p></div>
+               </div>
+               <div class="list">
+                   <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
+                   <p>FLAT NEWS</p>
+                 </div>
+                   <div class="name"><p>PAP007</p></div>
+                   <div><ion-input type="number" [(ngModel)]='PAP007mass' placeholder="Enter Mass" 
+                    (change)='onChangePAP007($event.target.value)'></ion-input></div>
+                    <div class="name2"><p> R{{ PAP007price }}</p></div>
+                 </div>
+                 <div class="list">
+                     <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+                     <p>HL 1</p>
+                   </div>
+                     <div class="name"><p> PAP001</p></div>
+                     <div><ion-input type="number" [(ngModel)]='PAP001mass' placeholder="Enter Mass" 
+                      (change)='onChangePAP001($event.target.value)'></ion-input></div>
+                      <div class="name2"><p> R{{ PAP001price }}</p></div>
+                   </div>
+                   <div class="list">
+                       <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
+                       <p>K4-CARDBOARD</p>
+                     </div>
+                       <div class="name"><p>PAP003</p></div>
+                       <div><ion-input type="number" [(ngModel)]='PAP003mass' placeholder="Enter Mass" 
+                        (change)='onChangePAP003($event.target.value)'></ion-input></div>
+                        <div class="name2"><p> R {{ PAP003price }}</p></div>
+                     </div>
+                     <h3>SUB-TOTAL <span id="total">= R{{ PaperTotal }}</span></h3>
+                     <button id="addpaper" ion-button (click)="onChangeTotal()"> Add To Grand-total</button>
+                
+               </div>
+             </ion-slide>
+
              <ion-slide style=" border-radius: 20px !; overflow: hidden" >
               <div class="lists"  style="overflow: auto;">
                   <h3 id="title">PAPER</h3>
@@ -171,48 +219,108 @@
                      <div class="wave">
                          <img src="../../assets/wavy.png">
                        </div>
-                       <div class="form">
-                           <ion-item>	
-                               <ion-icon name="person"></ion-icon>	
-                               <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>	
-                             </ion-item>	
-                             <ion-item>	
-                               <ion-icon name="person"></ion-icon>	
-                               <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>	
-                             </ion-item>	
-                             <ion-item>	
-                               <ion-icon name="call"></ion-icon>	
-                               <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>	
-                             </ion-item>	
-                             <ion-item>	
-                               <ion-icon name="pin"></ion-icon>	
-                               <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>	
-                             </ion-item>	
-                           <div class="theButton">	
-                           </div>
-                       </div>	
-               </form>	
-               </ion-slide> -->
-               <ion-slide id="form" >
-                   <div class="wave">
-                     <img src="../../assets/wavy.png">
-                   </div>
-                   <div class="form">
-                       <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
-                           <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>
-                           <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>	
-                           <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>
-                           <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>
-                       </form>
-                   </div>
-                 </ion-slide>
-           </ion-slides>
-           </div>
-           <div class="totals">
-             <!-- <h4>Grand-Total  =  R{{ TotalTotal }}</h4> -->
-             <button ion-button (click)="calculate()" [disabled]="!RegisterForm.valid"> Generate Receipt</button>
-             <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
-           </div>
-         </div>
-       </div>
+                       <div class="list">
+                        <div class="image"><img src="../../assets/pet clear bottle.jpg" height="80%%">
+                        <p>PET CLEAR</p>
+                      </div>
+                        <div class="name"><p>PET001</p></div>
+                        <div><ion-input type="number" [(ngModel)]='PET001mass' placeholder="Enter Mass" 
+                          (change)='onChangePET001($event.target.value)'></ion-input></div>
+                          <div class="name2"><p> R{{ PET001price }}</p></div>
+                      </div>
+                      <div class="list">
+                        <div class="image"><img src="../../assets/pet green bottle.jpg" height="80%%">
+                        <p>PET GREEN</p>
+                      </div>
+                        <div class="name"><p>PET003</p></div>
+                        <div><ion-input type="number" [(ngModel)]='PET003mass' placeholder="Enter Mass" 
+                          (change)='onChangePET003($event.target.value)'></ion-input></div>
+                          <div class="name2"><p> R{{ PET003price }}</p></div>
+                      </div>
+                      <button ion-button (click)="onChangePlasticTotalzzz()"> Add To Grand-total</button>
+                      <h3>SUB-TOTAL <span id="total"> R{{ PlasticTotals }}</span></h3>
+                 </div>
+               </ion-slide>
+          
+              <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+                 <div class="lists">
+                     <h3 id="title">NON-FERROUS</h3>
+                   <div class="list">
+                   <div class="image"><img src="../../assets/ALU-CANS-cropped.jpg" height="80%%">
+                   <p>ALLINIUM CANS</p>
+                 </div>
+                   <div class="name"><p> NFAL01</p></div>
+                   <div><ion-input type="number" [(ngModel)]='NFAL01mass' placeholder="Enter Mass" 
+                    (change)='onChangeNFAL01($event.target.value)'></ion-input></div>
+                    <div class="name2"><p> R {{ NFAL01price }}</p></div>
+                 </div>
+                 <button ion-button (click)="onChangeTotalNFAL01()"> Add To Grand-total</button>
+                  <h3>SUB-TOTAL = <span> R {{ NFAL01Total }}</span></h3>
+                 </div>
+               </ion-slide>
+              <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+                 <div class="lists">
+                     <h3 id="title">GLASS</h3>
+                   <div class="list">
+                   <div class="image"><img src="../../assets/glass.jpg" height="80%%">
+                   <p>GLASS</p>
+                 </div>
+                   <div class="name"><p> GL001</p></div>
+                   <div><ion-input type="number" [(ngModel)]='GH001mass' placeholder="Enter Mass" 
+                    (change)='onChangeGH001($event.target.value)'></ion-input></div>
+                    <div class="name2"><p> R {{ GH001price }}</p></div>
+                 </div>
+                       <h3>SUB-TOTAL = <span> R  {{ GH001Total }}</span></h3>
+                       <button ion-button (click)="onChangeTotalGH001()"> Add To Grand-total</button>
+                 </div>
+               </ion-slide>
+               <!-- <ion-slide id="form" >	
+                  <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+                      <div class="wave">
+                          <img src="../../assets/wavy.png">
+                        </div>
+                        <div class="form">
+                            <ion-item>	
+                                <ion-icon name="person"></ion-icon>	
+                                <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>	
+                              </ion-item>	
+                              <ion-item>	
+                                <ion-icon name="person"></ion-icon>	
+                                <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>	
+                              </ion-item>	
+                              <ion-item>	
+                                <ion-icon name="call"></ion-icon>	
+                                <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>	
+                              </ion-item>	
+                              <ion-item>	
+                                <ion-icon name="pin"></ion-icon>	
+                                <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>	
+                              </ion-item>	
+                            <div class="theButton">	
+                            </div>
+                        </div>	
+                </form>	
+                </ion-slide> -->
+                <ion-slide id="form" >
+                    <div class="wave">
+                      <img src="../../assets/wavy.png">
+                    </div>
+                    <div class="form">
+                        <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+                            <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>
+                            <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>	
+                            <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>
+                            <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>
+                        </form>
+                    </div>
+                  </ion-slide>
+            </ion-slides>
+            </div>
+            <div class="totals">
+              <!-- <h4>Grand-Total  =  R{{ TotalTotal }}</h4> -->
+              <button ion-button (click)="calculate()" [disabled]="!RegisterForm.valid"> Generate Receipt</button>
+              <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
+            </div>
+          </div>
+        </div>
 </ion-content>

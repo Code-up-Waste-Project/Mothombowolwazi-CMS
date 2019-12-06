@@ -1,11 +1,11 @@
 import {ModalpopupPageModule} from './../modalpopup/modalpopup.module';
 import { ModalpopupPage } from './../modalpopup/modalpopup.page';
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as firebase from 'firebase';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { log } from 'util';
 import { Chart } from 'chart.js';
-import {  ViewChild } from '@angular/core';
 // import { ModalpopupPage } from '../modalpopup/modalpopup.page';
 
 
@@ -15,12 +15,10 @@ import {  ViewChild } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  @ViewChild('barChart', {static: false}) barChart;
-  // @ViewChild('barChart') barChart;
 
-  bars: any;
-  colorArray: any;
-  
+@ViewChild('barChart', {static: false}) barChart;
+bars: any;
+colorArray: any;
 
   db = firebase.firestore();
   profiles;
@@ -36,38 +34,34 @@ export class HomePage implements OnInit {
     };
   isAdmin: any;
 
+  GH001storagemass;
+  NFAL01storagemass;
+
+  PAP005storagemass;
+  PAP007storagemass;
+  PAP001storagemass;
+  PAP003storagemass;
+
+  HD001storagemass;
+  LD001storagemass;
+  LD003storagemass;
+  PET001storagemass;
+  PET003storagemass;
+  PET005storagemass;
+
+  Totalpaper;
+  Totalplastic;
+
   constructor(
-    private modalcontroller: ModalController
-    )
-     {}
-
-
-     ionViewDidEnter() {
-      this.createBarChart();
+    private modalcontroller: ModalController,
+    private menuCtrl: MenuController,
+    ) {
+      this.getMasses();
     }
-    createBarChart() {
-      this.bars = new Chart(this.barChart.nativeElement, {
-        type: 'bar',
-        data: {
-          labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
-          datasets: [{
-            label: 'Viewers in millions',
-            data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
-            backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-            borderColor: 'rgb(38, 194, 129)',// array should have same number of elements as number of dataset
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
-        }
-      });
+
+    //chart
+    ionViewDidEnter() {
+      this.createBarChart();
     }
 
   openModal() {
@@ -86,6 +80,71 @@ export class HomePage implements OnInit {
           .then(userProfileSnapshot => {
           this.isAdmin = userProfileSnapshot.data().isAdmin;
           });
+      }
+    });
+    this.menuCtrl.enable(true); // or true 
+  }
+
+  getMasses() {
+    this.db.collection('storage').onSnapshot(snapshot => {
+      snapshot.forEach(element => {
+        this.GH001storagemass = element.data().GL001;
+        this.NFAL01storagemass = element.data().NFAL01;
+        this.PAP005storagemass = element.data().PAP005;
+        this.PAP007storagemass = element.data().PAP007;
+        this.PAP001storagemass = element.data().PAP001;
+        this.PAP003storagemass = element.data().PAP003;
+        this.HD001storagemass = element.data().HD001;
+        this.LD001storagemass = element.data().LD001;
+        this.LD003storagemass = element.data().LD003;
+        this.PET001storagemass = element.data().PET001;
+        this.PET003storagemass = element.data().PET003;
+        this.PET005storagemass = element.data().PEP005;
+        // console.log(element);
+      });
+      console.log(this.GH001storagemass);
+      console.log(this.NFAL01storagemass);
+      console.log(this.PAP005storagemass);
+      console.log(this.PAP007storagemass);
+      console.log(this.PAP001storagemass);
+      console.log(this.PAP003storagemass);
+      console.log(this.HD001storagemass);
+      console.log(this.LD001storagemass);
+      console.log(this.LD003storagemass);
+      console.log(this.PET001storagemass);
+      console.log(this.PET003storagemass);
+      console.log(this.PET005storagemass);
+    });
+    this.Totalpaper = +this.PAP005storagemass + +this.PAP007storagemass + +this.PAP001storagemass + +this.PAP003storagemass;
+    this.Totalplastic = +this.HD001storagemass + +this.LD001storagemass + +this.LD003storagemass + +this.PET001storagemass +
+    +this.PET003storagemass + +this.PET005storagemass;
+    console.log(this.Totalpaper);
+    console.log(this.Totalplastic);
+  }
+
+  createBarChart() {
+    this.bars = new Chart(this.barChart.nativeElement, {
+      type: 'line',
+      data: {
+        labels: ['Aluminium', 'Glass', 'Paper', 'Plastic'],
+
+        datasets: [{
+          label: 'Overall material ',
+          data: [this.GH001storagemass, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
+backgroundColor: 'purple', // array should have same number of elements as number of dataset
+          borderColor: 'green',// array should have same number of elements as number of dataset
+          borderWidth: 1
+
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
       }
     });
   }

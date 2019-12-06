@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import * as firebase from 'firebase';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -10,19 +10,36 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   public appPages = [];
-admin;
+  admin;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    // private content: ElementRef,
-    // private render: Renderer2
+    private content: ElementRef,
+    private render: Renderer2
   ) {
     this.initializeApp();
   }
 
   ngOnInit() {
+    console.log(this.content.nativeElement);
+    this.render.setStyle(this.content.nativeElement.children[0], 'width', '80%' );
+    this.render.setStyle(this.content.nativeElement.children[0], 'height', '80%' );
+    this.render.setStyle(this.content.nativeElement, 'background-image', 'url(../assets/cover.png)');
+
+    this.render.setStyle(this.content.nativeElement.children[0], 'box-shadow', ' 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)' );    this.render.setStyle(this.content.nativeElement.children[0], 'transform', 'translate(12%, 12%)');
+    this.render.setStyle(this.content.nativeElement.children[0], 'border-radius', '15px');
+    //this.render.setStyle(this.content.nativeElement.children[0], 'border', '2px solid red');
+    this.render.setStyle(this.content.nativeElement.children[0], 'display', 'flex' );
+    this.render.setStyle(this.content.nativeElement.children[0], 'justify-content', 'center');
+    this.render.setStyle(this.content.nativeElement.children[0], 'align-items', 'center');
+
+    this.render.setStyle(this.content.nativeElement.children[0], 'background-position', 'center');
+    this.render.setStyle(this.content.nativeElement.children[0], 'background-size', 'cover');
+    this.render.setStyle(this.content.nativeElement.children[0], 'object-fit', '2%' );
     this.appPages = [];
 
     firebase.auth().onAuthStateChanged(user => {
@@ -41,7 +58,7 @@ this.appPages.push({
 {
   title: 'Inbounds',
   url: '/analytics',
-  icon: 'cash',
+  icon: 'arrow-round-back',
   admin:"cool"
 },
 {
@@ -55,18 +72,23 @@ this.appPages.push({
   {
     title: 'home',
     url: '/home',
-    icon: 'cash',
+    icon: 'home',
     admin:"cool"
   },
   {
     title: 'Edit Prices',
     url: '/editprice',
-    icon: 'cash',
+    icon: 'create',
+    admin:"cool"
+  }, {
+    title: 'Inbound',
+    url: '/analytics',
+    icon: 'arrow-round-back',
     admin:"cool"
   }, {
     title: 'Outbound',
     url: '/outbound',
-    icon: 'cash',
+    icon: 'arrow-round-forward',
     admin:"cool"
   }, {
     title: 'Reclaimer',
@@ -79,14 +101,9 @@ this.appPages.push({
     icon: 'cash',
     admin:"cool"
   }, {
-    title: 'Users',
+    title: 'Manage Users',
     url: '/register',
-    icon: 'cash',
-    admin:"cool"
-  }, {
-    title: 'Log Out',
-    url: '/home',
-    icon: 'cash',
+    icon: 'people',
     admin:"cool"
   },
   );

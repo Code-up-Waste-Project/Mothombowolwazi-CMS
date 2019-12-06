@@ -297,6 +297,22 @@ export class AnalyticsPage implements OnInit {
     this.presentToast();
   }
 
+  save() {
+    this.SaveGH001();
+    this.SaveNFAL01();
+    this.SavePAP005();
+    this.SavePAP007();
+    this.SavePAP001();
+    this.SavePAP003();
+    this.SaveHD001();
+    this.SaveLD001();
+    this.SaveLD003();
+    this.SavePET001();
+    this.SavePET003();
+    this.SavePET005();
+    this.route.navigate(['home']);
+  }
+
   async presentAlert(data) {
     const alert = await this.alertController.create({
       header: 'Alert',
@@ -323,8 +339,6 @@ export class AnalyticsPage implements OnInit {
     await loading.present();
     loading.dismiss();
   }
-
-  
 
 openModal() {
   this.modalcontroller.create({component: ModalpopupPageModule}).then((modalElement) => {

@@ -52,6 +52,7 @@
       font-size: 0.9em;
       font-weight: 500;
       letter-spacing: 1px;
+      color: black;
      }
     }
   }
@@ -80,7 +81,7 @@
 
     .AddUser{
         background-image: url("../../assets/icon/Web\ 1920\ –\ 1.png");
-        height: 80%;
+        height: 90%;
         width: 35%;
         border-radius: 10px;
         object-fit: cover;
@@ -121,7 +122,7 @@
 
     .ViewUser{
       background-color: white;
-      height: 80%;
+      height: 90%;
       width: 35%;
       border-radius: 10px;
       margin: 0 auto;
@@ -134,10 +135,10 @@
 }
 
 .theITEMS{
-  border: #80CC59 solid 2px;
+  border: #24A896 solid 2px;
   margin-bottom: 20%;
   border-radius: 50px;
-  height: 25%;
+  height: 28%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,7 +160,7 @@ ion-icon{
   border-radius: 50%;
   position: absolute;
   z-index: 100000000000;
-  left: 14.5%;
+  left: 15%;
   background: linear-gradient(#24A896,#80CC59);
   display: flex;
   flex-direction: column;
@@ -193,13 +194,15 @@ ion-button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  // margin-top: 10%;
 }
 
 .btn2{
   background: radial-gradient(#24A896,#80CC59);
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  bottom: 30%;
 }
 
 h1{
@@ -219,4 +222,8 @@ h1{
   color: #24A896;
   // background-color: red;
   margin-right: 8%;
+}
+
+.forgotP{
+  background-color: rgba(238, 130, 238, 0);
 }

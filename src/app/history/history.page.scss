@@ -46,7 +46,6 @@
        // border: 1px solid red;
         margin-left: 10px;;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-      
   
        p {
         font-size: 0.9em;
@@ -123,7 +122,6 @@
             width: 90px;
             border-radius: 100px;
           }
-    
 
       .ViewUser{
         background-color: white;
@@ -148,7 +146,6 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto; 
-    
   }
 
   ion-icon{
@@ -173,7 +170,7 @@
     text-align: center;
   }
 
-  ion-input{
+  ion-input {
   }
   ion-button{
     margin: 0 auto;
@@ -223,8 +220,7 @@
   #Socialcards{
     // border: solid 2px red;
     position: relative;
-    bottom: 20px;
-    
+    bottom: 20px;   
   }
 
   #face{
@@ -266,18 +262,16 @@
   width: 100%;
 }
 
-
 .Text{
   -ms-transform: rotate(20deg); /* IE 9 */
   -webkit-transform: rotate(20deg); /* Safari prior 9.0 */
   transform: rotate(20deg); /* Standard syntax */
   
-
 h2{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bolder;
   color: rgb(189, 189, 189);
   font-size: 200%;
+  text-align: center;
 }
 }
- 

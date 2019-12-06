@@ -1,33 +1,14 @@
-
-  
-  <!-- <ion-content padding>
-   
-    <ion-item>
-      <ion-label stacked>From</ion-label>
-      <ion-input [(ngModel)]="letterObj.from"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>To</ion-label>
-      <ion-input [(ngModel)]="letterObj.to"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Text</ion-label>
-      <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
-    </ion-item>
-   
-    <button ion-button full (click)="createPdf()">Create PDF</button>
-    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
-   
-  </ion-content> -->
-
-<!-- 
-  <ion-header>
-      <ion-toolbar>
-        <ion-title>transactions</ion-title>
-      </ion-toolbar>
-    </ion-header> -->
-    
-    <ion-content>
+    <!-- <ion-content>
+        <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+        <ion-input [(ngModel)]="DriverName" formControlName="DriverName">Driver Name</ion-input>
+        <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates">Registarion Number Plates</ion-input>
+        <ion-input formControlName="Destination" [(ngModel)]="Destination">Destination</ion-input>
+        </form>
+        <label>Truck Source</label>
+        <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess">
+            <ion-select-option value="InSource">In-Source</ion-select-option>
+            <ion-select-option value="outsorce">Out-Source</ion-select-option>
+        </ion-select>
         <ion-input type="number" [(ngModel)]="GH001mass">GH001</ion-input>
         <ion-input type="number" [(ngModel)]="NFAL01mass">NFAL01</ion-input>
         <ion-input type="number" [(ngModel)]="PAP005mass">PAP005</ion-input>
@@ -40,11 +21,177 @@
         <ion-input type="number" [(ngModel)]="PET001mass">PET001</ion-input>
         <ion-input type="number" [(ngModel)]="PET003mass">PET003</ion-input>
         <ion-input type="number" [(ngModel)]="PET005mass">PET005</ion-input>
-        <button ion-button full (click)="calculate()">calculate</button>
-        
-    
+        <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">calculate</button>
        
-    <button ion-button full (click)="createPdf()">Create PDF</button>
     <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
-    </ion-content>
+    </ion-content> -->
+
+<ion-content>
+<div class="header">	
+    <div class="nav">	
+      <h2>My Dashboard</h2>	
+      <p>You are at " OUTBOUND" where you can record information for your dispatch</p>	
+    </div> 	
+
+    <div class="profiles">	
+      <div class="image">   	
+         <img src="../../assets/face.png">	
+        </div>	
+  <div class="names">	
+    <H4>Nkosinathi Radebe</H4>	
+    <P>Administrator</P>	
+  </div>	
+    </div>	
+
+    <div class="logout">	
+        <ion-icon name="log-out"></ion-icon>	
+    </div>	
+  </div>
+
+<!-- new code -->
+<div class="container" padding>
+  <div class="slideContainer">
+  <ion-slides #slides [options]="slideOpts"  style=" overflow: visible;">
+   
+  <!-- paper -->
+    <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+     <div class="lists" style="overflow: auto;">
+         <h3 id="title">PAPER</h3>
+       <div class="list">
+       <div class="image"><img src="../../assets/common white paper.jpg" height="80%%">
+       <p>COMMON PAPER</p>
+     </div>
+       <div class="name"><p> PAP005</p></div>
+       <ion-input type="number" [(ngModel)]="PAP005mass" placeholder="Enter Mass Here"></ion-input>
+    
+     </div>
+     <div class="list" style="overflow: auto;">
+         <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
+         <p>FLAT NEWS</p>
+       </div>
+         <div class="name"><p>PAP007</p></div>
+         <ion-input type="number" [(ngModel)]="PAP007mass" placeholder="Enter Mass Here"></ion-input>
+     
+       </div>
+       <div class="list">
+           <div class="image"><img src="../../assets/shapes.svg" height="80%%">
+           <p>HL 1</p>
+         </div>
+           <div class="name"><p> PAP001</p></div>
+           <ion-input type="number" [(ngModel)]="PAP001mass" placeholder="Enter Mass Here"></ion-input>
+         </div>
+         <div class="list" style="margin-bottom: 5px !important">
+             <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
+             <p>K4-CARDBOARD</p>
+           </div>
+             <div class="name" ><p>PAP003</p></div>
+             <ion-input type="number" [(ngModel)]="PAP003mass" placeholder="Enter Mass Here"></ion-input>
+           </div>
+     </div>
+   </ion-slide><!-- end of slide one -->
+        <!-- plastic -->
+   <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+       <div class="lists" style="overflow: auto;">
+           <h3 id="title">PLASTIC</h3>
+         <div class="list" id="paper">
+         <div class="image"><img src="../../assets/Hd plastic.jpg" height="80%%">
+         <p>HD</p>
+       </div>
+         <div class="name"><p>HD001</p></div>
+         <ion-input type="number" [(ngModel)]="HD001mass" placeholder="Enter Mass Here"></ion-input>
+       </div>
+       <div class="list">
+           <div class="image"><img src="../../assets/CLEAR PLASTIC.jpg" height="80%%">
+           <p>LD CLEAR</p>
+         </div>
+           <div class="name"><p>LD001</p></div>
+           <ion-input type="number" [(ngModel)]="LD001mass" placeholder="Enter Mass Here"></ion-input>
+         </div>
+         <div class="list">
+             <div class="image"><img src="../../assets/colour cups.jpg" height="80%%">
+             <p>LD MIXED COLORS</p>
+           </div>
+             <div class="name"><p>LD003</p></div>
+             <ion-input type="number" [(ngModel)]="LD003mass" placeholder="Enter Mass Here"></ion-input>
+           </div>
+           <div class="list">
+               <div class="image"><img src="../../assets/Brown bottles.png" height="80%%">
+               <p>PET BROWN</p>
+             </div>
+               <div class="name"><p>PET005</p></div>
+               <ion-input type="number" [(ngModel)]="PET005mass" placeholder="Enter Mass Here"></ion-input>
+             </div>
+             <div class="list">
+              <div class="image"><img src="../../assets/pet clear bottle.jpg" height="80%%">
+              <p>PET CLEAR</p>
+            </div>
+              <div class="name"><p>PET001</p></div>
+              <ion-input type="number" [(ngModel)]="PET001mass" placeholder="Enter Mass Here"></ion-input>
+            </div>
+            <div class="list">
+              <div class="image"><img src="../../assets/pet green bottle.jpg" height="80%%">
+              <p>PET GREEN</p>
+            </div>
+              <div class="name"><p>PET003</p></div>
+              <ion-input type="number" [(ngModel)]="PET003mass" placeholder="Enter Mass Here"></ion-input>
+            </div>
+       </div>
+     </ion-slide><!-- end of slide two -->
+             <!-- NON-FERROUS/ ALLUMINIUM -->
+    <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+       <div class="lists">
+           <h3 id="title">NON-FERROUS</h3>
+         <div class="list">
+         <div class="image"><img src="../../assets/ALU-CANS-cropped.jpg" height="80%%">
+         <p>ALLINIUM CANS</p>
+       </div>
+         <div class="name"><p> NFAL01</p></div>
+         <ion-input type="number" [(ngModel)]=" NFAL01mass" placeholder="Enter Mass Here"></ion-input>
+       </div>
+       </div>
+     </ion-slide><!-- end of slide three -->
+    <ion-slide style=" border-radius: 20px !; overflow: hidden" >
+       <div class="lists">
+           <h3 id="title">GLASS</h3>
+         <div class="list">
+         <div class="image"><img src="../../assets/glass.jpg" height="80%%">
+         <p>GLASS</p>
+       </div>
+         <div class="name"><p> GL001</p></div>
+     <ion-input type="number" [(ngModel)]="GH001" placeholder="Enter Mass Here"></ion-input>
+       </div>
+       </div>
+     </ion-slide><!-- end of slide four -->
+
+      <!-- INFORMATIN ABOUT DISPATCHING -->
+    <ion-slide id="form" >
+      <div class="wave">
+        <img src="../../assets/wavy.png">
+      </div>
+      <div class="form">
+          <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+              <!-- <label>Driver Name</label> -->
+              <ion-input [(ngModel)]="DriverName" formControlName="DriverName" placeholder="Driver Name"></ion-input>
+              <!-- <label>Registarion Number Plates</label> -->
+              <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates" placeholder="Registarion Number Plates"></ion-input>
+              <!-- <label>Destination</label> -->
+              <ion-input formControlName="Destination" [(ngModel)]="Destination" placeholder="Destination"></ion-input>
+          </form>
+          <!-- <label>Truck Source</label> -->
+          <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess" placeholder="Truck Source">
+              <ion-select-option value="InSource">In-Source</ion-select-option>
+              <ion-select-option value="outsorce">Out-Source</ion-select-option>
+          </ion-select>
+          <h3>Overall Truck Weight = {{ overallStorage }} kg</h3>
+      </div>
+      
+    </ion-slide>
+  </ion-slides>
+  </div><!-- end of  -->
+  <div class="totals">
+    <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">calculate</button>
+    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
+  </div>
+</div>
+</ion-content>
     

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../app/user/auth.service';
-import { LoadingController, AlertController, Platform, ToastController } from '@ionic/angular';
+import { LoadingController, AlertController, Platform, ToastController  } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
@@ -10,21 +10,21 @@ import * as firebase from 'firebase';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  storage = firebase.storage().ref();
-  userprofile
-  newuserprofile=[]
-  db =firebase.firestore();
-  profiles 
-  profile={
-    image:null,
-    name:null,
-    addres:null,
-    surname:null, 
-    position:null,
+
+  userprofile;
+  newuserprofile = [];
+  db = firebase.firestore();
+  profiles;
+  profile = {
+    image: null,
+    name: null,
+    addres: null,
+    surname: null,
+    position: null,
     // isAdmin: null,
     // userid: firebase.auth().currentUser.uid,
     // email: firebase.auth().currentUser.email
-      }
+      };
   public signupForm: FormGroup;
   public loading: any;
   constructor(
@@ -39,11 +39,22 @@ export class RegisterPage implements OnInit {
       this.signupForm = this.formBuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.email])],
         // name: ['', Validators.compose([Validators.required, Validators.name])],
-        password: [
-          '',
-          Validators.compose([Validators.minLength(6), Validators.required])
-        ],
-        
+        password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+      });
+
+      this.db.collection('userprofile').onSnapshot(snapshot => {
+      //  this.profile.name = snapshot.docs.name
+        // this.profile.email = snapshot.data().email;
+        // email: firebase.auth().currentUser.email,
+        // this.profile.name = snapshot.data().name;
+        // this.profile.surname = snapshot.data().surname;
+        // this.profile.position = snapshot.data().position;
+        // // this.profile.image = snapshot.data().image;
+        // console.log('users', this.userprofile);
+       snapshot.forEach(item => {
+        this.newuserprofile.push(item.data());
+        console.log("Users ", this.newuserprofile);
+        });
       });
       
       this.db.collection('userprofile').onSnapshot(snapshot => {
@@ -70,10 +81,9 @@ export class RegisterPage implements OnInit {
       email: "",
       password: "",
     };
-  ngOnInit() {
-   
-  }
-  
+
+  ngOnInit() {}
+
   async signupUser(signupForm: FormGroup): Promise<void> {
     if (this.profile.name == "" || this.profile.name == undefined) {
       const toast = await this.toastController.create({
@@ -87,35 +97,29 @@ export class RegisterPage implements OnInit {
         duration: 2000
       });
       toast.present();
-    }
-    else
-    if(this.profile.position ==""||this.profile.position==undefined)
-    {
+    } else if (this.profile.position == "" || this.profile.position == undefined) {
       const toast = await this.toastController.create({
         message: 'Enter the position.',
         duration: 2000
       });
       toast.present();
+    } else {
+      this.db.collection('userprofile').doc('workers').set({
+        name: this.profile.name,
+      //  surname: this.profile.surname,
+      //   // email: this.profile.email,
+      //   position:this.profile.position,
+      //    userid: this.profile.userid,
+        //  image: this.profile.image,
+        //  isAdmin: this.profile.isAdmin
+      })
+      .then(function() {
+        console.log("Document successfully written!");
+      })
+      .catch(function(error) {
+        console.error("Error writing document: ", error);
+      });
     }
-    else
-    this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
-      name: this.profile.name,
-     surname: this.profile.surname,
-    //   // email: this.profile.email,
-      position:this.profile.position,
-      userUid:firebase.auth().currentUser.uid,
-    //    userid: this.profile.userid,
-      //  image: this.profile.image,
-      //  isAdmin: this.profile.isAdmin
-      
-    })
-    .then(function() {
-      console.log("Document successfully written!");
-     
-    })
-    .catch(function(error) {
-      console.error("Error writing document: ", error);
-    });
     console.log('Method is called');
     if (!signupForm.valid) {
       console.log(
@@ -149,14 +153,16 @@ export class RegisterPage implements OnInit {
   goToLogin() {
     this.router.navigate(['login']);
   }
-  delete(x){
-
-    console.log(x)
+  delete() {
     this.newuserprofile = [];
-    let email =x.email;
-
-
     // this.Booking = [];
+    this.db.collection("userprofile").doc("workers").delete().then(function() {
+      console.log("Document successfully deleted!");
+      this.router.navigate(['home']);
+  }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+  }
 
 
 

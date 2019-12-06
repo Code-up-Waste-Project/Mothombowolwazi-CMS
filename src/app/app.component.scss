@@ -1,5 +1,3 @@
-
-
 .MenuList{
    // border: 3px solid green;
     height: 100%;
@@ -48,47 +46,8 @@ H3 {
     max-width: 20px !important ;
 
 }
-.MenuList > div{
-    
-    height: 25%;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-    text-align: center;
-    
-}
-.MenuList > div:nth-child(1){
-    background-color: rgb(82, 12, 82);
-}
-.MenuList > div:nth-child(2){
-    background-color: rgb(104, 41, 104);
-}
-.MenuList > div:nth-child(3){
-    background-color: rgb(56, 16, 56);
-}
-.MenuList > div:nth-child(4){
-    background-color: rgb(131, 86, 131);
-}
-
-.HomeDiv{
-    background-color: white;
-    height: 25%;
-    width: 100%;
-    margin: 0 auto;
-}
-
-#ReclaimerDiv{
-    background-color: rgb(140, 112, 143);
-    height: 25%;
-    width: 100%;
-    margin: 0 auto;
-}
 
 ion-icon{
-    // font-size: 80px;
-    // // margin: 0 auto;
-    // text-align: center;
     color: white;;
 }
 
@@ -101,11 +60,40 @@ h1{
     background: yellowgreen;
 }
 
-
-
 #one{
     // width: 100%;
     // height: 100%;
     background: red !important;
 
+}
+
+ion-menu {
+    height: 100%;
+    max-width: 50px !important;
+}
+.logo {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    height: 20%;
+    display: flex;
+    justify-content: center;
+img {
+       width: 80%;
+}
+ 
+}
+ion-list {
+    height: 80% !important;
+    // background: chocolate !important;
+
+    a.item-native :hover {
+     border:1px rgb(0, 0, 0) !important;
+     background: chocolate !important;
+    }
+ion-label {
+    color: rgb(30, 37, 30) !important;
+}
+    ion-icon {
+        color: yellowgreen !important;
+    }
 }
