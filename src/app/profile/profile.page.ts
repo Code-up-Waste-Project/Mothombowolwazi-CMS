@@ -30,7 +30,7 @@ export class ProfilePage implements OnInit {
     private router: Router,
     private toastController: ToastController
     ) {
-      this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
+      this.db.collection('admin').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
         // this.profile.email = snapshot.data().email;
         email: firebase.auth().currentUser.email,
         this.profile.name = snapshot.data().name;
@@ -57,7 +57,7 @@ export class ProfilePage implements OnInit {
       });
       toast.present();
     } else {
-    this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
+    this.db.collection('admin').doc(firebase.auth().currentUser.uid).set({
       name: this.profile.name,
      surname: this.profile.surname,
       email: this.profile.email,

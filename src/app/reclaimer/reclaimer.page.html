@@ -201,10 +201,10 @@
                     </div>
                     <div class="form">
                         <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
-                            <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name"></ion-input>
-                            <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname"></ion-input>	
-                            <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact"></ion-input>
-                            <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address"></ion-input>
+                            <ion-input placeholder="Name" formControlName="name" [(ngModel)]="name" type="text"></ion-input>
+                            <ion-input placeholder="Surname" formControlName="surname" [(ngModel)]="surname" type="text"></ion-input>	
+                            <ion-input placeholder="Phone Number" formControlName="contact" [(ngModel)]="contact" type="number"></ion-input>
+                            <ion-input placeholder="Address" formControlName="address" [(ngModel)]="address" type="textarea"></ion-input>
                         </form>
                     </div>
                   </ion-slide>

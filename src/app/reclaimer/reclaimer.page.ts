@@ -284,10 +284,10 @@ export class ReclaimerPage implements OnInit {
     this.getMasses();
 
     this.RegisterForm = formGroup.group({
-      name : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
-      surname : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$')]],
-      contact : ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      address : ['', [Validators.required]],
+      name : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$'), Validators.maxLength(15)]],
+      surname : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$'), Validators.maxLength(15)]],
+      contact : ['', [Validators.required, Validators.pattern('^[0-9]{10}$'), Validators.maxLength(10)]],
+      address : ['', [Validators.required, , Validators.maxLength(40)]],
     });
   }
 
@@ -574,6 +574,8 @@ export class ReclaimerPage implements OnInit {
 
     // create receipt
     this.createPdf();
+
+    
   }
 
   getprices() {
