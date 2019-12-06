@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -9,14 +9,13 @@
     
     <button ion-button>LOGOUT</button>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-
     <div class="header">	
         <div class="nav">	
           <h2>My Dashboard</h2>	
-          <p>You are at " Home "</p>	
+          <p>You are at " Home " where you a able to see your everyday progress</p>	
         </div> 	
     
         <div class="profiles">	
@@ -36,148 +35,84 @@
    
   <div class="container">
     <div class="halfone" padding>
-      <div class="graph">
-      </div>
+        <div class="graph">
+            <canvas #barChart></canvas>
+        </div>
     </div>
   
     <div class="halftwo" padding>
-      <div class="users">
-          <h5>USERS</h5>
-       <h3>1238</h3>
-      </div>
-  
-      <div class="category1"  >
-        <div class="alluminium">
-          <div class="imagediv"> </div>
-         <h5>ALLUMINIUM</h5>
-            <!-- <h2>NFAL01 {{ mass.NFAL01 }}</h2> -->
-        </div>
-        <div class="plastic">
-            <div class="imagediv2"> </div>
-            <h5>GLASS</h5>
-            <!-- <h2>GL001 {{ mass.GL001}}</h2> -->
-        </div>
-      </div>
-  
-      <div class="category2">
-        <div class="glass">
-            <div class="imagediv3"> </div>
-            <h5>PAPER</h5>
-            <!-- <h2>PAP005 {{ mass.PAP005 }}</h2>
-            <h2>PAP007 {{ mass.PAP007 }}</h2>
-            <h2>PAP001 {{ mass.PAP001 }}</h2>
-            <h2>PAP003 {{ mass.PAP003 }}</h2> -->
-        </div>
-        <div class="paper">
-            <div class="imagediv4"> </div>
-            <h5>PLASTIC</h5>
-            <!-- <h2>HD001 {{ mass.HD001}}</h2>
-            <h2>LD001 {{ mass.LD001}}</h2>
-            <h2>LD003 {{ mass.LD003}}</h2>
-            <h2>PET005 {{ mass.PET005}}</h2>
-            <h2>PET001 {{ mass.PET001}}</h2>
-            <h2>PET003 {{ mass.PET003}}</h2> -->
-        </div>  
-      </div>
-    </div>
-  </div>
-</ion-content>
-
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-    <button ion-button>LOGOUT</button>
-  </ion-toolbar>
-</ion-header> -->
-<!-- <ion-content>
-  <div class="header">
-    <div class="nav">
-      <h2>My Dashboard</h2>
-      <p>You are at " Home "</p>
-    </div>
-    <div class="profiles">
-      <div class="image">
-         <img src="../../assets/face.png">
-        </div>
-  <div class="names">
-    <H4>Nkosinathi Radebe</H4>
-    <P>Administrator</P>
-  </div>
-    </div>
-    <div class="logout">
-        <ion-icon name="log-out"></ion-icon>
-    </div>
-  </div>
-  <div class="container">
-    <div class="halfone" padding>
-      <div class="graph">
-      </div>
-    </div>
-    <div class="halftwo" padding>
- one 
+ <!-- one  -->
  <div class="alluminium">
+    
   <div class="imagediv" id="aluminium">
     <img src="../../assets/alluminium.svg">
     <div class="grams">
         <h5>ALLUMINIUM</h5>
-        <h3>12789 <span>Kg</span></h3>
+        <h3>{{NFAL01storagemass }}<span>Kg</span></h3>
     </div>
+
   </div>
-<div class="names">
+<div id="names">
     <h5>ALLUMINIUM  =</h5>
-        <h5 id="number">12789 <span>Kg</span></h5>
+        <h5 id="number">{{NFAL01storagemass }}<span>Kg</span></h5>
 </div>
-    <h2>NFAL01 {{ mass.NFAL01 }}</h2>
 </div>
-two
-<div class="plastic">
+<!-- two -->
+<div class="glass">
   <div class="imagediv" id="plastic">
       <img src="../../assets/glass.svg">
-      <div class="grams">
+      <div class="grams" style=" display: flex;flex-direction: column;justify-content: center;">
           <h5>GLASS</h5>
-          <h3>93789 <span>Kg</span></h3>
+          <h3>{{ GH001storagemass }}<span>Kg</span></h3>
       </div> </div>
-      <div class="names">
+      <div  id="glasscat"  >
           <h5>GLASS  =</h5>
-              <h5 id="number">3672 <span>Kg</span></h5>
+              <h5 id="number">{{ GH001storagemass }}<span>Kg</span></h5>
       </div>
-  <h2>GL001 {{ mass.GL001}}</h2>
 </div>
-    three
+    <!-- three -->
     <div class="paper">
       <div class="imagediv" id="plastic" >
           <img src="../../assets/paper.svg">
           <div class="grams">
               <h5>PAPER</h5>
-              <h3>3789 <span>Kg</span></h3>
+              <h3>{{ PAP005storagemass }}<span>Kg</span></h3>
           </div>
+​
       </div>
-      <h2>PAP005 {{ mass.PAP005 }}</h2>
-      <h2>PAP007 {{ mass.PAP007 }}</h2>
-      <h2>PAP001 {{ mass.PAP001 }}</h2>
-      <h2>PAP003 {{ mass.PAP003 }}</h2>
+      <div  id="papercat">
+        <p>PAP005  =  {{ PAP005storagemass }} <span>Kg</span></p>
+        <p>PAP007  =  {{ PAP007storagemass }} <span>Kg</span></p>
+        <p>PAP001  =  {{ PAP001storagemass }} <span>Kg</span></p>
+        <p>PAP003  =  {{ PAP003storagemass }} <span>Kg</span></p>
+    </div>
   </div>
-  four
-  <div class="paper">
-    <div class="imagediv" id="plastic">
+  <!-- four -->
+  <div class="plastic">
+    <div class="imagediv" id="plastic"> 
         <img src="../../assets/plastic.svg">
       <div class="grams">
           <h5>PLASTIC</h5>
-          <h3>93789 <span>Kg</span></h3>
+          <h3>{{ HD001storagemass }}<span>Kg</span></h3>
       </div>
     </div>
-    <h2>HD001 {{ mass.HD001}}</h2>
+    <div  id="papercat">
+      <p>HD001  =  {{ HD001storagemass }} <span>Kg</span></p>
+      <p>LD001  =  {{ LD001storagemass }} <span>Kg</span></p>
+      <p>LD003  =  {{ LD003storagemass }} <span>Kg</span></p>
+      <p>PET001  =  {{ PET001storagemass }} <span>Kg</span></p>
+      <p>PET003  =  {{ PET003storagemass }} <span>Kg</span></p>
+      <p>PET005  =  {{ PET005storagemass }} <span>Kg</span></p>
+  </div>
+    <!-- <h2>HD001 {{ mass.HD001}}</h2>
     <h2>LD001 {{ mass.LD001}}</h2>
     <h2>LD003 {{ mass.LD003}}</h2>
     <h2>PET005 {{ mass.PET005}}</h2>
     <h2>PET001 {{ mass.PET001}}</h2>
-    <h2>PET003 {{ mass.PET003}}</h2>
-</div>
+    <h2>PET003 {{ mass.PET003}}</h2> -->
+</div>  
+     
     </div>
   </div>
-</ion-content> -->
+
+</ion-content>

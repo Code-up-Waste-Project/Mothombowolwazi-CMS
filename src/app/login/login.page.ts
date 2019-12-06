@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController, AlertController, MenuController} from '@ionic/angular';
 import { AuthService } from '../../app/user/auth.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
@@ -28,6 +28,7 @@ export class LoginPage implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private FormsModule: FormsModule,
+    private menuCtrl: MenuController,
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
@@ -37,6 +38,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    this.menuCtrl.enable(false); // or true
   }
 
   async loginUser(loginForm: FormGroup): Promise<void> {

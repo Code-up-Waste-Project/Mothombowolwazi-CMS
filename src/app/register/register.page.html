@@ -1,67 +1,111 @@
 <ion-content>
-  <div class="header">
-    <div class="nav">
-      <h2>My Dashboard</h2>
-      <p>You are at " Home "</p>
-    </div>
-
-    <div class="profiles">
-      <div class="image">
-        <img src="../../assets/face.png">
+    <div class="header">
+      <div class="nav">
+        <h2>My Dashboard</h2>
+        <p>You are at " Home "</p>
       </div>
-      <div class="names">
-        <H4>Nkosinathi Radebe</H4>
-        <P>Administrator</P>
+      <div class="profiles">
+        <div class="image">
+          <img src="../../assets/face.png">
+        </div>
+        <div class="names">
+          <H4>Nkosinathi Radebe</H4>
+          <P>Administrator</P>
+        </div>
       </div>
-    </div>
-
-    <div class="logout">
-      <ion-icon name="log-out"></ion-icon>
-    </div>
-  </div>
-
-
-
-  <div class="Everything">
-    <div class="AddUser">
-      <div class="profileDiv">
-        <img id="IMG" src="../../assets/face.png" alt="">
-      </div> <br>
-      <div class="Items">
-        <ion-item>
-          <ion-label>
-            <ion-icon name="person"></ion-icon>
-          </ion-label>
-          <ion-input placeholder="Name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            <ion-icon name="person"></ion-icon>
-          </ion-label>
-          <ion-input placeholder="Surname"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            <ion-icon name="mail"></ion-icon>
-          </ion-label>
-          <ion-input placeholder="email Address"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            <ion-icon name="body"></ion-icon>
-          </ion-label>
-          <ion-input placeholder="Position"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            <ion-icon name="lock"></ion-icon>
-          </ion-label>
-          <ion-input placeholder="Password"></ion-input>
-        </ion-item>
+      <div class="logout">
+        <ion-icon name="log-out"></ion-icon>
       </div>
     </div>
-    <div class="ViewUser">
-
+    <div class="Everything">
+      
+          <div class="AddUser">
+              
+   
+              <div class="profileDiv">
+                <img id="IMG" src="../../assets/face.png" alt="">
+              </div> <br>
+              <div class="Items">
+                <div class="theITEMS">
+                  <div class="labels">
+                    <img class="Iconnn" src="../../assets/user (3).svg" alt="">
+                  </div>
+                  <div class="theplaceholder">
+                    <ion-input placeholder="name" [(ngModel)]="profile.name"></ion-input>
+                  </div>
+                </div><br>
+                <div class="theITEMS">
+                  <div class="labels">
+                    <img class="Iconnn" src="../../assets/user (3).svg" alt="">
+                  </div>
+                  <div class="theplaceholder">
+                    <ion-input placeholder="Last Name" [(ngModel)]="profile.surname"></ion-input>
+                  </div>
+                </div><br>
+               
+                <div class="theITEMS">
+                  <div class="labels">
+                    <img class="Iconnn" src="../../assets/board-games-with-roles (1).svg" alt="">
+                  </div>
+                  <div class="theplaceholder">
+                    <ion-input placeholder="Position" [(ngModel)]="profile.position"></ion-input>
+                  </div>
+                </div><br>
+                <form [formGroup]="signupForm"  > 
+                <div class="theITEMS">
+                  <div class="labels">
+                    <img class="Iconnn" src="../../assets/lock.svg" alt="">
+                  </div>
+                  <div class="theplaceholder">
+                    <ion-input placeholder="enter email address" formControlName="email" type="email" 
+                    [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched"></ion-input>
+                  </div>
+                </div>
+                <div *ngIf="!signupForm.controls['email'].valid  &&
+                signupForm.controls['email'].touched" class="error">
+                  <div class="messages">
+                    Password needs more than 6 characters long.
+                  </div>
+                </div><br>
+                <div class="theITEMS">
+                    <div class="labels">
+                      <img class="Iconnn" src="../../assets/email.svg" alt="">
+                    </div>
+                    <div class="theplaceholder">
+                      <ion-input placeholder="Password"  formControlName="password" type="password" 
+                      [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched"></ion-input>
+                    </div>
+                    <div *ngIf="!signupForm.controls['password'].valid
+                    && signupForm.controls['password'].touched" class="error">
+                      <div class="messages">
+                        Please enter a valid email.
+                      </div>
+                    </div>
+                  </div><br>
+              </form> 
+                <div class="btn">
+                <ion-button class="btn2" color="clear" (click)="signupUser(signupForm)" 
+                [disabled]="!signupForm.valid">submit</ion-button>
+              </div>
+              </div>
+          
+            </div>
+      <div class="ViewUser" >
+          <h1>Your Recently Added Users</h1><hr>
+          <div class="Socialcards">
+            <ion-card>
+              <ion-item *ngFor = "let myprofiles  of newuserprofile">
+                <ion-thumbnail slot="start">
+                  <img id="face" src="../../assets/face.png">
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{myprofiles.name}} {{myprofiles.surname}}</h2>
+                  <p>{{myprofiles.position}}</p>
+                </ion-label>
+                <ion-icon id="Icon5" name="trash" (click)="delete()"></ion-icon>
+              </ion-item>
+            </ion-card>
+          </div>
+        </div>
     </div>
-  </div>
-</ion-content>
+  </ion-content>

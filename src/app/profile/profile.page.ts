@@ -19,7 +19,6 @@ export class ProfilePage implements OnInit {
   name: null,
   addres: null,
   surname: null,
-  position: null,
   isAdmin: null,
 
   userid: firebase.auth().currentUser.uid,
@@ -36,7 +35,6 @@ export class ProfilePage implements OnInit {
         email: firebase.auth().currentUser.email,
         this.profile.name = snapshot.data().name;
         this.profile.surname = snapshot.data().surname;
-        this.profile.position = snapshot.data().position;
         // this.profile.image = snapshot.data().image;
         console.log('users', this.userprofile);
       });
@@ -58,18 +56,12 @@ export class ProfilePage implements OnInit {
         duration: 2000
       });
       toast.present();
-    } else if (this.profile.position == "" || this.profile.position == undefined) {
-      const toast = await this.toastController.create({
-        message: 'Enter the position.',
-        duration: 2000
-      });
-      toast.present();
     } else {
     this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
       name: this.profile.name,
      surname: this.profile.surname,
       email: this.profile.email,
-      position: this.profile.position,
+      // position: this.profile.position,
        userid: this.profile.userid,
       //  image: this.profile.image,
        isAdmin: this.profile.isAdmin
