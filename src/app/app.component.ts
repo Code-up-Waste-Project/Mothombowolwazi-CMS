@@ -98,7 +98,7 @@ this.appPages.push({
   }, {
     title: 'History',
     url: '/history',
-    icon: 'folder',
+    icon: 'cash',
     admin:"cool"
   }, {
     title: 'Manage Users',

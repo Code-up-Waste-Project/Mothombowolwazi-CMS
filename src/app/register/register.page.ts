@@ -4,7 +4,6 @@ import { LoadingController, AlertController, Platform, ToastController  } from '
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -28,7 +27,6 @@ export class RegisterPage implements OnInit {
       };
   public signupForm: FormGroup;
   public loading: any;
-
   constructor(
     public platform: Platform,
     public authService: AuthService,
@@ -58,8 +56,27 @@ export class RegisterPage implements OnInit {
         console.log("Users ", this.newuserprofile);
         });
       });
+      
+      this.db.collection('userprofile').onSnapshot(snapshot => {
+       
+      //  this.profile.name = snapshot.docs.name
+        // this.profile.email = snapshot.data().email;
+        // email: firebase.auth().currentUser.email,
+        // this.profile.name = snapshot.data().name;
+        // this.profile.surname = snapshot.data().surname;
+        // this.profile.position = snapshot.data().position;
+        // // this.profile.image = snapshot.data().image;
+        // console.log('users', this.userprofile);
+        snapshot.forEach(item => {
+       
+          this.newuserprofile.push(item.data());
+          console.log("Users ",this.newuserprofile);
+          
+        })
+      });
+      
+            
     }
-
     user = {
       email: "",
       password: "",
@@ -147,4 +164,28 @@ export class RegisterPage implements OnInit {
   });
   }
 
+
+
+    this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
+      console.log("Document successfully deleted!");
+  }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+  }
+
+  changeListener(profile): void {
+    const i = profile.target.files[0];
+    console.log(i);
+    const upload = this.storage.child(i.name).put(i);
+    upload.on('state_changed', snapshot => {
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('upload is: ', progress , '% done.');
+    }, err => {
+    }, () => {
+      upload.snapshot.ref.getDownloadURL().then(dwnURL => {
+        console.log('File avail at: ', dwnURL);
+        this.profile.image = dwnURL;
+      });
+    });
+  }
 }
