@@ -172,9 +172,9 @@ export class OutboundPage implements OnInit {
     public formGroup: FormBuilder,
     ) {
       this.RegisterForm = formGroup.group({
-        DriverName : ['', [Validators.required]],
-        RegistarionNumberPlates : ['', [Validators.required]],
-        Destination : ['', [Validators.required]],
+        DriverName : ['', [Validators.required, Validators.maxLength(15)]],
+        RegistarionNumberPlates : ['', [Validators.required, Validators.maxLength(10)]],
+        Destination : ['', [Validators.required, Validators.maxLength(25)]],
       });
 
       this.getMasses();

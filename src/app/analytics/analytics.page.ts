@@ -297,22 +297,6 @@ export class AnalyticsPage implements OnInit {
     this.presentToast();
   }
 
-  save() {
-    this.SaveGH001();
-    this.SaveNFAL01();
-    this.SavePAP005();
-    this.SavePAP007();
-    this.SavePAP001();
-    this.SavePAP003();
-    this.SaveHD001();
-    this.SaveLD001();
-    this.SaveLD003();
-    this.SavePET001();
-    this.SavePET003();
-    this.SavePET005();
-    this.route.navigate(['home']);
-  }
-
   async presentAlert(data) {
     const alert = await this.alertController.create({
       header: 'Alert',
@@ -324,7 +308,7 @@ export class AnalyticsPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'New Added to Storage Created.',
+      message: 'New Mass Added to Storage Created.',
       duration: 5000,
       color: 'primary',
       position: 'bottom'
