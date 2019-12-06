@@ -5,8 +5,12 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import {ModalController} from '@ionic/angular';
-// import { read } from 'fs';
-
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-reclaimer',
@@ -164,6 +168,105 @@ export class ReclaimerPage implements OnInit {
 
   RegisterForm: FormGroup;
 
+  letterObj = {
+    to: '',
+    from: '',
+    text: ''
+  };
+
+  pdfObj = null;
+
+  swiperCont = document.getElementsByClassName('swiper-container')
+  slideOpts = {
+   slidesPerView: 1,
+   coverflowEffect: {
+     rotate: 50,
+     stretch: 20,
+     depth: 200,
+     modifier: 3,
+     slideShadows: true,
+     initialSlide: 2
+   },
+   on: {
+     beforeInit() {
+       const swiper = this;
+
+       swiper.classNames.push(`${swiper.params.containerModifierClass}coverflow`);
+       swiper.classNames.push(`${swiper.params.containerModifierClass}3d`);
+
+       swiper.params.watchSlidesProgress = true;
+       swiper.originalParams.watchSlidesProgress = true;
+     },
+     setTranslate() {
+       const swiper = this;
+       const {
+         width: swiperWidth, height: swiperHeight, slides, $wrapperEl, slidesSizesGrid, $
+       } = swiper;
+       const params = swiper.params.coverflowEffect;
+       const isHorizontal = swiper.isHorizontal();
+       const transform$$1 = swiper.translate;
+       const center = isHorizontal ? -transform$$1 + (swiperWidth / 2) : -transform$$1 + (swiperHeight / 2);
+       const rotate = isHorizontal ? params.rotate : -params.rotate;
+       const translate = params.depth;
+       // Each slide offset from center
+       for (let i = 0, length = slides.length; i < length; i += 1) {
+         const $slideEl = slides.eq(i);
+         const slideSize = slidesSizesGrid[i];
+         const slideOffset = $slideEl[0].swiperSlideOffset;
+         const offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
+
+          let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
+         let rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
+         // var rotateZ = 0
+         let translateZ = -translate * Math.abs(offsetMultiplier);
+
+          let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
+         let translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
+
+          // Fix for ultra small values
+         if (Math.abs(translateX) < 0.001) translateX = 0;
+         if (Math.abs(translateY) < 0.001) translateY = 0;
+         if (Math.abs(translateZ) < 0.001) translateZ = 0;
+         if (Math.abs(rotateY) < 0.001) rotateY = 0;
+         if (Math.abs(rotateX) < 0.001) rotateX = 0;
+
+          const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+          $slideEl.transform(slideTransform);
+         $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
+         if (params.slideShadows) {
+           // Set shadows
+           let $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+           let $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+           if ($shadowBeforeEl.length === 0) {
+             $shadowBeforeEl = swiper.$(`<div class="swiper-slide-shadow-${isHorizontal ? 'left' : 'top'}"></div>`);
+             $slideEl.append($shadowBeforeEl);
+           }
+           if ($shadowAfterEl.length === 0) {
+             $shadowAfterEl = swiper.$(`<div class="swiper-slide-shadow-${isHorizontal ? 'right' : 'bottom'}"></div>`);
+             $slideEl.append($shadowAfterEl);
+           }
+           if ($shadowBeforeEl.length) $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0;
+           if ($shadowAfterEl.length) $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0;
+         }
+       }
+
+        // Set correct perspective for IE10
+       if (swiper.support.pointerEvents || swiper.support.prefixedPointerEvents) {
+         const ws = $wrapperEl[0].style;
+         ws.perspectiveOrigin = `${center}px 50%`;
+       }
+     },
+     setTransition(duration) {
+       const swiper = this;
+       swiper.slides
+         .transition(duration)
+         .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+         .transition(duration);
+     }
+   }
+  };
+
   constructor(
     private modalcontroller: ModalController,
     public route: Router,
@@ -172,7 +275,10 @@ export class ReclaimerPage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     private content: ElementRef,
-    public rendered: Renderer2
+    public rendered: Renderer2,
+    private plt: Platform,
+    private file: File,
+    private fileOpener: FileOpener
     ) {
     this.getprices();
     this.getMasses();
@@ -352,13 +458,8 @@ export class ReclaimerPage implements OnInit {
 
   //   Plastic Total;
   onChangePlasticTotalzzz(): void {
-    if (this.HD001price == "") {
-      this.PlasticTotals = +this.LD001price + +this.LD003price + +this.PET001price + +this.PET003price + +this.PET005price;
-    console.log(this.PlasticTotals);
-    } else {
     this.PlasticTotals = +this.HD001price + +this.LD001price + +this.LD003price + +this.PET001price + +this.PET003price + +this.PET005price;
     console.log(this.PlasticTotals);
-    }
   }
 
   TotalTotals() {
@@ -468,6 +569,11 @@ export class ReclaimerPage implements OnInit {
     // push to update overall storage
     this.updateStorage();
 
+    // save to database
+    this.Addreclaimer();
+
+    // create receipt
+    this.createPdf();
   }
 
   getprices() {
@@ -612,9 +718,6 @@ export class ReclaimerPage implements OnInit {
   }
 
   Addreclaimer() {
-
-    this.calculate();
-   
     this.db.collection('reclaimers').doc().set({
       date: new Date(),
       name: this.name,
@@ -661,7 +764,6 @@ export class ReclaimerPage implements OnInit {
       OverallVat: this.OverallVat,
       OverallGrandTotal: this.OverallGrandTotal,
     });
-    this.route.navigate(['/home']);
     this.presentToast();
   }
 
@@ -692,100 +794,113 @@ export class ReclaimerPage implements OnInit {
     loading.dismiss();
   }
 
-  swiperCont = document.getElementsByClassName('swiper-container')
-  slideOpts = {
-   slidesPerView: 1,
-   coverflowEffect: {
-     rotate: 50,
-     stretch: 20,
-     depth: 200,
-     modifier: 3,
-     slideShadows: true,
-     initialSlide: 2
-   },
-   on: {
-     beforeInit() {
-       const swiper = this;
-  
-       swiper.classNames.push(`${swiper.params.containerModifierClass}coverflow`);
-       swiper.classNames.push(`${swiper.params.containerModifierClass}3d`);
-  
-       swiper.params.watchSlidesProgress = true;
-       swiper.originalParams.watchSlidesProgress = true;
-     },
-     setTranslate() {
-       const swiper = this;
-       const {
-         width: swiperWidth, height: swiperHeight, slides, $wrapperEl, slidesSizesGrid, $
-       } = swiper;
-       const params = swiper.params.coverflowEffect;
-       const isHorizontal = swiper.isHorizontal();
-       const transform$$1 = swiper.translate;
-       const center = isHorizontal ? -transform$$1 + (swiperWidth / 2) : -transform$$1 + (swiperHeight / 2);
-       const rotate = isHorizontal ? params.rotate : -params.rotate;
-       const translate = params.depth;
-       // Each slide offset from center
-       for (let i = 0, length = slides.length; i < length; i += 1) {
-         const $slideEl = slides.eq(i);
-         const slideSize = slidesSizesGrid[i];
-         const slideOffset = $slideEl[0].swiperSlideOffset;
-         const offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
-  
-          let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
-         let rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
-         // var rotateZ = 0
-         let translateZ = -translate * Math.abs(offsetMultiplier);
-  
-          let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
-         let translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-  
-          // Fix for ultra small values
-         if (Math.abs(translateX) < 0.001) translateX = 0;
-         if (Math.abs(translateY) < 0.001) translateY = 0;
-         if (Math.abs(translateZ) < 0.001) translateZ = 0;
-         if (Math.abs(rotateY) < 0.001) rotateY = 0;
-         if (Math.abs(rotateX) < 0.001) rotateX = 0;
-  
-          const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  
-          $slideEl.transform(slideTransform);
-         $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
-         if (params.slideShadows) {
-           // Set shadows
-           let $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-           let $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-           if ($shadowBeforeEl.length === 0) {
-             $shadowBeforeEl = swiper.$(`<div class="swiper-slide-shadow-${isHorizontal ? 'left' : 'top'}"></div>`);
-             $slideEl.append($shadowBeforeEl);
-           }
-           if ($shadowAfterEl.length === 0) {
-             $shadowAfterEl = swiper.$(`<div class="swiper-slide-shadow-${isHorizontal ? 'right' : 'bottom'}"></div>`);
-             $slideEl.append($shadowAfterEl);
-           }
-           if ($shadowBeforeEl.length) $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0;
-           if ($shadowAfterEl.length) $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0;
-         }
-       }
-  
-        // Set correct perspective for IE10
-       if (swiper.support.pointerEvents || swiper.support.prefixedPointerEvents) {
-         const ws = $wrapperEl[0].style;
-         ws.perspectiveOrigin = `${center}px 50%`;
-       }
-     },
-     setTransition(duration) {
-       const swiper = this;
-       swiper.slides
-         .transition(duration)
-         .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-         .transition(duration);
-     }
-   }
-  }
-  
   openModal() {
     this.modalcontroller.create({component: ModalpopupPage}).then((modalElement) => {
   modalElement.present();
     });
   }
+
+  createPdf() {
+    var docDefinition = {
+      content: [
+        { text: 'Mothombowolwazi', style: 'header' },
+        { text: new Date().toTimeString(), alignment: 'right' },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
+
+        { text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
+
+        {text: this.name, alignment: 'left'},
+
+        {
+          ul: [
+            // put all the things to be display here
+            new Date(),
+            this.name,
+            this.surname,
+            this.address,
+            this.contact,
+            this.GH001GrandTotal,
+            this.GH001Vat,
+            this.GH001SubTotal,
+            this.NFAL01GrandTotal,
+            this.NFAL01Vat,
+            this.NFAL01SubTotal,
+            this.PAP005GrandTotal,
+            this.PAP005Vat,
+            this.PAP005SubTotal,
+            this.PAP007GrandTotal,
+            this.PAP007Vat,
+            this.PAP007SubTotal,
+            this.PAP001GrandTotal,
+            this.PAP001Vat,
+            this.PAP001SubTotal,
+            this.PAP003GrandTotal,
+            this.PAP003Vat,
+            this.PAP003SubTotal,
+            this.HD001GrandTotal,
+            this.HD001Vat,
+            this.HD001SubTotal,
+            this.LD001GrandTotal,
+            this.LD001Vat,
+            this.LD001SubTotal,
+            this.LD003GrandTotal,
+            this.LD003Vat,
+            this.LD003SubTotal,
+            this.PET001GrandTotal,
+            this.PET001Vat,
+            this.PET001SubTotal,
+            this.PET003GrandTotal,
+            this.PET003Vat,
+            this.PET003SubTotal,
+            this.PET005GrandTotal,
+            this.PET005Vat,
+            this.PET005SubTotal,
+            this.OverallSubTotal,
+            this.OverallVat,
+            this.OverallGrandTotal,
+          ]
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 15, 0, 0]
+        },
+        story: {
+          italic: true,
+          alignment: 'center',
+          width: '50%',
+        }
+      }
+    };
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+  }
+
+  downloadPdf() {
+    if (this.plt.is('cordova')) {
+      this.pdfObj.getBuffer((buffer) => {
+        var blob = new Blob([buffer], { type: 'application/pdf' });
+
+        // Save the PDF to the data Directory of our App
+        this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
+          // Open the PDf with the correct OS tools
+          this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
+        });
+      });
+    } else {
+      // On a browser simply use download!
+      this.pdfObj.download();
+    }
+  }
+
 }

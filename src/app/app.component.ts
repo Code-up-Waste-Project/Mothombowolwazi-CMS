@@ -26,7 +26,7 @@ admin;
     this.appPages = [];
 
     firebase.auth().onAuthStateChanged(user => {
-      firebase.firestore().collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
+      firebase.firestore().collection('admin').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
         // this.profile.email = snapshot.data().email;
 
         console.log('users', snapshot.data().isAdmin);
@@ -75,7 +75,7 @@ this.appPages.push({
     admin:"cool"
   }, {
     title: 'History',
-    url: '/home',
+    url: '/history',
     icon: 'cash',
     admin:"cool"
   }, {

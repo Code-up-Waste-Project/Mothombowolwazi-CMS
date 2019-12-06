@@ -26,7 +26,7 @@ export class ProfilePage implements OnInit {
   email: firebase.auth().currentUser.email
     };
 
-  storage: any;
+  // storage: any;
   constructor(
     private router: Router,
     private toastController: ToastController
@@ -70,7 +70,7 @@ export class ProfilePage implements OnInit {
     // }
     else
     {
-    this.db.collection('userprofile').doc(firebase.auth().currentUser.uid).set({
+    this.db.collection('admin').doc(firebase.auth().currentUser.uid).set({
       name: this.profile.name,
      surname: this.profile.surname,
       email: this.profile.email,
