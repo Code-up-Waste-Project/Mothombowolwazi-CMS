@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     this.appPages = [];
 
     firebase.auth().onAuthStateChanged(user => {
-      firebase.firestore().collection('userprofile').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
+      firebase.firestore().collection('admin').doc(firebase.auth().currentUser.uid).onSnapshot(snapshot => {
         // this.profile.email = snapshot.data().email;
 
         console.log('users', snapshot.data().isAdmin);

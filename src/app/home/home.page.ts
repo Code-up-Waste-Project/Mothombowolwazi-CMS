@@ -124,16 +124,17 @@ colorArray: any;
 
   createBarChart() {
     this.bars = new Chart(this.barChart.nativeElement, {
-      type: 'line',
+      type: 'pie',
       data: {
         labels: ['Aluminium', 'Glass', 'Paper', 'Plastic'],
 
         datasets: [{
           label: 'Overall material ',
-          data: [this.GH001storagemass, 3.8, 5, 6.9, 6.9, 7.5, 10, 17],
-backgroundColor: 'purple', // array should have same number of elements as number of dataset
+          data: [345.8, 37.8, 50.4, 69.9],
+backgroundColor:[ 'green', 'yellow', 'blue', 'red'], 
+// backgroundColor: yellow,// array should have same number of elements as number of dataset
           borderColor: 'green',// array should have same number of elements as number of dataset
-          borderWidth: 1
+          borderWidth: 3
 
         }]
       },
