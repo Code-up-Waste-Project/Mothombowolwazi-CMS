@@ -146,6 +146,4 @@ newreclaimer=[]
       // console.log(this.PET005storagemass);
     });
   }
-
-
 }
