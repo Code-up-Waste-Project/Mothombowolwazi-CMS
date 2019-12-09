@@ -12,6 +12,7 @@ import * as firebase from 'firebase';
 export class RegisterPage implements OnInit {
 
   userprofile;
+  storage;
   newuserprofile = [];
   db = firebase.firestore();
   profiles;
@@ -166,12 +167,12 @@ export class RegisterPage implements OnInit {
 
 
 
-    this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
-      console.log("Document successfully deleted!");
-  }).catch(function(error) {
-      console.error("Error removing document: ", error);
-  });
-  }
+  //   this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
+  //     console.log("Document successfully deleted!");
+  // }).catch(function(error) {
+  //     console.error("Error removing document: ", error);
+  // });
+  // }
 
   changeListener(profile): void {
     const i = profile.target.files[0];

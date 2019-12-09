@@ -12,34 +12,7 @@ import * as firebase from 'firebase';
 export class HistoryPage implements OnInit {
 db=firebase.firestore()
 newreclaimer=[]
-  constructor() 
-  
-  
-  { 
- 
-    this.db.collection('reclaimers').onSnapshot(snapshot => {
-       
-      //  this.profile.name = snapshot.docs.name
-        // this.profile.email = snapshot.data().email;
-        // email: firebase.auth().currentUser.email,
-        // this.profile.name = snapshot.data().name;
-        // this.profile.surname = snapshot.data().surname;
-        // this.profile.position = snapshot.data().position;
-        // // this.profile.image = snapshot.data().image;
-        // console.log('users', this.userprofile);
-        snapshot.forEach(item => {
-       
-          this.newreclaimer.push(item.data());
-          console.log("my reclaimers",this.newreclaimer);
-          
-        })
-      });
 
-
-
-
-
-  db = firebase.firestore();
 
   date;
   DriverName;

@@ -76,35 +76,35 @@ export class ProfilePage implements OnInit {
   }
   }
 
-  changeListener(profile): void {
-    const i = profile.target.files[0];
-    console.log(i);
-    const upload = this.storage.child(i.name).put(i);
-    upload.on('state_changed', snapshot => {
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log('upload is: ', progress , '% done.');
-    }, err => {
-    }, () => {
-      upload.snapshot.ref.getDownloadURL().then(dwnURL => {
-        console.log('File avail at: ', dwnURL);
-        this.profile.image = dwnURL;
-      });
-    });
+  // changeListener(profile): void {
+  //   const i = profile.target.files[0];
+  //   console.log(i);
+  //   const upload = this.storage.child(i.name).put(i);
+  //   upload.on('state_changed', snapshot => {
+  //     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  //     console.log('upload is: ', progress , '% done.');
+  //   }, err => {
+  //   }, () => {
+  //     upload.snapshot.ref.getDownloadURL().then(dwnURL => {
+  //       console.log('File avail at: ', dwnURL);
+  //       this.profile.image = dwnURL;
+  //     });
+  //   });
   }
 
 
-  update(pricess) {
-    console.log(pricess);
-    // To update age and favorite color:
-    this.db.collection("price").doc("SinUfRNnbB073KZiDIZE").update({
-      name: pricess.gl001,
-      surname: pricess.hd001,
-      position: pricess.ld003,
-      email: pricess.nfalo1,
-    })
-    .then((data) => {
-      console.log("Document successfully updated!");
-    });
-    }
+  // update(pricess) {
+  //   console.log(pricess);
+  //   // To update age and favorite color:
+  //   this.db.collection("price").doc("SinUfRNnbB073KZiDIZE").update({
+  //     name: pricess.gl001,
+  //     surname: pricess.hd001,
+  //     position: pricess.ld003,
+  //     email: pricess.nfalo1,
+  //   })
+  //   .then((data) => {
+  //     console.log("Document successfully updated!");
+  //   });
+  //   }
 
-}
+// }
