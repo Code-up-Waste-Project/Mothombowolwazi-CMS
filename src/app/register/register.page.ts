@@ -15,6 +15,7 @@ export class RegisterPage implements OnInit {
   newuserprofile = [];
   db = firebase.firestore();
   profiles;
+
   profile = {
     image: null,
     name: null,
@@ -25,8 +26,12 @@ export class RegisterPage implements OnInit {
     // userid: firebase.auth().currentUser.uid,
     // email: firebase.auth().currentUser.email
       };
+
   public signupForm: FormGroup;
   public loading: any;
+
+  storage;
+
   constructor(
     public platform: Platform,
     public authService: AuthService,
@@ -56,9 +61,8 @@ export class RegisterPage implements OnInit {
         console.log("Users ", this.newuserprofile);
         });
       });
-      
+
       this.db.collection('userprofile').onSnapshot(snapshot => {
-       
       //  this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
@@ -68,14 +72,12 @@ export class RegisterPage implements OnInit {
         // // this.profile.image = snapshot.data().image;
         // console.log('users', this.userprofile);
         snapshot.forEach(item => {
-       
+
           this.newuserprofile.push(item.data());
-          console.log("Users ",this.newuserprofile);
-          
-        })
+          console.log("Users ", this.newuserprofile);
+        });
       });
-      
-            
+
     }
     user = {
       email: "",
@@ -150,22 +152,13 @@ export class RegisterPage implements OnInit {
       await this.loading.present();
     }
   }
+
   goToLogin() {
     this.router.navigate(['login']);
   }
-  delete() {
+
+  delete(x) {
     this.newuserprofile = [];
-    // this.Booking = [];
-    this.db.collection("userprofile").doc("workers").delete().then(function() {
-      console.log("Document successfully deleted!");
-      this.router.navigate(['home']);
-  }).catch(function(error) {
-      console.error("Error removing document: ", error);
-  });
-  }
-
-
-
     this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
       console.log("Document successfully deleted!");
   }).catch(function(error) {
@@ -188,4 +181,5 @@ export class RegisterPage implements OnInit {
       });
     });
   }
+
 }
