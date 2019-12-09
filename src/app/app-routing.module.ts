@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'list',
+    path: 'list/:id',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   {
@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'modalpopup',
+    path: 'modalpopup/:id',
     loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
   },
   {
@@ -51,7 +51,10 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
-
+  {
+    path: 'outbound',
+    loadChildren: () => import('./outbound/outbound.module').then( m => m.OutboundPageModule)
+  },
   {
     path: 'history',
     loadChildren: () => import('./history/history.module').then( m => m.HistoryPageModule)

@@ -1,27 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
     <ion-title>
-      List
+   <ion-icon [routerLink]="['/history']" class="Cancel" name="close-circle"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
+  <ion-list *ngFor="let out of ViewOutbound">
+    <ion-label>
+      Date :
+    <span style="font-weight: bold">{{out.date.seconds * 1000}}</span>
+  </ion-label><br>
+  <ion-label> 
+      Name :
+    <span style="font-weight: bold">{{ out.DriverName }} </span>
+  </ion-label><br>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>

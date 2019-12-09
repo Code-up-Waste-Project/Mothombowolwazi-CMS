@@ -1,36 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-   <ion-icon (click)="CloseModal()" class="Cancel" name="close-circle"></ion-icon>
+   <ion-icon [routerLink]="['/history']" class="Cancel" name="close-circle"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="Mother">
-    <h1>Add a Reclaimer</h1><br>
-    <div class="itemDiv">
-      <ion-item>
-        <ion-icon name="person"></ion-icon>
-        <ion-input placeholder="Name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="person"></ion-icon>
-        <ion-input placeholder="Surname"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="call"></ion-icon>
-        <ion-input placeholder="Phone Number"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="pin"></ion-icon>
-        <ion-input placeholder="Address"></ion-input>
-      </ion-item>
-    </div>
-    <div class="theButton">
-
-    </div>
-  </div>
-
-
+  <ion-list *ngFor="let rec of ViewReclaimer">
+    <ion-label>
+      Date :
+    <span style="font-weight: bold">{{rec.date.seconds * 1000}}</span>
+  </ion-label><br>
+  <ion-label> 
+      Name :
+    <span style="font-weight: bold">{{ rec.name }} </span>
+  </ion-label><br>
+  </ion-list>
 </ion-content>
