@@ -5,6 +5,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -19,6 +20,10 @@ export class OutboundPage implements OnInit {
     from: '',
     text: ''
   };
+
+  // user infor
+  admin = [];
+  Newadmin = [];
 
   db = firebase.firestore();
 
@@ -169,16 +174,32 @@ export class OutboundPage implements OnInit {
     private plt: Platform,
     private file: File,
     private fileOpener: FileOpener,
+    public route: Router,
     public formGroup: FormBuilder,
     ) {
-      this.RegisterForm = formGroup.group({
+      // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      console.log('Newadmins', this.Newadmin);
+    });
+
+    this.RegisterForm = formGroup.group({
         DriverName : ['', [Validators.required, Validators.maxLength(15)]],
         RegistarionNumberPlates : ['', [Validators.required, Validators.maxLength(10)]],
         Destination : ['', [Validators.required, Validators.maxLength(25)]],
       });
 
-      this.getMasses();
-     }
+    this.getMasses();
+
+    }
 
   ngOnInit() {
   }
@@ -395,5 +416,12 @@ export class OutboundPage implements OnInit {
       this.pdfObj.download();
     }
   }
+
+  Logout() {
+    firebase.auth().signOut().then((res) => {
+      console.log(res);
+      this.route.navigateByUrl('/login');
+     });
+    }
 
 }

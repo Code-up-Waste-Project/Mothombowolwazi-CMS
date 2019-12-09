@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class EditpricePage implements OnInit {
 
+  // user infor
+  admin = [];
+  Newadmin = [];
+
   GH001price: number = 0;
   NFAL01price: number = 0;
   PAP005price: number = 0;
@@ -142,7 +146,19 @@ export class EditpricePage implements OnInit {
     public route: Router,
     public alertController: AlertController,
   ) {
-    
+    // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      console.log('Newadmins', this.Newadmin);
+    });
    }
 
   ngOnInit() {
@@ -228,5 +244,12 @@ export class EditpricePage implements OnInit {
       await loading.present();
       loading.dismiss();
     }
+
+    Logout() {
+      firebase.auth().signOut().then((res) => {
+        console.log(res);
+        this.route.navigateByUrl('/login');
+       });
+      }
 
 }

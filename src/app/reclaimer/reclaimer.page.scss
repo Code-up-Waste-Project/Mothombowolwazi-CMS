@@ -1,9 +1,8 @@
 .header {
-  //border: 1px solid red;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.123);
+background: white !important;
   height: 15%;
 display: flex;
-// box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.089);
-
   .nav {
    // border: 1px solid blue;
     width: 65%;
@@ -14,7 +13,7 @@ display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     p {
-      color: rgb(65, 62, 62);
+      color: rgb(56, 54, 54);
       padding-left: 2%;
       font-size: 1.2em;;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
@@ -27,7 +26,6 @@ display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     .image {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       width:100px;
@@ -41,7 +39,7 @@ display: flex;
       }
     }
     .names {
-     // border: 1px solid red;
+     //background: red !important;
       margin-left: 10px;;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     
@@ -53,7 +51,9 @@ display: flex;
     }
   }
   .logout {
-    //border: 1ox solid purple;
+    border-left: 3px solid purple;
+    height: 65%;
+    margin-top: 2%;
     width: 10%;
     //background: red;
     display: flex;
@@ -71,21 +71,19 @@ display: flex;
   border-top-left-radius: 25px !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.021);
 
-  // border: 2px solid red;
+   //border: 2px solid red;
     height: 85%;
     // background:radial-gradient(circle, rgb(141, 144, 151), #44474D,
     // #44474D);
   }
   
   .slideContainer {
-  // border: 3px solid rgb(0, 0, 0);
+   //border: 3px solid rgb(0, 0, 0);
   height: 83%;
   max-width: 70%;
   margin-left: 10%;
   margin-top: 1%;
-    
-  
-   
+
     ion-slides {
      //background: rgb(209, 20, 193);
       height: 100%;
@@ -110,15 +108,19 @@ display: flex;
       margin-bottom: 3%;
     }
     button {
-      width: 40%;
+      width: 30%;
       height: 8%;
       font-size: 90%;
       //padding: 3%;
       margin-top: 3%;
       border-radius: 8px;
-      background: rgb(82, 12, 82);
+      background: linear-gradient(to right, purple,#6f16e9 );
+
       color: white;
       outline: none;
+    }
+    button:hover {
+      background: green;
     }
   }
   #title {
@@ -160,13 +162,13 @@ display: flex;
               border-top-right-radius: 5px;
             }
             p {
-             // border: 1px solid red;
-              height: 20%;
+              //border: 1px solid red;
+              height: 40%;
               position: relative;
-              top: -10%;
+              top: -22%;
               text-align: center;
               padding-top: 2%;
-              font-size: 80%;
+              font-size: 0.8rem;
             }
           }
   
@@ -206,11 +208,7 @@ display: flex;
            
             border-top-left-radius: 6px;
             border-bottom-left-radius: 6px;
-            
-            
           }
-  
-         
         }
 
   h3 {
@@ -228,24 +226,33 @@ display: flex;
   }/* end of div slideContainer */
 
   .totals {
-    //border: 3px solid green;
+    width: 60%;
+    margin-left: 20%;
+   // border: 3px solid green;
     height: 12%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;;
     align-items: center;
     margin-top: 1%;
     position: relative;
 bottom: 0;
+#pdf {
+  background: rgb(126, 10, 10) !important;
+}
     button {
-      width: 30%;
+      //border: 2px solid blue;
+      width: 17rem !important;
       height: 60%;
       font-size: 90%;
-      //padding: 3%;
+     padding: 0.4rem !important;
      // margin-top: -2.5%;
       border-radius: 8px;
-      background: rgb(82, 12, 82);
+      background: linear-gradient(to right, purple,#6f16e9 );
       color: white;
       outline: none;
+    }
+    button:hover {
+      background: green;
     }
     h4 {
       border-bottom: 1px solid gray;
@@ -254,7 +261,7 @@ bottom: 0;
       width: 30%;
       margin-right: 5%;
       color: black;
-
+​
       .total {
         font-size: 2vw;
         color: rgb(255, 255, 255);

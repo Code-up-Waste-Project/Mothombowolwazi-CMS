@@ -1,9 +1,9 @@
-import { Router } from '@angular/router';
-import { ModalController, ToastController,LoadingController,AlertController } from '@ionic/angular';
+import { Router, ActivatedRoute  } from '@angular/router';
+import { ModalController, ToastController, LoadingController, AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
- 
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modalpopup',
@@ -11,102 +11,38 @@ import { SelectMultipleControlValueAccessor } from '@angular/forms';
   styleUrls: ['./modalpopup.page.scss'],
 })
 export class ModalpopupPage implements OnInit {
-  db =firebase.firestore();
-  reclaimer={
-// reclaimerid:null,
-    name:null,
-    address:null,
-    surname:null,
-    contact:null,
-    //  reclaimerid:firebase.auth().currentUser.uid,
 
-  
-  }
-  constructor(public toastController: ToastController,private modalcontroller:ModalController,private router:Router, public loadingController: LoadingController,public alertController: AlertController)
-   { 
+  db = firebase.firestore();
 
-  }
+  id;
+  Reclaimer;
+  ViewReclaimer = [];
 
-  ngOnInit() {
-  }
-  CloseModal(){
-
-    this.modalcontroller.dismiss();
-    
+  constructor(
+    public toastController: ToastController,
+    private modalcontroller: ModalController,
+    public loadingController: LoadingController,
+    public alertController: AlertController,
+    public activatedRoute: ActivatedRoute,
+    public menuCtrl: MenuController
+    ) {
+      this.id = this.activatedRoute.snapshot.paramMap.get('id');
+      console.log(this.id);
+      this.getReclaimer(this.id);
+      // console.log(this.getReclaimer);
     }
-    async Addreclaimer(){
 
-      if(this.reclaimer.name ==""||this.reclaimer.name==undefined)
-      {
-        const toast = await this.toastController.create({
-          message: 'Enter the name.',
-          duration: 2000
-        });
-        toast.present();
-      }
-      else 
-      if(parseFloat(this.reclaimer.contact).toString().length !=10||this.reclaimer.contact==undefined)
-      {
-        const toast = await this.toastController.create({
-          message: 'Enter the contact numbers.',
-          duration: 2000
-        });
-        toast.present();
-      }
-      else
-      if(this.reclaimer.address ==""||this.reclaimer.address==undefined)
-      {
-        const toast = await this.toastController.create({
-          message: 'Enter the address',
-          duration: 2000
-        });
-        toast.present();
-      }
-      else
-      if(this.reclaimer.surname ==""||this.reclaimer.surname==undefined)
-      {
-        const toast = await this.toastController.create({
-          message: 'Enter the surname.',
-          duration: 2000
-        });
-        toast.present();
-      }
-      else
-      {
-      this.db.collection('reclaimers').doc().set({
-        name: this.reclaimer.name,
-        surname: this.reclaimer.surname,
-        address: this.reclaimer.address,
-        contact:this.reclaimer.contact,
-        // reclaimerid:this.reclaimer.reclaimerid
-        // userid: this.reclaimer.userid,
-      })
+    ngOnInit() {
+    }
 
-      const alert = await this.alertController.create({
-        header: 'Alert',
-        subHeader: 'Subtitle',
-        message: 'successfully added.',
-        buttons: ['OK'],
+    getReclaimer(id) {
+      this.Reclaimer = this.db.collection('reclaimers').doc(id);
+      this.Reclaimer.get().then((documentSnapshot) => {
+        this.ViewReclaimer = [];
+        console.log(documentSnapshot.data());
+        this.ViewReclaimer.push(documentSnapshot.data());
+        console.log(this.ViewReclaimer);
       });
-    
-      await alert.present();
-      let result = await alert.onDidDismiss();
-      console.log(result);
-
-
-      this.router.navigateByUrl('/home');
-
-    //   .then(function() {
-    //     console.log("Document successfully written!");
-       
-    //   })
-    //   .catch(function(error) {
-    //     console.error("Error writing document: ", error);
-    //   });
-     
     }
-    // this.router.navigateByUrl('/home');
-    }
-    
-    
+
 }

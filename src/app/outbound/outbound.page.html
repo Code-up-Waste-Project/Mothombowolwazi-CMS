@@ -1,31 +1,3 @@
-    <!-- <ion-content>
-        <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
-        <ion-input [(ngModel)]="DriverName" formControlName="DriverName">Driver Name</ion-input>
-        <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates">Registarion Number Plates</ion-input>
-        <ion-input formControlName="Destination" [(ngModel)]="Destination">Destination</ion-input>
-        </form>
-        <label>Truck Source</label>
-        <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess">
-            <ion-select-option value="InSource">In-Source</ion-select-option>
-            <ion-select-option value="outsorce">Out-Source</ion-select-option>
-        </ion-select>
-        <ion-input type="number" [(ngModel)]="GH001mass">GH001</ion-input>
-        <ion-input type="number" [(ngModel)]="NFAL01mass">NFAL01</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP005mass">PAP005</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP007mass">PAP007</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP001mass">PAP001</ion-input>
-        <ion-input type="number" [(ngModel)]="PAP003mass">PAP003</ion-input>
-        <ion-input type="number" [(ngModel)]="HD001mass">HD001</ion-input>
-        <ion-input type="number" [(ngModel)]="LD001mass">LD001</ion-input>
-        <ion-input type="number" [(ngModel)]="LD003mass">LD003</ion-input>
-        <ion-input type="number" [(ngModel)]="PET001mass">PET001</ion-input>
-        <ion-input type="number" [(ngModel)]="PET003mass">PET003</ion-input>
-        <ion-input type="number" [(ngModel)]="PET005mass">PET005</ion-input>
-        <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">calculate</button>
-       
-    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
-    </ion-content> -->
-
 <ion-content>
 <div class="header">	
     <div class="nav">	
@@ -33,13 +5,13 @@
       <p>You are at " OUTBOUND" where you can record information for your dispatch</p>	
     </div> 	
 
-    <div class="profiles">	
+    <div class="profiles" *ngFor="let item of Newadmin">	
       <div class="image">   	
          <img src="../../assets/face.png">	
         </div>	
   <div class="names">	
-    <H4>Nkosinathi Radebe</H4>	
-    <P>Administrator</P>	
+      <H4>{{ item.name }}</H4>  
+      <P>{{ item.position }}</P>	
   </div>	
     </div>	
 
@@ -158,7 +130,7 @@
          <p>GLASS</p>
        </div>
          <div class="name"><p> GL001</p></div>
-     <ion-input type="number" [(ngModel)]="GH001" placeholder="Enter Mass Here"></ion-input>
+     <ion-input type="number" [(ngModel)]="GH001mass" placeholder="Enter Mass Here"></ion-input>
        </div>
        </div>
      </ion-slide><!-- end of slide four -->

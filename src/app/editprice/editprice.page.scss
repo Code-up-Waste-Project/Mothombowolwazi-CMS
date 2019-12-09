@@ -1,25 +1,23 @@
 .header {
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.123);
+background: white !important;
   height: 15%;
 display: flex;
   .nav {
    // border: 1px solid blue;
     width: 65%;
-    margin-top: -10px !important;
     h2 {
-    //  border: 1px solid green;
       font-size: 2.2em;
       padding-left: 2%;
       font-weight: bolder;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     p {
-      //border: 1px solid green;
-      padding: 2%;
-      font-size: 1rem;;
+      color: rgb(56, 54, 54);
+      padding-left: 2%;
+      font-size: 1.2em;;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
       font-weight: 550;
-      margin-top: -10px !important;
     }
   }
   .profiles {
@@ -264,10 +262,13 @@ display: flex;
         //padding: 3%;
        // margin-top: -2.5%;
         border-radius: 5px;
-        background: purple;
+        background: linear-gradient(to right, purple,#6f16e9 );
         color: white;
         outline: none;
         letter-spacing: 1px;
+      }
+      button:hover {
+        background: green;
       }
       h4 {
         border-bottom: 1px solid gray;

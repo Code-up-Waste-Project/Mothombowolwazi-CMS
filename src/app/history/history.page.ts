@@ -1,8 +1,13 @@
+import { ModalpopupPage } from './../modalpopup/modalpopup.page';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import { ModalController } from '@ionic/angular';
 
-//import * as firebase from 'firebase';
+// @NgModule({
+//   imports: [NgxDocViewerModule]
+// })
+// export class AppModule { }
 
 @Component({
   selector: 'app-history',
@@ -10,113 +15,132 @@ import * as firebase from 'firebase';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
-db=firebase.firestore()
-newreclaimer=[]
 
+    db = firebase.firestore();
 
-  date;
-  DriverName;
-  RegistarionNumberPlates;
-  TruckSourcess;
-  Destination;
-  GH001storagemass;
-  NFAL01storagemass;
-  PAP005storagemass;
-  PAP007storagemass;
-  PAP001storagemass;
-  PAP003storagemass;
-  HD001storagemass;
-  LD001storagemass;
-  LD003storagemass;
-  PET001storagemass;
-  PET003storagemass;
-  PET005storagemass;
-  ovarallMass;
+    // user infor
+    admin = [];
+    Newadmin = [];
+
+    // Reclaimer
+    reclaimerID;
+    reclaimername;
+    reclaimersurname;
+    reclaimerDate;
+
+    // OutBound
+    id;
+    outdate;
+    outDriverName;
+    outRegistarionNumberPlates;
+    outovarallMass;
+
+    newreclaimer = [];
+    outbound = [];
 
   constructor(
+    private modalCTRL: ModalController,
     public route: Router,
   ) {
-    // this.getMasses();
-   }
+    // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      console.log('Newadmins', this.Newadmin);
+    });
 
-  ngOnInit() {
-  }
-  delete(x){
+    // pulling from reclaimers
+    this.db.collection('reclaimers').onSnapshot(snapshot => {
+      snapshot.forEach(element => {
+        let id = {};
+        let reclaimername = {};
+        let reclaimersurname = {};
+        let reclaimerDate = {};
 
-    console.log(x)
-    // this.newuserprofile = [];
-    let email =x.email;
+        id = this.id = element.id;
+        reclaimername = this.reclaimername = element.data().name;
+        reclaimersurname = this.reclaimersurname = element.data().surname;
+        reclaimerDate = this.reclaimerDate = element.data().date;
 
+        // this.newreclaimer = [];
+        this.newreclaimer.push({
+          id: id,
+          reName: reclaimername,
+          reSurname: reclaimersurname,
+          reDate: reclaimerDate,
+        });
+        console.log(this.newreclaimer);
+      });
+    });
 
-    // this.Booking = [];
-    this.db.collection("reclaimers").doc(x.userUid).delete().then(function() {
-      console.log("Document successfully deleted!");
-  }).catch(function(error) {
-      console.error("Error removing document: ", error);
-  });
-  }
-
-  getoutbound() {
+    // pulling from outbound
     this.db.collection('outbound').onSnapshot(snapshot => {
       snapshot.forEach(element => {
-        this.GH001storagemass = element.data().GL001;
-        this.NFAL01storagemass = element.data().NFAL01;
-        this.PAP005storagemass = element.data().PAP005;
-        this.PAP007storagemass = element.data().PAP007;
-        this.PAP001storagemass = element.data().PAP001;
-        this.PAP003storagemass = element.data().PAP003;
-        this.HD001storagemass = element.data().HD001;
-        this.LD001storagemass = element.data().LD001;
-        this.LD003storagemass = element.data().LD003;
-        this.PET001storagemass = element.data().PET001;
-        this.PET003storagemass = element.data().PET003;
-        this.PET005storagemass = element.data().PEP005;
-        // console.log(element);
-      });
-      // console.log(this.GH001storagemass);
-      // console.log(this.NFAL01storagemass);
-      // console.log(this.PAP005storagemass);
-      // console.log(this.PAP007storagemass);
-      // console.log(this.PAP001storagemass);
-      // console.log(this.PAP003storagemass);
-      // console.log(this.HD001storagemass);
-      // console.log(this.LD001storagemass);
-      // console.log(this.LD003storagemass);
-      // console.log(this.PET001storagemass);
-      // console.log(this.PET003storagemass);
-      // console.log(this.PET005storagemass);
-    });
-  }
+        let id = {};
+        let outdate = {};
+        let outDriverName = {};
+        let outRegistarionNumberPlates = {};
+        let outovarallMass = {};
 
-  getreclaimer() {
-    this.db.collection('outbound').onSnapshot(snapshot => {
-      snapshot.forEach(element => {
-        this.GH001storagemass = element.data().GL001;
-        this.NFAL01storagemass = element.data().NFAL01;
-        this.PAP005storagemass = element.data().PAP005;
-        this.PAP007storagemass = element.data().PAP007;
-        this.PAP001storagemass = element.data().PAP001;
-        this.PAP003storagemass = element.data().PAP003;
-        this.HD001storagemass = element.data().HD001;
-        this.LD001storagemass = element.data().LD001;
-        this.LD003storagemass = element.data().LD003;
-        this.PET001storagemass = element.data().PET001;
-        this.PET003storagemass = element.data().PET003;
-        this.PET005storagemass = element.data().PEP005;
-        // console.log(element);
+        id = this.id = element.id;
+        outdate = this.outdate = element.data().date;
+        outDriverName = this.outDriverName = element.data().DriverName;
+        outRegistarionNumberPlates = this.outRegistarionNumberPlates = element.data().RegistarionNumberPlates;
+        outovarallMass = this.outovarallMass = element.data().ovarallMass;
+
+        // this.outbound = [];
+        this.outbound.push({
+          id: id,
+          outDate: outdate,
+          outdriverName: outDriverName,
+          outRegistarionNo: outRegistarionNumberPlates,
+          outovarallmass: outovarallMass,
+        });
+        console.log(this.outbound);
       });
-      // console.log(this.GH001storagemass);
-      // console.log(this.NFAL01storagemass);
-      // console.log(this.PAP005storagemass);
-      // console.log(this.PAP007storagemass);
-      // console.log(this.PAP001storagemass);
-      // console.log(this.PAP003storagemass);
-      // console.log(this.HD001storagemass);
-      // console.log(this.LD001storagemass);
-      // console.log(this.LD003storagemass);
-      // console.log(this.PET001storagemass);
-      // console.log(this.PET003storagemass);
-      // console.log(this.PET005storagemass);
     });
-  }
+
+    // this.db.collection('outbound').onSnapshot(snapshot => {
+    //     //  this.profile.name = snapshot.docs.name
+    //       snapshot.forEach(item => {
+    //         this.outbound.push(item.data());
+    //         console.log("my outbound", this.outbound);
+    //       });
+    //     })
+    }
+
+    ngOnInit() {
+    }
+
+    async openReclaimer() {
+      let modal =  await this.modalCTRL.create({
+        component: ModalpopupPage,
+        cssClass: 'cart-modal'
+      });
+      modal.present();
+    }
+
+    deleteReclaimer(id) {
+    //   this.newreclaimer = [];
+    //   this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
+    //     console.log("Document successfully deleted!");
+    // }).catch(function(error) {
+    //     console.error("Error removing document: ", error);
+    // });
+    }
+
+    Logout() {
+      firebase.auth().signOut().then((res) => {
+        console.log(res);
+        this.route.navigateByUrl('/login');
+       });
+      }
+
 }

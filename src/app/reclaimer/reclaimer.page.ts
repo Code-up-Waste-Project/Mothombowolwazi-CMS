@@ -174,6 +174,10 @@ export class ReclaimerPage implements OnInit {
     text: ''
   };
 
+  // user infor
+  admin = [];
+  Newadmin = [];
+
   pdfObj = null;
 
   swiperCont = document.getElementsByClassName('swiper-container')
@@ -282,6 +286,20 @@ export class ReclaimerPage implements OnInit {
     ) {
     this.getprices();
     this.getMasses();
+
+    // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      console.log('Newadmins', this.Newadmin);
+    });
 
     this.RegisterForm = formGroup.group({
       name : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$'), Validators.maxLength(15)]],
@@ -904,5 +922,12 @@ export class ReclaimerPage implements OnInit {
       this.pdfObj.download();
     }
   }
+
+  Logout() {
+    firebase.auth().signOut().then((res) => {
+      console.log(res);
+      this.route.navigateByUrl('/login');
+     });
+    }
 
 }

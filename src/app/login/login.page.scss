@@ -1,154 +1,158 @@
-.Thewave{
-    height: 100%;
-    width: 100%;
+.container {
+    // border: 1px solid red;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     margin: 0 !important;
+ }
+ 
+ .form, .tree {
+     //border: 1px solid blue;
+     width: 50%;
+     height: 100%;
   
-}
-.ScreenContent{
-    background-image: url("../../assets/icon/Web\ 1920\ –\ 1.png");
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;  
-    
-}
+ }
+ .tree {
+     // border-left: 1px solid gray;
+     // display: flex;
+     // justify-content: center;
+     // align-content: center;
+     // align-content: center;
+     // background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+     // img {
+     //     // width: 95%;
+     //     height: 95%;
+     // }
 
-.Card{
-    background-color: white;
-    border: white solid 5px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-    height: 60%;
-    width: 60%;
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    border-radius: 10px;
-    padding-bottom: 100px;
-    overflow: hidden;
-    margin-top: 8%;
-    flex-direction: row;
-    justify-content: center;
-    object-fit: cover;
-    align-items: center;
-}
-
-.CardContent{
-    height: 100%;
-    width: 70%;
-    // background: pink;
-    padding: 50px;
-    // border: indigo solid 2px;
-    
-}
-.CardContentleft{
-    height: 50vh;
-    margin: -5px;
-    width: 30%;
-    background-image: url("../../assets/greeen.jpg");
-    object-fit: cover;
-    background-repeat: no-repeat;
-    background-size: cover;
-    // border: indigo solid 2px;
-}
-
-.TheItems{
-    // border: #14A6A5 solid 2px;
-    margin-top: 25px;
-    border-radius: 50px;
-    overflow: hidden;
-    // border: solid 2px #561f55;
-}
-
-ion-icon{
-    font-size: 25px;
-    color: rgb(92, 92, 92) ;
-}
-
-p{
-    font-weight: 100;
-    text-align: right;
-    color: rgb(92, 92, 92);
-}
-
-.TheButton{
-    display: flex;
-    justify-content: center;
-    align-items: center ;
-}
-
-ion-button{
-    // background: linear-gradient(#85D360, #14A6A5);
-    background: linear-gradient(#24A896,#80CC59);
-    // border: 2px solid #561f55;
-    width: 25vh;
-    border-radius: 50px;
-    overflow: hidden;
-    color: rgb(255, 255, 255);
-}
-
-h1{
-    font-size: 30px;
-    font-weight: 100;
-    text-align: center;
-    padding-top: -100px;
-    color: rgb(92, 92, 92);
-}
-
-h2{
-    font-size: 18px;
-    text-align: center;
-    color: rgb(92, 92, 92);
-}
-
-.messages{
-    color: red;
-}
-
-.theITEMS{
-    border: #80CC59 solid 2px;
-    margin-bottom: 20%;
-    border-radius: 50px;
-    height: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto; 
-    
-  }
-
-  .labels{
-    // border: solid 2px rgb(0, 0, 0);
-    // position: relative;
-    // left: 250px;
-    height:4.9%;
-    width: 2.7%;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 100000000000;
-    right: 64.4%;
-    background: linear-gradient(#24A896,#80CC59);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .Iconnn{
-    // height: 100%;
-    // width: 50%;
-    color: white;
-    height: 50%;
-  }
-
-  .theplaceholder{
-    display: flex;
-    height: 45px;
-    width: calc(100% - 50px);
-    // border: solid 2px red;
-    margin-left: 40px;
-  }
+     background-image: url(../../assets/tree.jpg);
+         background-position: center;
+         background-repeat: no-repeat;
+         object-fit: cover;
+         height: 95%;
+ }
+ .form {
+          border-right: 1px solid gray;
+     img {
+         //border: 1px solid red;
+         height: 100%;
+         //width: 15%;
+     }
+     P {
+         //border: 1px solid blue;
+         text-align: left;
+         width: 100%;
+         height: auto;
+         display: flex;
+         align-items: center;
+         padding-left: 2%;
+         font-family: serif;
+         font-size: 1rem;
+         font-weight: bold;
+         letter-spacing: 1px;
+         color: rgb(68, 65, 65);
+     }
+ }
+ .top {
+    //border: 1px solid green;
+     width: 100%;
+     height: 10%;
+     display: flex;
+     padding-left: 3%;
+     //padding-top: 3%;
+ }
+ .inputs {
+     //border: 1px solid red;
+     height: 65%;
+     width: 90%;
+     margin-top: 18%;
+     margin-left: 5%;
+     h1 {
+        // border: 1px solid green;
+         text-align: center;
+         color: gray;
+         font-family: 'lato';
+         font-size: 2.6rem;
+         font-weight: bold;
+         letter-spacing: 1px;
+         padding-bottom: 7%;
+     }
+ }
+ #inputs {
+    // border: 3px solid rgb(4, 0, 255);
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+ }
+ ion-item {
+   //  border: 1px solid red ;
+     width: 50%;
+     margin-left: 25%;
+     margin-top: 3%;
+     border-radius: 10px;
+     ion-input {
+        font-size: 1rem;
+        letter-spacing: 1px !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+     }
+     ion-label {
+ 
+         letter-spacing: 1px;
+         color: rgb(83, 78, 78);
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     }
+   ion-icon {
+       //border: 1px solid red;
+       font-size: 1.5rem;
+   } 
+ 
+ }
+ #forgot {
+    text-align: right !important;
+    // border: 1px solid rgb(17, 0, 255);
+      width: 75% !important;
+ padding-left: 53%;
+   font-size: small;
+   
+ } 
+ .propic {
+     //border: 1px solid green;
+     height: 25%;
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+ }
+ .image {
+     background: rgb(211, 211, 211);
+     //border: 1px solid purple;
+     width: 140px;
+     height: 140px;
+     border-radius: 50%;
+     text-align: center;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+ }
+ ion-icon {
+     font-size: 5rem;
+     color: purple;
+     //border: 1px solid red;
+ }
+ button {
+     padding: 2%;
+     width: 30% !important;
+     margin-left: 35%;
+     height: 7%;
+     background: linear-gradient(to right, purple,#6f16e9 );
+     // background: #728800;
+     border-radius: 7px;
+     color: white;
+     font-family: 'lato';
+     font-size: 1.4rem;
+     letter-spacing: 1px;
+     margin-top: 5%;
+ }

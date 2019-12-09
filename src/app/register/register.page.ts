@@ -11,11 +11,17 @@ import * as firebase from 'firebase';
 })
 export class RegisterPage implements OnInit {
 
+  db = firebase.firestore();
+
+  // user infor
+  admin = [];
+  Newadmin = [];
+
   userprofile;
   storage;
   newuserprofile = [];
-  db = firebase.firestore();
   profiles;
+
   profile = {
     image: null,
     name: null,
@@ -26,8 +32,12 @@ export class RegisterPage implements OnInit {
     // userid: firebase.auth().currentUser.uid,
     // email: firebase.auth().currentUser.email
       };
+
   public signupForm: FormGroup;
   public loading: any;
+
+  storage;
+
   constructor(
     public platform: Platform,
     public authService: AuthService,
@@ -37,13 +47,27 @@ export class RegisterPage implements OnInit {
     public router: Router,
     private toastController: ToastController
     ) {
-      this.signupForm = this.formBuilder.group({
+      // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      // console.log('Newadmins', this.Newadmin);
+    });
+
+    this.signupForm = this.formBuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.email])],
         // name: ['', Validators.compose([Validators.required, Validators.name])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       });
 
-      this.db.collection('userprofile').onSnapshot(snapshot => {
+    this.db.collection('userprofile').onSnapshot(snapshot => {
       //  this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
@@ -57,9 +81,8 @@ export class RegisterPage implements OnInit {
         console.log("Users ", this.newuserprofile);
         });
       });
-      
-      this.db.collection('userprofile').onSnapshot(snapshot => {
-       
+
+    this.db.collection('userprofile').onSnapshot(snapshot => {
       //  this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
@@ -69,15 +92,13 @@ export class RegisterPage implements OnInit {
         // // this.profile.image = snapshot.data().image;
         // console.log('users', this.userprofile);
         snapshot.forEach(item => {
-       
+
           this.newuserprofile.push(item.data());
-          console.log("Users ",this.newuserprofile);
-          
-        })
+          console.log("Users ", this.newuserprofile);
+        });
       });
-      
-            
     }
+
     user = {
       email: "",
       password: "",
@@ -151,28 +172,19 @@ export class RegisterPage implements OnInit {
       await this.loading.present();
     }
   }
+
   goToLogin() {
     this.router.navigate(['login']);
   }
-  delete() {
+
+  delete(x) {
     this.newuserprofile = [];
-    // this.Booking = [];
-    this.db.collection("userprofile").doc("workers").delete().then(function() {
+    this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
       console.log("Document successfully deleted!");
-      this.router.navigate(['home']);
   }).catch(function(error) {
       console.error("Error removing document: ", error);
   });
   }
-
-
-
-  //   this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
-  //     console.log("Document successfully deleted!");
-  // }).catch(function(error) {
-  //     console.error("Error removing document: ", error);
-  // });
-  // }
 
   changeListener(profile): void {
     const i = profile.target.files[0];
@@ -189,4 +201,12 @@ export class RegisterPage implements OnInit {
       });
     });
   }
+
+  Logout() {
+    firebase.auth().signOut().then((res) => {
+      console.log(res);
+      this.router.navigateByUrl('/login');
+     });
+    }
+
 }

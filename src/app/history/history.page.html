@@ -1,159 +1,63 @@
 <ion-content>
-    <div class="header">
-      <div class="nav">
-        <h2>My Dashboard</h2>
-        <p>You are at " Home "</p>
+    <div class="header">	
+        <div class="nav">	
+          <h2>My Dashboard</h2>	
+          <p>You are at " Home " where you a able to see your everyday progress</p>	
+        </div> 	
+        
+        <div class="profiles" *ngFor="let item of Newadmin">	
+            <div class="image">   	
+               <img src="../../assets/face.png">	
+              </div>	
+        <div class="names">	
+            <H4>{{ item.name }}</H4>  
+            <P>{{ item.position }}</P>	
+        </div>	
+          </div>	
+            <div class="logout" (click)="Logout()">	
+                <ion-icon name="log-out" style="color: black;"></ion-icon>	
+            </div>	
       </div>
-      <div class="profiles">
-        <div class="image">
-          <img src="../../assets/face.png">
-        </div>
-        <div class="names">
-          <H4>Nkosinathi Radebe</H4>
-          <P>Administrator</P>
-        </div>
-      </div>
-      <div class="logout">
-        <ion-icon name="log-out"></ion-icon>
-      </div>
-    </div>
+
     <div class="Everything">
-  ​
       <div class="AddUser">
-  ​
-  ​
         <div class="wavey">
           <img id="img" src="../../assets/icon/Group4@2x.png" alt="">
-          <h1 id="H1">Your Receipt History</h1>
+          <h1 id="H1">Your Reclaimer Receipt History</h1>
         </div> <br>
         <div class="Items">
           <div id="Socialcards">
-            <ion-card >
-              <ion-item  *ngFor = "let myreclaimers  of newreclaimer">
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>{{myreclaimers.name}} {{myreclaimers.surname}}</h2>
-                  
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-
-
-            <!-- <ion-card>
+            <ion-card *ngFor="let myreclaimers of newreclaimer" [routerLink]="['/modalpopup', myreclaimers.id]">
               <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
                 <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
+                  <h2>{{ myreclaimers.reName}} {{ myreclaimers.reSurname }}</h2>
                 </ion-label>
                 <ion-icon id="Icon5" name="trash"></ion-icon>
               </ion-item>
             </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-            <ion-card>
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>Lebogang Thipenyane</h2>
-                  <p>Assistant Manager</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
-              </ion-item>
-            </ion-card>
-             -->
           </div>
         </div>
-  ​
       </div>
-  ​
-  ​
-      <div class="ViewUser">
-        <div class="Wavey2">
-          <img id="img2" src="../../assets/icon/Group4@2x.png" alt="">
+
+      <div class="AddUser">
+        <div class="wavey">
+          <img id="img" src="../../assets/icon/Group4@2x.png" alt="">
+          <h1 id="H1">Your Outbound Receipt History</h1>
+        </div> <br>
+        <div class="Items">
+          <div id="Socialcards">
+            <ion-list *ngFor="let myoutbound of outbound" [routerLink]="['/list', myoutbound.id]">
+              <ion-card>
+                <ion-item>
+                  <ion-label>
+                    <h2>{{ myoutbound.outdriverName }} {{ myoutbound.outRegistarionNo }} {{ myoutbound.outovarallmass }}kg</h2>
+                  </ion-label>
+                  <ion-icon id="Icon5" name="trash"></ion-icon>
+                </ion-item>
+              </ion-card>
+            </ion-list>
+          </div>
         </div>
-        <div class="Rotation">
-          <div class="Text">
-        <h2>You Do not have any receipts</h2>
-      </div>
-      </div>
       </div>
     </div>
   </ion-content>

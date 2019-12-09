@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
 })
 export class AnalyticsPage implements OnInit {
 
+  // user infor
+  admin = [];
+  Newadmin = [];
+
   swiperCont = document.getElementsByClassName('swiper-container')
   slideOpts = {
    slidesPerView: 1,
@@ -164,7 +168,22 @@ export class AnalyticsPage implements OnInit {
     public loadingController: LoadingController,
     public toastController: ToastController,
     public alertController: AlertController,
-  ) { }
+  ) {
+    // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      console.log('Newadmins', this.Newadmin);
+    });
+
+   }
 
   ngOnInit() {
   }
@@ -329,5 +348,12 @@ openModal() {
 modalElement.present();
   });
 }
+
+Logout() {
+  firebase.auth().signOut().then((res) => {
+    console.log(res);
+    this.route.navigateByUrl('/login');
+   });
+  }
 
 }
