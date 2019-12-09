@@ -60,11 +60,10 @@ newreclaimer=[]
   PET005storagemass;
   ovarallMass;
 
-  constructor(
-    public route: Router,
-  ) {
+  constructor
+  (public route: Router), {
     // this.getMasses();
-   }
+ }
 
   ngOnInit() {
   }
