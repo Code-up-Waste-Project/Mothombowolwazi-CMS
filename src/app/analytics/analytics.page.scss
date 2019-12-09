@@ -1,6 +1,6 @@
 .header {
   // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.123);
-
+background: white !important;
   height: 15%;
 display: flex;
   .nav {
@@ -13,6 +13,7 @@ display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     p {
+      color: rgb(56, 54, 54);
       padding-left: 2%;
       font-size: 1.2em;;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
@@ -63,30 +64,42 @@ display: flex;
     }
   }
 }
-  // .AddReclaimer{
-  //     border: solid 2px purple;
-  //     color: purple;
-  //     margin-left: 77%;
-  //   }
+  .AddReclaimer{
+      border: solid 2px purple;
+      color: purple;
+      margin-left: 77%;
+    }
   .container {
-    background: #eaeaee !important;
-  border-top-left-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.048);      background: white;
-//border: 3px solid rgb(55, 0, 255);
+    border-top-left-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.034);      background: white;
+    background: rgb(234, 234, 238) !important;
+     // border: 1px solid red;
       height: 85%;
-      // background:radial-gradient(circle, rgb(141, 144, 151), #44474D,
-      // #44474D);
+     // background:radial-gradient(circle, rgb(141, 144, 151), #44474D,     #44474D);
+ 
+      .titlestop {
+      // background:  rgb(70, 25, 70);
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: whitesmoke;
+        letter-spacing: 1px;
+        font-family: lato;
+      }
     }
     
     .slideContainer {
-    // border: 3px solid rgb(0, 0, 0);
-    height: 88%;
+     //border: 3px solid rgb(0, 0, 0);
+    height: 85%;
     max-width: 80%;
     margin-left: 10%;
-    margin-top: 1%;  
+   margin-top: 2%;
+      
+    
      
       ion-slides {
-      // background: rgb(209, 20, 193);
+       //background: rgb(209, 20, 193);
         height: 100%;
         width: 100%;
         ion-slide {
@@ -105,15 +118,16 @@ display: flex;
       width: 100%;
   
       button {
-        width: 10%;
-        height: 13%;
+        width: 20%;
+        height: 50%;
         font-size: 90%;
-        //padding: 3%;
+        padding: 15px !important;
        // margin-top: -2.5%;
         border-radius: 8px;
         background: rgb(82, 12, 82);
         color: white;
         outline: none;
+        border: 2px solid red !important;
       }
     }
     #title {
@@ -129,6 +143,7 @@ display: flex;
             width: 100%;
             height: 5%;
             font-size: 60%;
+            color: rgb(100, 100, 100);
           }
           .list {
             border-bottom: 1px solid gray ;      
@@ -155,19 +170,27 @@ display: flex;
                 border-top-right-radius: 5px;
               }
               p {
-               // border: 1px solid red;
-                height: 20%;
-                position: relative;
-                top: -20%;
+              //  border: 1px solid red;
+                height: 40% !important;
+                 position: relative;
+               top: -30%;
                 text-align: center;
                 padding-top: 2%;
-                font-size: 80%;
+                font-size: 0.9rem;
               }
             }
-    
+            .rands {
+            //  border: 1px solid green;
+              width: 10%;
+              display: flex;
+               justify-content:space-between;
+              align-content: center;
+              align-items: center;
+              
+            }
             .name {
              // border: 1px solid red;
-              width: 46%;
+              width: 16%;
               display: flex;
               justify-content: center;
               align-content: center;
@@ -175,9 +198,9 @@ display: flex;
             }
             .name2 {
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.096);      background: white;
-              // background-color: rgba(17, 128, 17, 0);
-              //border: solid 2px rgb(82, 12, 82);
-              width: 28%;
+              //background-color: rgba(17, 128, 17, 0);
+            //  border: solid 2px rgb(82, 12, 82);
+              width: 22%;
               height: 40%;
               margin-top: 3.5%;
               border-radius: 35px;
@@ -187,7 +210,7 @@ display: flex;
               align-content: center;
               align-items: center;
               p {
-                color: rgb(82, 12, 82);
+                color: rgb(163, 15, 15);
               }
             }
     
@@ -195,29 +218,19 @@ display: flex;
               padding-left: -3%;
             }
             ion-input {
-             // border: 1px solid red;
+              width: 25%;
+            //  border: 1px solid red;
               height: 60%;
               margin-top: 3%;
              
               border-top-left-radius: 6px;
               border-bottom-left-radius: 6px;
-              
-              
             }
- #categoryMass {
-      //border: 1px solid red !important;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-    }
-           
           }
   
     h3 {
       font-size: 70%;
+      color: grey;
     }
         .totaly {
          // border: 1px solid red;
@@ -232,12 +245,11 @@ display: flex;
   
   
     .totals {
-     // border: 1px solid green;
+      // border: 1px solid green;
       height: 12%;
       display: flex;
       justify-content: center;
       align-items: center;
-      //margin-top: 5%;
   
       button {
         width: 30%;
@@ -245,10 +257,14 @@ display: flex;
         font-size: 90%;
         //padding: 3%;
        // margin-top: -2.5%;
-        border-radius: 8px;
-        background: rgb(82, 12, 82);
+        border-radius: 5px;
+        background: linear-gradient(to right, purple,#6f16e9 );
         color: white;
         outline: none;
+        letter-spacing: 1px;
+      }
+      button:hover {
+        background: green;
       }
       h4 {
         border-bottom: 1px solid gray;

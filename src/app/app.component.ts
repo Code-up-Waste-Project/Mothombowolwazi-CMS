@@ -72,33 +72,33 @@ this.appPages.push({
   {
     title: 'home',
     url: '/home',
-    icon: 'home',
+    icon: 'home2',
     admin:"cool"
   },
   {
     title: 'Edit Prices',
     url: '/editprice',
-    icon: 'create',
+    icon: 'edit',
     admin:"cool"
   }, {
     title: 'Inbound',
     url: '/analytics',
-    icon: 'arrow-round-back',
+    icon: 'inbound',
     admin:"cool"
   }, {
     title: 'Outbound',
     url: '/outbound',
-    icon: 'arrow-round-forward',
+    icon: 'dispatch',
     admin:"cool"
   }, {
     title: 'Reclaimer',
     url: '/reclaimer',
-    icon: 'cash',
+    icon: 'reclaimer2',
     admin:"cool"
   }, {
     title: 'History',
     url: '/history',
-    icon: 'cash',
+    icon: 'filing',
     admin:"cool"
   }, {
     title: 'Manage Users',

@@ -20,6 +20,10 @@ export class HomePage implements OnInit {
 bars: any;
 colorArray: any;
 
+  // user infor
+  admin = [];
+  Newadmin = [];
+
   db = firebase.firestore();
   profiles;
   profile = {
@@ -55,8 +59,23 @@ colorArray: any;
   constructor(
     private modalcontroller: ModalController,
     private menuCtrl: MenuController,
+    public route: Router,
     ) {
-      this.getMasses();
+      // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      console.log('Newadmins', this.Newadmin);
+    });
+
+    this.getMasses();
     }
 
     //chart
@@ -152,5 +171,12 @@ colorArray: any;
       }
     });
   }
+
+  Logout() {
+    firebase.auth().signOut().then((res) => {
+      console.log(res);
+      this.route.navigateByUrl('/login');
+     });
+    }
 
 }

@@ -1,22 +1,24 @@
 <ion-content>
-    <div class="header">
-      <div class="nav">
-        <h2>My Dashboard</h2>
-        <p>You are at " Home "</p>
+    <div class="header">	
+        <div class="nav">	
+          <h2>My Dashboard</h2>	
+          <p>You are at " Home " where you a able to see your everyday progress</p>	
+        </div> 	
+        
+        <div class="profiles" *ngFor="let item of Newadmin">	
+            <div class="image">   	
+               <img src="../../assets/face.png">	
+              </div>	
+        <div class="names">	
+            <H4>{{ item.name }}</H4>  
+            <P>{{ item.position }}</P>	
+        </div>	
+          </div>	
+            <div class="logout" (click)="Logout()">	
+                <ion-icon name="log-out" style="color: black;"></ion-icon>	
+            </div>	
       </div>
-      <div class="profiles">
-        <div class="image">
-          <img src="../../assets/face.png">
-        </div>
-        <div class="names">
-          <H4>Nkosinathi Radebe</H4>
-          <P>Administrator</P>
-        </div>
-      </div>
-      <div class="logout">
-        <ion-icon name="log-out"></ion-icon>
-      </div>
-    </div>
+
     <div class="Everything">
       <div class="AddUser">
         <div class="wavey">
@@ -57,17 +59,5 @@
           </div>
         </div>
       </div>
-  
-      <!-- <div class="ViewUser">
-        <div class="Wavey2">
-          <img id="img2" src="../../assets/icon/Group4@2x.png" alt="">
-        </div>
-        <div class="Rotation">
-          <div class="Text">
-        <h2>You Do not have any receipts</h2>
-      </div>
-      </div>
-      </div> -->
-
     </div>
   </ion-content>

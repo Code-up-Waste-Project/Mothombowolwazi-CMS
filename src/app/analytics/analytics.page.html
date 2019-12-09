@@ -5,13 +5,13 @@
               <p>You are at " Inbound " where you can record all your incoming material</p>	
             </div> 	
         
-            <div class="profiles">	
+            <div class="profiles" *ngFor="let item of Newadmin">	
               <div class="image">   	
                  <img src="../../assets/face.png">	
                 </div>	
           <div class="names">	
-            <H4>Nkosinathi Radebe</H4>	
-            <P>Administrator</P>	
+              <H4>{{ item.name }}</H4>  
+              <P>{{ item.position }}</P>	
           </div>	
             </div>	
         

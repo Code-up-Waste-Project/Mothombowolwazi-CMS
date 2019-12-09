@@ -41,7 +41,7 @@ export class ListPage implements OnInit {
       this.ViewOutbound = [];
       console.log(documentSnapshot.data());
       this.ViewOutbound.push(documentSnapshot.data());
-      console.log(this.viewreports);
+      console.log(this.ViewOutbound);
     });
   }
 

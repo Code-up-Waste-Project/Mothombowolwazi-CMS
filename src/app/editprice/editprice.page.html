@@ -1,164 +1,3 @@
-<!-- <ion-content>
-    
-    <div class="container" padding>
-      <div class="titlestop">
-        <h3>
-          Edit and Update all your new prices here
-        </h3>
-      </div>
-      <div class="slideContainer">
-      <ion-slides #slides [options]="slideOpts"  style=" overflow: visible;">
-      
-        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
-         <div class="lists">
-             <h3 id="title">PAPER</h3>
-           <div class="list">
-           <div class="image"><img src="../../assets/common white paper.jpg" height="80%%">
-           <p>COMMON PAPER</p>
-         </div>
-           <div class="name"><p> PAP005</p></div>
-           <div class="name2"><p>R {{ pricess.pap005 }}</p></div>
-           <div class="rands"><p>Update to</p></div>
-           <ion-input type="number" [(ngModel)]="pricess.pap005" placeholder="Enter New Price"></ion-input>
-        
-         </div>
-         <div class="list">
-             <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
-             <p>FLAT NEWS</p>
-           </div>
-             <div class="name"><p>PAP007</p></div>
-             <div class="name2"><p>R {{ pricess.pap007 }}</p></div>
-             <div class="rands"><p>Update to</p></div>
-             <ion-input type="number" [(ngModel)]="pricess.pap007" placeholder="Enter New Price"></ion-input>
-         
-           </div>
-           <div class="list">
-               <div class="image"><img src="../../assets/shapes.svg" height="80%%">
-               <p>HL 1</p>
-             </div>
-               <div class="name"><p> PAP001</p></div>
-               <div class="name2"><p>R {{ pricess.pap001 }}</p></div>
-               <div class="rands"><p>Update to</p></div>
-               <ion-input type="number" [(ngModel)]="pricess.pap001" placeholder="Enter New Price"></ion-input>
-            
-             </div>
-             <div class="list">
-                 <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
-                 <p>K4-CARDBOARD</p>
-               </div>
-                 <div class="name"><p>PAP003</p></div>
-                 <div class="name2"><p><span> </span>R {{ pricess.pap003 }}</p></div>
-                 <div class="rands"><p>Update to</p></div>
-                 <ion-input type="number" [(ngModel)]="pricess.pap003 " placeholder="Enter New Price"></ion-input>
-                 
-               </div>
-
-         </div>
-       </ion-slide>
-       <ion-slide style=" border-radius: 20px !; overflow: hidden" >
-           <div class="lists" style="overflow: auto;">
-               <h3 id="title">PLASTIC</h3>
-             <div class="list" id="paper">
-             <div class="image"><img src="../../assets/Hd plastic.jpg" height="80%%">
-             <p>HD</p>
-           </div>
-             <div class="name"><p>HD001</p></div>
-             <div class="name2"><p>R {{ pricess.hd001 }}</p></div>
-             <div class="rands"><p>Update to</p></div>
-             <ion-input type="number" [(ngModel)]="pricess.hd001" placeholder="Enter New Price"></ion-input>
-           
-             
-           </div>
-           <div class="list">
-               <div class="image"><img src="../../assets/CLEAR PLASTIC.jpg" height="80%%">
-               <p>LD CLEAR</p>
-             </div>
-               <div class="name"><p>LD001</p></div>
-               <div class="name2"><p>R {{ pricess.ld001 }}</p></div>
-               <div class="rands"><p>Update to</p></div>
-               <ion-input type="number" [(ngModel)]="pricess.ld001" placeholder="Enter New Price"></ion-input>
-            
-             </div>
-             <div class="list">
-                 <div class="image"><img src="../../assets/colour cups.jpg" height="80%%">
-                 <p>LD MIXED COLORS</p>
-               </div>
-                 <div class="name"><p>LD003</p></div>
-                 <div class="name2"><p>R {{ pricess.ld003 }}</p></div>
-                 <div class="rands"><p>Update to</p></div>
-                 <ion-input type="number" [(ngModel)]="pricess.ld003" placeholder="Enter New Price"></ion-input>
-             
-               </div>
-               <div class="list">
-                   <div class="image"><img src="../../assets/Brown bottles.png" height="80%%">
-                   <p>PET BROWN</p>
-                 </div>
-                   <div class="name"><p>PET005</p></div>
-                   <div class="name2"><p>R {{ pricess.pet005 }}</p></div>
-                   <div class="rands"><p>Update to</p></div>
-                   <ion-input type="number" [(ngModel)]="pricess.pet005" placeholder="Enter New Price"></ion-input>
-               
-                 </div>
-                 <div class="list">
-                  <div class="image"><img src="../../assets/pet clear bottle.jpg" height="80%%">
-                  <p>PET CLEAR</p>
-                </div>
-                  <div class="name"><p>PET001</p></div>
-                  <div class="name2"><p>R {{ pricess.pet001 }}</p></div>
-                  <div class="rands"><p>Update to</p></div>
-                  <ion-input type="number" [(ngModel)]="pricess.pet001 " placeholder="Enter New Price"></ion-input>
-             
-                </div>
-                <div class="list">
-                  <div class="image"><img src="../../assets/pet green bottle.jpg" height="80%%">
-                  <p>PET GREEN</p>
-                </div>
-                  <div class="name"><p>PET003</p></div>
-                  <div class="name2"><p>R {{ pricess.pet003 }}</p></div>
-                  <div class="rands"><p>Update to</p></div>
-                  <ion-input type="number" [(ngModel)]="pricess.pet003" placeholder="Enter New Price"></ion-input>
-               
-                </div>
-           </div>
-         </ion-slide>
-        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
-           <div class="lists">
-               <h3 id="title">NON-FERROUS</h3>
-             <div class="list">
-             <div class="image"><img src="../../assets/ALU-CANS-cropped.jpg" height="80%%">
-             <p>ALLINIUM CANS</p>
-           </div>
-             <div class="name"><p> NFAL01</p></div>
-             <div class="name2"><p>R {{ pricess.nfalo1 }}</p></div>
-             <div class="rands"><p>Update to</p></div>
-             <ion-input type="number" [(ngModel)]="pricess.nfalo1" placeholder="Enter New Price"></ion-input>
-            
-           </div>
-           </div>
-         </ion-slide>
-        <ion-slide style=" border-radius: 20px !; overflow: hidden" >
-           <div class="lists">
-               <h3 id="title">GLASS</h3>
-             <div class="list">
-             <div class="image"><img src="../../assets/glass.jpg" height="80%%">
-             <p>GLASS</p>
-           </div>
-             <div class="name"><p> GL001</p></div>
-             <div class="name2"><p> R {{ pricess.gl001 }}</p></div>
-             <div class="rands"><p>Update to</p></div>
-            <ion-input type="number" [(ngModel)]="GH001price" placeholder="Enter New Price"></ion-input>
-           </div>
-
-           </div>
-         </ion-slide>
-      </ion-slides>
-      </div>
-      <div class="totals">
-        <button ion-button (click)="update(pricess)"> UPDATE</button>
-      </div>
-    </div>
-</ion-content> -->
-
 <ion-content>
     <div class="header">	
         <div class="nav">	
@@ -166,13 +5,13 @@
           <p>You are at " UPDATE" where you can edit and change your prices</p>	
         </div> 	
     
-        <div class="profiles">	
+        <div class="profiles" *ngFor="let item of Newadmin">	
           <div class="image">   	
              <img src="../../assets/face.png">	
             </div>	
       <div class="names">	
-        <H4>Nkosinathi Radebe</H4>	
-        <P>Administrator</P>	
+          <H4>{{ item.name }}</H4>  
+          <P>{{ item.position }}</P>	
       </div>	
         </div>	
     
@@ -183,16 +22,16 @@
 
     <!-- new code -->
     <div class="container" padding>
-        <div class="titlestop">
+        <!-- <div class="titlestop">
           <h3 style="color: grey;">
             Edit and Update all your new prices here
           </h3>
-        </div>
+        </div> -->
         <div class="slideContainer">
         <ion-slides #slides [options]="slideOpts"  style=" overflow: visible;">
         
           <ion-slide style=" border-radius: 20px !; overflow: hidden" >
-           <div class="lists">
+           <div class="lists" style="overflow: auto;">
                <h3 id="title">PAPER</h3>
              <div class="list">
              <div class="image"><img src="../../assets/common white paper.jpg" height="80%%">
@@ -237,6 +76,7 @@
   
            </div>
          </ion-slide>
+
          <ion-slide style=" border-radius: 20px !; overflow: hidden" >
              <div class="lists" style="overflow: auto;">
                  <h3 id="title">PLASTIC</h3>

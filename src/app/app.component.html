@@ -1,27 +1,28 @@
 <ion-app>
-    <ion-split-pane contentId="main-content">
-      <ion-menu contentId="main-content" type="overlay">
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+ 
+      <ion-content>
+<div class="logo">
+  <img src="../assets/MthomboLOGO.png">
+  <p id="big">MTHOMBOWOLWAZI</p>
+  <P id="small">(PTY)LTD</P>
+  <P id="medium">A CLASS ON IT'S OWN</P>
+</div>
+          <ion-list>
+              <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                  <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                  <img src="../assets/{{p.icon}}.svg" alt="" slot="start">
+                  <ion-label style="margin-left: 6%;text-align: left; padding-left: 10%;width: 50% !important;">
+                    {{p.title}}
+                  </ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            </ion-list>
    
-        <ion-content>
-  <div class="logo">
-    <img src="../assets/MthomboLOGO.png">
-    <p id="big">MTHOMBOWOLWAZI</p>
-    <P id="small">(PTY)LTD</P>
-    <P id="medium">A CLASS ON IT'S OWN</P>
-  </div>
-            <ion-list>
-                <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-                  <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-                    <ion-icon slot="start" [name]="p.icon"></ion-icon>
-                    <ion-label>
-                      {{p.title}}
-                    </ion-label>
-                  </ion-item>
-                </ion-menu-toggle>
-              </ion-list>
-     
-          </ion-content>
-      </ion-menu>
-      <ion-router-outlet id="main-content"></ion-router-outlet>
-    </ion-split-pane>
-  </ion-app>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

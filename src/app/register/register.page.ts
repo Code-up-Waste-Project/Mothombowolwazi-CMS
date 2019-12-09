@@ -11,9 +11,14 @@ import * as firebase from 'firebase';
 })
 export class RegisterPage implements OnInit {
 
+  db = firebase.firestore();
+
+  // user infor
+  admin = [];
+  Newadmin = [];
+
   userprofile;
   newuserprofile = [];
-  db = firebase.firestore();
   profiles;
 
   profile = {
@@ -41,13 +46,27 @@ export class RegisterPage implements OnInit {
     public router: Router,
     private toastController: ToastController
     ) {
-      this.signupForm = this.formBuilder.group({
+      // pulling for admin
+    this.db.collection('admin').onSnapshot(snapshot => {
+      // this.Newadmin = [];
+      snapshot.forEach(Element => {
+        this.admin.push(Element.data());
+      });
+      this.admin.forEach(item => {
+        if (item.userid === firebase.auth().currentUser.uid) {
+          this.Newadmin.push(item);
+        }
+      });
+      // console.log('Newadmins', this.Newadmin);
+    });
+
+    this.signupForm = this.formBuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.email])],
         // name: ['', Validators.compose([Validators.required, Validators.name])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       });
 
-      this.db.collection('userprofile').onSnapshot(snapshot => {
+    this.db.collection('userprofile').onSnapshot(snapshot => {
       //  this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
@@ -62,7 +81,7 @@ export class RegisterPage implements OnInit {
         });
       });
 
-      this.db.collection('userprofile').onSnapshot(snapshot => {
+    this.db.collection('userprofile').onSnapshot(snapshot => {
       //  this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
@@ -77,8 +96,8 @@ export class RegisterPage implements OnInit {
           console.log("Users ", this.newuserprofile);
         });
       });
-
     }
+
     user = {
       email: "",
       password: "",
@@ -181,5 +200,12 @@ export class RegisterPage implements OnInit {
       });
     });
   }
+
+  Logout() {
+    firebase.auth().signOut().then((res) => {
+      console.log(res);
+      this.router.navigateByUrl('/login');
+     });
+    }
 
 }
