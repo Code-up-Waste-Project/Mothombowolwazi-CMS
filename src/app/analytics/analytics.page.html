@@ -7,7 +7,7 @@
         
             <div class="profiles" *ngFor="let item of Newadmin">	
               <div class="image">   	
-                 <img src="../../assets/face.png">	
+                <img src="../../assets/admin.jpg">	
                 </div>	
           <div class="names">	
               <H4>{{ item.name }}</H4>  
@@ -33,7 +33,9 @@
                </div>
                  <div class="name"><p> PAP005</p></div>
                  <ion-input type="number" [(ngModel)]="PAP005mass" placeholder="Enter Mass"></ion-input>
-                 <button size="small" (click)="SavePAP005()"> SAVE</button>
+                 <div class="btn">
+                  <button size="small" (click)="SavePAP005()"> SAVE</button>
+              </div>
                </div>
                <div class="list">
                    <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
@@ -41,7 +43,9 @@
                  </div>
                    <div class="name"><p>PAP007</p></div>
                    <ion-input type="number" [(ngModel)]="PAP007mass" placeholder="Enter Mass"></ion-input>
-                   <button size="small" (click)="SavePAP007()"> SAVE</button>
+                   <div class="btn">
+                    <button size="small" (click)="SavePAP007()"> SAVE</button>
+                   </div>
                  </div>
                  <div class="list">
                      <div class="image"><img src="../../assets/shapes.svg" height="80%%">
@@ -49,7 +53,9 @@
                    </div>
                      <div class="name"><p> PAP001</p></div>
                      <ion-input type="number" [(ngModel)]="PAP001mass" placeholder="Enter Mass"></ion-input>
-                     <button size="small" (click)="SavePAP001()"> SAVE</button>
+                     <div class="btn">
+                      <button size="small" (click)="SavePAP001()"> SAVE</button>
+                    </div>
                    </div>
                    <div class="list">
                        <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
@@ -57,7 +63,9 @@
                      </div>
                        <div class="name"><p>PAP003</p></div>
                        <ion-input type="number" [(ngModel)]="PAP003mass" placeholder="Enter Mass"></ion-input>
-                       <button size="small" (click)="SavePAP003()"> SAVE</button>
+                       <div class="btn">
+                        <button size="small" (click)="SavePAP003()"> SAVE</button>
+                      </div>
                      </div>
   
                      <!-- <div class="list" >
@@ -75,7 +83,9 @@
                  </div>
                    <div class="name"><p>HD001</p></div>
                    <ion-input type="number" [(ngModel)]="HD001mass" placeholder="Enter Mass"></ion-input>
-                   <button size="small" (click)="SaveHD001()"> SAVE</button>
+                   <div class="btn">
+                    <button size="small" (click)="SaveHD001()"> SAVE</button>
+                  </div>
                  </div>
                  <div class="list">
                      <div class="image"><img src="../../assets/CLEAR PLASTIC.jpg" height="80%%">
@@ -83,7 +93,9 @@
                    </div>
                      <div class="name"><p>LD001</p></div>
                      <ion-input type="number" [(ngModel)]="LD001mass" placeholder="Enter Mass"></ion-input>
-                     <button size="small" (click)="SaveLD001()"> SAVE</button>
+                     <div class="btn">
+                      <button size="small" (click)="SaveLD001()"> SAVE</button>
+                    </div>
                    </div>
                    <div class="list">
                        <div class="image"><img src="../../assets/colour cups.jpg" height="80%%">
@@ -91,7 +103,9 @@
                      </div>
                        <div class="name"><p>LD003</p></div>
                        <ion-input type="number" [(ngModel)]="LD003mass" placeholder="Enter Mass"></ion-input>
-                       <button size="small" (click)="SaveLD003()"> SAVE</button>    
+                       <div class="btn">
+                        <button size="small" (click)="SaveLD003()"> SAVE</button> 
+                      </div>   
                      </div>
                      
                      <div class="list">
@@ -100,7 +114,9 @@
                        </div>
                          <div class="name"><p>PET005</p></div>
                          <ion-input type="number" [(ngModel)]="PET005mass" placeholder="Enter Mass"></ion-input>
-                         <button size="small" (click)="SavePET005()"> SAVE</button>
+                         <div class="btn">
+                          <button size="small" (click)="SavePET005()"> SAVE</button>
+                        </div>
                        </div>
                        <div class="list">
                         <div class="image"><img src="../../assets/pet clear bottle.jpg" height="80%%">
@@ -108,7 +124,9 @@
                       </div>
                         <div class="name"><p>PET001</p></div>
                         <ion-input type="number" [(ngModel)]="PET001mass" placeholder="Enter Mass"></ion-input>
-                        <button size="small" (click)="SavePET001()"> SAVE</button>
+                        <div class="btn">
+                          <button size="small" (click)="SavePET001()"> SAVE</button>
+                        </div> 
                       </div>
                       <div class="list">
                         <div class="image"><img src="../../assets/pet green bottle.jpg" height="80%%">
@@ -116,7 +134,9 @@
                       </div>
                         <div class="name"><p>PET003</p></div>
                         <ion-input type="number" [(ngModel)]="PET003mass" placeholder="Enter Mass"></ion-input>
-                        <button size="small" (click)="SavePET003()"> SAVE</button>
+                        <div class="btn">
+                          <button size="small" (click)="SavePET003()"> SAVE</button>
+                        </div>
                       </div>
                       <div class="list" >
                           <!-- <h4 id="categoryMass">Overall Paper Mass = 8947.787294 Kg</h4> -->
@@ -133,7 +153,9 @@
                  </div>
                    <div class="name"><p> NFAL01</p></div>
                    <ion-input type="number" [(ngModel)]="NFAL01mass" placeholder="Enter Mass"></ion-input>
-                   <button size="small" (click)="SaveNFAL01()"> SAVE</button>
+                   <div class="btn">
+                    <button size="small" (click)="SaveNFAL01()"> SAVE</button>
+                  </div>
                  </div>
                  </div>
                </ion-slide>
@@ -146,7 +168,9 @@
                  </div>
                    <div class="name"><p> GL001</p></div>
                    <ion-input type="number" [(ngModel)]="GH001mass" placeholder="Enter Mass"></ion-input>
-                   <button size="small" (click)="SaveGH001()"> SAVE</button>
+                   <div class="btn">
+                    <button size="small" (click)="SaveGH001()"> SAVE</button>
+                  </div>
                  </div>
                  </div>
                </ion-slide>

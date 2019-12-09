@@ -67,22 +67,17 @@ display: flex;
 
 .container {
   background: rgb(234, 234, 238) !important;
-
-  border-top-left-radius: 25px !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.021);
-
-   //border: 2px solid red;
-    height: 85%;
-    // background:radial-gradient(circle, rgb(141, 144, 151), #44474D,
-    // #44474D);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.014);
+    border-top-left-radius: 25px;
+   height: 85%;
   }
   
   .slideContainer {
    //border: 3px solid rgb(0, 0, 0);
-  height: 83%;
-  max-width: 70%;
-  margin-left: 10%;
-  margin-top: 1%;
+   height: 85%;
+   max-width: 80%;
+   margin-left: 10%;
+  margin-top: 2%;
 
     ion-slides {
      //background: rgb(209, 20, 193);
@@ -226,14 +221,14 @@ display: flex;
   }/* end of div slideContainer */
 
   .totals {
-    width: 60%;
-    margin-left: 20%;
-   // border: 3px solid green;
+   // width: 100%;
+   // margin-left: 10%;
+   //border: 3px solid green;
     height: 12%;
     display: flex;
-    justify-content: space-evenly;;
+    justify-content: space-around;;
     align-items: center;
-    margin-top: 1%;
+    //margin-top: 1%;
     position: relative;
 bottom: 0;
 #pdf {

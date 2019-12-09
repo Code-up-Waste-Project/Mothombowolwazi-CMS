@@ -36,7 +36,7 @@ export class RegisterPage implements OnInit {
   public signupForm: FormGroup;
   public loading: any;
 
-  storage;
+  // storage;
 
   constructor(
     public platform: Platform,

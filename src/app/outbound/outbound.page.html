@@ -7,7 +7,7 @@
 
     <div class="profiles" *ngFor="let item of Newadmin">	
       <div class="image">   	
-         <img src="../../assets/face.png">	
+        <img src="../../assets/admin.jpg">
         </div>	
   <div class="names">	
       <H4>{{ item.name }}</H4>  
@@ -161,8 +161,8 @@
   </ion-slides>
   </div><!-- end of  -->
   <div class="totals">
-    <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">calculate</button>
-    <button ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Download PDF</button>
+    <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">CALCULATE</button>
+    <button id="pdf" ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button>
   </div>
 </div>
 </ion-content>

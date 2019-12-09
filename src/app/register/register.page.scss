@@ -1,7 +1,9 @@
 .container {
    
-  height: 75%;
-  background-color: #EFF0F2;
+  background: rgb(234, 234, 238) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.014);
+    border-top-left-radius: 25px;
+   height: 85%;
 }
 
 .header {
