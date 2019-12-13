@@ -16,6 +16,7 @@ export class RegisterPage implements OnInit {
   admin = [];
   Newadmin = [];
   userprofile;
+  // storage;
   newuserprofile = [];
   db = firebase.firestore();
   profiles;
