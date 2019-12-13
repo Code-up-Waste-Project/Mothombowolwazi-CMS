@@ -14,6 +14,8 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 import * as firebase from 'firebase';
 import {ModalpopupPageModule} from './modalpopup/modalpopup.module';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyB5FpPISbzSmTxUH4IY5qk9cXtLnK2djy0",
@@ -36,6 +38,7 @@ firebase.analytics();
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    PdfViewerModule,
     ModalpopupPageModule,
     FormsModule,
     ReactiveFormsModule,
@@ -51,3 +54,5 @@ firebase.analytics();
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+// platformBrowserDynamic().bootstrapModule(AppModule);

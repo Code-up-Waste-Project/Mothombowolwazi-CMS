@@ -7,11 +7,9 @@ import 'firebase/firestore';
   providedIn: 'root'
 })
 
-// signupUser(email: string, password: string) {
-//   throw new Error("Method not implemented.");
-// }
-
 export class AuthService {
+
+  profile = {};
 
   constructor() { }
 
@@ -28,7 +26,10 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then((newUserCredential: firebase.auth.UserCredential) => {
         console.log('The User UID is', newUserCredential.user.uid);
-        // 2dM0Ry44eGOq0oqvP2wSl4LHCjT2
+
+        firebase
+      .firestore().collection('userprofile2').doc(newUserCredential.user.uid).set({...this.profile,...{userUid:newUserCredential.user.uid}});
+
       })
       .catch(error => {
         console.error(error);

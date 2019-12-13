@@ -11,31 +11,27 @@ import * as firebase from 'firebase';
 })
 export class RegisterPage implements OnInit {
 
-  db = firebase.firestore();
-
-  // user infor
+  public signupForm: FormGroup;
+  storage = firebase.storage().ref();
   admin = [];
   Newadmin = [];
-
   userprofile;
   newuserprofile = [];
+  db = firebase.firestore();
   profiles;
-
   profile = {
-    image: null,
+
+  image: 'https://firebasestorage.googleapis.com/v0/b/https://gs://mthombowolwazi-a7902.appspot.com/mthombologo (1).png',
     name: null,
     addres: null,
     surname: null,
     position: null,
     // isAdmin: null,
     // userid: firebase.auth().currentUser.uid,
-    // email: firebase.auth().currentUser.email
+    email: null,
+    password: null,
       };
-
-  public signupForm: FormGroup;
   public loading: any;
-
-  storage;
 
   constructor(
     public platform: Platform,
@@ -46,43 +42,30 @@ export class RegisterPage implements OnInit {
     public router: Router,
     private toastController: ToastController
     ) {
-      // pulling for admin
-    this.db.collection('admin').onSnapshot(snapshot => {
-      // this.Newadmin = [];
-      snapshot.forEach(Element => {
-        this.admin.push(Element.data());
-      });
-      this.admin.forEach(item => {
-        if (item.userid === firebase.auth().currentUser.uid) {
-          this.Newadmin.push(item);
-        }
-      });
-      // console.log('Newadmins', this.Newadmin);
-    });
-
-    this.signupForm = this.formBuilder.group({
+      this.signupForm = this.formBuilder.group({
         email: ['', Validators.compose([Validators.required, Validators.email])],
-        // name: ['', Validators.compose([Validators.required, Validators.name])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+        name: ['', [Validators.required, ]],
+        surname: ['', [Validators.required, ]],
+        position: ['', [Validators.required, ]],
       });
 
-    this.db.collection('userprofile').onSnapshot(snapshot => {
-      //  this.profile.name = snapshot.docs.name
-        // this.profile.email = snapshot.data().email;
-        // email: firebase.auth().currentUser.email,
-        // this.profile.name = snapshot.data().name;
-        // this.profile.surname = snapshot.data().surname;
-        // this.profile.position = snapshot.data().position;
-        // // this.profile.image = snapshot.data().image;
-        // console.log('users', this.userprofile);
-       snapshot.forEach(item => {
-        this.newuserprofile.push(item.data());
-        console.log("Users ", this.newuserprofile);
+      this.db.collection('admin').onSnapshot(snapshot => {
+        this.Newadmin = [];
+        snapshot.forEach(Element => {
+          this.admin.push(Element.data());
         });
+        this.admin.forEach(item => {
+          if (item.userid === firebase.auth().currentUser.uid) {
+            this.Newadmin.push(item);     }
+        });
+        console.log('Newadmins', this.Newadmin);
       });
+    }
 
-    this.db.collection('userprofile').onSnapshot(snapshot => {
-      //  this.profile.name = snapshot.docs.name
+  ngOnInit() {
+    this.db.collection('userprofile2').onSnapshot(snapshot => {
+        // this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
         // this.profile.name = snapshot.data().name;
@@ -91,73 +74,42 @@ export class RegisterPage implements OnInit {
         // // this.profile.image = snapshot.data().image;
         // console.log('users', this.userprofile);
         snapshot.forEach(item => {
-
           this.newuserprofile.push(item.data());
-          console.log("Users ", this.newuserprofile);
+          console.log("user profile ", this.newuserprofile);
         });
       });
-    }
-
-    user = {
-      email: "",
-      password: "",
-    };
-
-  ngOnInit() {}
+  }
 
   async signupUser(signupForm: FormGroup): Promise<void> {
-    if (this.profile.name == "" || this.profile.name == undefined) {
-      const toast = await this.toastController.create({
-        message: 'Enter the name.',
-        duration: 2000
-      });
-      toast.present();
-    } else if (this.profile.surname == "" || this.profile.surname == undefined) {
-      const toast = await this.toastController.create({
-        message: 'Enter the surname',
-        duration: 2000
-      });
-      toast.present();
-    } else if (this.profile.position == "" || this.profile.position == undefined) {
-      const toast = await this.toastController.create({
-        message: 'Enter the position.',
-        duration: 2000
-      });
-      toast.present();
-    } else {
-      this.db.collection('userprofile').doc('workers').set({
-        name: this.profile.name,
-      //  surname: this.profile.surname,
-      //   // email: this.profile.email,
-      //   position:this.profile.position,
-      //    userid: this.profile.userid,
-        //  image: this.profile.image,
-        //  isAdmin: this.profile.isAdmin
-      })
-      .then(function() {
-        console.log("Document successfully written!");
-      })
-      .catch(function(error) {
-        console.error("Error writing document: ", error);
-      });
-    }
-    console.log('Method is called');
-    if (!signupForm.valid) {
-      console.log(
-        'Need to complete the form, current value: ',
-        signupForm.value
-      );
-    } else {
-      const email: string = signupForm.value.email;
-      const password: string = signupForm.value.password;
-      this.authService.signupUser(email, password).then(
-        () => {
-          this.loading.dismiss().then(() => {
-            // this.router.navigateByUrl('profile');
-            this.router.navigateByUrl('profile');
-          });
-        },
+    this.authService.profile = {...signupForm.value, ...{image: this.profile.image}};
+    console.log(signupForm.value);
+    console.log(this.profile.image);
+    this.db.collection('userprofile').add({
+          name: this.profile.name,
+         surname: this.profile.surname,
+          email: signupForm.value.email,
+          position: this.profile.position,
+          // userUid:firebase.auth().currentUser.uid,
+        //    userid: this.profile.userid,
+           image: this.profile.image,
+           password: signupForm.value.password.toString()
+        })
+        .then(function() {
+          console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+          console.error("Error writing document: ", error);
+        });
         error => {
+          this.db.collection('userprofile2').doc(firebase.auth().currentUser.uid).delete();
+          this.newuserprofile = [];
+          this.db.collection('userprofile2').onSnapshot(snapshot => {
+              snapshot.forEach(item => {
+                this.newuserprofile.push(item.data());
+                console.log("user profile ",this.newuserprofile);
+              })
+            });
+
           this.loading.dismiss().then(async () => {
             const alert = await this.alertCtrl.create({
               message: error.message,
@@ -166,46 +118,70 @@ export class RegisterPage implements OnInit {
             await alert.present();
           });
         }
-      );
-      this.loading = await this.loadingCtrl.create();
-      await this.loading.present();
-    }
-  }
 
-  goToLogin() {
-    this.router.navigate(['login']);
-  }
+    console.log('Method is called');
+    if (!signupForm.valid) {
+          console.log(
+            'Need to complete the form, current value: ',
+            signupForm.value
+          );
+        } else {
+          const email: string = signupForm.value.email;
+          const password: string = signupForm.value.password;
+          const surname: string = signupForm.value.surname;
+          const position: string = signupForm.value.position;
+          const name: string = signupForm.value.name;
+          this.authService.signupUser(email, password).then(
+            () => {
+              this.loading.dismiss().then(() => {
+              });
+            },
+            error => {
+              this.loading.dismiss().then(async () => {
+                const alert = await this.alertCtrl.create({
+                  message: error.message,
+                  buttons: [{ text: 'Ok', role: 'cancel' }]
+                });
+                await alert.present();
+              });
+            }
+          );
+          this.loading = await this.loadingCtrl.create();
+          await this.loading.present();
+        }
+      }
 
-  delete(x) {
-    this.newuserprofile = [];
-    this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
-      console.log("Document successfully deleted!");
-  }).catch(function(error) {
-      console.error("Error removing document: ", error);
-  });
-  }
-
-  changeListener(profile): void {
-    const i = profile.target.files[0];
-    console.log(i);
-    const upload = this.storage.child(i.name).put(i);
-    upload.on('state_changed', snapshot => {
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log('upload is: ', progress , '% done.');
-    }, err => {
-    }, () => {
-      upload.snapshot.ref.getDownloadURL().then(dwnURL => {
-        console.log('File avail at: ', dwnURL);
-        this.profile.image = dwnURL;
+      delete(x) {
+        console.log(x);
+        this.newuserprofile = [];
+        let email = x.email;
+        // this.Booking = [];
+        this.db.collection("userprofile2").doc(x.userUid).delete().then(function() {
+          console.log("Document successfully deleted!");
+      }).catch(function(error) {
+          console.error("Error removing document: ", error);
       });
-    });
-  }
+        this.db.collection("userprofile2").get().then(res => {
+        res.forEach(res => {
+          this.newuserprofile.push({...{userUid: res.id}, ...res.data()});
+        });
+      });
+      }
 
-  Logout() {
-    firebase.auth().signOut().then((res) => {
-      console.log(res);
-      this.router.navigateByUrl('/login');
-     });
+    changeListener(profile): void {
+      const i = profile.target.files[0];
+      console.log(i);
+      const upload = this.storage.child(i.name).put(i);
+      upload.on('state_changed', snapshot => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('upload is: ', progress , '% done.');
+      }, err => {
+      }, () => {
+        upload.snapshot.ref.getDownloadURL().then(dwnURL => {
+          console.log('File avail at: ', dwnURL);
+          this.profile.image = dwnURL;
+        });
+      });
     }
 
 }

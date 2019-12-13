@@ -29,6 +29,7 @@ export class ReclaimerPage implements OnInit {
   prices;
   getprice;
 
+  overallMass;
   OverallSubTotal;
   OverallVat;
   OverallGrandTotal;
@@ -298,13 +299,13 @@ export class ReclaimerPage implements OnInit {
           this.Newadmin.push(item);
         }
       });
-      console.log('Newadmins', this.Newadmin);
+      // console.log('Newadmins', this.Newadmin);
     });
 
     this.RegisterForm = formGroup.group({
-      name : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$'), Validators.maxLength(15)]],
-      surname : ['', [Validators.required, Validators.pattern('[a-zA-Z]+$'), Validators.maxLength(15)]],
-      contact : ['', [Validators.required, Validators.pattern('^[0-9]{10}$'), Validators.maxLength(10)]],
+      name : ['', [Validators.required, Validators.maxLength(15)]],
+      surname : ['', [Validators.required, Validators.maxLength(15)]],
+      contact : ['', [Validators.required, Validators.maxLength(10)]],
       address : ['', [Validators.required, , Validators.maxLength(40)]],
     });
   }
@@ -489,97 +490,102 @@ export class ReclaimerPage implements OnInit {
     this.GH001GrandTotal = +this.GH001mass * +this.GH001;
     this.GH001Vat = +this.GH001GrandTotal / 1.15;
     this.GH001SubTotal = +this.GH001GrandTotal - +this.GH001Vat;
-    console.log(this.GH001GrandTotal);
-    console.log(this.GH001Vat);
-    console.log(this.GH001SubTotal);
+    // console.log(this.GH001GrandTotal);
+    // console.log(this.GH001Vat);
+    // console.log(this.GH001SubTotal);
 
     // NFAL01
     this.NFAL01GrandTotal = +this.NFAL01mass * +this.NFAL01;
     this.NFAL01Vat = +this.NFAL01GrandTotal / 1.15;
     this.NFAL01SubTotal = +this.NFAL01GrandTotal - +this.NFAL01Vat;
-    console.log(this.NFAL01GrandTotal);
-    console.log(this.NFAL01Vat);
-    console.log(this.NFAL01SubTotal);
+    // console.log(this.NFAL01GrandTotal);
+    // console.log(this.NFAL01Vat);
+    // console.log(this.NFAL01SubTotal);
 
     //   PAP005;
     this.PAP005GrandTotal = +this.PAP005mass * +this.PAP005;
     this.PAP005Vat = +this.PAP005GrandTotal / 1.15;
     this.PAP005SubTotal = +this.PAP005GrandTotal - +this.PAP005Vat;
-    console.log(this.PAP005GrandTotal);
-    console.log(this.PAP005Vat);
-    console.log(this.PAP005SubTotal);
+    // console.log(this.PAP005GrandTotal);
+    // console.log(this.PAP005Vat);
+    // console.log(this.PAP005SubTotal);
 
     // PAP007
     this.PAP007GrandTotal = +this.PAP007mass * +this.PAP007;
     this.PAP007Vat = +this.PAP007GrandTotal / 1.15;
     this.PAP007SubTotal = +this.PAP007GrandTotal - +this.PAP007Vat;
-    console.log(this.PAP007GrandTotal);
-    console.log(this.PAP007Vat);
-    console.log(this.PAP007SubTotal);
+    // console.log(this.PAP007GrandTotal);
+    // console.log(this.PAP007Vat);
+    // console.log(this.PAP007SubTotal);
 
     // PAP001
     this.PAP001GrandTotal = +this.PAP001mass * +this.PAP001;
     this.PAP001Vat = +this.PAP001GrandTotal / 1.15;
     this.PAP001SubTotal = +this.PAP001GrandTotal - +this.PAP001Vat;
-    console.log(this.PAP001GrandTotal);
-    console.log(this.PAP001Vat);
-    console.log(this.PAP001SubTotal);
+    // console.log(this.PAP001GrandTotal);
+    // console.log(this.PAP001Vat);
+    // console.log(this.PAP001SubTotal);
 
     // PAP003
     this.PAP003GrandTotal = +this.PAP003mass * +this.PAP003;
     this.PAP003Vat = +this.PAP003GrandTotal / 1.15;
     this.PAP003SubTotal = +this.PAP003GrandTotal - +this.PAP003Vat;
-    console.log(this.PAP003GrandTotal);
-    console.log(this.PAP003Vat);
-    console.log(this.PAP003SubTotal);
+    // console.log(this.PAP003GrandTotal);
+    // console.log(this.PAP003Vat);
+    // console.log(this.PAP003SubTotal);
 
     // HD001
     this.HD001GrandTotal = +this.HD001mass * +this.HD001;
     this.HD001Vat = +this.HD001GrandTotal / 1.15;
     this.HD001SubTotal = +this.HD001GrandTotal - +this.HD001Vat;
-    console.log(this.HD001GrandTotal);
-    console.log(this.HD001Vat);
-    console.log(this.HD001SubTotal);
+    // console.log(this.HD001GrandTotal);
+    // console.log(this.HD001Vat);
+    // console.log(this.HD001SubTotal);
 
     // LD001
     this.LD001GrandTotal = +this.LD001mass * +this.LD001;
     this.LD001Vat = +this.LD001GrandTotal / 1.15;
     this.LD001SubTotal = +this.LD001GrandTotal - +this.LD001Vat;
-    console.log(this.LD001GrandTotal);
-    console.log(this.LD001Vat);
-    console.log(this.LD001SubTotal);
+    // console.log(this.LD001GrandTotal);
+    // console.log(this.LD001Vat);
+    // console.log(this.LD001SubTotal);
 
     // LD003
     this.LD003GrandTotal = +this.LD003mass * +this.LD003;
     this.LD003Vat = +this.LD003GrandTotal / 1.15;
     this.LD003SubTotal = +this.LD003GrandTotal - +this.LD003Vat;
-    console.log(this.LD003GrandTotal);
-    console.log(this.LD003Vat);
-    console.log(this.LD003SubTotal);
+    // console.log(this.LD003GrandTotal);
+    // console.log(this.LD003Vat);
+    // console.log(this.LD003SubTotal);
 
     // PET005
     this.PET005GrandTotal = +this.PET005mass * +this.PET005;
     this.PET005Vat = +this.PET005GrandTotal / 1.15;
     this.PET005SubTotal = +this.PET005GrandTotal - +this.PET005Vat;
-    console.log(this.PET005GrandTotal);
-    console.log(this.PET005Vat);
-    console.log(this.PET005SubTotal);
+    // console.log(this.PET005GrandTotal);
+    // console.log(this.PET005Vat);
+    // console.log(this.PET005SubTotal);
 
     // PET001
     this.PET001GrandTotal = +this.PET001mass * +this.PET001;
     this.PET001Vat = +this.PET001GrandTotal / 1.15;
     this.PET001SubTotal = +this.PET001GrandTotal - +this.PET001Vat;
-    console.log(this.PET001GrandTotal);
-    console.log(this.PET001Vat);
-    console.log(this.PET001SubTotal);
+    // console.log(this.PET001GrandTotal);
+    // console.log(this.PET001Vat);
+    // console.log(this.PET001SubTotal);
 
     // PET003
     this.PET003GrandTotal = +this.PET003mass * +this.PET003;
     this.PET003Vat = +this.PET003GrandTotal / 1.15;
     this.PET003SubTotal = +this.PET003GrandTotal - +this.PET003Vat;
-    console.log(this.PET003GrandTotal);
-    console.log(this.PET003Vat);
-    console.log(this.PET003SubTotal);
+    // console.log(this.PET003GrandTotal);
+    // console.log(this.PET003Vat);
+    // console.log(this.PET003SubTotal);
+
+    // overallMass
+    this.overallMass = +this.GH001mass + +this.NFAL01mass + +this.PAP005mass + +this.PAP007mass + +this.PAP001mass + +this.PAP003mass +
+    +this.HD001mass + +this.LD001mass + +this.LD003mass + +this.PET005mass + +this.PET001mass + +this.PET003mass;
+    console.log(this.overallMass);
 
     // calculate overall prices
     this.calculateOverall();
@@ -593,7 +599,12 @@ export class ReclaimerPage implements OnInit {
     // create receipt
     this.createPdf();
 
-    
+    // Toast & rout
+    this.presentToast();
+    // this.route.navigateByUrl('/home');
+
+    // text boxes
+    this.clearTextBoxes();
   }
 
   getprices() {
@@ -744,47 +755,104 @@ export class ReclaimerPage implements OnInit {
       surname: this.surname,
       address: this.address,
       contact: this.contact,
+
+      GH001Mass: this.GH001mass,
+      GH001Price: this.GH001,
       GH001: this.GH001GrandTotal,
       GH001Vat: this.GH001Vat,
       GH001SubTotal: this.GH001SubTotal,
+
+      NFAL01Mass: this.NFAL01mass,
+      NFAL01Price: this.NFAL01,
       NFAL01: this.NFAL01GrandTotal,
       NFAL01Vat: this.NFAL01Vat,
       NFAL01SubTotal: this.NFAL01SubTotal,
+
+      PAP005Mass: this.PAP005mass,
+      PAP005Price: this.PAP005,
       PAP005: this.PAP005GrandTotal,
       PAP005Vat: this.PAP005Vat,
       PAP005SubTotal: this.PAP005SubTotal,
+
+      PAP007Mass: this.PAP007mass,
+      PAP007Price: this.PAP007,
       PAP007: this.PAP007GrandTotal,
       PAP007Vat: this.PAP007Vat,
       PAP007SubTotal: this.PAP007SubTotal,
+
+      PAP001Mass: this.PAP001mass,
+      PAP001Price: this.PAP001,
       PAP001: this.PAP001GrandTotal,
       PAP001Vat: this.PAP001Vat,
       PAP001SubTotal: this.PAP001SubTotal,
+
+      PAP003Mass: this.PAP003mass,
+      PAP003Price: this.PAP003,
       PAP003: this.PAP003GrandTotal,
       PAP003Vat: this.PAP003Vat,
       PAP003SubTotal: this.PAP003SubTotal,
+
+      HD001Mass: this.HD001mass,
+      HD001Price: this.HD001,
       HD001: this.HD001GrandTotal,
       HD001Vat: this.HD001Vat,
       HD001SubTotal: this.HD001SubTotal,
+
+      LD001Mass: this.LD001mass,
+      LD001Price: this.LD001,
       LD001: this.LD001GrandTotal,
       LD001Vat: this.LD001Vat,
       LD001SubTotal: this.LD001SubTotal,
+
+      LD003Mass: this.LD003mass,
+      LD003Price: this.LD003,
       LD003: this.LD003GrandTotal,
       LD003Vat: this.LD003Vat,
       LD003SubTotal: this.LD003SubTotal,
+
+      PET001Mass: this.PET001mass,
+      PET001Price: this.PET001,
       PET001: this.PET001GrandTotal,
       PET001Vat: this.PET001Vat,
       PET001SubTotal: this.PET001SubTotal,
+
+      PET003Mass: this.PET003mass,
+      PET003Price: this.PET003,
       PET003: this.PET003GrandTotal,
       PET003Vat: this.PET003Vat,
       PET003SubTotal: this.PET003SubTotal,
+
+      PEP005Mass: this.PET005mass,
+      PEP005Price: this.PET005,
       PEP005: this.PET005GrandTotal,
       PEP005Vat: this.PET005Vat,
       PEP005SubTotal: this.PET005SubTotal,
+
+      OverallMass: this.overallMass,
       OverallSubTotal: this.OverallSubTotal,
       OverallVat: this.OverallVat,
       OverallGrandTotal: this.OverallGrandTotal,
     });
-    this.presentToast();
+    // this.presentToast();
+  }
+
+  clearTextBoxes() {
+    this.GH001mass = 0;
+    this.NFAL01mass = 0;
+    this.PAP005mass = 0;
+    this.PAP007mass = 0;
+    this.PAP001mass = 0;
+    this.PAP003mass = 0;
+    this.HD001mass = 0;
+    this.LD001mass = 0;
+    this.LD003mass = 0;
+    this.PET001mass = 0;
+    this.PET003mass = 0;
+    this.PET005mass = 0;
+    this.name = '';
+    this.surname = '';
+    this.contact = '';
+    this.address = '';
   }
 
   async presentAlert(data) {
@@ -801,7 +869,26 @@ export class ReclaimerPage implements OnInit {
       message: 'New Transaction Created.',
       duration: 9000,
       color: 'primary',
-      position: 'bottom'
+      position: 'middle',
+      buttons: [
+        {
+          side: 'start',
+          icon: 'home',
+          text: 'Ok',
+          handler: () => {
+            this.route.navigateByUrl('/home');
+            console.log('Go to Home');
+          }
+        }, {
+          text: 'Download PDF',
+          icon: 'file',
+          role: 'cancel',
+          handler: () => {
+            this.downloadPdf();
+            console.log('Download clicked');
+          }
+        }
+      ]
     });
     toast.present();
   }
@@ -824,7 +911,7 @@ export class ReclaimerPage implements OnInit {
     var docDefinition = {
       content: [
         { text: 'Mothombowolwazi', style: 'header' },
-        { text: new Date().toTimeString(), alignment: 'right' },
+        // { text: new Date().toTimeString(), alignment: 'right' },
 
         { text: '', style: 'subheader' },
         { text: this.letterObj.from },
@@ -834,65 +921,131 @@ export class ReclaimerPage implements OnInit {
 
         { text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
 
-        {text: this.name, alignment: 'left'},
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ '*', 'auto', 100, '*' ],
+            body: [
+              [ 'NAME', 'SURNAME', 'CONTACT', 'ADDRESS' ],
+              [ this.name, this.surname , this.contact, this.address ],
+            ]
+          }
+        },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
 
         {
-          ul: [
-            // put all the things to be display here
-            new Date(),
-            this.name,
-            this.surname,
-            this.address,
-            this.contact,
-            this.GH001GrandTotal,
-            this.GH001Vat,
-            this.GH001SubTotal,
-            this.NFAL01GrandTotal,
-            this.NFAL01Vat,
-            this.NFAL01SubTotal,
-            this.PAP005GrandTotal,
-            this.PAP005Vat,
-            this.PAP005SubTotal,
-            this.PAP007GrandTotal,
-            this.PAP007Vat,
-            this.PAP007SubTotal,
-            this.PAP001GrandTotal,
-            this.PAP001Vat,
-            this.PAP001SubTotal,
-            this.PAP003GrandTotal,
-            this.PAP003Vat,
-            this.PAP003SubTotal,
-            this.HD001GrandTotal,
-            this.HD001Vat,
-            this.HD001SubTotal,
-            this.LD001GrandTotal,
-            this.LD001Vat,
-            this.LD001SubTotal,
-            this.LD003GrandTotal,
-            this.LD003Vat,
-            this.LD003SubTotal,
-            this.PET001GrandTotal,
-            this.PET001Vat,
-            this.PET001SubTotal,
-            this.PET003GrandTotal,
-            this.PET003Vat,
-            this.PET003SubTotal,
-            this.PET005GrandTotal,
-            this.PET005Vat,
-            this.PET005SubTotal,
-            this.OverallSubTotal,
-            this.OverallVat,
-            this.OverallGrandTotal,
-          ]
-        }
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto', 'auto', 'auto', 'auto', 'auto' ],
+            body: [
+              [ 'GLASS ', 'PRICE INCL', 'MASS', 'SUB Total', 'VAT', 'GRAND TOTAL' ],
+              [ 'GH001', this.GH001, this.GH001mass, this.GH001SubTotal, this.GH001Vat, this.GH001GrandTotal ],
+            ]
+          }
+        },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
+
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto', 'auto', 'auto', 'auto', 'auto' ],
+            body: [
+              [ 'NON-FERROUS', 'PRICE INCL', 'MASS', 'SUB Total', 'VAT', 'GRAND TOTAL' ],
+              [ 'NFAL01', this.NFAL01, this.NFAL01mass, this.NFAL01SubTotal , this.NFAL01Vat, this.NFAL01GrandTotal ],
+            ]
+          }
+        },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
+
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto', 'auto', 'auto', 'auto', 'auto' ],
+            body: [
+              [ 'PAPER', 'PRICE INCL', 'MASS', 'SUB Total', 'VAT', 'GRAND TOTAL' ],
+              [ 'PAP005', this.PAP005, this.PAP005mass, this.PAP005SubTotal , this.PAP005Vat, this.PAP005GrandTotal ],
+              [ 'PAP007', this.PAP007, this.PAP007mass, this.PAP007SubTotal , this.PAP007Vat, this.PAP007GrandTotal ],
+              [ 'PAP001', this.PAP001, this.PAP001mass, this.PAP001SubTotal , this.PAP001Vat, this.PAP001GrandTotal ],
+              [ 'PAP003', this.PAP003, this.PAP003mass, this.PAP003SubTotal , this.PAP003Vat, this.PAP003GrandTotal ],
+            ]
+          }
+        },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
+
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto', 'auto', 'auto', 'auto', 'auto' ],
+            body: [
+              [ 'PLASTIC', 'PRICE INCL', 'MASS', 'SUB Total', 'VAT', 'GRAND TOTAL' ],
+              [ 'HD001', this.HD001, this.HD001mass, this.HD001SubTotal , this.HD001Vat, this.HD001GrandTotal ],
+              [ 'LD001', this.LD001, this.LD001mass, this.LD001SubTotal , this.LD001Vat, this.LD001GrandTotal ],
+              [ 'LD003', this.LD003, this.LD003mass, this.LD003SubTotal , this.LD003Vat, this.LD003GrandTotal ],
+              [ 'PET001', this.PET001, this.PET001mass, this.PET001SubTotal , this.PET001Vat, this.PET001GrandTotal ],
+              [ 'PET003', this.PET003, this.PET003mass, this.PET003SubTotal , this.PET003Vat, this.PET003GrandTotal ],
+              [ 'PET005', this.PET005, this.PET005mass, this.PET005SubTotal , this.PET005Vat, this.PET005GrandTotal ],
+            ]
+          }
+        },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
+
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ '*', 'auto', 100, '*' ],
+            body: [
+              [ 'OVERALL PRICE', 'OVERALL SUB-TOTAL', 'OVERALL VAT', 'OVERALL GRAND-TOTAL' ],
+              [ '', this.OverallSubTotal , this.OverallVat, this.OverallGrandTotal ],
+            ]
+          }
+        },
       ],
+
+      footer: {
+        columns: [
+          'Printed Date',
+          { text: new Date().toTimeString(), alignment: 'right' }
+        ]
+      },
+
       styles: {
         header: {
           fontSize: 18,
           bold: true,
         },
         subheader: {
-          fontSize: 14,
+          fontSize: 13,
           bold: true,
           margin: [0, 15, 0, 0]
         },
