@@ -67,142 +67,92 @@ display: flex;
 
 .container {
    
-    height: 75%;
-    background-color: #EFF0F2;
+  background: rgb(234, 234, 238) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.014);
+    border-top-left-radius: 25px;
+   height: 85%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
   }
-  .header {
+  .left , .right{
     // border: 1px solid red;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.171);
-    height: 15%;
-    display: flex;
-    .nav {
-     // border: 1px solid blue;
-      width: 65%;
-      h2 {
-        font-size: 2.2em;
-        padding-left: 2%;
-        font-weight: bolder;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-      }
-      p {
-        padding-left: 2%;
-        font-size: 1.2em;;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        font-weight: 550;
-      }
-    }
-    .profiles {
-     // border: 1px solid green;
-      width: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .image {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        width:100px;
-        height: 100px;
-        border-radius: 50%;
-        img {
-          border-radius: 50%;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-      .names {
-       // border: 1px solid red;
-        margin-left: 10px;;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-  
-       p {
-        font-size: 0.9em;
-        font-weight: 500;
-        letter-spacing: 1px;
-        color: black;
-       }
-      }
-    }
-    .logout {
-      //border: 1ox solid purple;
-      width: 10%;
-      //background: red;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      ion-icon {
-        font-size: 3em;
-      }
-    }
-  }
+     width: 45%;
+     height: 92%;
+     border-radius: 15px;
+     background: white;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+   }
+ 
+  // .Everything{
+  //     background-color: #EFF0F2;
+  //     height: 88%;
+  //     width: 100%;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     flex-direction: row;
+  //     justify-content: space-between;
 
-  .Everything{
-      background-color: #EFF0F2;
-      height: 88%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row;
-      justify-content: space-between;
+  //     .AddUser{
+  //         background-color: white;
+  //         height: 80%;
+  //         width: 35%;
+  //         border-radius: 10px;
+  //         object-fit: cover;
+  //         background-repeat: no-repeat;
+  //         background-size: cover;
+  //         // display: flex;
+  //         // flex-direction: column;
+  //         // justify-content: center;
+  //         margin: 0 auto;
+  //       //   align-items: center;
+  //       overflow-y: scroll;
+  //   }
 
-      .AddUser{
-          background-color: white;
-          height: 80%;
-          width: 35%;
-          border-radius: 10px;
-          object-fit: cover;
-          background-repeat: no-repeat;
-          background-size: cover;
-          // display: flex;
-          // flex-direction: column;
-          // justify-content: center;
-          margin: 0 auto;
-        //   align-items: center;
-        overflow-y: scroll;
-    }
+  //       .Items{
+  //           // border: purple solid 2px;
+  //           height: 30%;
+  //           width: 100%;
+  //           // margin: 0 auto;
+  //           // margin-bottom: 30%;
+  //       }
 
-        .Items{
-            // border: purple solid 2px;
-            height: 30%;
-            width: 100%;
-            // margin: 0 auto;
-            // margin-bottom: 30%;
-        }
+  //         .wavey{
+  //           // border: rgb(255, 0, 0) solid 3px;
+  //           // height: 80%;
+  //           width: 100%;
+  //           // border-radius: 100px;
+  //           // display: flex;
+  //           // flex-direction: row;
+  //           // justify-content: center;
+  //           // margin: 50px auto;
+  //           // margin-top: -50px;
+  //         }
 
-          .wavey{
-            // border: rgb(255, 0, 0) solid 3px;
-            // height: 80%;
-            width: 100%;
-            // border-radius: 100px;
-            // display: flex;
-            // flex-direction: row;
-            // justify-content: center;
-            // margin: 50px auto;
-            // margin-top: -50px;
-          }
+  //         .Wavey2{
+  //           width: 100%;
+  //         }
+  //         #IMG{
+  //           height: 90px;
+  //           width: 90px;
+  //           border-radius: 100px;
+  //         }
 
-          .Wavey2{
-            width: 100%;
-          }
-          #IMG{
-            height: 90px;
-            width: 90px;
-            border-radius: 100px;
-          }
-
-      .ViewUser{
-        background-color: white;
-        height: 80%;
-        width: 35%;
-        border-radius: 10px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        // align-items: center;
-        // justify-content: center;
-        // overflow-y: scroll;
-      }
-  }
+  //     .ViewUser{
+  //       background-color: white;
+  //       height: 80%;
+  //       width: 35%;
+  //       border-radius: 10px;
+  //       margin: 0 auto;
+  //       display: flex;
+  //       flex-direction: column;
+  //       // align-items: center;
+  //       // justify-content: center;
+  //       // overflow-y: scroll;
+  //     }
+  // }
 
   .theITEMS{
     border: #24A896 solid 2px;
@@ -275,15 +225,17 @@ display: flex;
   }
 
   h1{
-    color: #80CC59;
+    font-family: 'lato';
+    color: rgb(167, 155, 155);
     text-align: center;
   }
 
   #H1{
     z-index: 1000000000000;
-    color: #80CC59;
+    font-family: 'lato';
+    color: rgb(70, 66, 66);
+    letter-spacing: 1px;
   }
-
   #Socialcards{
     // border: solid 2px red;
     position: relative;
