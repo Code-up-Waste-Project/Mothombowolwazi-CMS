@@ -35,11 +35,13 @@ firebase.analytics();
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    
     AppRoutingModule,
     ModalpopupPageModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+   
   ],
   providers: [
     StatusBar,

@@ -137,25 +137,105 @@
 
       <!-- INFORMATIN ABOUT DISPATCHING -->
     <ion-slide id="form" >
-      <div class="wave">
+      <!-- <div class="wave">
         <img src="../../assets/wavy.png">
-      </div>
-      <div class="form">
-          <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
-              <!-- <label>Driver Name</label> -->
+      </div> -->
+     
+          <!-- <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+          
               <ion-input [(ngModel)]="DriverName" formControlName="DriverName" placeholder="Driver Name"></ion-input>
-              <!-- <label>Registarion Number Plates</label> -->
+          
               <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates" placeholder="Registarion Number Plates"></ion-input>
-              <!-- <label>Destination</label> -->
+            
               <ion-input formControlName="Destination" [(ngModel)]="Destination" placeholder="Destination"></ion-input>
           </form>
-          <!-- <label>Truck Source</label> -->
+         
           <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess" placeholder="Truck Source">
               <ion-select-option value="InSource">In-Source</ion-select-option>
               <ion-select-option value="outsorce">Out-Source</ion-select-option>
-          </ion-select>
-          <h3>Overall Truck Weight = {{ overallStorage }} kg</h3>
+
+
+          </ion-select> -->
+
+          <div class="wave">
+              <img src="../../assets/wavy.png">
+            <h1>Almost done... Add Customer Information here </h1>
+            </div>
+
+      <div class="inputs"  >
+         <form   [formGroup]="RegisterForm" >
+             <ion-grid >
+                 <ion-row align-items-end >
+                   <ion-col size="1" align-self-bottom>
+                     <ion-icon  name="ios-person" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                   </ion-col>
+                   <ion-col>
+                     <ion-item>
+                       <ion-label position="floating">Name Of Driver</ion-label>
+
+                       <ion-input [(ngModel)]="DriverName" formControlName="DriverName"  type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                     </ion-item>
+                   </ion-col>
+                 </ion-row>
+               </ion-grid>
+
+               <ion-grid >
+                   <ion-row align-items-end >
+                     <ion-col size="1" align-self-bottom>
+                       <ion-icon  name="ios-person" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                     </ion-col>
+                     <ion-col>
+                       <ion-item>
+                         <ion-label position="floating">Truck Registration NO.</ion-label>
+
+                         <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates" type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>	
+                       </ion-item>
+                     </ion-col>
+                   </ion-row>
+                 </ion-grid>
+
+                 <ion-grid >
+                     <ion-row align-items-end >
+                       <ion-col size="1" align-self-bottom>
+                         <ion-icon  name="ios-call" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                       </ion-col>
+                       <ion-col>
+                         <ion-item>
+                           <ion-label position="floating">Destination</ion-label>
+
+                           <ion-input formControlName="Destination" [(ngModel)]="Destination" type="number" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                         </ion-item>
+                       </ion-col>
+                     </ion-row>
+                   </ion-grid>
+
+               
+           <ion-grid >
+              <ion-row align-items-end >
+                <ion-col size="1" align-self-bottom>
+                  <ion-icon  name="ios-pin" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Address</ion-label>
+                    <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess" >
+                       <ion-select-option value="InSource">In-Source</ion-select-option>
+                       <ion-select-option value="outsorce">Out-Source</ion-select-option>
+         
+         
+                   </ion-select>
+             
+                    <!-- <ion-input    type="textarea" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input> -->
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            
+           </form>
+
       </div>
+          <h3>Overall Truck Weight = {{ overallStorage }} kg</h3>
+      
       
     </ion-slide>
   </ion-slides>

@@ -18,92 +18,89 @@
       </div>
     </div>
 
-    <div class="container">
-          <div class="AddUser">
-              <div class="profileDiv">
-                <img id="IMG" src="../../assets/face.png" alt="">
-              </div> <br>
-              <div class="Items">
-                <div class="theITEMS">
-                  <div class="labels">
-                    <img class="Iconnn" src="../../assets/user (3).svg" alt="">
-                  </div>
-                  <div class="theplaceholder">
-                    <ion-input placeholder="name" [(ngModel)]="profile.name"></ion-input>
-                  </div>
-                </div><br>
-                <div class="theITEMS">
-                  <div class="labels">
-                    <img class="Iconnn" src="../../assets/user (3).svg" alt="">
-                  </div>
-                  <div class="theplaceholder">
-                    <ion-input placeholder="Last Name" [(ngModel)]="profile.surname"></ion-input>
-                  </div>
-                </div><br>
-               
-                <div class="theITEMS">
-                  <div class="labels">
-                    <img class="Iconnn" src="../../assets/board-games-with-roles (1).svg" alt="">
-                  </div>
-                  <div class="theplaceholder">
-                    <ion-input placeholder="Position" [(ngModel)]="profile.position"></ion-input>
-                  </div>
-                </div><br>
-                <form [formGroup]="signupForm"  > 
-                <div class="theITEMS">
-                  <div class="labels">
-                    <img class="Iconnn" src="../../assets/lock.svg" alt="">
-                  </div>
-                  <div class="theplaceholder">
-                    <ion-input placeholder="enter email address" formControlName="email" type="email" 
-                    [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched"></ion-input>
-                  </div>
-                </div>
-                <div *ngIf="!signupForm.controls['email'].valid  &&
-                signupForm.controls['email'].touched" class="error">
-                  <div class="messages">
-                    Password needs more than 6 characters long.
-                  </div>
-                </div><br>
-                <div class="theITEMS">
-                    <div class="labels">
-                      <img class="Iconnn" src="../../assets/email.svg" alt="">
-                    </div>
-                    <div class="theplaceholder">
-                      <ion-input placeholder="Password"  formControlName="password" type="password" 
-                      [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched"></ion-input>
-                    </div>
-                    <div *ngIf="!signupForm.controls['password'].valid
-                    && signupForm.controls['password'].touched" class="error">
-                      <div class="messages">
-                        Please enter a valid email.
-                      </div>
-                    </div>
-                  </div><br>
-              </form> 
-                <div class="btn">
-                <ion-button class="btn2" color="clear" (click)="signupUser(signupForm)" 
-                [disabled]="!signupForm.valid">submit</ion-button>
-              </div>
-              </div>
-          
-            </div>
-      <div class="ViewUser" >
-          <h1>Your Recently Added Users</h1><hr>
-          <div class="Socialcards">
-            <ion-card>
-              <ion-item *ngFor = "let myprofiles  of newuserprofile">
-                <ion-thumbnail slot="start">
-                  <img id="face" src="../../assets/face.png">
-                </ion-thumbnail>
-                <ion-label>
-                  <h2>{{myprofiles.name}} {{myprofiles.surname}}</h2>
-                  <p>{{myprofiles.position}}</p>
-                </ion-label>
-                <ion-icon id="Icon5" name="trash" (click)="delete()"></ion-icon>
+  <div class="container">
+    <div class="left">
+      <div class="head">
+        <img src="../../assets/wavy.png">
+        <div class="image"></div>
+      </div>
+      <div class="inputs">
+
+        <ion-grid >
+          <ion-row align-items-end >
+            <ion-col size="1" align-self-bottom>
+              <ion-icon  name="ios-person" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Full Names</ion-label>
+                <ion-input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
               </ion-item>
-            </ion-card>
-          </div>
-        </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+          <ion-grid >
+              <ion-row align-items-end >
+                <ion-col size="1" align-self-bottom>
+                  <ion-icon class="activeInputIcon" name="ios-briefcase" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Position</ion-label>
+                    <ion-input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-grid >
+                <ion-row align-items-end >
+                  <ion-col size="1" align-self-bottom>
+                    <ion-icon name="ios-mail" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="floating">Email</ion-label>
+                      <ion-input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <ion-grid style="border: 1.3px solid green">
+                  <ion-row align-items-end >
+                    <ion-col size="1" align-self-bottom>
+                      <ion-icon name="ios-lock" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item>
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+                <button ion-button>REGISTER MEMBER</button>
+      </div>
     </div>
+
+    <div class="right" style="overflow: auto;">
+      <h1>All Your Registered Administrators</h1>
+      <ion-card *ngFor = "let myprofiles  of newuserprofile">
+          <ion-item >
+            <ion-thumbnail slot="start">
+              <img id="face" src="../../assets/face.png">
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{myprofiles.name}} {{myprofiles.surname}}</h2>
+              <p>{{myprofiles.position}}</p>
+            </ion-label>
+            <ion-icon id="Icon5" name="trash" (click)="delete()"></ion-icon>
+          </ion-item>
+        </ion-card>
+    </div>
+  </div>
   </ion-content>

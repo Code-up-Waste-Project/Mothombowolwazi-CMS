@@ -52,19 +52,19 @@ export class AppComponent implements OnInit {
 this.appPages.push({
   title: 'Home',
   url: '/home',
-  icon: 'home',
+  icon: 'home2',
   admin:"hot"
 },
 {
   title: 'Inbounds',
   url: '/analytics',
-  icon: 'arrow-round-back',
+  icon: 'inbound',
   admin:"cool"
 },
 {
   title: 'Reclaimer',
   url: '/reclaimer',
-  icon: 'cash',
+  icon: 'reclaimer2',
   admin:"cool"
 });
 } else {

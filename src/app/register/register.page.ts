@@ -37,7 +37,9 @@ export class RegisterPage implements OnInit {
   public loading: any;
 
   // storage;
-
+//tergets icon on the form to change color when active or not
+  isLabelActive: Boolean = false;
+  
   constructor(
     public platform: Platform,
     public authService: AuthService,
@@ -98,6 +100,10 @@ export class RegisterPage implements OnInit {
         });
       });
     }
+//active form icons
+toggleIcon() {
+  this.isLabelActive = !this.isLabelActive;
+}
 
     user = {
       email: "",
