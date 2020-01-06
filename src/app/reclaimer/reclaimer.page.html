@@ -7,7 +7,7 @@
     
     <div class="profiles" *ngFor="let item of Newadmin">	
         <div class="image">   	
-          <img src="../../assets/admin.jpg">
+          <img  src="{{item.image}}" height="400px" width="400px" >
           </div>	
     <div class="names">	
         <H4>{{ item.name }}</H4>  
@@ -22,52 +22,6 @@
        <div class="container" padding>
            <div class="slideContainer">
            <ion-slides #slides [options]="slideOpts"   style=" overflow: visible;">
-             <ion-slide style=" border-radius: 20px !; overflow: hidden" >
-              <div class="lists"  style="overflow: auto;">
-                  <h3 id="title">PAPER</h3>
-                <div class="list">
-                <div class="image"><img src="../../assets/common white paper.jpg" height="80%%">
-                <p>COMMON PAPER</p>
-              </div>
-                <div class="name"><p> PAP005</p></div>
-          
-                <div><ion-input type="number" [(ngModel)]='PAP005mass' placeholder="Enter Mass" 
-                 (change)='onChangePAP005($event.target.value)'></ion-input></div>
-                 <div class="name2"><p> R{{ PAP005price }}</p></div>
-              </div>
-              <div class="list">
-                  <div class="image"><img src="../../assets/news papers.jpg" height="80%%">
-                  <p>FLAT NEWS</p>
-                </div>
-                  <div class="name"><p>PAP007</p></div>
-                  <div><ion-input type="number" [(ngModel)]='PAP007mass' placeholder="Enter Mass" 
-                   (change)='onChangePAP007($event.target.value)'></ion-input></div>
-                   <div class="name2"><p> R{{ PAP007price }}</p></div>
-                </div>
-                <div class="list">
-                    <div class="image"><img src="../../assets/shapes.svg" height="80%%">
-                    <p>HL 1</p>
-                  </div>
-                    <div class="name"><p> PAP001</p></div>
-                    <div><ion-input type="number" [(ngModel)]='PAP001mass' placeholder="Enter Mass" 
-                     (change)='onChangePAP001($event.target.value)'></ion-input></div>
-                     <div class="name2"><p> R{{ PAP001price }}</p></div>
-                  </div>
-                  <div class="list">
-                      <div class="image"><img src="../../assets/cardboard.jpg" height="80%%">
-                      <p>K4-CARDBOARD</p>
-                    </div>
-                      <div class="name"><p>PAP003</p></div>
-                      <div><ion-input type="number" [(ngModel)]='PAP003mass' placeholder="Enter Mass" 
-                       (change)='onChangePAP003($event.target.value)'></ion-input></div>
-                       <div class="name2"><p> R {{ PAP003price }}</p></div>
-                    </div>
-                    <h3>SUB-TOTAL <span id="total">= R{{ PaperTotal }}</span></h3>
-                    <button id="addpaper" ion-button (click)="onChangeTotal()"> Add To Grand-total</button>
-               
-              </div>
-            </ion-slide>
-
             <ion-slide style=" border-radius: 20px !; overflow: hidden" >
              <div class="lists"  style="overflow: auto;">
                  <h3 id="title">PAPER</h3>

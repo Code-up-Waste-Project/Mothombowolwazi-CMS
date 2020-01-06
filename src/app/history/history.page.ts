@@ -4,11 +4,6 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { ModalController } from '@ionic/angular';
 
-// @NgModule({
-//   imports: [NgxDocViewerModule]
-// })
-// export class AppModule { }
-
 @Component({
   selector: 'app-history',
   templateUrl: './history.page.html',
@@ -53,7 +48,7 @@ export class HistoryPage implements OnInit {
           this.Newadmin.push(item);
         }
       });
-      console.log('Newadmins', this.Newadmin);
+      // console.log('Newadmins', this.Newadmin);
     });
 
     // pulling from reclaimers
@@ -76,7 +71,7 @@ export class HistoryPage implements OnInit {
           reSurname: reclaimersurname,
           reDate: reclaimerDate,
         });
-        console.log(this.newreclaimer);
+        // console.log(this.newreclaimer);
       });
     });
 
@@ -103,20 +98,16 @@ export class HistoryPage implements OnInit {
           outRegistarionNo: outRegistarionNumberPlates,
           outovarallmass: outovarallMass,
         });
-        console.log(this.outbound);
+        // console.log(this.outbound);
       });
     });
-
-    // this.db.collection('outbound').onSnapshot(snapshot => {
-    //     //  this.profile.name = snapshot.docs.name
-    //       snapshot.forEach(item => {
-    //         this.outbound.push(item.data());
-    //         console.log("my outbound", this.outbound);
-    //       });
-    //     })
     }
 
     ngOnInit() {
+    }
+
+    deleteOutbound(id) {
+      this.db.collection('outbound').doc(id).delete();
     }
 
     async openReclaimer() {

@@ -357,36 +357,62 @@ export class OutboundPage implements OnInit {
         { text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
 
         {
-          ul: [
-            // put all the things to be display here
-            new Date(),
-            this.DriverName,
-            this.RegistarionNumberPlates,
-            this.TruckSourcess,
-            this.Destination,
-            this.GH001mass,
-            this.NFAL01mass,
-            this.PAP005mass,
-            this.PAP007mass,
-            this.PAP001mass,
-            this.PAP003mass,
-            this.HD001mass,
-            this.LD001mass,
-            this.LD003mass,
-            this.PET001mass,
-            this.PET003mass,
-            this.PET005mass,
-            this.overallStorage
-          ]
-        }
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto', 'auto', 'auto' ],
+            body: [
+              [ 'NAME', 'SURNAME', 'CONTACT', 'ADDRESS' ],
+              [ this.DriverName, this.RegistarionNumberPlates , this.TruckSourcess, this.Destination ],
+            ]
+          }
+        },
+
+        { text: '', style: 'subheader' },
+        { text: this.letterObj.from },
+
+        { text: '', style: 'subheader' },
+        this.letterObj.to,
+
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ 'auto', 'auto' ],
+            body: [
+              [ 'CODE ', 'MASS' ],
+              [ 'GH001', this.GH001mass ],
+              [ 'NFAL01', this.NFAL01mass ],
+              [ 'PAP005', this.PAP005mass ],
+              [ 'PAP007', this.PAP007mass ],
+              [ 'PAP001', this.PAP001mass ],
+              [ 'PAP003', this.PAP003mass ],
+              [ 'HD001', this.HD001mass ],
+              [ 'LD001', this.LD001mass ],
+              [ 'LD003', this.LD003mass ],
+              [ 'PET001', this.PET001mass ],
+              [ 'PET003', this.PET003mass ],
+              [ 'PET005', this.PET005mass ],
+              [ 'Total Mass', this.overallStorage ],
+            ]
+          }
+        },
       ],
+
+      footer: {
+        columns: [
+          'Printed Date',
+          { text: new Date().toTimeString(), alignment: 'right' }
+        ]
+      },
+
       styles: {
         header: {
           fontSize: 18,
           bold: true,
         },
         subheader: {
-          fontSize: 14,
+          fontSize: 13,
           bold: true,
           margin: [0, 15, 0, 0]
         },

@@ -53,8 +53,11 @@ colorArray: any;
   PET003storagemass;
   PET005storagemass;
 
-  Totalpaper;
-  Totalplastic;
+  GH001: string;
+  NFAL01: string;
+  Totalpaper: number = 0;
+  Totalplastic: number = 0;
+  Totalplasticz: string;
 
   constructor(
     private modalcontroller: ModalController,
@@ -72,13 +75,14 @@ colorArray: any;
           this.Newadmin.push(item);
         }
       });
-      console.log('Newadmins', this.Newadmin);
+      // console.log('Newadmins', this.Newadmin);
     });
 
     this.getMasses();
+
     }
 
-    //chart
+    // chart
     ionViewDidEnter() {
       this.createBarChart();
     }
@@ -101,10 +105,14 @@ colorArray: any;
           });
       }
     });
-    this.menuCtrl.enable(true); // or true 
+    this.menuCtrl.enable(true); // or true
   }
 
   getMasses() {
+    let totalPaperz = 0;
+    let GH001z;
+    let NFAL01z;
+
     this.db.collection('storage').onSnapshot(snapshot => {
       snapshot.forEach(element => {
         this.GH001storagemass = element.data().GL001;
@@ -133,12 +141,19 @@ colorArray: any;
       console.log(this.PET001storagemass);
       console.log(this.PET003storagemass);
       console.log(this.PET005storagemass);
+      totalPaperz = +this.PAP005storagemass + +this.PAP007storagemass + +this.PAP001storagemass + +this.PAP003storagemass;
+      this.Totalpaper = Number(String(totalPaperz).substring(0, 6));
+
+      this.Totalplastic = +this.HD001storagemass + +this.LD001storagemass + +this.LD003storagemass + +this.PET001storagemass +
+      +this.PET003storagemass + +this.PET005storagemass;
+      this.Totalplasticz = (String(this.Totalplastic).substring(0, 6));
+      String(this.Totalplastic).substring(0, 6);
+
+      GH001z = this.GH001storagemass;
+      this.GH001 = (String(GH001z).substring(0, 6));
+      NFAL01z = this.NFAL01storagemass;
+      this.NFAL01 = (String(NFAL01z).substring(0, 6));
     });
-    this.Totalpaper = +this.PAP005storagemass + +this.PAP007storagemass + +this.PAP001storagemass + +this.PAP003storagemass;
-    this.Totalplastic = +this.HD001storagemass + +this.LD001storagemass + +this.LD003storagemass + +this.PET001storagemass +
-    +this.PET003storagemass + +this.PET005storagemass;
-    console.log(this.Totalpaper);
-    console.log(this.Totalplastic);
   }
 
   createBarChart() {
@@ -157,7 +172,6 @@ colorArray: any;
           backgroundColor: 'purple', // array should have same number of elements as number of dataset
           borderColor: 'green',  // array should have same number of elements as number of dataset
           borderWidth: 0.2
-
         }]
       },
       options: {

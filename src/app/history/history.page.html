@@ -7,7 +7,7 @@
         
         <div class="profiles" *ngFor="let item of Newadmin">	
             <div class="image">   	
-              <img src="../../assets/admin.jpg">
+              <img  src="{{item.image}}" height="400px" width="400px" >
               </div>	
         <div class="names">	
             <H4>{{ item.name }}</H4>  
@@ -52,7 +52,7 @@
                   <ion-label>
                     <h2>{{ myoutbound.outdriverName }} {{ myoutbound.outRegistarionNo }} {{ myoutbound.outovarallmass }}kg</h2>
                   </ion-label>
-                  <ion-icon id="Icon5" name="trash"></ion-icon>
+                  <ion-icon id="Icon5" (click)="deleteOutbound(id)" name="trash"></ion-icon>
                 </ion-item>
               </ion-card>
             </ion-list>
