@@ -49,7 +49,7 @@ export class RegisterPage implements OnInit {
         email: ['', Validators.compose([Validators.required, Validators.email])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
         name: ['', [Validators.required, ]],
-        surname: ['', [Validators.required, ]],
+        // surname: ['', [Validators.required, ]],
         position: ['', [Validators.required, ]],
       });
 

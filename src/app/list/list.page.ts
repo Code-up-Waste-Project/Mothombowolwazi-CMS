@@ -37,6 +37,7 @@ export class ListPage implements OnInit {
   DriverName;
   RegistarionNumberPlates;
   overallStorage;
+  overallStoragez;
   TruckSourcess;
   Destination;
 
@@ -52,6 +53,19 @@ export class ListPage implements OnInit {
   PET001storagemass;
   PET003storagemass;
   PET005storagemass;
+  // substrings
+  GH001storagemassz;
+  NFAL01storagemassz;
+  PAP005storagemassz;
+  PAP007storagemassz;
+  PAP001storagemassz;
+  PAP003storagemassz;
+  HD001storagemassz;
+  LD001storagemassz;
+  LD003storagemassz;
+  PET001storagemassz;
+  PET003storagemassz;
+  PET005storagemassz;
 
   GH001 = 'GH001';
   NFAL01 = 'NFAL01';
@@ -109,6 +123,7 @@ export class ListPage implements OnInit {
         DriverName = this.DriverName = element.data().DriverName;
         RegistarionNumberPlates = this.RegistarionNumberPlates = element.data().RegistarionNumberPlates;
         overallStorage = this.overallStorage = element.data().ovarallMass;
+        this.overallStoragez = (String(overallStorage).substring(0, 6));
         TruckSourcess = this.TruckSourcess = element.data().TruckSourcess;
         Destination = this.Destination = element.data().Destination;
         // console.log(this.DriverName);
@@ -116,19 +131,32 @@ export class ListPage implements OnInit {
         // console.log(this.overallStorage);
         // console.log(this.TruckSourcess);
         // console.log(this.Destination);
+        console.log(this.overallStoragez);
 
         GH001storagemass = this.GH001storagemass = element.data().GH001;
+        this.GH001storagemassz = (String(GH001storagemass).substring(0, 6));
         NFAL01storagemass = this.NFAL01storagemass = element.data().NFAL01;
+        this.NFAL01storagemassz = (String(NFAL01storagemass).substring(0, 6));
         PAP005storagemass = this.PAP005storagemass = element.data().PAP005;
+        this.PAP005storagemassz = (String(PAP005storagemass).substring(0, 6));
         PAP007storagemass = this.PAP007storagemass = element.data().PAP007;
+        this.PAP007storagemassz = (String(PAP007storagemass).substring(0, 6));
         PAP001storagemass = this.PAP001storagemass = element.data().PAP001;
+        this.PAP001storagemassz = (String(PAP001storagemass).substring(0, 6));
         PAP003storagemass = this.PAP003storagemass = element.data().PAP003;
+        this.PAP003storagemassz = (String(PAP003storagemass).substring(0, 6));
         HD001storagemass = this.HD001storagemass = element.data().HD001;
+        this.HD001storagemassz = (String(HD001storagemass).substring(0, 6));
         LD001storagemass = this.LD001storagemass = element.data().LD001;
+        this.LD001storagemassz = (String(LD001storagemass).substring(0, 6));
         LD003storagemass = this.LD003storagemass = element.data().LD003;
+        this.LD003storagemassz = (String(LD003storagemass).substring(0, 6));
         PET001storagemass = this.PET001storagemass = element.data().PET00;
+        this.PET001storagemassz = (String(PET001storagemass).substring(0, 6));
         PET003storagemass = this.PET003storagemass = element.data().PET003;
+        this.PET003storagemassz = (String(PET003storagemass).substring(0, 6));
         PET005storagemass = this.PET005storagemass = element.data().PET005;
+        this.PET005storagemassz = (String(PET005storagemass).substring(0, 6));
         // console.log(this.GH001storagemass);
         // console.log(this.NFAL01storagemass);
         // console.log(this.PAP005storagemass);
@@ -141,6 +169,18 @@ export class ListPage implements OnInit {
         // console.log(this.PET001storagemass);
         // console.log(this.PET003storagemass);
         // console.log(this.PET005storagemass);
+        // console.log(this.GH001storagemassz);
+        // console.log(this.NFAL01storagemassz);
+        // console.log(this.PAP005storagemassz);
+        // console.log(this.PAP007storagemassz);
+        // console.log(this.PAP001storagemassz);
+        // console.log(this.PAP003storagemassz);
+        // console.log(this.HD001storagemassz);
+        // console.log(this.LD001storagemassz);
+        // console.log(this.LD003storagemassz);
+        // console.log(this.PET001storagemassz);
+        // console.log(this.PET003storagemassz);
+        // console.log(this.PET005storagemassz);
 
         this.testArray.push({
           DriverName: this.DriverName,
@@ -148,25 +188,25 @@ export class ListPage implements OnInit {
           overallStorage: this.overallStorage,
           TruckSourcess: this.TruckSourcess,
           Destination: this.Destination,
-          GH001storagemass: this.GH001storagemass,
-          NFAL01storagemass: this.NFAL01storagemass,
-          PAP005storagemass: this.PAP005storagemass,
-          PAP007storagemass: this.PAP007storagemass,
-          PAP001storagemass: this.PAP001storagemass,
-          PAP003storagemass: this.PAP003storagemass,
-          HD001storagemass: this.HD001storagemass,
-          LD001storagemass: this.LD001storagemass,
-          LD003storagemass: this.LD003storagemass,
-          PET001storagemass: this.PET001storagemass,
-          PET003storagemass: this.PET003storagemass,
-          PET005storagemass: this.PET005storagemass,
+          GH001storagemass: this.GH001storagemassz,
+          NFAL01storagemass: this.NFAL01storagemassz,
+          PAP005storagemass: this.PAP005storagemassz,
+          PAP007storagemass: this.PAP007storagemassz,
+          PAP001storagemass: this.PAP001storagemassz,
+          PAP003storagemass: this.PAP003storagemassz,
+          HD001storagemass: this.HD001storagemassz,
+          LD001storagemass: this.LD001storagemassz,
+          LD003storagemass: this.LD003storagemassz,
+          PET001storagemass: this.PET001storagemassz,
+          PET003storagemass: this.PET003storagemassz,
+          PET005storagemass: this.PET005storagemassz,
         });
-        console.log(this.testArray);
+        // console.log(this.testArray);
       });
+      // create PDF
+      this.createPdf();
     });
 
-    // create PDF
-    this.createPdf();
   }
 
   ngOnInit() {
@@ -200,36 +240,23 @@ export class ListPage implements OnInit {
 
         { text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
 
-        // {
-        //   layout: 'lightHorizontalLines',
-        //   table: {
-        //     headerRows: 1,
-        //     widths: [ 'auto', 'auto', 'auto', 'auto' ],
-        //     body: [
-        //       [ 'NAME', 'SURNAME', 'CONTACT', 'ADDRESS' ],
-        //       [ this.DriverName, this.RegistarionNumberPlates , this.TruckSourcess, this.Destination ],
-        //     ]
-        //   }
-        // },
+        {
+          layout: 'lightHorizontalLines',
+          table: {
+            headerRows: 1,
+            widths: [ '25%', '25%', '25%', '25%' ],
+            body: [
+              [ 'Drive Name', 'Registarion Number Plates', 'Truck Source', 'Destination'],
+              [ this.DriverName, this.RegistarionNumberPlates , this.TruckSourcess, this.Destination ],
+            ]
+          }
+        },
 
         { text: '', style: 'subheader' },
         { text: this.letterObj.from },
 
         { text: '', style: 'subheader' },
         this.letterObj.to,
-
-        //   GH001storagemass: this.GH001storagemass,
-        //   NFAL01storagemass: this.NFAL01storagemass,
-        //   PAP005storagemass: this.PAP005storagemass,
-        //   PAP007storagemass: this.PAP007storagemass,
-        //   PAP001storagemass: this.PAP001storagemass,
-        //   PAP003storagemass: this.PAP003storagemass,
-        //   HD001storagemass: this.HD001storagemass,
-        //   LD001storagemass: this.LD001storagemass,
-        //   LD003storagemass: this.LD003storagemass,
-        //   PET001storagemass: this.PET001storagemass,
-        //   PET003storagemass: this.PET003storagemass,
-        //   PET005storagemass: this.PET005storagemass,
 
         {
           layout: 'lightHorizontalLines',
@@ -238,19 +265,31 @@ export class ListPage implements OnInit {
             widths: [ 'auto', 'auto' ],
             body: [
               [ 'CODE ', 'MASS' ],
-              [ this.GH001, this.GH001storagemass ],
-              [ this.NFAL01, this.NFAL01storagemass ],
-              [ this.PAP005, this.PAP005storagemass ],
-              [ this.PAP007, this.PAP007storagemass ],
-              [ this.PAP001, this.PAP001storagemass ],
-              [ this.PAP003, this.PAP003storagemass ],
-              [ this.HD001, this.HD001storagemass ],
-              [ this.LD001, this.LD001storagemass ],
-              [ this.LD003, this.LD003storagemass ],
-              [ this.PET001, this.PET001storagemass ],
-              [ this.PET003, this.PET003storagemass ],
-              [ this.PET005, this.PET005storagemass ],
+              [ this.GH001, this.GH001storagemassz ],
+              [ this.NFAL01, this.NFAL01storagemassz ],
+              [ this.PAP005, this.PAP005storagemassz ],
+              [ this.PAP007, this.PAP007storagemassz ],
+              [ this.PAP001, this.PAP001storagemassz ],
+              [ this.PAP003, this.PAP003storagemassz ],
+              [ this.HD001, this.HD001storagemassz ],
+              [ this.LD001, this.LD001storagemassz ],
+              [ this.LD003, this.LD003storagemassz ],
+              [ this.PET001, this.PET001storagemassz ],
+              [ this.PET003, this.PET003storagemassz ],
+              [ this.PET005, this.PET005storagemassz ],
               [ this.Mass, this.overallStorage ],
+            //   console.log(this.GH001storagemassz),
+            //   console.log(this.NFAL01storagemassz),
+            //   console.log(this.PAP005storagemassz),
+            //   console.log(this.PAP007storagemassz),
+            //   console.log(this.PAP001storagemassz),
+            //   console.log(this.PAP003storagemassz),
+            //   console.log(this.HD001storagemassz),
+            //   console.log(this.LD001storagemassz),
+            //   console.log(this.LD003storagemassz),
+            //   console.log(this.PET001storagemassz),
+            //   console.log(this.PET003storagemassz),
+            //   console.log(this.PET005storagemassz),
             ]
           }
         },
