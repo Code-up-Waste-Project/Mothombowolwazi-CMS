@@ -82,7 +82,7 @@ colorArray: any;
 
     }
 
-    //chart
+    // chart
     ionViewDidEnter() {
       this.createBarChart();
     }

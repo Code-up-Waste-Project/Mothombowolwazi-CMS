@@ -34,6 +34,8 @@ export class RegisterPage implements OnInit {
       };
   public loading: any;
 
+  isLabelActive;
+
   constructor(
     public platform: Platform,
     public authService: AuthService,
@@ -108,7 +110,7 @@ export class RegisterPage implements OnInit {
               snapshot.forEach(item => {
                 this.newuserprofile.push(item.data());
                 console.log("user profile ",this.newuserprofile);
-              })
+              });
             });
 
           this.loading.dismiss().then(async () => {
@@ -118,7 +120,7 @@ export class RegisterPage implements OnInit {
             });
             await alert.present();
           });
-        }
+        };
 
     console.log('Method is called');
     if (!signupForm.valid) {
@@ -183,6 +185,11 @@ export class RegisterPage implements OnInit {
           this.profile.image = dwnURL;
         });
       });
+    }
+
+    //active form icons
+    toggleIcon() {
+    this.isLabelActive = !this.isLabelActive;
     }
 
 }
