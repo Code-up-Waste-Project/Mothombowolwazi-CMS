@@ -36,6 +36,8 @@ export class OutboundPage implements OnInit {
   TruckSourcess;
   Destination;
 
+  isLabelActive;
+
   GH001mass: number = 0;
   NFAL01mass: number = 0;
   PAP005mass: number = 0;
@@ -202,6 +204,11 @@ export class OutboundPage implements OnInit {
     }
 
   ngOnInit() {
+  }
+
+  //active form icons
+  toggleIcon() {
+    this.isLabelActive = !this.isLabelActive;
   }
 
   getMasses() {

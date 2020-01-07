@@ -13,7 +13,182 @@
 </ion-header>
 
 <ion-content>
-  <div class="Everything" *ngFor="let rec of ViewReclaimer">
+<div *ngFor="let rec of ViewReclaimer">
+  <div class="Info">
+    <div class="div1"></div>
+    <div class="div2">Date:  {{ rec.date }}</div>
+  </div>
+
+  <h1>Purchases Per Product</h1>
+
+  <table style="width: 100%;">
+    <tr>
+      <th>Name</th>
+      <th>Phone No.</th>
+      <th>Address</th>
+    </tr>
+    <tr>
+      <td><p>{{ rec.name }} {{ rec.surname }}</p></td>
+      <td><p>{{ rec.contact }}</p></td>
+      <td><p>{{ rec.address }}</p></td>
+    </tr>
+    <br><br><br>
+
+    <tr>
+      <th>Glass</th>
+      <th>Price incl.</th>
+      <th>Mass</th>
+      <th>Sub Total</th>
+      <th>VAT</th>
+      <th>Grand Total</th>
+    </tr>
+    <tr>
+      <td><p>GH001</p></td>
+      <td><p>{{ rec.GH001Price }}</p></td>
+      <td><p>{{ rec.GH001Mass }}</p></td>
+      <td><p>{{ rec.GH001SubTotal }}</p></td>
+      <td><p>{{ rec.GH001Vat }}</p></td>
+      <td><p>{{ rec.GH001 }}</p></td>
+    </tr>
+    <br><br>
+
+    <tr>
+      <th>NON-FERROUS</th>
+      <th>Price incl.</th>
+      <th>Mass</th>
+      <th>Sub Total</th>
+      <th>VAT</th>
+      <th>Grand Total</th>
+    </tr>
+    <tr>
+      <td><p>NFAL01</p></td>
+      <td><p>{{ rec.NFAL01Price }}</p></td>
+      <td><p>{{ rec.NFAL01Mass }}</p></td>
+      <td><p>{{ rec.NFAL01SubTotal }}</p></td>
+      <td><p>{{ rec.NFAL01Vat }}</p></td>
+      <td><p>{{ rec.NFAL01 }}</p></td>
+    </tr>
+    <br><br>
+
+    <tr>
+      <th>PAPER</th>
+      <th>Price incl.</th>
+      <th>Mass</th>
+      <th>Sub Total</th>
+      <th>VAT</th>
+      <th>Grand Total</th>
+    </tr>
+    <tr>
+      <td><p>PAP005</p></td>
+      <td><p>{{ rec.PAP005Price }}</p></td>
+      <td><p>{{ rec.PAP005Mass }}</p></td>
+      <td><p>{{ rec.PAP005SubTotal }}</p></td>
+      <td><p>{{ rec.PAP005Vat }}</p></td>
+      <td><p>{{ rec.PAP005 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>PAP007</p></td>
+      <td><p>{{ rec.PAP007Price }}</p></td>
+      <td><p>{{ rec.PAP007Mass }}</p></td>
+      <td><p>{{ rec.PAP007SubTotal }}</p></td>
+      <td><p>{{ rec.PAP007Vat }}</p></td>
+      <td><p>{{ rec.PAP007 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>PAP001</p></td>
+      <td><p>{{ rec.PAP001Price }}</p></td>
+      <td><p>{{ rec.PAP001Mass }}</p></td>
+      <td><p>{{ rec.PAP001SubTotal }}</p></td>
+      <td><p>{{ rec.PAP001Vat }}</p></td>
+      <td><p>{{ rec.PAP001 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>PAP003</p></td>
+      <td><p>{{ rec.PAP003Price }}</p></td>
+      <td><p>{{ rec.PAP003Mass }}</p></td>
+      <td><p>{{ rec.PAP003SubTotal }}</p></td>
+      <td><p>{{ rec.PAP003Vat }}</p></td>
+      <td><p>{{ rec.PAP003 }}</p></td>
+    </tr>
+    <br><br>
+
+    <tr>
+      <th>PLASTIC</th>
+      <th>Price incl.</th>
+      <th>Mass</th>
+      <th>Sub Total</th>
+      <th>VAT</th>
+      <th>Grand Total</th>
+    </tr>
+    <tr>
+      <td><p>HD001</p></td>
+      <td><p>{{ rec.HD001Price }}</p></td>
+      <td><p>{{ rec.HD001Mass }}</p></td>
+      <td><p>{{ rec.HD001SubTotal }}</p></td>
+      <td><p>{{ rec.HD001Vat }}</p></td>
+      <td><p>{{ rec.HD001 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>LD001</p></td>
+      <td><p>{{ rec.LD001Price }}</p></td>
+      <td><p>{{ rec.LD001Mass }}</p></td>
+      <td><p>{{ rec.LD001SubTotal }}</p></td>
+      <td><p>{{ rec.LD001Vat }}</p></td>
+      <td><p>{{ rec.LD001 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>LD003</p></td>
+      <td><p>{{ rec.LD003Price }}</p></td>
+      <td><p>{{ rec.LD003Mass }}</p></td>
+      <td><p>{{ rec.LD003SubTotal }}</p></td>
+      <td><p>{{ rec.LD003Vat }}</p></td>
+      <td><p>{{ rec.LD003 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>PET005</p></td>
+      <td><p>{{ rec.PEP005Price }}</p></td>
+      <td><p>{{ rec.PEP005Mass }}</p></td>
+      <td><p>{{ rec.PEP005SubTotal }}</p></td>
+      <td><p>{{ rec.PEP005Vat }}</p></td>
+      <td><p>{{ rec.PEP005 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>PET001</p></td>
+      <td><p>{{ rec.PET001Price }}</p></td>
+      <td><p>{{ rec.PET001Mass }}</p></td>
+      <td><p>{{ rec.PET001SubTotal }}</p></td>
+      <td><p>{{ rec.PET001Vat }}</p></td>
+      <td><p>{{ rec.PET001 }}</p></td>
+    </tr>
+    <tr>
+      <td><p>PET003</p></td>
+      <td><p>{{ rec.PET003Price }}</p></td>
+      <td><p>{{ rec.PET003Mass }}</p></td>
+      <td><p>{{ rec.PET003SubTotal }}</p></td>
+      <td><p>{{ rec.PET003Vat }}</p></td>
+      <td><p>{{ rec.PET003 }}</p></td>
+    </tr>
+    <br><br>
+    <tr>
+      <td></td>
+      <td></td>
+      <th>Overall Mass</th>
+      <th>Overall Sub Total</th>
+      <th>Overall VAT</th>
+      <th>Overall Grand Total</th>
+    </tr>
+    <tr>
+      <td><p></p></td>
+      <td><p></p></td>
+      <td><p>{{ rec.OverallMass }}</p></td>
+      <td><p>{{ rec.OverallSubTotal }}</p></td>
+      <td><p>{{ rec.OverallVat }}</p></td>
+      <td><p>{{ rec.OverallGrandTotal }}</p></td>
+    </tr>
+  </table>
+
+</div>
+  <!-- <div class="Everything" *ngFor="let rec of ViewReclaimer">
       <div class="Information1">
         <div class="MotherInfo">
         <div class="Info1"> 
@@ -196,8 +371,5 @@
                   </div>
                 </div>
         </div>
-    </div>
-
-   
-
+    </div> -->
 </ion-content>
