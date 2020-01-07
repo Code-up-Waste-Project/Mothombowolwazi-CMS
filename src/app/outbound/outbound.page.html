@@ -4,7 +4,7 @@
         <h2>My Dashboard</h2>	
         <p>You are at " OUTBOUND" where you can record information for your dispatch</p>	
       </div> 	
-  ​
+  
       <div class="profiles" *ngFor="let item of Newadmin">	
         <div class="image">   	
           <img  src="{{item.image}}" height="400px" width="400px" >
@@ -14,16 +14,116 @@
         <P>{{ item.position }}</P>	
     </div>	
       </div>	
-  ​
+  
       <div class="logout">	
           <ion-icon name="log-out"></ion-icon>	
       </div>	
     </div>
-  ​
+  
   <!-- new code -->
   <div class="container" padding>
     <div class="slideContainer">
     <ion-slides #slides [options]="slideOpts"  style=" overflow: visible;">
+
+      <!-- INFORMATIN ABOUT DISPATCHING -->
+      <ion-slide id="form" > 
+        <div class="wave">
+         <img src="../../assets/wavy.png">
+         <!-- <h1>Almost done... Add Truck Information here </h1> -->
+       </div>
+      <!-- <div class="form">
+           <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+              
+               <ion-input [(ngModel)]="DriverName" formControlName="DriverName" placeholder="Driver Name"></ion-input>
+          
+               <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates" placeholder="Registarion Number Plates"></ion-input>
+              
+               <ion-input formControlName="Destination" [(ngModel)]="Destination" placeholder="Destination"></ion-input>
+           </form>
+           
+           <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess" placeholder="Truck Source">
+               <ion-select-option value="InSource">In-Source</ion-select-option>
+               <ion-select-option value="outsorce">Out-Source</ion-select-option>
+           </ion-select>
+           <h3>Overall Truck Weight = {{ overallStorage }} kg</h3>
+       </div>  -->
+
+       <div class="form" style="width: 60%;margin-top: 15%" >
+         <form class="form" [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
+             <ion-grid style="border: 1px solid green; border-radius:50px; margin-top: 2%;" >
+                 <ion-row align-items-end >
+                   <ion-col size="1" align-self-bottom>
+                     <ion-icon  name="ios-person" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                   </ion-col>
+                   <ion-col>
+                     <ion-item>
+                       <ion-label position="floating">Driver Name</ion-label>
+                       <ion-input [(ngModel)]="DriverName" formControlName="DriverName" type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                     </ion-item>
+                   </ion-col>
+                 </ion-row>
+               </ion-grid>
+ 
+               <ion-grid style="border: 1px solid green; border-radius:50px; margin-top: 2%;">
+                   <ion-row align-items-end >
+                     <ion-col size="1" align-self-bottom>
+                       <ion-icon  name="car" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                     </ion-col>
+                     <ion-col>
+                       <ion-item>
+                         <ion-label position="floating">Registarion Number Plates</ion-label>
+ 
+                         <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates" type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>	
+                       </ion-item>
+                     </ion-col>
+                   </ion-row>
+                 </ion-grid>
+ 
+                 <ion-grid style="border: 1px solid green; border-radius:50px; margin-top: 2%;">
+                     <ion-row align-items-end >
+                       <ion-col size="1" align-self-bottom>
+                         <ion-icon  name="ios-pin" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                       </ion-col>
+                       <ion-col>
+                         <ion-item> 
+                           <ion-label position="floating">Destination</ion-label>
+ 
+                           <ion-input  formControlName="Destination" [(ngModel)]="Destination" type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>
+                         </ion-item>
+                       </ion-col>
+                     </ion-row>
+                   </ion-grid>
+ 
+                   <ion-grid style="border: 1px solid green; border-radius:50px; margin-top: 2%;">
+                       <ion-row  >
+                         <ion-col size="1" align-self-bottom>
+                           <ion-icon  name="car" size="large" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                         </ion-col>
+                         <ion-col>
+                           <!-- <ion-item>
+                             <ion-label position="floating">Truck Source</ion-label>
+                             <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess" [ngModelOptions]="{standalone: true}" placeholder="Truck Source" okText="Okay" cancelText="Dismiss">
+                               <ion-select-option value="InSource">In-Source</ion-select-option>
+                               <ion-select-option value="outsorce">Out-Source</ion-select-option>
+                           </ion-select>
+                           </ion-item> -->
+                           <!-- <ion-item>
+                             <ion-label>Truck Source</ion-label>
+                             <ion-select placeholder="Select One">
+                               <ion-select-option value="f">Female</ion-select-option>
+                               <ion-select-option value="m">Male</ion-select-option>
+                             </ion-select>
+                           </ion-item> -->
+                           <ion-item> 
+                             <ion-label position="floating">Truck Source</ion-label>
+                             <ion-input  [(ngModel)]="TruckSourcess" type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)" [ngModelOptions]="{standalone: true}"></ion-input>
+                           </ion-item>
+                         </ion-col>
+                       </ion-row>
+                     </ion-grid>
+           </form>
+         </div>
+     </ion-slide> 
      
     <!-- paper -->
       <ion-slide style=" border-radius: 20px !; overflow: hidden" >
@@ -134,30 +234,6 @@
          </div>
          </div>
        </ion-slide><!-- end of slide four -->
-  ​
-        <!-- INFORMATIN ABOUT DISPATCHING -->
-      <ion-slide id="form" >
-        <div class="wave">
-          <img src="../../assets/wavy.png">
-        </div>
-        <div class="form">
-            <form [formGroup]="RegisterForm" style="margin-left: 10px;margin-right: 10px;">
-                <!-- <label>Driver Name</label> -->
-                <ion-input [(ngModel)]="DriverName" formControlName="DriverName" placeholder="Driver Name"></ion-input>
-                <!-- <label>Registarion Number Plates</label> -->
-                <ion-input [(ngModel)]="RegistarionNumberPlates" formControlName="RegistarionNumberPlates" placeholder="Registarion Number Plates"></ion-input>
-                <!-- <label>Destination</label> -->
-                <ion-input formControlName="Destination" [(ngModel)]="Destination" placeholder="Destination"></ion-input>
-            </form>
-            <!-- <label>Truck Source</label> -->
-            <ion-select (ionChange)="TruckSource($event)" [(ngModel)]="TruckSourcess" placeholder="Truck Source">
-                <ion-select-option value="InSource">In-Source</ion-select-option>
-                <ion-select-option value="outsorce">Out-Source</ion-select-option>
-            </ion-select>
-            <h3>Overall Truck Weight = {{ overallStorage }} kg</h3>
-        </div>
-        
-      </ion-slide>
     </ion-slides>
     </div><!-- end of  -->
     <div class="totals">
@@ -166,3 +242,4 @@
     </div>
   </div>
   </ion-content>
+      

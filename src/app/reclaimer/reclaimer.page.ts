@@ -34,6 +34,8 @@ export class ReclaimerPage implements OnInit {
   OverallVat;
   OverallGrandTotal;
 
+  isLabelActive;
+
   GH001;
   NFAL01;
   PAP005;
@@ -312,6 +314,11 @@ export class ReclaimerPage implements OnInit {
 
   ngOnInit() {
   }
+
+  //active form icons
+    toggleIcon() {
+      this.isLabelActive = !this.isLabelActive;
+    }
 
   //   GH001;
   onChangeGH001(data): void {

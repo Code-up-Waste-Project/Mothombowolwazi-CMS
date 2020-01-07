@@ -28,18 +28,18 @@ export class EditpricePage implements OnInit {
   PET005price: number = 0;
 
   pricess = {
-    gl001: 0,
-    hd001: 0,
-    pap005: 0,
-    pap007: 0,
-    pap001: 0,
-    pap003: 0,
-    ld003: 0,
-    ld001: 0,
-    nfalo1: 0,
-    pet005: 0,
-    pet003: 0,
-    pet001: 0,
+    gl001:null ,
+    hd001: null,
+    pap005: null,
+    pap007: null,
+    pap001: null,
+    pap003: null,
+    ld003: null,
+    ld001: null,
+    nfalo1: null,
+    pet005: null,
+    pet003: null,
+    pet001: null,
   };
 
   ;
@@ -194,6 +194,16 @@ export class EditpricePage implements OnInit {
     // console.log(this.pricess.pet003);
     // console.log(this.pricess.pet005);
   }
+
+  ionViewWillEnter() {
+    this.prices = this.db.collection('price').doc("SinUfRNnbB073KZiDIZE");
+    this.prices.get().then((documentSnapshot) => {
+      this.price = [];
+      console.log(documentSnapshot.data());
+      this.price.push(documentSnapshot.data());
+      console.log('prices', this.price);
+    });
+   }
 
   update(pricess) {
     console.log(pricess);
