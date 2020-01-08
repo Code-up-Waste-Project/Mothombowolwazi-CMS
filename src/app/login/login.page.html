@@ -29,7 +29,7 @@
   
   <ion-item style="margin-top: 3% !important;">
     <ion-label position="floating" type="password">Enter Your Password</ion-label>
-    <ion-input formControlName="password"
+    <ion-input formControlName="password" type='password'
     [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched"
     (keyup.enter)="submit()" (keyup.enter)="handleLogin()">    </ion-input>
         <ion-icon name="lock" slot="end" size="large" ></ion-icon>

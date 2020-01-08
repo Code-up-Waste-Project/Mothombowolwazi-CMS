@@ -143,9 +143,8 @@
                       (change)='onChangePAP003($event.target.value)'></ion-input></div>
                       <div class="name2"><p> R {{ PAP003price }}</p></div>
                    </div>
-                   <h3>SUB-TOTAL <span id="total">= R{{ PaperTotal }}</span></h3>
-                   <button id="addpaper" ion-button (click)="onChangeTotal()"> Add To Grand-total</button>
-              
+                   <!-- <h3>SUB-TOTAL <span id="total">= R{{ PaperTotal }}</span></h3>
+                   <button id="addpaper" ion-button (click)="onChangeTotal()"> Add To Grand-total</button> -->
              </div>
            </ion-slide>
 
@@ -206,8 +205,8 @@
                         (change)='onChangePET003($event.target.value)'></ion-input></div>
                         <div class="name2"><p> R{{ PET003price }}</p></div>
                     </div>
-                    <button ion-button (click)="onChangePlasticTotalzzz()"> Add To Grand-total</button>
-                    <h3>SUB-TOTAL <span id="total"> R{{ PlasticTotals }}</span></h3>
+                    <!-- <button ion-button (click)="onChangePlasticTotalzzz()"> Add To Grand-total</button>
+                    <h3>SUB-TOTAL <span id="total"> R{{ PlasticTotals }}</span></h3> -->
                </div>
              </ion-slide>
         
@@ -223,8 +222,8 @@
                   (change)='onChangeNFAL01($event.target.value)'></ion-input></div>
                   <div class="name2"><p> R {{ NFAL01price }}</p></div>
                </div>
-               <button ion-button (click)="onChangeTotalNFAL01()"> Add To Grand-total</button>
-                <h3>SUB-TOTAL = <span> R {{ NFAL01Total }}</span></h3>
+               <!-- <button ion-button (click)="onChangeTotalNFAL01()"> Add To Grand-total</button>
+                <h3>SUB-TOTAL = <span> R {{ NFAL01Total }}</span></h3> -->
                </div>
              </ion-slide>
 
@@ -240,17 +239,16 @@
                   (change)='onChangeGH001($event.target.value)'></ion-input></div>
                   <div class="name2"><p> R {{ GH001price }}</p></div>
                </div>
-                     <h3>SUB-TOTAL = <span> R  {{ GH001Total }}</span></h3>
-                     <button ion-button (click)="onChangeTotalGH001()"> Add To Grand-total</button>
+                     <!-- <h3>SUB-TOTAL = <span> R  {{ GH001Total }}</span></h3>
+                     <button ion-button (click)="onChangeTotalGH001()"> Add To Grand-total</button> -->
+                     <div class="totals">
+                      <button ion-button (click)="checkinputfields()" [disabled]="!RegisterForm.valid"> GENERATE RECEIPT</button>
+                      <button id="pdf"ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button>
+                    </div>
                </div>
              </ion-slide>
 
            </ion-slides>
-           </div>
-           <div class="totals">
-             <!-- <h4>Grand-Total  =  R{{ TotalTotal }}</h4> -->
-             <button ion-button (click)="calculate()" [disabled]="!RegisterForm.valid"> GENERATE RECEIPT</button>
-             <button id="pdf"ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button>
            </div>
          </div>
      
