@@ -7,12 +7,6 @@
       <div class="inputs">
         <h1>WELCOME BACK</h1>
   
-        <!-- form inputs starts here -->
-      <!-- <div class="propic">
-        <div class="image">
-          <ion-icon name="person"></ion-icon>
-        </div>
-      </div> -->
       <form ng-submit="loginForm()" [formGroup]="loginForm" class="login" #form="ngForm">
       <ion-item>
           <ion-label position="floating" type="email" >Enter Your Email</ion-label>
@@ -23,7 +17,7 @@
         <div class="error" *ngIf="!loginForm.controls['email'].valid &&
         loginForm.controls['email'].touched">
     <div class="messages">
-      Please enter a valid email address.
+   <p class="errors">Please enter a valid email address.</p> 
     </div>
   </div>
   
@@ -38,7 +32,7 @@
   <div *ngIf="!loginForm.controls['password'].valid
   && loginForm.controls['password'].touched" class="error">
   <div class="messages">
-  Your password is incorrect.
+  <p class="errors">Your password is incorrect.</p>
   </div>
   </div>
   <P id="forgot">Forgot Password?</P>
@@ -47,124 +41,12 @@
       </form>
       </div>
     </div>
-    <div class="tree">
-      <!-- <img src="../../assets/tree.jpg" > -->
+    <div class="tree" >
+     <div id="tree">
+<img src="../../assets/tree.jpg">
+     </div>
     </div>
   </div>
-        <!-- new -->
-        <!-- <form ng-submit="loginForm()" [formGroup]="loginForm" class="login" #form="ngForm">
-            <div class="TheItems">
-              <div class="theITEMS">
-                <ion-label class="labels">
-                  <img class="Iconnn" src="../../assets/user (3).svg" alt="">
-                </ion-label>
-                <div class="theplaceholder">
-                <ion-input placeholder="Email Address" type="email" formControlName="email" [class.invalid]="!loginForm.controls['email'].valid &&
-                      loginForm.controls['email'].touched" (keyup.enter)="submit()"></ion-input>
-                    </div>
-              </div>
-            </div>
-            <div class="error" *ngIf="!loginForm.controls['email'].valid &&
-                  loginForm.controls['email'].touched">
-              <div class="messages">
-                Please enter a valid email address.
-              </div>
-            </div>
-            <div class="TheItems">
-              <div class="theITEMS">
-                <ion-label class="labels">
-                  <img class="Iconnn" src="../../assets/lock.svg" alt="">
-                </ion-label>
-                <div class="theplaceholder">
-                <ion-input placeholder="Password" type="password" formControlName="password"
-                  [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched"
-                  (keyup.enter)="submit()" (keyup.enter)="handleLogin()"></ion-input>
-                </div>
-              </div>
-            </div>
-            <div *ngIf="!loginForm.controls['password'].valid
-                      && loginForm.controls['password'].touched" class="error">
-              <div class="messages">
-                Your password is incorrect.
-              </div>
-            </div>
-            <button type="submit" (click)="loginUser(loginForm)" [disabled]="!loginForm.valid" class="thato"></button>
-  ​
-            <div class="forgot">
-              <p (click)="forgetpassword()">Forgot Your Password?</p>
-            </div>
-            <div class="create">
-              <button (click)="goToRegister()">Create Account</button>
-            </div> 
-          </form> -->
-            <!-- <br> 
-  ​
-            <div class="TheButton">
-              <ion-button style="color: white" color="clear" type="submit" (click)="loginUser(loginForm)" expand="block"
-                [disabled]="!loginForm.valid">LOGIN</ion-button>
-            </div>
-        
-  ​
-  ​
-    </div>
-      <div class="ScreenContent">
-        <div class="Card">
-          <div class="CardContent">
-    
-            <h1>Log In</h1>
-            <form ng-submit="loginForm()" [formGroup]="loginForm" class="login" #form="ngForm">
-              <div class="TheItems">
-                <div class="theITEMS">
-                  <ion-label class="labels">
-                    <img class="Iconnn" src="../../assets/user (3).svg" alt="">
-                  </ion-label>
-                  <div class="theplaceholder">
-                  <ion-input placeholder="Email Address" type="email" formControlName="email" [class.invalid]="!loginForm.controls['email'].valid &&
-                        loginForm.controls['email'].touched" (keyup.enter)="submit()"></ion-input>
-                      </div>
-                </div>
-              </div>
-              <div class="error" *ngIf="!loginForm.controls['email'].valid &&
-                    loginForm.controls['email'].touched">
-                <div class="messages">
-                  Please enter a valid email address.
-                </div>
-              </div>
-              <div class="TheItems">
-                <div class="theITEMS">
-                  <ion-label class="labels">
-                    <img class="Iconnn" src="../../assets/lock.svg" alt="">
-                  </ion-label>
-                  <div class="theplaceholder">
-                  <ion-input placeholder="Password" type="password" formControlName="password"
-                    [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched"
-                    (keyup.enter)="submit()" (keyup.enter)="handleLogin()"></ion-input>
-                  </div>
-                </div>
-              </div>
-              <div *ngIf="!loginForm.controls['password'].valid
-                        && loginForm.controls['password'].touched" class="error">
-                <div class="messages">
-                  Your password is incorrect.
-                </div>
-              </div>
-              <button type="submit" (click)="loginUser(loginForm)" [disabled]="!loginForm.valid" class="thato"></button>
-    
-              <div class="forgot">
-                <p (click)="forgetpassword()">Forgot Your Password?</p>
-              </div>
-              <div class="create">
-                <button (click)="goToRegister()">Create Account</button>
-              </div> -->
-              <!-- <br> 
-  ​
-              <div class="TheButton">
-                <ion-button style="color: white" color="clear" type="submit" (click)="loginUser(loginForm)" expand="block"
-                  [disabled]="!loginForm.valid">LOGIN</ion-button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div> --> 
+ 
     </ion-content>
    
