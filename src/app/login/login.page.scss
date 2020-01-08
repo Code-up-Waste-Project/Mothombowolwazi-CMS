@@ -57,10 +57,11 @@
      }
 
      .errors {
-         border: 1px solid red;
+         //border: 1px solid red;
          text-align: center;
          font-weight: lighter;
-         font-size: medium;
+         font-size: 1vw;
+         color: red;
      }
  }
 
@@ -84,7 +85,7 @@
          text-align: center;
          color: rgb(71, 69, 69);
          font-family: 'lato';
-         font-size:120%;
+         font-size:2.2vw;
          font-weight: bold;
          letter-spacing: 1px;
          padding-bottom: 7%;
@@ -108,7 +109,7 @@
      margin-top: 3%;
      border-radius: 10px;
      ion-input {
-        font-size: 1rem;
+        font-size: 1.5vw;
         letter-spacing: 1px !important;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  
@@ -120,8 +121,10 @@
          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
      }
    ion-icon {
-       //border: 1px solid red;
-       font-size: 1.5rem;
+      // border: 1px solid red;
+       font-size: 2.2vw;
+       margin-top: 5%;
+       color: rgb(83, 78, 78);
    } 
  
  }
@@ -131,7 +134,7 @@
       //width: 80% !important;
       //margin-left: 10%;
  //padding-left: 53%;
-   font-size: 100%;
+   font-size: 1.2vw;
    
  } 
  .propic {
@@ -162,15 +165,15 @@
  }
  button {
      padding: 2%;
-     width: 70% !important;
-     margin-left: 15%;
+     width: 50% !important;
+     margin-left: 25%;
      height: 7%;
      background: linear-gradient(to right, purple,#6f16e9 );
      // background: #728800;
-     border-radius: 7px;
+     border-radius: 5px;
      color: white;
      font-family: 'lato';
-     font-size: 1.4rem;
+     font-size: 1vw;
      letter-spacing: 1px;
      margin-top: 1%;
  }

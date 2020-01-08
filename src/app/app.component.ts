@@ -120,5 +120,77 @@ this.appPages.push({
     });
   }
 
+  segColor1 = "light"
+  segColor2 = "light"
+  segColor3 = "light"
+  segColor4 = "light"
+  segColor5 = "light"
+  segColor6 = "light"
+  segColor7 = "light"
+  toggleHome(){
+    this.segColor1 = "primary"
+    this.segColor2 = "light"
+    this.segColor3 = "light"
+    this.segColor4 = "light"
+    this.segColor5 = "light"
+    this.segColor6 = "light"
+    this.segColor7 = "light"
+  }
+  toggleEdit(){
+    this.segColor1 = "light"
+    this.segColor2 = "primary"
+    this.segColor3 = "light"
+    this.segColor4 = "light"
+    this.segColor5 = "light"
+    this.segColor6 = "light"
+    this.segColor7 = "light"
+  }
+  
+  toggleInbound(){
+    this.segColor1 = "light"
+    this.segColor2 = "light"
+    this.segColor3 = "primary"
+    this.segColor4 = "light"
+    this.segColor5 = "light"
+    this.segColor6 = "light"
+    this.segColor7 = "light"
+  }
+  toggleOutbound(){
+    this.segColor1 = "light"
+    this.segColor2 = "light"
+    this.segColor3 = "light"
+    this.segColor4 = "primary"
+    this.segColor5 = "light"
+    this.segColor6 = "light"
+    this.segColor7 = "light"
+  }
+  toggleReclaimer(){
+    this.segColor1 = "light"
+    this.segColor2 = "light"
+    this.segColor3 = "light"
+    this.segColor4 = "light"
+    this.segColor5 = "primary"
+    this.segColor6 = "light"
+    this.segColor7 = "light"
+  }
+  toggleHistory(){
+    this.segColor1 = "light"
+    this.segColor2 = "light"
+    this.segColor3 = "light"
+    this.segColor4 = "light"
+    this.segColor5 = "light"
+    this.segColor6 = "primary"
+    this.segColor7 = "light"
+  }
+  toggleUsers(){
+    this.segColor1 = "light"
+    this.segColor2 = "light"
+    this.segColor3 = "light"
+    this.segColor4 = "light"
+    this.segColor5 = "light"
+    this.segColor6 = "light"
+    this.segColor7 = "primary"
+  }
+
 }
 
