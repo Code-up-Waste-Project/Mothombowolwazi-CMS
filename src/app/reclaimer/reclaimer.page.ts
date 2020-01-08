@@ -613,9 +613,9 @@ export class ReclaimerPage implements OnInit {
     this.GH001GrandTotal = +this.GH001mass * +this.GH001;
     this.GH001Vat = +this.GH001GrandTotal / 1.15;
     this.GH001SubTotal = +this.GH001GrandTotal - +this.GH001Vat;
-    console.log(this.GH001GrandTotal);
-    console.log(this.GH001Vat);
-    console.log(this.GH001SubTotal);
+    // console.log(this.GH001GrandTotal);
+    // console.log(this.GH001Vat);
+    // console.log(this.GH001SubTotal);
 
     // NFAL01
     this.NFAL01GrandTotal = +this.NFAL01mass * +this.NFAL01;
