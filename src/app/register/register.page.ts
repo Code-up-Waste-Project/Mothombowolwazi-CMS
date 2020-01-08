@@ -10,7 +10,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-​
+
   public signupForm: FormGroup;
   storage = firebase.storage().ref();
   admin = [];
@@ -21,7 +21,7 @@ export class RegisterPage implements OnInit {
   db = firebase.firestore();
   profiles;
   profile = {
-​
+
   image: 'https://firebasestorage.googleapis.com/v0/b/https://gs://mthombowolwazi-a7902.appspot.com/mthombologo (1).png',
     name: null,
     addres: null,
@@ -33,9 +33,9 @@ export class RegisterPage implements OnInit {
     password: null,
       };
   public loading: any;
-​
+
   isLabelActive;
-​
+
   constructor(
     public platform: Platform,
     public authService: AuthService,
@@ -52,7 +52,7 @@ export class RegisterPage implements OnInit {
         // surname: ['', [Validators.required, ]],
         position: ['', [Validators.required, ]],
       });
-​
+
       this.db.collection('admin').onSnapshot(snapshot => {
         this.Newadmin = [];
         snapshot.forEach(Element => {
@@ -65,7 +65,7 @@ export class RegisterPage implements OnInit {
         console.log('Newadmins', this.Newadmin);
       });
     }
-​
+
   ngOnInit() {
     this.db.collection('userprofile2').onSnapshot(snapshot => {
         // this.profile.name = snapshot.docs.name
@@ -82,7 +82,7 @@ export class RegisterPage implements OnInit {
         });
       });
   }
-​
+
   async signupUser(signupForm: FormGroup): Promise<void> {
     this.authService.profile = {...signupForm.value, ...{image: this.profile.image}};
     console.log(signupForm.value);
@@ -112,7 +112,7 @@ export class RegisterPage implements OnInit {
                 console.log("user profile ",this.newuserprofile);
               });
             });
-​
+
           this.loading.dismiss().then(async () => {
             const alert = await this.alertCtrl.create({
               message: error.message,
@@ -121,7 +121,7 @@ export class RegisterPage implements OnInit {
             await alert.present();
           });
         };
-​
+
     console.log('Method is called');
     if (!signupForm.valid) {
           console.log(
@@ -152,12 +152,12 @@ export class RegisterPage implements OnInit {
           this.loading = await this.loadingCtrl.create();
           await this.loading.present();
         }
-​
+
         // route
         this.router.navigate(['register']);
-​
+
       }
-​
+
       delete(x) {
         console.log(x);
         this.newuserprofile = [];
@@ -174,7 +174,7 @@ export class RegisterPage implements OnInit {
         });
       });
       }
-​
+
     changeListener(profile): void {
       const i = profile.target.files[0];
       console.log(i);
@@ -190,10 +190,10 @@ export class RegisterPage implements OnInit {
         });
       });
     }
-​
+
     //active form icons
-    toggleIcon() {
+    toggleIcon(event) {
     this.isLabelActive = !this.isLabelActive;
     }
-​
+
 }

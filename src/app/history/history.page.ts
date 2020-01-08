@@ -1,8 +1,10 @@
+import { element } from 'protractor';
 import { ModalpopupPage } from './../modalpopup/modalpopup.page';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { ModalController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-history',
@@ -36,6 +38,9 @@ export class HistoryPage implements OnInit {
   constructor(
     private modalCTRL: ModalController,
     public route: Router,
+    public loadingController: LoadingController,
+    public toastController: ToastController,
+    public alertController: AlertController
   ) {
     // pulling for admin
     this.db.collection('admin').onSnapshot(snapshot => {
@@ -53,6 +58,7 @@ export class HistoryPage implements OnInit {
 
     // pulling from reclaimers
     this.db.collection('reclaimers').onSnapshot(snapshot => {
+      this.newreclaimer = [];
       snapshot.forEach(element => {
         let id = {};
         let reclaimername = {};
@@ -77,6 +83,7 @@ export class HistoryPage implements OnInit {
 
     // pulling from outbound
     this.db.collection('outbound').onSnapshot(snapshot => {
+      this.outbound = [];
       snapshot.forEach(element => {
         let id = {};
         let outdate = {};
@@ -98,6 +105,7 @@ export class HistoryPage implements OnInit {
           outRegistarionNo: outRegistarionNumberPlates,
           outovarallmass: outovarallMass,
         });
+        // this.outbound.push(element.data());
         // console.log(this.outbound);
       });
     });
@@ -110,21 +118,66 @@ export class HistoryPage implements OnInit {
       this.db.collection('outbound').doc(id).delete();
     }
 
+    async presentAlertdeleteOutbound(id) {
+      const alert = await this.alertController.create({
+        header: 'Confirm!',
+        message: '<strong>Are you sure you want to erase data? data will not be saved.</strong>!!!',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Okay',
+            handler: () => {
+              this.deleteOutbound(id);
+              this.route.navigateByUrl('/history');
+              console.log('Confirm Okay');
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
+
+    deleteReclaimer(id) {
+      this.db.collection('reclaimers').doc(id).delete();
+    }
+
+    async presentAlertdeleteReclaimer(id) {
+      const alert = await this.alertController.create({
+        header: 'Confirm!',
+        message: '<strong>Are you sure you want to erase data? data will not be saved.</strong>!!!',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Okay',
+            handler: () => {
+              this.deleteReclaimer(id);
+              this.route.navigateByUrl('/history');
+              console.log('Confirm Okay');
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
+
     async openReclaimer() {
       let modal =  await this.modalCTRL.create({
         component: ModalpopupPage,
         cssClass: 'cart-modal'
       });
       modal.present();
-    }
-
-    deleteReclaimer(id) {
-    //   this.newreclaimer = [];
-    //   this.db.collection("userprofile").doc(x.userUid).delete().then(function() {
-    //     console.log("Document successfully deleted!");
-    // }).catch(function(error) {
-    //     console.error("Error removing document: ", error);
-    // });
     }
 
     Logout() {

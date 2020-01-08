@@ -212,7 +212,7 @@ export class OutboundPage implements OnInit {
   }
 
   //active form icons
-  toggleIcon() {
+  toggleIcon(event) {
     this.isLabelActive = !this.isLabelActive;
   }
 

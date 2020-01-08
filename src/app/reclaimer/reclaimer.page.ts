@@ -432,7 +432,7 @@ export class ReclaimerPage implements OnInit {
   }
 
   //active form icons
-    toggleIcon() {
+    toggleIcon(event) {
       this.isLabelActive = !this.isLabelActive;
     }
 
@@ -1009,6 +1009,31 @@ export class ReclaimerPage implements OnInit {
     });
     await loading.present();
     loading.dismiss();
+  }
+
+  async presentAlertCancel() {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: '<strong>Are you sure you want to erase data? data will not be saved.</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.clearTextBoxes();
+            this.route.navigateByUrl('/reclaimer');
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   openModal() {

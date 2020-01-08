@@ -271,6 +271,7 @@
                      <div class="totals">
                       <!-- <h4>Grand-Total  =  R{{ TotalTotal }}</h4> -->
                       <button ion-button (click)="calculate()" [disabled]="!RegisterForm.valid"> PRINT RECEIPT</button>
+                      <button ion-button full (click)="presentAlertCancel()">Cancel</button>
                       <button id="pdf"ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button>
                     </div>
                </div>

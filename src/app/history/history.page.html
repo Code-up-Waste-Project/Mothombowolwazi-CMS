@@ -32,7 +32,7 @@
                 <ion-label>
                   <h2>{{ myreclaimers.reName}} {{ myreclaimers.reSurname }}</h2>
                 </ion-label>
-                <ion-icon id="Icon5" name="trash"></ion-icon>
+                <button ion-button full ><ion-icon id="Icon5" (click)="presentAlertdeleteReclaimer(myreclaimers.id)" name="trash"></ion-icon></button>
               </ion-item>
             </ion-card>
           </div>
@@ -52,7 +52,8 @@
                   <ion-label>
                     <h2>{{ myoutbound.outdriverName }} {{ myoutbound.outRegistarionNo }} {{ myoutbound.outovarallmass }}kg</h2>
                   </ion-label>
-                  <ion-icon id="Icon5" (click)="deleteOutbound(id)" name="trash"></ion-icon>
+                  <!-- <ion-icon id="Icon5" (click)="deleteOutbound(id)" name="trash"></ion-icon> -->
+                  <button ion-button full ><ion-icon id="Icon5" (click)="presentAlertdeleteOutbound(myoutbound.id)" name="trash"></ion-icon></button>
                 </ion-item>
               </ion-card>
             </ion-list>
