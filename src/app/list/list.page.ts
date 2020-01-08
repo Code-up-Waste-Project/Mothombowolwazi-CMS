@@ -131,7 +131,7 @@ export class ListPage implements OnInit {
         // console.log(this.overallStorage);
         // console.log(this.TruckSourcess);
         // console.log(this.Destination);
-        console.log(this.overallStoragez);
+        // console.log(this.overallStoragez);
 
         GH001storagemass = this.GH001storagemass = element.data().GH001;
         this.GH001storagemassz = (String(GH001storagemass).substring(0, 6));

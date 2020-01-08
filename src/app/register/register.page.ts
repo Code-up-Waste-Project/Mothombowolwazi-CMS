@@ -152,6 +152,10 @@ export class RegisterPage implements OnInit {
           this.loading = await this.loadingCtrl.create();
           await this.loading.present();
         }
+
+        // route
+        this.router.navigate(['register']);
+
       }
 
       delete(x) {
@@ -188,7 +192,7 @@ export class RegisterPage implements OnInit {
     }
 
     //active form icons
-    toggleIcon() {
+    toggleIcon(event) {
     this.isLabelActive = !this.isLabelActive;
     }
 
