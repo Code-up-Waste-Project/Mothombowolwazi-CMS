@@ -2,7 +2,7 @@
         <div class="header">
           <div class="nav">
             <h2>My Dashboard</h2>
-            <p>You are at " Manage Users ". Register new Administrators here.</p>
+            <p>Manage Users</p>
           </div>
           <div class="profiles" *ngFor="let item of Newadmin">
             <div class="image">
@@ -22,9 +22,55 @@
         <div class="left">
           <div class="head">
             <img src="../../assets/wavy.png">
-            <div class="image"></div>
+            <div class="image"><ion-icon id="camera" name="camera"></ion-icon></div>
+            <ion-input class="image-upload"  type="file"  accept="image/*" (change)="changeListener($event)"></ion-input>
           </div>
-          <div class="inputs">
+
+          <div class="TheContent" [formGroup]="signupForm">
+
+            <div class="myContainer">
+              <div class="ico">
+                <ion-icon id="ico"  name="ios-person" size="medium" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                </div>
+                <div class="inp">
+                  <input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)" formControlName="name" [class.invalid]="!signupForm.controls['name'].valid && signupForm.controls['name'].touched" [(ngModel)]="profile.name" type="text" id="myInput" placeholder="Name">
+                </div>                
+            </div>
+            <div class="myContainer">
+              <div class="ico">
+                <ion-icon id="ico" class="activeInputIcon" name="ios-briefcase" size="medium" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                </div>
+                <div class="inp">
+                  <input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)" formControlName="position" type="text" 
+                  [class.invalid]="!signupForm.controls['position'].valid && signupForm.controls['position'].touched" [(ngModel)]="profile.position" id="myInput" placeholder="Position">
+                </div>                
+            </div>
+            <div class="myContainer">
+              <div class="ico">
+                <ion-icon id="ico" name="ios-mail" size="medium" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                </div>
+                <div class="inp">
+                  <input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)" formControlName="email"  type="email" 
+                  [class.invalid]="!signupForm.controls['email'].valid && signupForm.controls['email'].touched" id="myInput" placeholder="Email Address">
+                </div>                
+            </div>
+            <div class="myContainer">
+              <div class="ico">
+                <ion-icon id="ico" name="ios-lock" size="medium" [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"></ion-icon>
+                </div>
+                <div class="inp">
+                  <input (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)" formControlName="password" type="password" 
+                  [class.invalid]="!signupForm.controls['password'].valid && signupForm.controls['password'].touched" id="myInput" placeholder="Password">
+                </div>                
+            </div>
+
+            <div id="TheButon">
+            <button id="Button" ion-button (click)="signupUser(signupForm)">REGISTER MEMBER</button>
+          </div>
+            
+
+          </div>
+          <!-- <div class="inputs">
             <form [formGroup]="signupForm">
               <ion-grid >
                 <ion-row align-items-end >
@@ -87,7 +133,7 @@
                       </ion-grid>
                       <button ion-button (click)="signupUser(signupForm)">REGISTER MEMBER</button>
             </form>
-          </div>
+          </div> -->
           </div>
 
           <div class="right" style="overflow: auto;">
