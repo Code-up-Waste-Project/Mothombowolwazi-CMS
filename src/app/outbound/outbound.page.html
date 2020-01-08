@@ -229,14 +229,16 @@
            <div class="name"><p> GL001</p></div>
        <ion-input style="font-size: 1vw;" type="number" [(ngModel)]="GH001mass" placeholder="Enter Mass Here"></ion-input>
          </div>
+         <div class="totals">
+          <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">CALCULATE</button>
+          <button ion-button full (click)="presentAlertCancel()">Cancel</button>
+          <button id="pdf" ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button>
+        </div>
          </div>
        </ion-slide><!-- end of slide four -->
     </ion-slides>
     </div><!-- end of  -->
-    <div class="totals">
-      <button ion-button full (click)="calculateOverall()" [disabled]="!RegisterForm.valid">CALCULATE</button>
-      <button id="pdf" ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button>
-    </div>
   </div>
+
   </ion-content>
       

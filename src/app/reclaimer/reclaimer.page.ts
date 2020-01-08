@@ -49,18 +49,18 @@ export class ReclaimerPage implements OnInit {
   PET003;
   PET005;
 
-  GH001mass: number = 0;
-  NFAL01mass: number = 0;
-  PAP005mass: number = 0;
-  PAP007mass: number = 0;
-  PAP001mass: number = 0;
-  PAP003mass: number = 0;
-  HD001mass: number = 0;
-  LD001mass: number = 0;
-  LD003mass: number = 0;
-  PET001mass: number = 0;
-  PET003mass: number = 0;
-  PET005mass: number = 0;
+  GH001mass;
+  NFAL01mass;
+  PAP005mass;
+  PAP007mass;
+  PAP001mass;
+  PAP003mass;
+  HD001mass;
+  LD001mass;
+  LD003mass;
+  PET001mass;
+  PET003mass;
+  PET005mass;
 
   // Inputs
   GH001price;
@@ -315,6 +315,122 @@ export class ReclaimerPage implements OnInit {
   ngOnInit() {
   }
 
+  checkinputfields() {
+    // GH001mass
+    if (this.GH001mass === null) {
+      this.GH001mass = 0;
+    } else if (this.GH001mass === undefined) {
+      this.GH001mass = 0;
+    }
+    // console.log(this.GH001mass);
+
+    // NFAL01mass
+    if (this.NFAL01mass === null) {
+      this.NFAL01mass = 0;
+    }
+    if (this.NFAL01mass === undefined) {
+      this.NFAL01mass = 0;
+    }
+    // console.log(this.NFAL01mass);
+
+    // PAP005mass
+    if (this.PAP005mass === null) {
+      this.PAP005mass = 0;
+    }
+    if (this.PAP005mass === undefined) {
+      this.PAP005mass = 0;
+    }
+    // console.log(this.PAP005mass);
+
+    // PAP007mass
+    if (this.PAP007mass === null) {
+      this.PAP007mass = 0;
+    }
+    if (this.PAP007mass === undefined) {
+      this.PAP007mass = 0;
+    }
+    // console.log(this.PAP007mass);
+
+    // PAP001mass
+    if (this.PAP001mass === null) {
+      this.PAP001mass = 0;
+    }
+    if (this.PAP001mass === undefined) {
+      this.PAP001mass = 0;
+    }
+    // console.log(this.PAP001mass);
+
+    // PAP003mass
+    if (this.PAP003mass === null) {
+      this.PAP003mass = 0;
+    }
+    if (this.PAP003mass === undefined) {
+      this.PAP003mass = 0;
+    }
+    // console.log(this.PAP003mass);
+
+    // HD001mass
+    if (this.HD001mass === null) {
+      this.HD001mass = 0;
+    }
+    if (this.HD001mass === undefined) {
+      this.HD001mass = 0;
+    }
+    // console.log(this.HD001mass);
+
+    // LD001mass
+    if (this.LD001mass === null) {
+      this.LD001mass = 0;
+    }
+    if (this.LD001mass === undefined) {
+      this.LD001mass = 0;
+    }
+    // console.log(this.LD001mass);
+
+    // LD003mass
+    if (this.LD003mass === null) {
+      this.LD003mass = 0;
+    }
+    if (this.LD003mass === undefined) {
+      this.LD003mass = 0;
+    }
+    // console.log(this.LD003mass);
+
+    // PET001mass
+    if (this.PET001mass === null) {
+      this.PET001mass = 0;
+    }
+    if (this.PET001mass === undefined) {
+      this.PET001mass = 0;
+    }
+    // console.log(this.PET001mass);
+
+    // PET003mass
+    if (this.PET003mass === null) {
+      this.PET003mass = 0;
+    }
+    if (this.PET003mass === undefined) {
+      this.PET003mass = 0;
+    }
+    // console.log(this.PET003mass);
+
+    // PET005mass
+    if (this.PET005mass === null) {
+      this.PET005mass = 0;
+    }
+    if (this.PET005mass === undefined) {
+      this.PET005mass = 0;
+    }
+    // console.log(this.PET005mass);
+
+    // text boxes
+    this.presentAlert();
+
+    // under calculate the are other functions
+    this.calculate();
+
+  }
+
   //active form icons
     toggleIcon() {
       this.isLabelActive = !this.isLabelActive;
@@ -322,170 +438,170 @@ export class ReclaimerPage implements OnInit {
 
   //   GH001;
   onChangeGH001(data): void {
-    console.log(this.GH001mass);
-    console.log(data);
+    // console.log(this.GH001mass);
+    // console.log(data);
 
     this.GH001GrandTotal = +this.GH001mass * +this.GH001;
-    console.log(this.GH001GrandTotal);
+    // console.log(this.GH001GrandTotal);
 
     this.GH001price = +this.GH001mass * +this.GH001;
-    console.log(this.GH001price);
+    // console.log(this.GH001price);
   }
 
   //   GH001 Total;
   onChangeTotalGH001(): void {
     this.GH001Total = this.GH001price;
-    console.log(this.GH001Total);
+    // console.log(this.GH001Total);
   }
 
   //   NFAL01;
   onChangeNFAL01(data): void {
-    console.log(this.NFAL01mass);
-    console.log(data);
+    // console.log(this.NFAL01mass);
+    // console.log(data);
 
     this.NFAL01GrandTotal = +this.NFAL01mass * +this.NFAL01;
-    console.log(this.NFAL01GrandTotal);
+    // console.log(this.NFAL01GrandTotal);
 
     this.NFAL01price = +this.NFAL01mass * +this.NFAL01;
-    console.log(this.NFAL01price);
+    // console.log(this.NFAL01price);
   }
 
   //   NFAL01 Total NFAL01Total
   onChangeTotalNFAL01(): void {
     this.NFAL01Total = this.NFAL01price;
-    console.log(this.NFAL01Total);
+    // console.log(this.NFAL01Total);
   }
 
   //   PAP005;
   onChangePAP005(data): void {
-    console.log(this.PAP005mass);
-    console.log(data);
+    // console.log(this.PAP005mass);
+    // console.log(data);
 
     this.PAP005GrandTotal = +this.PAP005mass * +this.PAP005;
-    console.log(this.PAP005GrandTotal);
+    // console.log(this.PAP005GrandTotal);
 
     this.PAP005price = +this.PAP005mass * +this.PAP005;
-    console.log(this.PAP005price);
+    // console.log(this.PAP005price);
   }
 
   //   PAP007;
   onChangePAP007(data): void {
-    console.log(this.PAP007mass);
-    console.log(data);
+    // console.log(this.PAP007mass);
+    // console.log(data);
 
     this.PAP007GrandTotal = +this.PAP007mass * +this.PAP007;
-    console.log(this.PAP007GrandTotal);
+    // console.log(this.PAP007GrandTotal);
 
     this.PAP007price = +this.PAP007mass * +this.PAP007;
-    console.log(this.PAP007price);
+    // console.log(this.PAP007price);
   }
 
   //   PAP001;
   onChangePAP001(data): void {
-    console.log(this.PAP001mass);
-    console.log(data);
+    // console.log(this.PAP001mass);
+    // console.log(data);
 
     this.PAP001GrandTotal = +this.PAP001mass * +this.PAP001;
-    console.log(this.PAP001GrandTotal);
+    // console.log(this.PAP001GrandTotal);
 
     this.PAP001price = +this.PAP001mass * +this.PAP001;
-    console.log(this.PAP001price);
+    // console.log(this.PAP001price);
   }
 
   //   PAP003;
   onChangePAP003(data): void {
-    console.log(this.PAP003mass);
-    console.log(data);
+    // console.log(this.PAP003mass);
+    // console.log(data);
 
     this.PAP003GrandTotal = +this.PAP003mass * +this.PAP003;
-    console.log(this.PAP003GrandTotal);
+    // console.log(this.PAP003GrandTotal);
 
     this.PAP003price = +this.PAP003mass * +this.PAP003;
-    console.log(this.PAP003price);
+    // console.log(this.PAP003price);
   }
 
   //   Paper Total;
   onChangeTotal(): void {
     this.PaperTotal = +this.PAP001price + +this.PAP007price + +this.PAP001price + +this.PAP003price;
-    console.log(this.PaperTotal);
+    // console.log(this.PaperTotal);
   }
 
   //   HD001;
   onChangeHD001(data): void {
-    console.log(this.HD001mass);
-    console.log(data);
+    // console.log(this.HD001mass);
+    // console.log(data);
 
     this.HD001GrandTotal = +this.HD001mass * +this.HD001;
-    console.log(this.HD001GrandTotal);
+    // console.log(this.HD001GrandTotal);
 
     this.HD001price = +this.HD001mass * +this.HD001;
-    console.log(this.HD001price);
+    // console.log(this.HD001price);
   }
 
   //   LD001;
   onChangeLD001(data): void {
-    console.log(this.LD001mass);
-    console.log(data);
+    // console.log(this.LD001mass);
+    // console.log(data);
 
     this.LD001GrandTotal = +this.LD001mass * +this.LD001;
-    console.log(this.LD001GrandTotal);
+    // console.log(this.LD001GrandTotal);
 
     this.LD001price = +this.LD001mass * +this.LD001;
-    console.log(this.LD001price);
+    // console.log(this.LD001price);
   }
 
   //   LD003;
   onChangeLD003(data): void {
-    console.log(this.LD003mass);
-    console.log(data);
+    // console.log(this.LD003mass);
+    // console.log(data);
 
     this.LD003GrandTotal = +this.LD003mass * +this.LD003;
-    console.log(this.LD003GrandTotal);
+    // console.log(this.LD003GrandTotal);
 
     this.LD003price = +this.LD003mass * +this.LD003;
-    console.log(this.LD003price);
+    // console.log(this.LD003price);
   }
 
   //   PET001;
   onChangePET001(data): void {
-    console.log(this.PET001mass);
-    console.log(data);
+    // console.log(this.PET001mass);
+    // console.log(data);
 
     this.PET001GrandTotal = +this.PET001mass * +this.PET001;
-    console.log(this.PET001GrandTotal);
+    // console.log(this.PET001GrandTotal);
 
     this.PET001price = +this.PET001mass * +this.PET001;
-    console.log(this.PET001price);
+    // console.log(this.PET001price);
   }
 
   //   PET003;
   onChangePET003(data): void {
-    console.log(this.PET003mass);
-    console.log(data);
+    // console.log(this.PET003mass);
+    // console.log(data);
 
     this.PET003GrandTotal = +this.PET003mass * +this.PET003;
-    console.log(this.PET003GrandTotal);
+    // console.log(this.PET003GrandTotal);
 
     this.PET003price = +this.PET003mass * +this.PET003;
-    console.log(this.PET003price);
+    // console.log(this.PET003price);
   }
 
   //   PET005;
   onChangePET005(data): void {
-    console.log(this.PET005mass);
-    console.log(data);
+    // console.log(this.PET005mass);
+    // console.log(data);
 
     this.PET005GrandTotal = +this.PET005mass * +this.PET005;
-    console.log(this.PET005GrandTotal);
+    // console.log(this.PET005GrandTotal);
 
     this.PET005price = +this.PET005mass * +this.PET005;
-    console.log(this.PET005price);
+    // console.log(this.PET005price);
   }
 
   //   Plastic Total;
   onChangePlasticTotalzzz(): void {
     this.PlasticTotals = +this.HD001price + +this.LD001price + +this.LD003price + +this.PET001price + +this.PET003price + +this.PET005price;
-    console.log(this.PlasticTotals);
+    // console.log(this.PlasticTotals);
   }
 
   TotalTotals() {
@@ -606,12 +722,6 @@ export class ReclaimerPage implements OnInit {
     // create receipt
     this.createPdf();
 
-    // Toast & rout
-    this.presentToast();
-    // this.route.navigateByUrl('/home');
-
-    // text boxes
-    this.clearTextBoxes();
   }
 
   getprices() {
@@ -680,79 +790,79 @@ export class ReclaimerPage implements OnInit {
     // overall GrandTotal
     this.OverallGrandTotal = +this.GH001GrandTotal + +this.NFAL01GrandTotal + +this.PAP005GrandTotal + +this.PAP007GrandTotal + +this.PAP001GrandTotal + 
     +this.PAP003GrandTotal + +this.HD001GrandTotal + +this.LD001GrandTotal + +this.LD003GrandTotal + +this.PET001GrandTotal + +this.PET003GrandTotal + +this.PET005GrandTotal;
-    console.log(this.OverallGrandTotal);
+    // console.log(this.OverallGrandTotal);
 
     // overall GrandTotal
     this.OverallSubTotal = +this.GH001SubTotal + +this.NFAL01SubTotal + +this.PAP005SubTotal + +this.PAP007SubTotal + +this.PAP001SubTotal + 
     +this.PAP003SubTotal + +this.HD001SubTotal + +this.LD001SubTotal + +this.LD003SubTotal + +this.PET001SubTotal + +this.PET003SubTotal + +this.PET005SubTotal;
-    console.log(this.OverallSubTotal);
+    // console.log(this.OverallSubTotal);
 
     // overall GrandTotal
     this.OverallVat = +this.GH001Vat + +this.NFAL01Vat + +this.PAP005Vat + +this.PAP007Vat + +this.PAP001Vat +
     +this.PAP003Vat + +this.HD001Vat + +this.LD001Vat + +this.LD003Vat + +this.PET001Vat + +this.PET003Vat + +this.PET005Vat;
-    console.log(this.OverallVat);
+    // console.log(this.OverallVat);
   }
 
   updateStorage() {
     // storageGH001
     this.storageGH001 = this.GH001storagemass + this.GH001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({GL001: this.storageGH001});
-    console.log(this.storageGH001);
+    // console.log(this.storageGH001);
 
     // storage NFAL01;
     this.storageNFAL01 = this.NFAL01storagemass + this.NFAL01mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({NFAL01: this.storageNFAL01});
-    console.log(this.storageNFAL01);
+    // console.log(this.storageNFAL01);
 
     // storage PAP005;
     this.storagePAP005 = this.PAP005storagemass + this.PAP005mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP005: this.storagePAP005});
-    console.log(this.storagePAP005);
+    // console.log(this.storagePAP005);
 
     // storage PAP007;
     this.storagePAP007 = this.PAP007storagemass + this.PAP007mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP007: this.storagePAP007});
-    console.log(this.storagePAP007);
+    // console.log(this.storagePAP007);
 
     // storage PAP001;
     this.storagePAP001 = this.PAP001storagemass + this.PAP001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP001: this.storagePAP001});
-    console.log(this.storagePAP001);
+    // console.log(this.storagePAP001);
 
     // storage PAP003;
     this.storagePAP003 = this.PAP003storagemass + this.PAP003mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP003: this.storagePAP003});
-    console.log(this.storagePAP003);
+    // console.log(this.storagePAP003);
 
     // storage HD001;
     this.storageHD001 = this.HD001storagemass + this.HD001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({HD001: this.storageHD001});
-    console.log(this.storageHD001);
+    // console.log(this.storageHD001);
 
     // storage LD001;
     this.storageLD001 = this.LD001storagemass + this.LD001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({LD001: this.storageLD001});
-    console.log(this.storageLD001);
+    // console.log(this.storageLD001);
 
     // storage LD003;
     this.storageLD003 = this.LD003storagemass + this.LD003mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({LD003: this.storageLD003});
-    console.log(this.storageLD003);
+    // console.log(this.storageLD003);
 
     // storage PET001;
     this.storagePET001 = this.PET001storagemass + this.PET001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PET001: this.storagePET001});
-    console.log(this.storagePET001);
+    // console.log(this.storagePET001);
 
     // storage PET003;
     this.storagePET003 = this.PET003storagemass + this.PET003mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PET003: this.storagePET003});
-    console.log(this.storagePET003);
+    // console.log(this.storagePET003);
 
     // storage PET005;
     this.storagePET005 = this.PET005storagemass + this.PET005mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PEP005: this.storagePET005});
-    console.log(this.storagePET005);
+    // console.log(this.storagePET005);
   }
 
   Addreclaimer() {
@@ -844,60 +954,53 @@ export class ReclaimerPage implements OnInit {
   }
 
   clearTextBoxes() {
-    this.GH001mass = 0;
-    this.NFAL01mass = 0;
-    this.PAP005mass = 0;
-    this.PAP007mass = 0;
-    this.PAP001mass = 0;
-    this.PAP003mass = 0;
-    this.HD001mass = 0;
-    this.LD001mass = 0;
-    this.LD003mass = 0;
-    this.PET001mass = 0;
-    this.PET003mass = 0;
-    this.PET005mass = 0;
+    this.GH001mass = '';
+    this.NFAL01mass = '';
+    this.PAP005mass = '';
+    this.PAP007mass = '';
+    this.PAP001mass = '';
+    this.PAP003mass = '';
+    this.HD001mass = '';
+    this.LD001mass = '';
+    this.LD003mass = '';
+    this.PET001mass = '';
+    this.PET003mass = '';
+    this.PET005mass = '';
     this.name = '';
     this.surname = '';
     this.contact = '';
     this.address = '';
+
+    this.GH001price = '';
+    this.NFAL01price = '';
+    this.PAP005price = '';
+    this.PAP007price = '';
+    this.PAP001price = '';
+    this.PAP003price = '';
+    this.HD001price = '';
+    this.LD001price = '';
+    this.LD003price = '';
+    this.PET001price = '';
+    this.PET003price = '';
+    this.PET005price = '';
   }
 
-  async presentAlert(data) {
+  async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      message: data,
-      buttons: ['OK']
-    });
-    await alert.present();
-  }
-
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'New Transaction Created.',
-      duration: 9000,
-      color: 'primary',
-      position: 'middle',
+      header: 'Confirm!',
+      message: '<strong>Transection Processed.</strong>!!!',
       buttons: [
-        {
-          side: 'start',
-          icon: 'home',
-          text: 'Ok',
+         {
+          text: 'Okay',
           handler: () => {
-            this.route.navigateByUrl('/home');
-            console.log('Go to Home');
-          }
-        }, {
-          text: 'Download PDF',
-          icon: 'file',
-          role: 'cancel',
-          handler: () => {
-            this.downloadPdf();
-            console.log('Download clicked');
+            this.clearTextBoxes();
+            this.route.navigateByUrl('/reclaimer');
+            console.log('Confirm Okay');
           }
         }
       ]
     });
-    toast.present();
+    await alert.present();
   }
 
   async presentLoading() {
