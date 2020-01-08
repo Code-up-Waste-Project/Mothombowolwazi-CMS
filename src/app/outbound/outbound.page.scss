@@ -1,5 +1,7 @@
+
+
 .header {
-  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.123);
+  //border: 1px solid red;
 background: white !important;
   height: 15%;
 display: flex;
@@ -7,47 +9,59 @@ display: flex;
    // border: 1px solid blue;
     width: 65%;
     h2 {
-      font-size: 2.2em;
+     // border: 1px solid blue;
+      font-size: 2.5vw;
       padding-left: 2%;
       font-weight: bolder;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
-    p {
+    h3 {
+      //border: 1px solid red;
       color: rgb(56, 54, 54);
       padding-left: 2%;
-      font-size: 1.2em;;
+      
+      margin-top: -1%;
+      font-size: 1vw;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-      font-weight: 550;
+      font-weight: 750;
+      color: #7b9200;
     }
   }
   .profiles {
-   // border: 1px solid green;
+    //border: 1px solid green;
     width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     .image {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      width:100px;
-      height: 100px;
+      height: 4em;
+      width: 4em;
+      object-fit: cover;
+
+height: auto;
       border-radius: 50%;
       img {
         border-radius: 50%;
-        width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
+        width: 4em;
       }
     }
     .names {
      //background: red !important;
-    // border: 2px solid red;
       margin-left: 10px;;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-    
+    h4 {
+     // border: 1px solid red;
+      font-size: 1.3vw;
+    }
      p {
-      font-size: 0.9em;
+       //border: 1px solid red;
+      font-size:  1.1vw;
       font-weight: 500;
       letter-spacing: 1px;
+     margin-top: -2%;
      }
     }
   }
@@ -61,15 +75,15 @@ display: flex;
     justify-content: center;
     align-items: center;
     ion-icon {
-      font-size: 3em;
+      font-size: 3vw;
     }
   }
 }
-    .AddReclaimer{
-        border: solid 2px purple;
-        color: purple;
-        margin-left: 77%;
-      }
+    // .AddReclaimer{
+    //     border: solid 2px purple;
+    //     color: purple;
+    //     margin-left: 77%;
+    //   }
     .container {
       background: rgb(234, 234, 238) !important;
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.014);
@@ -86,49 +100,22 @@ display: flex;
           font-family: lato;
         }
       }
-      
+      .form {
+        border: solid 2px rgb(74, 15, 143);
+      }
       .slideContainer {
       //  border: 3px solid rgb(0, 0, 0);
       height: 85%;
       max-width: 80%;
       margin-left: 10%;
      margin-top: 2%;
-        
-    
- 
-  // .wave {
-  //   height: 25%;
-  //   border: 2px solid rgb(230, 18, 159);;
-  //   width: 100%;
-  //   position: absolute;
-  //   top: 0;; 
-  //   img {
-  //     width: 100%;
-  //     border-top-left-radius: 15px;
-  //     border-top-right-radius: 15px;
-  //   }
-    // background: url(../../assets/wavy.png);
-    // background-position: center;
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // width: 100%;
-  
-    // .form {
-    //   //border: 1px solid rgb(75, 119, 18) !important;
-    //   height: 75%;
-    //   position: absolute;
-    //   top: 25%;
-    //   // margin: 5px;
-    // }
 
     
 #form {
-  // width: 80% !important;
-
- // border: 2px solid red;;
+  
  .wave {
    height: 30%;
-  // border: 2px solid rgb(230, 18, 159);;
+   border: 2px solid rgb(230, 18, 159);;
    width: 100%;
    position: absolute;
    top: 0;; 
@@ -144,7 +131,7 @@ h1 {
   font-family: 'lato';
   position: relative;
   top: -80%;
-  font-size: 2rem;
+  font-size: 2vw;
 }
  }
    .inputs {
@@ -156,16 +143,16 @@ h1 {
      // margin: 5px;
 
      form {
-      // border: 2px solid blu
+       border: 2px solid blue;
        width: 50%;
        margin-left: 25%;
-       height: 100%;
+       height: 70%;
        ion-grid {
-         height: 21% !important;
-        margin-top: 2%;
-        border-radius: 50px;
-        border: 1.3px solid green;
-       padding: 0 !important;
+      //    height: 21% !important;
+      //   margin-top: 2%;
+      //   border-radius: 50px;
+      //   border: 1.3px solid green;
+      //  padding: 0 !important;
        
       }
       ion-icon {
@@ -176,7 +163,7 @@ h1 {
         padding-left: 2% !important;
       }
       ion-item {
-      // border: 1px solid green;
+       border: 1px solid green;
        margin-right: 5% !important;
         
       }
@@ -205,25 +192,11 @@ h1 {
     }
      }
    }
-//    ion-input,  ion-select {
-//  //border: 1px solid green;
-//      height: 15%;
-//      width: 90%;
-//      margin-left: 5%;
-//      margin-top: 2%;
-//      border-radius: 50px;
-//      padding-left: 5% !important;
-//      ::after {
-//        text-align: left;
-//      }
-//    }
+
    
    ion-select {
      text-align: left !important;
-   //  display: flex;
-   //  justify-content: center;
-   //  align-content: center;
-   //  align-items: center !important;
+   
    }
      }
     ion-input,  ion-select {
@@ -241,10 +214,7 @@ h1 {
     
     ion-select {
       text-align: left !important;
-    //  display: flex;
-    //  justify-content: center;
-    //  align-content: center;
-    //  align-items: center !important;
+ 
     }
       
        
