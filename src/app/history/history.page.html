@@ -46,8 +46,8 @@
         </div> <br>
         <div class="Items">
           <div id="Socialcards">
-            <ion-list *ngFor="let myoutbound of outbound" [routerLink]="['/list', myoutbound.id]">
-              <ion-card>
+            <ion-list>
+              <ion-card *ngFor="let myoutbound of outbound" [routerLink]="['/list', myoutbound.id]">
                 <ion-item>
                   <ion-label>
                     <h2><b>{{ myoutbound.outdriverName }}</b> <br> {{ myoutbound.outRegistarionNo }}GP</h2>
