@@ -280,11 +280,16 @@ height: auto;
   
     .totals {
       // border: 1px solid green;
+      width: 80%;
+      margin-left: 10%;
       height: 12%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
   
+      #cancel {
+        background: rgb(129, 14, 14);
+      }
       button {
         width: 30%;
         height: 60%;

@@ -198,8 +198,8 @@ height: auto;
               }
             }
             .rands {
-             // border: 1px solid green;
-              width: 15%;
+            //  border: 1px solid green;
+              width: 12%;
               display: flex;
                justify-content:space-between;
               align-content: center;
@@ -244,10 +244,10 @@ height: auto;
             }
             ion-input {
               width: 25%;
-            //  border: 1px solid red;
+           //  border: 1px solid red;
               height: 60%;
               margin-top: 3%;
-             
+              padding-right: 4%;
               border-top-left-radius: 6px;
               border-bottom-left-radius: 6px;
               
@@ -274,12 +274,17 @@ height: auto;
   
   
     .totals {
-      // border: 1px solid green;
+       //border: 1px solid green;
       height: 12%;
+      width: 80%;
+      margin-left: 10%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
   
+      #cancel {
+        background: rgb(129, 14, 14);
+      }
       button {
         width: 30%;
         height: 60%;
