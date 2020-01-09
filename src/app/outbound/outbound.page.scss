@@ -296,7 +296,7 @@ h1 {
 
               }
               .name {
-                border: 1px solid red;
+               // border: 1px solid red;
                 width: 46%;
                 display: flex;
                 justify-content: center;
@@ -326,6 +326,10 @@ h1 {
       
               span {
                 padding-left: -3%;
+              }
+              input {
+                border: none !important;
+                outline: none;
               }
               ion-input {
                 width: 10% !important;
@@ -362,42 +366,69 @@ h1 {
           }
         }
       }/* end of div slideContainer */
-    
       .totals {
-        //border: 1px solid green;
-        height: 10%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    #pdf {
-      background: rgb(146, 9, 9) !important;
-    }
-        button {
-          width: 25%;
-          height: 60%;
-          font-size: 1vw;
-          padding: 1%;
-         // margin-top: -2.5%;
-          border-radius: 5px;
-          background: linear-gradient(to right, purple,#6f16e9 );
-          color: white;
-          outline: none;
-          letter-spacing: 1px;
-        }
-        h4 {
-          border-bottom: 1px solid gray;
-          padding: 1%;
-          font-size:90%;
-          width: 30%;
-          margin-right: 5%;
-          color: white;
-    
-          .total {
-            font-size: 2vw;
-            color: rgb(255, 255, 255);
-            font-weight: bold;
-            width: 150px;
-            //border: 1px solid blue;
+        //  border: 1px solid green;
+          width: 100%;
+          //margin-left: 10%;
+          height: 14%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      
+          #cancel {
+            background: rgb(129, 14, 14);
+          }
+          button {
+            width: 30%;
+            height: 60%;
+            font-size: 1vw;
+            //padding: 3%;
+           // margin-top: -2.5%;
+            border-radius: 5px;
+            background: linear-gradient(to right, purple,#6f16e9 );
+            color: white;
+            outline: none;
+            letter-spacing: 1px;
+          }
+          button:hover {
+            background: green;
+          }
+          h4 {
+            border-bottom: 1px solid gray;
+            padding: 1%;
+            font-size:90%;
+            width: 30%;
+            margin-right: 5%;
+            color: white;
+      
+            .total {
+              font-size: 2vw;
+              color: rgb(255, 255, 255);
+              font-weight: bold;
+              width: 150px;
+              //border: 1px solid blue;
+            }
           }
         }
+
+      .class-item{
+        ion-input{
+          
+         height: 10% !important;
+         min-height: 40px !important;
+         max-height: 80px !important;
+        }
+          height: 10% !important;
+          min-height: 40px !important;
+          max-height: 80px !important;
+      }
+ 
+      .form{
+       //  border: 2px solid red;
+        margin-top: 30px !important;
+      }
+      .inpIco{
+       //  color: red;
+        margin-top: 15px !important;
+       //  transform: translateY(-50%) !important;
       }
