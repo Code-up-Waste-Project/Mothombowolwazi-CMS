@@ -3,6 +3,7 @@ import {ModalpopupPageModule} from './../modalpopup/modalpopup.module';
 import * as firebase from 'firebase';
 import { AlertController, LoadingController, ToastController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-analytics',
@@ -123,18 +124,18 @@ export class AnalyticsPage implements OnInit {
   PET003;
   PET005;
 
-  GH001mass: 0;
-  NFAL01mass: 0;
-  PAP005mass: 0;
-  PAP007mass: 0;
-  PAP001mass: 0;
-  PAP003mass: 0;
-  HD001mass: 0;
-  LD001mass: 0;
-  LD003mass: 0;
-  PET001mass: 0;
-  PET003mass: 0;
-  PET005mass: 0;
+  GH001mass;
+  NFAL01mass;
+  PAP005mass;
+  PAP007mass;
+  PAP001mass;
+  PAP003mass;
+  HD001mass;
+  LD001mass;
+  LD003mass;
+  PET001mass;
+  PET003mass;
+  PET005mass;
 
   storageGH001;
   storageNFAL01;
@@ -183,6 +184,8 @@ export class AnalyticsPage implements OnInit {
       console.log('Newadmins', this.Newadmin);
     });
 
+    this.getMasses();
+
    }
 
   ngOnInit() {
@@ -220,119 +223,244 @@ export class AnalyticsPage implements OnInit {
     });
   }
 
-  SaveGH001() {
+  checkinputfields() {
+    // GH001mass
+    if (this.GH001mass === null) {
+      this.GH001mass = 0;
+    } else if (this.GH001mass === undefined) {
+      this.GH001mass = 0;
+    }
+    // console.log(this.GH001mass);
+
+    // NFAL01mass
+    if (this.NFAL01mass === null) {
+      this.NFAL01mass = 0;
+    }
+    if (this.NFAL01mass === undefined) {
+      this.NFAL01mass = 0;
+    }
+    // console.log(this.NFAL01mass);
+
+    // PAP005mass
+    if (this.PAP005mass === null) {
+      this.PAP005mass = 0;
+    }
+    if (this.PAP005mass === undefined) {
+      this.PAP005mass = 0;
+    }
+    // console.log(this.PAP005mass);
+
+    // PAP007mass
+    if (this.PAP007mass === null) {
+      this.PAP007mass = 0;
+    }
+    if (this.PAP007mass === undefined) {
+      this.PAP007mass = 0;
+    }
+    // console.log(this.PAP007mass);
+
+    // PAP001mass
+    if (this.PAP001mass === null) {
+      this.PAP001mass = 0;
+    }
+    if (this.PAP001mass === undefined) {
+      this.PAP001mass = 0;
+    }
+    // console.log(this.PAP001mass);
+
+    // PAP003mass
+    if (this.PAP003mass === null) {
+      this.PAP003mass = 0;
+    }
+    if (this.PAP003mass === undefined) {
+      this.PAP003mass = 0;
+    }
+    // console.log(this.PAP003mass);
+
+    // HD001mass
+    if (this.HD001mass === null) {
+      this.HD001mass = 0;
+    }
+    if (this.HD001mass === undefined) {
+      this.HD001mass = 0;
+    }
+    // console.log(this.HD001mass);
+
+    // LD001mass
+    if (this.LD001mass === null) {
+      this.LD001mass = 0;
+    }
+    if (this.LD001mass === undefined) {
+      this.LD001mass = 0;
+    }
+    // console.log(this.LD001mass);
+
+    // LD003mass
+    if (this.LD003mass === null) {
+      this.LD003mass = 0;
+    }
+    if (this.LD003mass === undefined) {
+      this.LD003mass = 0;
+    }
+    // console.log(this.LD003mass);
+
+    // PET001mass
+    if (this.PET001mass === null) {
+      this.PET001mass = 0;
+    }
+    if (this.PET001mass === undefined) {
+      this.PET001mass = 0;
+    }
+    // console.log(this.PET001mass);
+
+    // PET003mass
+    if (this.PET003mass === null) {
+      this.PET003mass = 0;
+    }
+    if (this.PET003mass === undefined) {
+      this.PET003mass = 0;
+    }
+    // console.log(this.PET003mass);
+
+    // PET005mass
+    if (this.PET005mass === null) {
+      this.PET005mass = 0;
+    }
+    if (this.PET005mass === undefined) {
+      this.PET005mass = 0;
+    }
+    // console.log(this.PET005mass);
+
+    this.presentAlertupdate();
+
+  }
+
+  saveDatafirebase() {
     // storageGH001
     this.storageGH001 = this.GH001storagemass + this.GH001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({GL001: this.storageGH001});
-    console.log(this.storageGH001);
-    this.presentToast();
-  }
+    // console.log(this.storageGH001);
 
-  SaveNFAL01() {
     // storage NFAL01;
     this.storageNFAL01 = this.NFAL01storagemass + this.NFAL01mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({NFAL01: this.storageNFAL01});
-    console.log(this.storageNFAL01);
-    this.presentToast();
-  }
+    // console.log(this.storageNFAL01);
 
-  SavePAP005() {
     // storage PAP005;
     this.storagePAP005 = this.PAP005storagemass + this.PAP005mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP005: this.storagePAP005});
-    console.log(this.storagePAP005);
-    this.presentToast();
-  }
+    // console.log(this.storagePAP005);
 
-  SavePAP007() {
     // storage PAP007;
     this.storagePAP007 = this.PAP007storagemass + this.PAP007mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP007: this.storagePAP007});
-    console.log(this.storagePAP007);
-    this.presentToast();
-  }
+    // console.log(this.storagePAP007);
 
-  SavePAP001() {
     // storage PAP001;
     this.storagePAP001 = this.PAP001storagemass + this.PAP001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP001: this.storagePAP001});
-    console.log(this.storagePAP001);
-    this.presentToast();
-  }
+    // console.log(this.storagePAP001);
 
-  SavePAP003() {
     // storage PAP003;
     this.storagePAP003 = this.PAP003storagemass + this.PAP003mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PAP003: this.storagePAP003});
-    console.log(this.storagePAP003);
-    this.presentToast();
-  }
+    // console.log(this.storagePAP003);
 
-  SaveHD001() {
     // storage HD001;
     this.storageHD001 = this.HD001storagemass + this.HD001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({HD001: this.storageHD001});
-    console.log(this.storageHD001);
-    this.presentToast();
-  }
+    // console.log(this.storageHD001);
 
-  SaveLD001() {
     // storage LD001;
     this.storageLD001 = this.LD001storagemass + this.LD001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({LD001: this.storageLD001});
-    console.log(this.storageLD001);
-    this.presentToast();
-  }
+    // console.log(this.storageLD001);
 
-  SaveLD003() {
     // storage LD003;
     this.storageLD003 = this.LD003storagemass + this.LD003mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({LD003: this.storageLD003});
-    console.log(this.storageLD003);
-    this.presentToast();
-  }
+    // console.log(this.storageLD003);
 
-  SavePET001() {
     // storage PET001;
     this.storagePET001 = this.PET001storagemass + this.PET001mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PET001: this.storagePET001});
-    console.log(this.storagePET001);
-    this.presentToast();
-  }
+    // console.log(this.storagePET001);
 
-  SavePET003() {
     // storage PET003;
     this.storagePET003 = this.PET003storagemass + this.PET003mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PET003: this.storagePET003});
-    console.log(this.storagePET003);
-    this.presentToast();
-  }
+    // console.log(this.storagePET003);
 
-  SavePET005() {
     // storage PET005;
     this.storagePET005 = this.PET005storagemass + this.PET005mass;
     this.db.collection("storage").doc("hD3GRe9MMPFB401vA7kS").update({PEP005: this.storagePET005});
-    console.log(this.storagePET005);
-    this.presentToast();
+    // console.log(this.storagePET005);
   }
 
-  async presentAlert(data) {
+  async presentAlertupdate() {
     const alert = await this.alertController.create({
-      header: 'Alert',
-      message: data,
-      buttons: ['OK']
+      header: 'Confirm!',
+      message: '<strong>Are you sure you want to Save Masses?.</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.saveDatafirebase();
+            this.clearInputs();
+            this.route.navigateByUrl('/analytics');
+            console.log('Confirm Okay');
+          }
+        }
+      ]
     });
     await alert.present();
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'New Mass Added to Storage Created.',
-      duration: 5000,
-      color: 'primary',
-      position: 'bottom'
+  clearInputs() {
+    this.GH001mass = '';
+    this.NFAL01mass = '';
+    this.PAP005mass = '';
+    this.PAP007mass = '';
+    this.PAP001mass = '';
+    this.PAP003mass = '';
+    this.HD001mass = '';
+    this.LD001mass = '';
+    this.LD003mass = '';
+    this.PET001mass = '';
+    this.PET003mass = '';
+    this.PET005mass = '';
+  }
+
+  async presentAlertupdatedelete() {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: '<strong>Are you sure you want to Cancel, Data will not be saved.</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.clearInputs();
+            this.route.navigateByUrl('/analytics');
+            console.log('Confirm Okay');
+          }
+        }
+      ]
     });
-    toast.present();
+    await alert.present();
   }
 
   async presentLoading() {
