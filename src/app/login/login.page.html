@@ -12,7 +12,7 @@
           <ion-label position="floating" type="email" >Enter Your Email</ion-label>
           <ion-input  formControlName="email" [class.invalid]="!loginForm.controls['email'].valid &&
           loginForm.controls['email'].touched" (keyup.enter)="submit()">    </ion-input>
-              <ion-icon name="mail" slot="end" ></ion-icon>
+              <ion-icon style="font-size: 2vw;" name="mail" slot="end" ></ion-icon>
         </ion-item>
         <div class="error" *ngIf="!loginForm.controls['email'].valid &&
         loginForm.controls['email'].touched">
@@ -26,7 +26,7 @@
     <ion-input formControlName="password" type='password'
     [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched"
     (keyup.enter)="submit()" (keyup.enter)="handleLogin()">    </ion-input>
-        <ion-icon name="lock" slot="end" size="large" ></ion-icon>
+        <ion-icon style="font-size: 2vw;" name="lock" slot="end" ></ion-icon>
   </ion-item>
   
   <div *ngIf="!loginForm.controls['password'].valid
