@@ -24,17 +24,19 @@ display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     p {
-      color: #14A5A5;
+      color: #7b9200;
       padding-left: 2%;
       font-size: 15px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-      font-weight: 550;
+      font-weight: 440;
+      margin-bottom: 20px;
     }
   }
   .profiles {
    // border: 1px solid green;
     width: 25%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     .image {
@@ -83,7 +85,7 @@ display: flex;
   border-radius: 15px;
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  position: relative;
 }
 .head {
   // border: 1px solid blue;
@@ -97,6 +99,11 @@ display: flex;
     border-top-right-radius: 15px;
   }
   .image {
+    #leboo{
+      width: 100%;
+      margin: 0 auto;
+    }
+    z-index: 10000000000000 !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 background: whitesmoke;
 width:100px;
@@ -194,8 +201,8 @@ ion-card {
 }
 
 .myContainer{
-  width: 400px;
-    height: 50px;
+  width: 80%;
+    height: 15%;
     border: 1.3px solid green;
     display: flex;
     margin-bottom: 2%;
@@ -222,12 +229,15 @@ border: 0;
 #ico{
   color: purple;
   font-size: 30px;
-  padding-top: 15%;
+  padding-top: 10%;
   padding-left: 10%;
 }
 
 #TheButon{
   // background: purple;
+}
+#disappeaar{
+  display: none;
 }
 
 #Button {
@@ -272,7 +282,17 @@ background: linear-gradient(to right, purple,#6f16e9 );
 
 
 
-@media screen and (max-width:1024px){
+@media screen and (min-width:1024px){
+
+  #theP{
+    color: #7b9200;
+        padding-left: 2%;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 440;
+        position: relative;
+        bottom: 5px;
+  }
 
 
   .TheContent{
@@ -286,7 +306,7 @@ background: linear-gradient(to right, purple,#6f16e9 );
   }
   
   .myContainer{
-    width: calc(100% - 20px);
+    width: 80%;
       height: 15%;
       border: 1.3px solid green;
       display: flex;
@@ -362,30 +382,31 @@ display: flex;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     p {
-      color: #14A5A5;
+      color: #7b9200;
       padding-left: 2%;
       font-size: 15px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-      font-weight: 550;
-      margin-top: -3%;
+      font-weight: 440;
+      margin-top: -15px;
     }
   }
   .profiles {
    // border: 1px solid green;
     width: 25%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     .image {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      width: 200%;
-      height: 80%;
+      width: 50px;
+      height: 50px;
       border-radius: 100px;
       img {
         border-radius: 100px;
-        border: purple solid 2px;
-        width: 200%;
-        height: 80%;
+        // border: purple solid 2px;
+        width: 50px;
+        height: 50px;
         object-fit: cover;
       }
     }
@@ -533,3 +554,131 @@ ion-card {
 
 
 
+
+#leboo{
+  border: 2px solid red;
+  width: 500px !important;
+  margin-left: 100px;
+}
+
+.myHead{
+  width: 100%;
+  height: 150px;
+  // border: 2px solid red;
+  position: relative;
+}
+
+#wavey-image-bg {
+  width: 100%;
+  height: 160px;
+}
+
+.circle-thingy{
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100px;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  overflow: hidden;
+  cursor: pointer;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #sthombe-upload {
+    color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    opacity: 0;
+    padding: 40px;
+  }
+  #sthombe-upload:hover{
+    opacity: 1;
+  }
+}
+.theInputs{
+  width: 100%;
+  // height: calc(100% - 150px);
+  // border: 2px solid green;
+  margin-top: 60px;
+}
+.user-inputs{
+  height: 40px;
+  width: 100%;
+  width: calc(100% - 50px);
+  margin: 10px auto;
+  border: 1px solid green;
+  // padding: 5px;
+  border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+
+}
+.user-inputs > div {
+  height: 100%;
+  // border: 2px solid black;
+}
+.user-inputs > div:nth-child(1){
+  width: 40px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 25px;
+}
+.user-inputs > div:nth-child(2){
+  width: calc(100% - 40px);
+  input{
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 0
+  }
+}
+.user-input-button{
+  height: 40px;
+  width: 100%;
+  width: calc(100% - 50px);
+  margin: 10px auto;
+  // border: 2px solid red;
+  // padding: 5px;
+  border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+}
+
+#user-button {
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: linear-gradient(to right, purple,#6f16e9 );
+  color: white;
+  font-family: 'lato';
+}
+.left {
+  overflow-y: scroll;
+}
+
+#sthombe {
+  display: none;
+}
+
+#user-icon{
+  color: grey;
+}
+
+#theP{
+  color: #7b9200;
+      padding-left: 2%;
+      font-size: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-weight: 440;
+      margin-top: -5px;
+}
