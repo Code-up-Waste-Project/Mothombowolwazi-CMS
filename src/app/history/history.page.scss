@@ -252,7 +252,7 @@ display: flex;
   #Icon5{
     color: rgb(255, 0, 0);
     // background-color: red;
-    margin-right: 8%;
+    margin-right: 10px;
   }
 
   .forgotP{
@@ -296,4 +296,19 @@ h2{
   font-size: 200%;
   text-align: center;
 }
+}
+
+#paragraph{
+  margin-top: 10px;
+  font-weight: 440;
+}
+
+
+@media screen and (max-width:1024px){
+  #paragraph{
+    position: relative;
+    bottom: 10px;
+    font-weight: 440;
+  }
+
 }
