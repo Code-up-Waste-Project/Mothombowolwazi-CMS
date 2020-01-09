@@ -1,5 +1,4 @@
 
-
 .header {
   //border: 1px solid red;
 background: white !important;
@@ -47,7 +46,6 @@ height: auto;
         object-fit: cover;
         width: 4em;
       }
-      
     }
     .names {
      //background: red !important;
@@ -161,7 +159,11 @@ height: auto;
           // border: 2px solid black;
            height: 100%;
            width: 100%;
-       
+       .total {
+        // border: 2px solid yellow;
+         padding-left: 3%;
+         width: 15%;
+       }
            button {
              width: 40%;
              //height: 12%;
@@ -182,7 +184,7 @@ height: auto;
            padding-bottom: 1%;
          }
                h3 {
-                // border: 1px solid red;
+               //  border: 1px solid red;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -271,6 +273,7 @@ height: auto;
                  }
          
                  span {
+                   //border: 1px solid red;
                    padding-left: -3%;
                  }
                  ion-input {
@@ -297,55 +300,50 @@ height: auto;
       }
     }
   }/* end of div slideContainer */
-
   .totals {
-   // width: 100%;
-   // margin-left: 10%;
-   //border: 3px solid green;
-    height: 10%;
-    display: flex;
-    justify-content: space-around;;
-    align-items: center;
-    //margin-top: 1%;
-    position: relative;
-bottom: 0;
-#pdf {
-  background: rgb(126, 10, 10) !important;
-}
-    button {
-      letter-spacing: 1px;
-      //border: 2px solid blue;
-      width: 25%;
-     // height: 60%;
-      font-size:1vw;
-      padding: 1%;
-     // margin-top: -2.5%;
-      border-radius: 5px;
-      background: linear-gradient(to right, purple,#6f16e9 );
-      color: white;
-      outline: none;
-    }
-    button:hover {
-      background: green;
-    }
-    h4 {
-      border-bottom: 1px solid gray;
-      padding: 1%;
-      font-size:1.5rem;
-      width: 30%;
-      margin-right: 5%;
-      color: black;
-​
-      .total {
-        font-size: 2vw;
-        color: rgb(255, 255, 255);
-        font-weight: bold;
-        width: 150px;
-        //border: 1px solid blue;
-      }
-    }
-  }
+    //border: 1px solid green;
+   height: 14%;
+   width: 100%;
+  // margin-left: 10%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 
+   #cancel {
+     background: rgb(129, 14, 14);
+   }
+   button {
+     width: 30%;
+     height: 60%;
+     font-size: 1vw;
+     //padding: 3%;
+    // margin-top: -2.5%;
+     border-radius: 5px;
+     background: linear-gradient(to right, purple,#6f16e9 );
+     color: white;
+     outline: none;
+     letter-spacing: 1px;
+   }
+   button:hover {
+     background: green;
+   }
+   h4 {
+     border-bottom: 1px solid gray;
+     padding: 1%;
+     font-size:90%;
+     width: 30%;
+     margin-right: 5%;
+     color: white;
+
+     .total {
+       font-size: 2vw;
+       color: rgb(255, 255, 255);
+       font-weight: bold;
+       width: 150px;
+       //border: 1px solid blue;
+     }
+   }
+ }
 ion-item{
     border-bottom: solid 1px purple;
 
