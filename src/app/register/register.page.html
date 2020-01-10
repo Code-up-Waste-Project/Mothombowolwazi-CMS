@@ -19,8 +19,9 @@
   </div>
 ​
 <div class="container">
-  <div class="left">
-    <div class="internal" [formGroup]="signupForm">
+  
+  <div class="left" id="scroll" style="border: 1px solid red;">
+    <div  class="internal" [formGroup]="signupForm">
       <input type="file" id="sthombe" accept="image/*" (change)="changeListener($event)">
       <div class="myHead">
           <img src="../../assets/wavy.png" id="wavey-image-bg" alt="">
@@ -76,7 +77,7 @@
     </div>
     </div>
 ​
-    <div class="right" style="overflow: auto;">
+    <div class="right" style="border: 1px solid rgb(55, 0, 255);overflow-y: scroll;">
       <h1>All Your Registered Administrators</h1>
       <ion-card *ngFor = "let myprofiles  of newuserprofile">
           <ion-item >

@@ -101,6 +101,10 @@ height: auto;
    }
  .right ::-webkit-sccrollbar{
 display: none;
+
+ }
+ .right {
+  -ms-overflow-style: none;
  }
  .wavey {
   border-top-left-radius: 15px;
