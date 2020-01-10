@@ -67,7 +67,7 @@ export class RegisterPage implements OnInit {
     }
 
   ngOnInit() {
-    this.db.collection('userprofile2').onSnapshot(snapshot => {
+    this.db.collection('userprofile').onSnapshot(snapshot => {
         // this.profile.name = snapshot.docs.name
         // this.profile.email = snapshot.data().email;
         // email: firebase.auth().currentUser.email,
@@ -79,7 +79,7 @@ export class RegisterPage implements OnInit {
         
         this.newuserprofile = [];
         snapshot.forEach(item => {
-          this.newuserprofile.push(item.data());
+          this.newuserprofile.push({...{id:item.id},...item.data()});
           console.log("user profile ", this.newuserprofile);
         });
       });
@@ -125,38 +125,6 @@ export class RegisterPage implements OnInit {
           });
         };
 
-    console.log('Method is called');
-    if (!signupForm.valid) {
-          console.log(
-            'Need to complete the form, current value: ',
-            signupForm.value
-          );
-        } else {
-          const email: string = signupForm.value.email;
-          const password: string = signupForm.value.password;
-          const surname: string = signupForm.value.surname;
-          const position: string = signupForm.value.position;
-          const name: string = signupForm.value.name;
-          this.authService.signupUser(email, password).then(
-            () => {
-              this.loading.dismiss().then(() => {
-              });
-            },
-            error => {
-              this.loading.dismiss().then(async () => {
-                const alert = await this.alertCtrl.create({
-                  message: error.message,
-                  buttons: [{ text: 'Ok', role: 'cancel' }]
-                });
-                await alert.present();
-              });
-            }
-          );
-          this.loading = await this.loadingCtrl.create();
-          await this.loading.present();
-        }
-
-        // route
         this.router.navigate(['register']);
 
       }
@@ -165,7 +133,7 @@ export class RegisterPage implements OnInit {
         console.log(userUid);
         // let email = x.email;
         // this.Booking = [];
-        this.db.collection("userprofile2").doc(userUid).delete().then(function() {
+        this.db.collection("userprofile").doc(userUid.id).delete().then(function() {
           console.log("Document successfully deleted!");
       }).catch(function(error) {
           console.error("Error removing document: ", error);

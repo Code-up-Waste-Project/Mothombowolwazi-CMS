@@ -78,8 +78,6 @@ colorArray: any;
       // console.log('Newadmins', this.Newadmin);
     });
 
-    this.getMasses();
-
     }
 
     // chart
@@ -106,6 +104,9 @@ colorArray: any;
       }
     });
     this.menuCtrl.enable(true); // or true
+
+    this.getMasses();
+    console.log( this.getMasses());
   }
 
   getMasses() {
@@ -141,6 +142,7 @@ colorArray: any;
       // console.log(this.PET001storagemass);
       // console.log(this.PET003storagemass);
       // console.log(this.PET005storagemass);
+
       totalPaperz = +this.PAP005storagemass + +this.PAP007storagemass + +this.PAP001storagemass + +this.PAP003storagemass;
       this.Totalpaper = Number(String(totalPaperz).substring(0, 6));
 
@@ -166,10 +168,9 @@ colorArray: any;
         datasets: [{
           label: 'Overall material ',
           data: [this.NFAL01storagemass, this.GH001storagemass, this.PAP005storagemass, this.PAP007storagemass, this.PAP003storagemass,
-          this.HD001storagemass, this.LD001storagemass, this.LD003storagemass, this.PET001storagemass, this.PET003storagemass,
-          this.PET005storagemass],
+          this.HD001storagemass, this.LD001storagemass, this.LD003storagemass, this.PET001storagemass, this.PET003storagemass, this.PET005storagemass],
           // data: [this.NFAL01storagemass, this.GH001storagemass, this.PAP005storagemass, this.PAP007storagemass, this.PAP007storagemass, this.PAP003storagemass],
-          backgroundColor: 'purple', // array should have same number of elements as number of dataset
+          backgroundColor: 'green', // array should have same number of elements as number of dataset
           borderColor: 'green',  // array should have same number of elements as number of dataset
           borderWidth: 0.2
         }]

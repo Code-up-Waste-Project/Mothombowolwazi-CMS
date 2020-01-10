@@ -11,9 +11,9 @@ import { Directive, HostListener, Output, EventEmitter, ElementRef, Input } from
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss']
 })
-@Directive({
-  selector: '[br-data-dependency]' // Attribute selector
-})
+// @Directive({
+//   selector: '[br-data-dependency]' // Attribute selector
+// })
 export class LoginPage implements OnInit {
 
   db = firebase.firestore();

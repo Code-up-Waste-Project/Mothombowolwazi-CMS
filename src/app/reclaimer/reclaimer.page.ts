@@ -322,7 +322,7 @@ export class ReclaimerPage implements OnInit {
     } else if (this.GH001mass === undefined) {
       this.GH001mass = 0;
     }
-    console.log(this.GH001mass);
+    // console.log(this.GH001mass);
 
     // NFAL01mass
     if (this.NFAL01mass === null) {
@@ -331,7 +331,7 @@ export class ReclaimerPage implements OnInit {
     if (this.NFAL01mass === undefined) {
       this.NFAL01mass = 0;
     }
-    console.log(this.NFAL01mass);
+    // console.log(this.NFAL01mass);
 
     // PAP005mass
     if (this.PAP005mass === null) {
@@ -340,7 +340,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP005mass === undefined) {
       this.PAP005mass = 0;
     }
-    console.log(this.PAP005mass);
+    // console.log(this.PAP005mass);
 
     // PAP007mass
     if (this.PAP007mass === null) {
@@ -349,7 +349,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP007mass === undefined) {
       this.PAP007mass = 0;
     }
-    console.log(this.PAP007mass);
+    // console.log(this.PAP007mass);
 
     // PAP001mass
     if (this.PAP001mass === null) {
@@ -358,7 +358,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP001mass === undefined) {
       this.PAP001mass = 0;
     }
-    console.log(this.PAP001mass);
+    // console.log(this.PAP001mass);
 
     // PAP003mass
     if (this.PAP003mass === null) {
@@ -367,7 +367,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP003mass === undefined) {
       this.PAP003mass = 0;
     }
-    console.log(this.PAP003mass);
+    // console.log(this.PAP003mass);
 
     // HD001mass
     if (this.HD001mass === null) {
@@ -376,7 +376,7 @@ export class ReclaimerPage implements OnInit {
     if (this.HD001mass === undefined) {
       this.HD001mass = 0;
     }
-    console.log(this.HD001mass);
+    // console.log(this.HD001mass);
 
     // LD001mass
     if (this.LD001mass === null) {
@@ -385,7 +385,7 @@ export class ReclaimerPage implements OnInit {
     if (this.LD001mass === undefined) {
       this.LD001mass = 0;
     }
-    console.log(this.LD001mass);
+    // console.log(this.LD001mass);
 
     // LD003mass
     if (this.LD003mass === null) {
@@ -394,7 +394,7 @@ export class ReclaimerPage implements OnInit {
     if (this.LD003mass === undefined) {
       this.LD003mass = 0;
     }
-    console.log(this.LD003mass);
+    // console.log(this.LD003mass);
 
     // PET001mass
     if (this.PET001mass === null) {
@@ -403,7 +403,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PET001mass === undefined) {
       this.PET001mass = 0;
     }
-    console.log(this.PET001mass);
+    // console.log(this.PET001mass);
 
     // PET003mass
     if (this.PET003mass === null) {
@@ -412,7 +412,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PET003mass === undefined) {
       this.PET003mass = 0;
     }
-    console.log(this.PET003mass);
+    // console.log(this.PET003mass);
 
     // PET005mass
     if (this.PET005mass === null) {
@@ -421,7 +421,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PET005mass === undefined) {
       this.PET005mass = 0;
     }
-    console.log(this.PET005mass);
+    // console.log(this.PET005mass);
 
     // text boxes
     this.presentAlert();
@@ -522,7 +522,80 @@ export class ReclaimerPage implements OnInit {
 
   //   Paper Total;
   onChangeTotal(): void {
-    this.PaperTotal = +this.PAP001price + +this.PAP007price + +this.PAP001price + +this.PAP003price;
+    // PAP005mass
+    if (this.PAP005mass === null) {
+      this.PAP005mass = 0;
+    }
+    if (this.PAP005mass === undefined) {
+      this.PAP005mass = 0;
+    }
+    // console.log(this.PAP005mass);
+
+    // PAP007mass
+    if (this.PAP007mass === null) {
+      this.PAP007mass = 0;
+    }
+    if (this.PAP007mass === undefined) {
+      this.PAP007mass = 0;
+    }
+    // console.log(this.PAP007mass);
+
+    // PAP001mass
+    if (this.PAP001mass === null) {
+      this.PAP001mass = 0;
+    }
+    if (this.PAP001mass === undefined) {
+      this.PAP001mass = 0;
+    }
+    // console.log(this.PAP001mass);
+
+    // PAP003mass
+    if (this.PAP003mass === null) {
+      this.PAP003mass = 0;
+    }
+    if (this.PAP003mass === undefined) {
+      this.PAP003mass = 0;
+    }
+    // console.log(this.PAP003mass);
+
+    // get prices //////////////////////////////////////////////////////////////
+    // PAP005price
+    if (this.PAP005price === null) {
+      this.PAP005price = 0;
+    }
+    if (this.PAP005price === undefined) {
+      this.PAP005price = 0;
+    }
+    // console.log(this.PAP005price);
+
+    // PAP007price
+    if (this.PAP007price === null) {
+      this.PAP007price = 0;
+    }
+    if (this.PAP007price === undefined) {
+      this.PAP007price = 0;
+    }
+    // console.log(this.PAP007price);
+
+    // PAP001price
+    if (this.PAP001price === null) {
+      this.PAP001price = 0;
+    }
+    if (this.PAP001price === undefined) {
+      this.PAP001price = 0;
+    }
+    // console.log(this.PAP001price);
+
+    // PAP003price
+    if (this.PAP003price === null) {
+      this.PAP003price = 0;
+    }
+    if (this.PAP003price === undefined) {
+      this.PAP003price = 0;
+    }
+    // console.log(this.PAP003mass);
+
+    this.PaperTotal = +this.PAP001price + +this.PAP007price + +this.PAP005price + +this.PAP003price;
     // console.log(this.PaperTotal);
   }
 
@@ -600,6 +673,115 @@ export class ReclaimerPage implements OnInit {
 
   //   Plastic Total;
   onChangePlasticTotalzzz(): void {
+    // HD001mass
+    if (this.HD001mass === null) {
+      this.HD001mass = 0;
+    }
+    if (this.HD001mass === undefined) {
+      this.HD001mass = 0;
+    }
+    // console.log(this.HD001mass);
+
+    // LD001mass
+    if (this.LD001mass === null) {
+      this.LD001mass = 0;
+    }
+    if (this.LD001mass === undefined) {
+      this.LD001mass = 0;
+    }
+    // console.log(this.LD001mass);
+
+    // LD003mass
+    if (this.LD003mass === null) {
+      this.LD003mass = 0;
+    }
+    if (this.LD003mass === undefined) {
+      this.LD003mass = 0;
+    }
+    // console.log(this.LD003mass);
+
+    // PET001mass
+    if (this.PET001mass === null) {
+      this.PET001mass = 0;
+    }
+    if (this.PET001mass === undefined) {
+      this.PET001mass = 0;
+    }
+    // console.log(this.PET001mass);
+
+    // PET003mass
+    if (this.PET003mass === null) {
+      this.PET003mass = 0;
+    }
+    if (this.PET003mass === undefined) {
+      this.PET003mass = 0;
+    }
+    // console.log(this.PET003mass);
+
+    // PET005mass
+    if (this.PET005mass === null) {
+      this.PET005mass = 0;
+    }
+    if (this.PET005mass === undefined) {
+      this.PET005mass = 0;
+    }
+    // console.log(this.PET005mass);
+
+    // check prices ///////////////////////////////////////////////////////////
+    // HD001price
+    if (this.HD001price === null) {
+      this.HD001price = 0;
+    }
+    if (this.HD001price === undefined) {
+      this.HD001price = 0;
+    }
+    console.log(this.HD001price);
+
+    // LD001price
+    if (this.LD001price === null) {
+      this.LD001price = 0;
+    }
+    if (this.LD001price === undefined) {
+      this.LD001price = 0;
+    }
+    console.log(this.LD001price);
+
+    // LD003price
+    if (this.LD003price === null) {
+      this.LD003price = 0;
+    }
+    if (this.LD003price === undefined) {
+      this.LD003price = 0;
+    }
+    console.log(this.LD003price);
+
+    // PET001price
+    if (this.PET001price === null) {
+      this.PET001price = 0;
+    }
+    if (this.PET001price === undefined) {
+      this.PET001price = 0;
+    }
+    console.log(this.PET001price);
+
+    // PET003mass
+    if (this.PET003price === null) {
+      this.PET003price = 0;
+    }
+    if (this.PET003price === undefined) {
+      this.PET003price = 0;
+    }
+    console.log(this.PET003price);
+
+    // PET005price
+    if (this.PET005price === null) {
+      this.PET005price = 0;
+    }
+    if (this.PET005price === undefined) {
+      this.PET005price = 0;
+    }
+    console.log(this.PET005price);
+
     this.PlasticTotals = +this.HD001price + +this.LD001price + +this.LD003price + +this.PET001price + +this.PET003price + +this.PET005price;
     // console.log(this.PlasticTotals);
   }
@@ -983,6 +1165,11 @@ export class ReclaimerPage implements OnInit {
     this.PET001price = '';
     this.PET003price = '';
     this.PET005price = '';
+
+    this.PlasticTotals = '';
+    this.NFAL01Total = '';
+    this.GH001Total = '';
+    this.PaperTotal = '';
   }
 
   async presentAlert() {
