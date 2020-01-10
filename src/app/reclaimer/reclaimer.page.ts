@@ -75,6 +75,19 @@ export class ReclaimerPage implements OnInit {
   PET001price;
   PET003price;
   PET005price;
+  // converts
+  GH001pricez;
+  NFAL01pricez;
+  PAP005pricez;
+  PAP007pricez;
+  PAP001pricez;
+  PAP003pricez;
+  HD001pricez;
+  LD001pricez;
+  LD003pricez;
+  PET001pricez;
+  PET003pricez;
+  PET005pricez;
 
   // GH001
   GH001SubTotal;
@@ -445,6 +458,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.GH001GrandTotal);
 
     this.GH001price = +this.GH001mass * +this.GH001;
+    this.GH001pricez = (String(this.GH001price).substring(0, 6));
     // console.log(this.GH001price);
   }
 
@@ -463,6 +477,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.NFAL01GrandTotal);
 
     this.NFAL01price = +this.NFAL01mass * +this.NFAL01;
+    this.NFAL01pricez = (String(this.NFAL01price).substring(0, 6));
     // console.log(this.NFAL01price);
   }
 
@@ -481,6 +496,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PAP005GrandTotal);
 
     this.PAP005price = +this.PAP005mass * +this.PAP005;
+    this.PAP005pricez = (String(this.PAP005price).substring(0, 6));
     // console.log(this.PAP005price);
   }
 
@@ -493,6 +509,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PAP007GrandTotal);
 
     this.PAP007price = +this.PAP007mass * +this.PAP007;
+    this.PAP007pricez = (String(this.PAP007price).substring(0, 6));
     // console.log(this.PAP007price);
   }
 
@@ -505,6 +522,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PAP001GrandTotal);
 
     this.PAP001price = +this.PAP001mass * +this.PAP001;
+    this.PAP001pricez = (String(this.PAP001price).substring(0, 6));
     // console.log(this.PAP001price);
   }
 
@@ -517,6 +535,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PAP003GrandTotal);
 
     this.PAP003price = +this.PAP003mass * +this.PAP003;
+    this.PAP003pricez = (String(this.PAP003price).substring(0, 6));
     // console.log(this.PAP003price);
   }
 
@@ -608,6 +627,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.HD001GrandTotal);
 
     this.HD001price = +this.HD001mass * +this.HD001;
+    this.HD001pricez = (String(this.HD001price).substring(0, 6));
     // console.log(this.HD001price);
   }
 
@@ -620,6 +640,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.LD001GrandTotal);
 
     this.LD001price = +this.LD001mass * +this.LD001;
+    this.LD001pricez = (String(this.LD001price).substring(0, 6));
     // console.log(this.LD001price);
   }
 
@@ -632,6 +653,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.LD003GrandTotal);
 
     this.LD003price = +this.LD003mass * +this.LD003;
+    this.LD003pricez = (String(this.LD003price).substring(0, 6));
     // console.log(this.LD003price);
   }
 
@@ -644,6 +666,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PET001GrandTotal);
 
     this.PET001price = +this.PET001mass * +this.PET001;
+    this.PET001pricez = (String(this.PET001price).substring(0, 6));
     // console.log(this.PET001price);
   }
 
@@ -656,6 +679,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PET003GrandTotal);
 
     this.PET003price = +this.PET003mass * +this.PET003;
+    this.PET003pricez = (String(this.PET003price).substring(0, 6));
     // console.log(this.PET003price);
   }
 
@@ -668,6 +692,7 @@ export class ReclaimerPage implements OnInit {
     // console.log(this.PET005GrandTotal);
 
     this.PET005price = +this.PET005mass * +this.PET005;
+    this.PET005pricez = (String(this.PET005price).substring(0, 6));
     // console.log(this.PET005price);
   }
 
@@ -1165,6 +1190,19 @@ export class ReclaimerPage implements OnInit {
     this.PET001price = '';
     this.PET003price = '';
     this.PET005price = '';
+
+    this.GH001pricez = '';
+    this.NFAL01pricez = '';
+    this.PAP005pricez = '';
+    this.PAP007pricez = '';
+    this.PAP001pricez = '';
+    this.PAP003pricez = '';
+    this.HD001pricez = '';
+    this.LD001pricez = '';
+    this.LD003pricez = '';
+    this.PET001pricez = '';
+    this.PET003pricez = '';
+    this.PET005pricez = '';
 
     this.PlasticTotals = '';
     this.NFAL01Total = '';
