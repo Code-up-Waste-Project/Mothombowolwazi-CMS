@@ -76,6 +76,8 @@ export class RegisterPage implements OnInit {
         // this.profile.position = snapshot.data().position;
         // // this.profile.image = snapshot.data().image;
         // console.log('users', this.userprofile);
+        
+        this.newuserprofile = [];
         snapshot.forEach(item => {
           this.newuserprofile.push(item.data());
           console.log("user profile ", this.newuserprofile);
@@ -103,15 +105,16 @@ export class RegisterPage implements OnInit {
         .catch(function(error) {
           console.error("Error writing document: ", error);
         });
-        error => {
-          this.db.collection('userprofile2').doc(firebase.auth().currentUser.uid).delete();
+    error => {
+          // this.db.collection('userprofile2').doc(firebase.auth().currentUser.uid).delete();
           this.newuserprofile = [];
-          this.db.collection('userprofile2').onSnapshot(snapshot => {
-              snapshot.forEach(item => {
-                this.newuserprofile.push(item.data());
-                console.log("user profile ",this.newuserprofile);
-              });
-            });
+          // this.db.collection('userprofile2').onSnapshot(snapshot => {
+          //     snapshot.forEach(element => {
+          //       this.newuserprofile.push(element.data());
+          //       console.log("user profile ",this.newuserprofile);
+          //     });
+          //     this.router.navigate(['register']);
+          //   });
 
           this.loading.dismiss().then(async () => {
             const alert = await this.alertCtrl.create({
@@ -158,21 +161,21 @@ export class RegisterPage implements OnInit {
 
       }
 
-      delete(x) {
-        console.log(x);
-        this.newuserprofile = [];
-        let email = x.email;
+      delete(userUid) {
+        console.log(userUid);
+        // let email = x.email;
         // this.Booking = [];
-        this.db.collection("userprofile2").doc(x.userUid).delete().then(function() {
+        this.db.collection("userprofile2").doc(userUid).delete().then(function() {
           console.log("Document successfully deleted!");
       }).catch(function(error) {
           console.error("Error removing document: ", error);
       });
-        this.db.collection("userprofile2").get().then(res => {
-        res.forEach(res => {
-          this.newuserprofile.push({...{userUid: res.id}, ...res.data()});
-        });
-      });
+      //   this.newuserprofile = [];
+      //   this.db.collection("userprofile2").get().then(res => {
+      //   res.forEach(res => {
+      //     this.newuserprofile.push({...{userUid: res.id}, ...res.data()});
+      //   });
+      // });
       }
 
     changeListener(profile): void {
