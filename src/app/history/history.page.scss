@@ -90,16 +90,22 @@ height: auto;
    align-items: center;
   }
   .left , .right{
-    // border: 1px solid red;
+   //  border: 1px solid red;
      width: 45%;
-     overflow-y: scroll;
+    // overflow-y: scroll;
      height: 92%;
      border-radius: 15px;
      background: white;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   
+
    }
- 
+ .right ::-webkit-sccrollbar{
+display: none;
+ }
+ .wavey {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+ }
   // .Everything{
   //     background-color: #EFF0F2;
   //     height: 88%;
