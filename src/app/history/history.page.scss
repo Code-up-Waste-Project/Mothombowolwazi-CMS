@@ -90,16 +90,26 @@ height: auto;
    align-items: center;
   }
   .left , .right{
-    // border: 1px solid red;
+   //  border: 1px solid red;
      width: 45%;
-     overflow-y: scroll;
+    // overflow-y: scroll;
      height: 92%;
      border-radius: 15px;
      background: white;
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   
+
    }
- 
+ .right ::-webkit-sccrollbar{
+display: none;
+
+ }
+ .right {
+  -ms-overflow-style: none;
+ }
+ .wavey {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+ }
   // .Everything{
   //     background-color: #EFF0F2;
   //     height: 88%;
@@ -244,13 +254,26 @@ height: auto;
     color: rgb(167, 155, 155);
     text-align: center;
   }
+.wavey {
+  //border-bottom: 1px solid gray;
+  background:  #9bac3e;
 
-  #H1{
-    z-index: 1000000000000;
-    font-family: 'lato';
-    color: rgb(70, 66, 66);
-    letter-spacing: 1px;
-  }
+ h1 {
+   color: white;
+   font-family: 'lato';
+   font-size: 2vw;
+   letter-spacing: 1px;
+ //  border: 1px solid rgb(172, 8, 8);
+ }
+ 
+}
+  // #H1{
+  //   z-index: 1000000000000;
+  //   font-family: 'lato';
+  //   color: rgb(70, 66, 66);
+  //   letter-spacing: 1px;
+  //   font-size: 1.5vw;
+  // }
   #Socialcards{
     // border: solid 2px red;
     position: relative;

@@ -447,23 +447,23 @@ h1 {
 
      
      .class-item{
-       ion-input{
-         
-        height: 10% !important;
+      ion-input{
+        
+       height: 9% !important;
+       min-height: 40px !important;
+       max-height: 80px !important;
+      }
+        height: 9% !important;
         min-height: 40px !important;
-        max-height: 65px !important;
-       }
-         height: 10% !important;
-         min-height: 40px !important;
-         max-height: 65px !important;
-     }
+        max-height: 80px !important;
+    }
 
-     .form{
-      //  border: 2px solid red;
-       margin-top: 30px !important;
-     }
-     .inpIco{
-      //  color: red;
-       margin-top: 15px !important;
-      //  transform: translateY(-50%) !important;
-     }
+    .form{
+     //  border: 2px solid red;
+      margin-top: 30px !important;
+    }
+    .inpIco{
+     //  color: red;
+      margin-top: 15px !important;
+     //  transform: translateY(-50%) !important;
+    }

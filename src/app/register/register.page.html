@@ -13,14 +13,15 @@
           <P>{{ item.position }}</P>
       </div>
     </div>
-    <div class="logout">
+    <div class="logout" (click)="Logout()">
       <ion-icon name="log-out" style="color:black"></ion-icon>
     </div>
   </div>
 ​
 <div class="container">
-  <div class="left">
-    <div class="internal" [formGroup]="signupForm">
+  
+  <div class="left" id="scroll" style="border: 1px solid red;">
+    <div  class="internal" [formGroup]="signupForm">
       <input type="file" id="sthombe" accept="image/*" (change)="changeListener($event)">
       <div class="myHead">
           <img src="../../assets/wavy.png" id="wavey-image-bg" alt="">
@@ -69,14 +70,14 @@
           </div>
         </div>
         <div class="user-input-button">
-          <button id="user-button" (click)="signupUser(signupForm)">REGISTER MEMBER</button>
+          <button style="border-radius: 5px;width: 50%;" id="user-button" (click)="signupUser(signupForm)">REGISTER MEMBER</button>
         </div>
       </div>
 ​
     </div>
     </div>
 ​
-    <div class="right" style="overflow: auto;">
+    <div class="right" style="border: 1px solid rgb(55, 0, 255);overflow-y: scroll;">
       <h1>All Your Registered Administrators</h1>
       <ion-card *ngFor = "let myprofiles  of newuserprofile">
           <ion-item >
