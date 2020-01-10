@@ -167,4 +167,11 @@ export class RegisterPage implements OnInit {
     this.isLabelActive = !this.isLabelActive;
     }
 
+    Logout() {
+      firebase.auth().signOut().then((res) => {
+        console.log(res);
+        this.router.navigateByUrl('/login');
+       });
+      }
+
 }

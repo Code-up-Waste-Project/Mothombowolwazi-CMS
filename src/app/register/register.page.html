@@ -17,10 +17,10 @@
       <ion-icon name="log-out" style="color:black"></ion-icon>
     </div>
   </div>
-​
+
 <div class="container">
   
-  <div class="left" id="scroll" style="border: 1px solid red;">
+  <div class="left" id="scroll" >
     <div  class="internal" [formGroup]="signupForm">
       <input type="file" id="sthombe" accept="image/*" (change)="changeListener($event)">
       <div class="myHead">
@@ -73,11 +73,11 @@
           <button style="border-radius: 5px;width: 50%;" id="user-button" (click)="signupUser(signupForm)">REGISTER MEMBER</button>
         </div>
       </div>
-​
+
     </div>
     </div>
-​
-    <div class="right" style="border: 1px solid rgb(55, 0, 255);overflow-y: scroll;">
+
+    <div class="right" style="overflow-y: scroll;">
       <h1>All Your Registered Administrators</h1>
       <ion-card *ngFor = "let myprofiles  of newuserprofile">
           <ion-item >
