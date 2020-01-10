@@ -244,17 +244,26 @@ height: auto;
     color: rgb(167, 155, 155);
     text-align: center;
   }
-// .wavey {
-//   border: solid 2px red;
+.wavey {
+  //border-bottom: 1px solid gray;
+  background:  #9bac3e;
+
+ h1 {
+   color: white;
+   font-family: 'lato';
+   font-size: 2vw;
+   letter-spacing: 1px;
+ //  border: 1px solid rgb(172, 8, 8);
+ }
  
-// }
-  #H1{
-    z-index: 1000000000000;
-    font-family: 'lato';
-    color: rgb(70, 66, 66);
-    letter-spacing: 1px;
-    font-size: 1.5vw;
-  }
+}
+  // #H1{
+  //   z-index: 1000000000000;
+  //   font-family: 'lato';
+  //   color: rgb(70, 66, 66);
+  //   letter-spacing: 1px;
+  //   font-size: 1.5vw;
+  // }
   #Socialcards{
     // border: solid 2px red;
     position: relative;
