@@ -322,7 +322,7 @@ export class ReclaimerPage implements OnInit {
     } else if (this.GH001mass === undefined) {
       this.GH001mass = 0;
     }
-    // console.log(this.GH001mass);
+    console.log(this.GH001mass);
 
     // NFAL01mass
     if (this.NFAL01mass === null) {
@@ -331,7 +331,7 @@ export class ReclaimerPage implements OnInit {
     if (this.NFAL01mass === undefined) {
       this.NFAL01mass = 0;
     }
-    // console.log(this.NFAL01mass);
+    console.log(this.NFAL01mass);
 
     // PAP005mass
     if (this.PAP005mass === null) {
@@ -340,7 +340,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP005mass === undefined) {
       this.PAP005mass = 0;
     }
-    // console.log(this.PAP005mass);
+    console.log(this.PAP005mass);
 
     // PAP007mass
     if (this.PAP007mass === null) {
@@ -349,7 +349,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP007mass === undefined) {
       this.PAP007mass = 0;
     }
-    // console.log(this.PAP007mass);
+    console.log(this.PAP007mass);
 
     // PAP001mass
     if (this.PAP001mass === null) {
@@ -358,7 +358,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP001mass === undefined) {
       this.PAP001mass = 0;
     }
-    // console.log(this.PAP001mass);
+    console.log(this.PAP001mass);
 
     // PAP003mass
     if (this.PAP003mass === null) {
@@ -367,7 +367,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PAP003mass === undefined) {
       this.PAP003mass = 0;
     }
-    // console.log(this.PAP003mass);
+    console.log(this.PAP003mass);
 
     // HD001mass
     if (this.HD001mass === null) {
@@ -376,7 +376,7 @@ export class ReclaimerPage implements OnInit {
     if (this.HD001mass === undefined) {
       this.HD001mass = 0;
     }
-    // console.log(this.HD001mass);
+    console.log(this.HD001mass);
 
     // LD001mass
     if (this.LD001mass === null) {
@@ -385,7 +385,7 @@ export class ReclaimerPage implements OnInit {
     if (this.LD001mass === undefined) {
       this.LD001mass = 0;
     }
-    // console.log(this.LD001mass);
+    console.log(this.LD001mass);
 
     // LD003mass
     if (this.LD003mass === null) {
@@ -394,7 +394,7 @@ export class ReclaimerPage implements OnInit {
     if (this.LD003mass === undefined) {
       this.LD003mass = 0;
     }
-    // console.log(this.LD003mass);
+    console.log(this.LD003mass);
 
     // PET001mass
     if (this.PET001mass === null) {
@@ -403,7 +403,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PET001mass === undefined) {
       this.PET001mass = 0;
     }
-    // console.log(this.PET001mass);
+    console.log(this.PET001mass);
 
     // PET003mass
     if (this.PET003mass === null) {
@@ -412,7 +412,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PET003mass === undefined) {
       this.PET003mass = 0;
     }
-    // console.log(this.PET003mass);
+    console.log(this.PET003mass);
 
     // PET005mass
     if (this.PET005mass === null) {
@@ -421,7 +421,7 @@ export class ReclaimerPage implements OnInit {
     if (this.PET005mass === undefined) {
       this.PET005mass = 0;
     }
-    // console.log(this.PET005mass);
+    console.log(this.PET005mass);
 
     // text boxes
     this.presentAlert();
@@ -431,7 +431,7 @@ export class ReclaimerPage implements OnInit {
 
   }
 
-  //active form icons
+  // active form icons
     toggleIcon(event) {
       this.isLabelActive = !this.isLabelActive;
     }
