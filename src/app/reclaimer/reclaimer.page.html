@@ -32,7 +32,7 @@
         <div class="form" style="width: 80%;margin-top: 15%"   >
            <form padding  [formGroup]="RegisterForm" >
 
-              <ion-item class="class-item" style="border: 1px solid green;margin-top: 2%;   border-radius: 50px; font-size: 1.3vw;padding: 0 !important;">
+              <ion-item class="class-item" style="border: 1px solid green;margin-top: 4%;   border-radius: 50px; font-size: 1.3vw;padding: 0 !important;">
                   <ion-label position="floating">First Name</ion-label>
                   <ion-input  formControlName="name" [(ngModel)]="name" type="text" (ionBlur)="toggleIcon($event)" (ionFocus)="toggleIcon($event)"></ion-input>       
                  <ion-icon class="inpIco" name="ios-person"  [ngClass]="{'activeInputIcon': isLabelActive, 'inactiveInputIcon': !isLabelActive}"slot="end" style="margin-top: 4.5%;font-size: 2.2vw;"></ion-icon>
@@ -212,7 +212,7 @@
 
            <div class="totals">
             <!-- <h4>Grand-Total  =  R{{ TotalTotal }}</h4> -->
-            <button ion-button (click)="calculate()" [disabled]="!RegisterForm.valid"> PRINT RECEIPT</button>
+            <button ion-button (click)="checkinputfields()" [disabled]="!RegisterForm.valid"> PRINT RECEIPT</button>
             <button style="background: rgb(133, 21, 21);" ion-button full (click)="presentAlertCancel()">CANCEL</button>
             <!-- <button id="pdf"ion-button full (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">DOWNLOAD PDF</button> -->
           </div>
