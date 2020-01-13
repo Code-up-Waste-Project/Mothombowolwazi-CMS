@@ -3,7 +3,6 @@ import {ModalpopupPageModule} from './../modalpopup/modalpopup.module';
 import * as firebase from 'firebase';
 import { AlertController, LoadingController, ToastController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-analytics',

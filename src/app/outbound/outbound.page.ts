@@ -272,7 +272,6 @@ export class OutboundPage implements OnInit {
   }
 
   calculateOverall() {
-
     this.checkinputfields();
 
     this.overallStorage = this.GH001mass + this.HD001mass + this.LD001mass + this.LD003mass + this.NFAL01mass
